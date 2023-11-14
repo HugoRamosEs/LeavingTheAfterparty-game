@@ -2,29 +2,33 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Rigidbody2D))]
 public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField] private float speed = 3f;
+    [SerializeField] private float speed = 2f;
     private Rigidbody2D playerRb;
     private Vector2 moveInput;
-
-    // Start is called before the first frame update
-    void Start()
+    private Animator animator;
+    void Awake()
     {
         playerRb = GetComponent<Rigidbody2D>();
-
+        animator = GetComponent<Animator>();
     }
-
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        float moveX = Input.GetAxisRaw("Horizontal");
-        float moveY = Input.GetAxisRaw("Vertical");
-        moveInput = new Vector2(moveX, moveY).normalized;
+        moveInput = new Vector2(
+            Input.GetAxisRaw("Horizontal"),
+            Input.GetAxisRaw("Vertical")
+            );
+        animator.SetFloat("horizontal", moveInput.x);
+        animator.SetFloat("vertical", moveInput.y);
     }
-
-    private void FixedUpdate()
+    void FixedUpdate()
     {
-        playerRb.MovePosition(playerRb.position + moveInput * speed * Time.fixedDeltaTime);
+        Move();
+    }
+    private void Move()
+    {
+        playerRb.velocity = moveInput * speed;
     }
 }
