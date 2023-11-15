@@ -8,7 +8,9 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float speed = 2f;
     private Rigidbody2D playerRb;
     private Vector2 moveInput;
+    public Vector2 lastMoveInput;
     private Animator animator;
+    private bool moving;
     void Awake()
     {
         playerRb = GetComponent<Rigidbody2D>();
@@ -16,12 +18,28 @@ public class PlayerMovement : MonoBehaviour
     }
     private void Update()
     {
+        float horizontal = Input.GetAxisRaw("Horizontal");
+        float vertical = Input.GetAxisRaw("Vertical");
+
         moveInput = new Vector2(
-            Input.GetAxisRaw("Horizontal"),
-            Input.GetAxisRaw("Vertical")
+            horizontal,
+            vertical
             );
-        animator.SetFloat("horizontal", moveInput.x);
-        animator.SetFloat("vertical", moveInput.y);
+        animator.SetFloat("horizontal", horizontal);
+        animator.SetFloat("vertical", vertical);
+
+        moving = horizontal != 0 || vertical != 0;
+        animator.SetBool("moving", moving);
+
+        if (horizontal != 0 || vertical != 0)
+        {
+            lastMoveInput = new Vector2(
+                horizontal,
+                vertical
+                ).normalized;
+            animator.SetFloat("lastHorizontal", horizontal);
+            animator.SetFloat("lastVertical", vertical);
+        }
     }
     void FixedUpdate()
     {
