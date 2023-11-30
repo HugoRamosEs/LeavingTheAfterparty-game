@@ -11,10 +11,12 @@ public class PlayerMovement : MonoBehaviour
     public Vector2 lastMoveInput;
     private Animator animator;
     private bool moving;
+    private Player player;
     void Awake()
     {
         playerRb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        player = GetComponent<Player>();
     }
     private void Update()
     {
@@ -44,6 +46,14 @@ public class PlayerMovement : MonoBehaviour
     void FixedUpdate()
     {
         Move();
+        if (moving)
+        {
+            player.GetTired(1);
+        }
+        else
+        {
+            player.Rest(1);
+        }
     }
     private void Move()
     {
