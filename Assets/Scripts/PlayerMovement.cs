@@ -6,12 +6,16 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private float speed = 2f;
+    [SerializeField] private float sprintSpeed = 4f;
+
     private Rigidbody2D playerRb;
     private Vector2 moveInput;
-    public Vector2 lastMoveInput;
+    private Vector2 lastMoveInput;
     private Animator animator;
     private bool moving;
+    private bool sprinting;
     private Player player;
+
     void Awake()
     {
         playerRb = GetComponent<Rigidbody2D>();
@@ -22,41 +26,43 @@ public class PlayerMovement : MonoBehaviour
     {
         float horizontal = Input.GetAxisRaw("Horizontal");
         float vertical = Input.GetAxisRaw("Vertical");
-
-        moveInput = new Vector2(
-            horizontal,
-            vertical
-            );
+        moveInput = new Vector2(horizontal, vertical);
         animator.SetFloat("horizontal", horizontal);
         animator.SetFloat("vertical", vertical);
-
+        bool wasSprinting = sprinting;
+        sprinting = Input.GetKey(KeyCode.LeftShift) && player.stamina.currentVal > 0;
+        if (sprinting)
+        {
+            Sprint();
+        }
+        else
+        {
+            Move();
+        }
         moving = horizontal != 0 || vertical != 0;
         animator.SetBool("moving", moving);
 
         if (horizontal != 0 || vertical != 0)
         {
-            lastMoveInput = new Vector2(
-                horizontal,
-                vertical
-                ).normalized;
+            lastMoveInput = new Vector2(horizontal, vertical).normalized;
             animator.SetFloat("lastHorizontal", horizontal);
             animator.SetFloat("lastVertical", vertical);
         }
-    }
-    void FixedUpdate()
-    {
-        Move();
-        if (moving)
-        {
-            player.GetTired(1);
-        }
-        else
-        {
-            player.Rest(1);
-        }
+        float currentSpeed = sprinting ? 1.5f : 1f;
+        animator.SetFloat("sprintSpeed", currentSpeed);
     }
     private void Move()
     {
         playerRb.velocity = moveInput * speed;
+        if (!moving)
+        {
+            playerRb.velocity = Vector2.zero;
+            player.Rest(0.25f);
+        }
+    }
+    private void Sprint()
+    {
+        playerRb.velocity = moveInput * sprintSpeed;
+        player.GetTired(0.5f);
     }
 }

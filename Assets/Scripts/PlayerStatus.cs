@@ -9,12 +9,11 @@ public class PlayerStatus : MonoBehaviour
     [SerializeField] TMP_Text text;
     [SerializeField] Slider bar;
 
-    public void Set(int current, int max)
+    public void Set(float current, float max)
     {
         bar.maxValue = max;
         bar.value = current;
-
-        text.text = max.ToString() + "/" + current.ToString();
+        text.text = current.ToString() + "/" + max.ToString();
     }
 }
 
