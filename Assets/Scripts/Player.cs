@@ -8,20 +8,20 @@ using UnityEngine.UI;
 [Serializable]
 public class Stat
 {
-    public int maxVal;
-    public int currentVal;
+    public float maxVal;
+    public float currentVal;
 
-    public Stat(int current, int max)
+    public Stat(float current, float max)
     {
         maxVal = max;
         currentVal = current;
     }
-    internal void Substract(int amount)
+    internal void Substract(float amount)
     {
         currentVal -= amount;
     }
 
-    internal void Add(int amount)
+    internal void Add(float amount)
     {
         currentVal += amount;
         if (currentVal > maxVal)
@@ -57,7 +57,7 @@ public class Player : MonoBehaviour
     {
         staminaBar.Set(stamina.currentVal, stamina.maxVal);
     }
-    public void TakeDamage(int amount)
+    public void TakeDamage(float amount)
     {
         hp.Substract(amount);
         if (hp.currentVal <= 0)
@@ -66,7 +66,7 @@ public class Player : MonoBehaviour
         }
         UpdateHpBar();
     }
-    public void Heal(int amount)
+    public void Heal(float amount)
     {
         hp.Add(amount);
         UpdateHpBar();
@@ -77,7 +77,7 @@ public class Player : MonoBehaviour
         UpdateHpBar();
     }
 
-    public void GetTired(int amount)
+    public void GetTired(float amount)
     {
         stamina.Substract(amount);
         if (stamina.currentVal <= 0)
@@ -86,7 +86,7 @@ public class Player : MonoBehaviour
         }
         UpdateStaminaBar();
     }
-    public void Rest(int amount)
+    public void Rest(float amount)
     {
         stamina.Add(amount);
         UpdateStaminaBar();
