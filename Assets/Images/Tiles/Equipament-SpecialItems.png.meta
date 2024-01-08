@@ -1,0 +1,2296 @@
+fileFormatVersion: 2
+guid: 3ff81e652137cb840b61d9ea9145d663
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 32
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Equipament-SpecialItems_0
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 215
+        width: 13
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 74c4821680feac940be15542bc9a3f2a
+      internalID: 1420377424
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equipament-SpecialItems_1
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 214
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 72d8b63611d1c784a8cf2b57d7a63efd
+      internalID: -498577995
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equipament-SpecialItems_2
+      rect:
+        serializedVersion: 2
+        x: 55
+        y: 214
+        width: 16
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 463b5b155e1a4c8459d30936408d46e8
+      internalID: -1651703028
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equipament-SpecialItems_3
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 213
+        width: 16
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a9d6f1e65945c9f40985ad955d2cc7c9
+      internalID: -927456678
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equipament-SpecialItems_4
+      rect:
+        serializedVersion: 2
+        x: 105
+        y: 213
+        width: 12
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5254503d2f52b064eb3e049bd1b8c28b
+      internalID: 1555859752
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equipament-SpecialItems_5
+      rect:
+        serializedVersion: 2
+        x: 123
+        y: 214
+        width: 13
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 01d389f3184847a4eb677998234a7d20
+      internalID: 909740661
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equipament-SpecialItems_6
+      rect:
+        serializedVersion: 2
+        x: 139
+        y: 214
+        width: 15
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 84dba8ab2eb5a8542be1862c473314bf
+      internalID: -1946858556
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equipament-SpecialItems_7
+      rect:
+        serializedVersion: 2
+        x: 155
+        y: 214
+        width: 13
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5cd0e36343bd2994abc3f61c4b1b192e
+      internalID: 1613916091
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equipament-SpecialItems_8
+      rect:
+        serializedVersion: 2
+        x: 170
+        y: 214
+        width: 13
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 59fdd23173db66d4ab331694982b479d
+      internalID: 1630585549
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equipament-SpecialItems_9
+      rect:
+        serializedVersion: 2
+        x: 188
+        y: 214
+        width: 12
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7536f929361e05844a44bf8da6ac74e0
+      internalID: -1440367178
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equipament-SpecialItems_10
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 193
+        width: 14
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bf647e945439ea84e9280c3edcc7d448
+      internalID: -1032961679
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equipament-SpecialItems_11
+      rect:
+        serializedVersion: 2
+        x: 28
+        y: 192
+        width: 11
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8a386bfcdfe973b4b98fab6791b62be6
+      internalID: -169075717
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equipament-SpecialItems_12
+      rect:
+        serializedVersion: 2
+        x: 43
+        y: 192
+        width: 11
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c6eb3e4eed6e1b642b02f6783c59cf1c
+      internalID: -1381580501
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equipament-SpecialItems_13
+      rect:
+        serializedVersion: 2
+        x: 59
+        y: 192
+        width: 12
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5b0c4f8d25a205e429e408560376a912
+      internalID: -1391322079
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equipament-SpecialItems_14
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 191
+        width: 12
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2eb306b941745664db1e47648c996044
+      internalID: 896868967
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equipament-SpecialItems_15
+      rect:
+        serializedVersion: 2
+        x: 91
+        y: 191
+        width: 13
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fe529fd12affa0f46a20434394be7816
+      internalID: -32956698
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equipament-SpecialItems_16
+      rect:
+        serializedVersion: 2
+        x: 107
+        y: 192
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3b36d377146cc824bbd7ff7ba5fe91c4
+      internalID: 1931564027
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equipament-SpecialItems_17
+      rect:
+        serializedVersion: 2
+        x: 124
+        y: 192
+        width: 11
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 85586597a34d0904eae43c8f40e283b8
+      internalID: 343275872
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equipament-SpecialItems_18
+      rect:
+        serializedVersion: 2
+        x: 140
+        y: 192
+        width: 11
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9fa91c4c8e646bd418cfcffc48461e4b
+      internalID: -729471796
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equipament-SpecialItems_19
+      rect:
+        serializedVersion: 2
+        x: 155
+        y: 192
+        width: 12
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 79900d678d1f29b4c83b498a4309e9c2
+      internalID: 267187755
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equipament-SpecialItems_20
+      rect:
+        serializedVersion: 2
+        x: 172
+        y: 191
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7763d7965df9431448074f78dda72154
+      internalID: 451509895
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equipament-SpecialItems_21
+      rect:
+        serializedVersion: 2
+        x: 187
+        y: 192
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 89a188d9962ccdb49ac0de4307014450
+      internalID: 1201604180
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equipament-SpecialItems_22
+      rect:
+        serializedVersion: 2
+        x: 13
+        y: 165
+        width: 8
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9b462e50135ca3a439b72c5def94519e
+      internalID: 1689372437
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equipament-SpecialItems_23
+      rect:
+        serializedVersion: 2
+        x: 29
+        y: 165
+        width: 8
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c04a51e41bb05544b804583c0f27e434
+      internalID: -512594262
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equipament-SpecialItems_24
+      rect:
+        serializedVersion: 2
+        x: 45
+        y: 165
+        width: 8
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b449e8ef779df034daa7aa76f7edd3b4
+      internalID: -943324146
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equipament-SpecialItems_25
+      rect:
+        serializedVersion: 2
+        x: 61
+        y: 165
+        width: 8
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 439e735520ec878468ee496e1fde53bf
+      internalID: 1308098617
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equipament-SpecialItems_26
+      rect:
+        serializedVersion: 2
+        x: 77
+        y: 165
+        width: 8
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2f54881206201c640aeb43df0f39b2a3
+      internalID: 1457201514
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equipament-SpecialItems_27
+      rect:
+        serializedVersion: 2
+        x: 92
+        y: 164
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6bda3e0b794689d43a1fd0aa27fdf5c1
+      internalID: -127650484
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equipament-SpecialItems_28
+      rect:
+        serializedVersion: 2
+        x: 109
+        y: 165
+        width: 8
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b3123654b9af85e43b371919d212c5fb
+      internalID: -1862429354
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equipament-SpecialItems_29
+      rect:
+        serializedVersion: 2
+        x: 125
+        y: 165
+        width: 8
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3b60ef478a60bf344a00f111067efa80
+      internalID: 456514251
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equipament-SpecialItems_30
+      rect:
+        serializedVersion: 2
+        x: 140
+        y: 165
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 05edb13e77abfe042807918c734b780e
+      internalID: -941340846
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equipament-SpecialItems_31
+      rect:
+        serializedVersion: 2
+        x: 157
+        y: 165
+        width: 8
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8b3d7955e4c67544b9f4c7859d1d3286
+      internalID: 106213016
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equipament-SpecialItems_32
+      rect:
+        serializedVersion: 2
+        x: 173
+        y: 165
+        width: 8
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4de4dbd5a30f98f4c85fa34330709201
+      internalID: 514924897
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equipament-SpecialItems_33
+      rect:
+        serializedVersion: 2
+        x: 187
+        y: 164
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 68a86a91d153b9448afd00df86981bb4
+      internalID: 243901435
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equipament-SpecialItems_34
+      rect:
+        serializedVersion: 2
+        x: 13
+        y: 139
+        width: 8
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f325502859f6c9443895ce3f963de7a0
+      internalID: -1473706144
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equipament-SpecialItems_35
+      rect:
+        serializedVersion: 2
+        x: 29
+        y: 139
+        width: 8
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3bff5a7593f0f8e42a222fb80b52f673
+      internalID: 645288020
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equipament-SpecialItems_36
+      rect:
+        serializedVersion: 2
+        x: 45
+        y: 139
+        width: 8
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 042cae43972a4ad49a49c98bcfabe04d
+      internalID: -1968859744
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equipament-SpecialItems_37
+      rect:
+        serializedVersion: 2
+        x: 61
+        y: 139
+        width: 8
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 76f5f3a2e14c37846b53f22214132bec
+      internalID: -356032598
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equipament-SpecialItems_38
+      rect:
+        serializedVersion: 2
+        x: 77
+        y: 139
+        width: 8
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3898c2a198fee374883e413c57e36ca2
+      internalID: -1814448461
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equipament-SpecialItems_39
+      rect:
+        serializedVersion: 2
+        x: 93
+        y: 139
+        width: 8
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b69a4d04c2fa21a4f9bad0d899ca9e40
+      internalID: -1697830911
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equipament-SpecialItems_40
+      rect:
+        serializedVersion: 2
+        x: 109
+        y: 139
+        width: 8
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 847bb1038c2eb234fa3eda4ca67b1ebe
+      internalID: -1500042519
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equipament-SpecialItems_41
+      rect:
+        serializedVersion: 2
+        x: 125
+        y: 138
+        width: 9
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0ae9ea761926d2643b12ad82c1f5e022
+      internalID: -1669116566
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equipament-SpecialItems_42
+      rect:
+        serializedVersion: 2
+        x: 142
+        y: 138
+        width: 8
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d952706ccac849b4a8b355597f4371d3
+      internalID: 104057960
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equipament-SpecialItems_43
+      rect:
+        serializedVersion: 2
+        x: 158
+        y: 138
+        width: 8
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f053f3424b66c5f40ad36f328ab0ebb1
+      internalID: -1529226617
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equipament-SpecialItems_44
+      rect:
+        serializedVersion: 2
+        x: 174
+        y: 138
+        width: 8
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4e2465088133a5f43be9ea7d97188c55
+      internalID: -1720392934
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equipament-SpecialItems_45
+      rect:
+        serializedVersion: 2
+        x: 190
+        y: 138
+        width: 8
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 916b5f79f02a306429ef29b8a7aead84
+      internalID: -703803926
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equipament-SpecialItems_46
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 115
+        width: 10
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af05cc4181aa1694ab94c9a8e499bdaf
+      internalID: 81338230
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equipament-SpecialItems_47
+      rect:
+        serializedVersion: 2
+        x: 27
+        y: 115
+        width: 12
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 13464381ec356c0458873fd158f74e8e
+      internalID: -1170430225
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equipament-SpecialItems_48
+      rect:
+        serializedVersion: 2
+        x: 43
+        y: 115
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1b63f56d6c5223d4eac4293bf4c104a7
+      internalID: 1019109330
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equipament-SpecialItems_49
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 116
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2e11d4132cbc4e749bced33678795b6a
+      internalID: -1099030934
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equipament-SpecialItems_50
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 116
+        width: 12
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2f8c56de56b7f7a4ea76701fddc1c54f
+      internalID: 1058892468
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equipament-SpecialItems_51
+      rect:
+        serializedVersion: 2
+        x: 94
+        y: 115
+        width: 8
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 29282ea4bfd076345b986bb7fa5757e4
+      internalID: -87666457
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equipament-SpecialItems_52
+      rect:
+        serializedVersion: 2
+        x: 110
+        y: 117
+        width: 8
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7f85b51c9db9cc642acf000536897bf9
+      internalID: 291323147
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equipament-SpecialItems_53
+      rect:
+        serializedVersion: 2
+        x: 126
+        y: 116
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e2a0763e329e0c248a0d89a4a562c409
+      internalID: 172472287
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equipament-SpecialItems_54
+      rect:
+        serializedVersion: 2
+        x: 143
+        y: 116
+        width: 6
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6a1bdfc339ad2eb499a39a4446891daa
+      internalID: 75517860
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equipament-SpecialItems_55
+      rect:
+        serializedVersion: 2
+        x: 155
+        y: 114
+        width: 14
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 432edc0c63a01284298ba1bbdc2568a6
+      internalID: -385515435
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equipament-SpecialItems_56
+      rect:
+        serializedVersion: 2
+        x: 173
+        y: 114
+        width: 11
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b1d93a3713e711b4894ef69d1d6aa870
+      internalID: 1477715943
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equipament-SpecialItems_57
+      rect:
+        serializedVersion: 2
+        x: 189
+        y: 114
+        width: 10
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bde3fd5f7754d054994a453a6f8a697f
+      internalID: -1007796117
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Key
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 93
+        width: 14
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ccd132308a70a4d47af5f74279c788f1
+      internalID: 2146382320
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equipament-SpecialItems_59
+      rect:
+        serializedVersion: 2
+        x: 27
+        y: 92
+        width: 16
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f3df3c1e9fd3b514da8b46a431edd5fc
+      internalID: -53558480
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equipament-SpecialItems_60
+      rect:
+        serializedVersion: 2
+        x: 44
+        y: 91
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cec518fe6d2ab4d47adf94d919f75b26
+      internalID: -2098226992
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equipament-SpecialItems_61
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 91
+        width: 13
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 380932048f1312146aa672dd77f8e2c6
+      internalID: 29924614
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equipament-SpecialItems_62
+      rect:
+        serializedVersion: 2
+        x: 85
+        y: 89
+        width: 15
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 624ad60960b35374d85892814ef82bd0
+      internalID: -1020367899
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equipament-SpecialItems_63
+      rect:
+        serializedVersion: 2
+        x: 106
+        y: 88
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: da16d41334d1b0a40beb411f1aaf3dd2
+      internalID: 1967799339
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equipament-SpecialItems_64
+      rect:
+        serializedVersion: 2
+        x: 127
+        y: 88
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c65e669081912cc4db5ff327535990e9
+      internalID: -1587152352
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equipament-SpecialItems_65
+      rect:
+        serializedVersion: 2
+        x: 146
+        y: 87
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 116945929bdde264492496f6d6a75ef4
+      internalID: -43697555
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equipament-SpecialItems_66
+      rect:
+        serializedVersion: 2
+        x: 165
+        y: 86
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d330a190017671b429fd0f051782f488
+      internalID: -1821578422
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equipament-SpecialItems_67
+      rect:
+        serializedVersion: 2
+        x: 187
+        y: 87
+        width: 14
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 375357b75d2532e458fa35b8fbe78bd3
+      internalID: -1984824404
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equipament-SpecialItems_68
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 64
+        width: 13
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 16fd7fcbee849794bb64f7cee40d9fd7
+      internalID: 1635665826
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equipament-SpecialItems_69
+      rect:
+        serializedVersion: 2
+        x: 25
+        y: 64
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4b51f16b75b15534ba95dc6312607e39
+      internalID: 1157058797
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equipament-SpecialItems_70
+      rect:
+        serializedVersion: 2
+        x: 41
+        y: 64
+        width: 14
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 96c062bc49d3cd042b3629a95c9ca301
+      internalID: -823868106
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equipament-SpecialItems_71
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 64
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 895ae85f30dfa8440ad72f7ae2288a1c
+      internalID: 484546685
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equipament-SpecialItems_72
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 64
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d49e5b6a10861814e9978c4e8357185e
+      internalID: -1536552218
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equipament-SpecialItems_73
+      rect:
+        serializedVersion: 2
+        x: 89
+        y: 64
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a0d8b186b067d1e43ae3ff4965b5bcb4
+      internalID: 1919906952
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equipament-SpecialItems_74
+      rect:
+        serializedVersion: 2
+        x: 105
+        y: 64
+        width: 14
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 44b3782c2e8a70c49bb03e4d5ce80b01
+      internalID: 1491078590
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equipament-SpecialItems_75
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 64
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 43a7d2e5d0b2d0548a902c38e0a6e486
+      internalID: -802200297
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equipament-SpecialItems_76
+      rect:
+        serializedVersion: 2
+        x: 142
+        y: 66
+        width: 15
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4f6ae9131f52f734fa65d03ca1e032f4
+      internalID: -571999556
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equipament-SpecialItems_77
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 66
+        width: 16
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 802fb94745896634287173d04ba10d23
+      internalID: 230214274
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equipament-SpecialItems_78
+      rect:
+        serializedVersion: 2
+        x: 187
+        y: 67
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: beecdabea8c4eef40b1356a0e503b6cf
+      internalID: -736397181
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equipament-SpecialItems_79
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 41
+        width: 16
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f39c68b87047a7b469b9e0bec074fc10
+      internalID: 545870086
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equipament-SpecialItems_80
+      rect:
+        serializedVersion: 2
+        x: 29
+        y: 41
+        width: 16
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6b089b52196f3df41a0b0ed4181e3168
+      internalID: -2046277029
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equipament-SpecialItems_81
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 40
+        width: 16
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1c77ec996f0066f48a2364ef027c5d9b
+      internalID: 1561479371
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equipament-SpecialItems_82
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 40
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 250dc140c3db471478434358ea174319
+      internalID: -1800055573
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equipament-SpecialItems_83
+      rect:
+        serializedVersion: 2
+        x: 89
+        y: 41
+        width: 13
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 399c0fa2e4d978a43b5283ebe1e0b633
+      internalID: -988792512
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equipament-SpecialItems_84
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 40
+        width: 12
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8b89c54ab701c484bb325294b3aee8b1
+      internalID: 1543102711
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equipament-SpecialItems_85
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 39
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd15f0e1fd466dc4e8fda0d00f24c6cf
+      internalID: 799505909
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equipament-SpecialItems_86
+      rect:
+        serializedVersion: 2
+        x: 154
+        y: 39
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c69b7eb79f37df458ebc354cbf6a41b
+      internalID: 1722204290
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equipament-SpecialItems_87
+      rect:
+        serializedVersion: 2
+        x: 177
+        y: 38
+        width: 30
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 10ac71b2d7b92ed4eb62c7e3672b9eb1
+      internalID: -1358681024
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equipament-SpecialItems_88
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 15
+        width: 16
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0217ba7f1036a744b9a0b1df7f7753a0
+      internalID: -2109920183
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equipament-SpecialItems_89
+      rect:
+        serializedVersion: 2
+        x: 25
+        y: 15
+        width: 16
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0d7e5bc4e99c07147affc9469a011e5b
+      internalID: -1854195468
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equipament-SpecialItems_90
+      rect:
+        serializedVersion: 2
+        x: 41
+        y: 15
+        width: 16
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4c25516483cad0f4fa74f001f4750df6
+      internalID: 1048808856
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equipament-SpecialItems_91
+      rect:
+        serializedVersion: 2
+        x: 62
+        y: 14
+        width: 16
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fc341a01a3373694abee03610ae2435d
+      internalID: 1464905843
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equipament-SpecialItems_92
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 14
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6deeba2febd9dba4ab8d9e6770b7fa67
+      internalID: 1807784085
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equipament-SpecialItems_93
+      rect:
+        serializedVersion: 2
+        x: 107
+        y: 14
+        width: 15
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bee4a620716370a40b2a5acc8f665ead
+      internalID: 1806095984
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equipament-SpecialItems_94
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 14
+        width: 16
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d634b422962a4f42aa27a3744f1326f
+      internalID: -150088056
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equipament-SpecialItems_95
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 13
+        width: 12
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 648d89634180b6148b5b36c27d9f5d6c
+      internalID: 463507125
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equipament-SpecialItems_96
+      rect:
+        serializedVersion: 2
+        x: 170
+        y: 13
+        width: 11
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3cf45b258a20fa94a9745335067ae871
+      internalID: 298919717
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equipament-SpecialItems_97
+      rect:
+        serializedVersion: 2
+        x: 185
+        y: 12
+        width: 13
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 301c3affd0ae5af45b2aba689a5d0633
+      internalID: 717201922
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Equipament-SpecialItems_0: 1420377424
+      Equipament-SpecialItems_1: -498577995
+      Equipament-SpecialItems_10: -1032961679
+      Equipament-SpecialItems_11: -169075717
+      Equipament-SpecialItems_12: -1381580501
+      Equipament-SpecialItems_13: -1391322079
+      Equipament-SpecialItems_14: 896868967
+      Equipament-SpecialItems_15: -32956698
+      Equipament-SpecialItems_16: 1931564027
+      Equipament-SpecialItems_17: 343275872
+      Equipament-SpecialItems_18: -729471796
+      Equipament-SpecialItems_19: 267187755
+      Equipament-SpecialItems_2: -1651703028
+      Equipament-SpecialItems_20: 451509895
+      Equipament-SpecialItems_21: 1201604180
+      Equipament-SpecialItems_22: 1689372437
+      Equipament-SpecialItems_23: -512594262
+      Equipament-SpecialItems_24: -943324146
+      Equipament-SpecialItems_25: 1308098617
+      Equipament-SpecialItems_26: 1457201514
+      Equipament-SpecialItems_27: -127650484
+      Equipament-SpecialItems_28: -1862429354
+      Equipament-SpecialItems_29: 456514251
+      Equipament-SpecialItems_3: -927456678
+      Equipament-SpecialItems_30: -941340846
+      Equipament-SpecialItems_31: 106213016
+      Equipament-SpecialItems_32: 514924897
+      Equipament-SpecialItems_33: 243901435
+      Equipament-SpecialItems_34: -1473706144
+      Equipament-SpecialItems_35: 645288020
+      Equipament-SpecialItems_36: -1968859744
+      Equipament-SpecialItems_37: -356032598
+      Equipament-SpecialItems_38: -1814448461
+      Equipament-SpecialItems_39: -1697830911
+      Equipament-SpecialItems_4: 1555859752
+      Equipament-SpecialItems_40: -1500042519
+      Equipament-SpecialItems_41: -1669116566
+      Equipament-SpecialItems_42: 104057960
+      Equipament-SpecialItems_43: -1529226617
+      Equipament-SpecialItems_44: -1720392934
+      Equipament-SpecialItems_45: -703803926
+      Equipament-SpecialItems_46: 81338230
+      Equipament-SpecialItems_47: -1170430225
+      Equipament-SpecialItems_48: 1019109330
+      Equipament-SpecialItems_49: -1099030934
+      Equipament-SpecialItems_5: 909740661
+      Equipament-SpecialItems_50: 1058892468
+      Equipament-SpecialItems_51: -87666457
+      Equipament-SpecialItems_52: 291323147
+      Equipament-SpecialItems_53: 172472287
+      Equipament-SpecialItems_54: 75517860
+      Equipament-SpecialItems_55: -385515435
+      Equipament-SpecialItems_56: 1477715943
+      Equipament-SpecialItems_57: -1007796117
+      Equipament-SpecialItems_59: -53558480
+      Equipament-SpecialItems_6: -1946858556
+      Equipament-SpecialItems_60: -2098226992
+      Equipament-SpecialItems_61: 29924614
+      Equipament-SpecialItems_62: -1020367899
+      Equipament-SpecialItems_63: 1967799339
+      Equipament-SpecialItems_64: -1587152352
+      Equipament-SpecialItems_65: -43697555
+      Equipament-SpecialItems_66: -1821578422
+      Equipament-SpecialItems_67: -1984824404
+      Equipament-SpecialItems_68: 1635665826
+      Equipament-SpecialItems_69: 1157058797
+      Equipament-SpecialItems_7: 1613916091
+      Equipament-SpecialItems_70: -823868106
+      Equipament-SpecialItems_71: 484546685
+      Equipament-SpecialItems_72: -1536552218
+      Equipament-SpecialItems_73: 1919906952
+      Equipament-SpecialItems_74: 1491078590
+      Equipament-SpecialItems_75: -802200297
+      Equipament-SpecialItems_76: -571999556
+      Equipament-SpecialItems_77: 230214274
+      Equipament-SpecialItems_78: -736397181
+      Equipament-SpecialItems_79: 545870086
+      Equipament-SpecialItems_8: 1630585549
+      Equipament-SpecialItems_80: -2046277029
+      Equipament-SpecialItems_81: 1561479371
+      Equipament-SpecialItems_82: -1800055573
+      Equipament-SpecialItems_83: -988792512
+      Equipament-SpecialItems_84: 1543102711
+      Equipament-SpecialItems_85: 799505909
+      Equipament-SpecialItems_86: 1722204290
+      Equipament-SpecialItems_87: -1358681024
+      Equipament-SpecialItems_88: -2109920183
+      Equipament-SpecialItems_89: -1854195468
+      Equipament-SpecialItems_9: -1440367178
+      Equipament-SpecialItems_90: 1048808856
+      Equipament-SpecialItems_91: 1464905843
+      Equipament-SpecialItems_92: 1807784085
+      Equipament-SpecialItems_93: 1806095984
+      Equipament-SpecialItems_94: -150088056
+      Equipament-SpecialItems_95: 463507125
+      Equipament-SpecialItems_96: 298919717
+      Equipament-SpecialItems_97: 717201922
+      Key: 2146382320
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
