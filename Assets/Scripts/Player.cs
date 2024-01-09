@@ -18,12 +18,12 @@ public class Stat
     }
     internal void Substract(float amount)
     {
-        currentVal -= amount;
+        currentVal -= amount * Time.deltaTime;
     }
 
     internal void Add(float amount)
     {
-        currentVal += amount;
+        currentVal += amount * Time.deltaTime;
         if (currentVal > maxVal)
         {
             currentVal = maxVal;
