@@ -57,7 +57,7 @@ public class PlayerMovement : MonoBehaviour
         if (!moving)
         {
             playerRb.velocity = Vector2.zero;
-            player.Rest(15f);
+            player.Rest(20f);
         }
     }
     private void Sprint()
