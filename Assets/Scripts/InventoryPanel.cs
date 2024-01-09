@@ -23,7 +23,7 @@ public class InventoryPanel : MonoBehaviour
             buttons[i].SetIndex(i);
         }
     }
-    private void Show()
+    public void Show()
     {
         for (int i=0; i<inventory.slots.Count; i++)
         {
