@@ -42,3 +42,27 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: suelo
+    uniqueID: 2455950583
+    locked: 0
+  - name: objetos1
+    uniqueID: 3200627119
+    locked: 0
+  - name: objetos2
+    uniqueID: 4286002967
+    locked: 0
+  - name: objetos3
+    uniqueID: 3336501439
+    locked: 0
+  - name: objetos4
+    uniqueID: 2625365751
+    locked: 0
+  - name: objetos5
+    uniqueID: 1212156689
+    locked: 0
+  - name: sombra
+    uniqueID: 3271951597
+    locked: 0
+  - name: colisiones
+    uniqueID: 2249866409
+    locked: 0
