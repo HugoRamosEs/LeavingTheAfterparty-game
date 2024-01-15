@@ -8,6 +8,7 @@ public class OptionsVolum : MonoBehaviour
     public Slider slider;
     public float sliderVal;
     public Image imgMute;
+    public Image imgUnMute;
     void Start()
     {
         slider.value = PlayerPrefs.GetFloat("volum", 0.5f);
@@ -27,10 +28,12 @@ public class OptionsVolum : MonoBehaviour
         if (sliderVal == 0)
         {
             imgMute.enabled = true;
+            imgUnMute.enabled = false;
         }
         else
         {
             imgMute.enabled = false;
+            imgUnMute.enabled = true;
         }
     }
 }
