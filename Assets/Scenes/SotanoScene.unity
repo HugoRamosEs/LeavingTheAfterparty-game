@@ -557,6 +557,7 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+
     - target: {fileID: 8929703469566150579, guid: 073c953cbbb73ab41b99f4470fefe0ac, type: 3}
       propertyPath: panel
       value: 
