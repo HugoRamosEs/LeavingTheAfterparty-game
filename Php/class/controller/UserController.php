@@ -15,6 +15,8 @@ class UserController extends Controller {
             $username = Controller::sanitize($user->getUsuario());
             $password = Controller::sanitize($user->getContrasenya());
 
+            $hashPassword = password_hash($password, PASSWORD_DEFAULT);
+
             // $email = Controller::sanitize($_GET['email']);
             // $username = Controller::sanitize($_GET['username']);
             // $password = Controller::sanitize($_GET['password']);
@@ -36,7 +38,7 @@ class UserController extends Controller {
 
             $this->user->setEmail($email);
             $this->user->setUsuario($username);
-            $this->user->setContrasenya($password);
+            $this->user->setContrasenya($hashPassword);
 
             if (empty($errors)) { 
                 $uModel = new UserModelo();
@@ -99,7 +101,7 @@ class UserController extends Controller {
                     $contrasenyaEntrada = $usuario[2];
                     $emailEntrado = $usuario[0];
 
-                    if ($email === $emailEntrado && $contrasenyaEntrada === $password) {
+                    if ($email === $emailEntrado && password_verify($password, $contrasenyaEntrada)) {
                         echo '{"codigo": 209, "mensaje":"Se ha iniciado de sesión correctamente", "respuesta":""}';
                     } else {
                         echo '{"codigo": 208, "mensaje":"El correo o la contraseña son incorrectos", "respuesta":""}';
