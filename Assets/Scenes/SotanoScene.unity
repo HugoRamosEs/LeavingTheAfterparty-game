@@ -557,10 +557,7 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 5137419452684290271, guid: 073c953cbbb73ab41b99f4470fefe0ac, type: 3}
-      propertyPath: m_SortingOrder
-      value: 6
-      objectReference: {fileID: 0}
+
     - target: {fileID: 8929703469566150579, guid: 073c953cbbb73ab41b99f4470fefe0ac, type: 3}
       propertyPath: panel
       value: 

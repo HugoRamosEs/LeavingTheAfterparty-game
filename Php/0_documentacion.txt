@@ -1,0 +1,23 @@
+Respuestas: {"codigo": 200, "mensaje":"Conectado correctamente", "respuesta":""}
+
+// Códigos de respuesta:
+
+    200:    Conectado correctamente
+    201:    Dirección de correo no válida
+    202:    El usuario no puede estar vacío
+    203:    La contraseña no puede estar vacía
+    204:    Hay errores en el formulario de registro
+    205:    El correo ya existe
+    206:    Usuario creado con éxito
+    207:    El correo no esta registrado
+    208:    El correo o la contraseña son incorrectos
+    209:    Se ha iniciado de sesión correctamente
+
+    400:    Error fatal, revisa el código
+    401:    Error intentando conectar
+    402:    La petición no ha sido enviada por POST
+
+// Metodos
+
+    UserControler -> register()
+    UserControler -> login()
