@@ -128,7 +128,7 @@ MonoBehaviour:
     currentVal: 100
   hpBar: {fileID: 0}
   stamina:
-    maxVal: 100
+    maxVal: 200
     currentVal: 200
   staminaBar: {fileID: 0}
   isDead: 0
