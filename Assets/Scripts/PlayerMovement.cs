@@ -54,18 +54,11 @@ public class PlayerMovement : MonoBehaviour
     private void Move()
     {
         playerRb.velocity = moveInput.normalized * speed;
-        if (!moving)
-        {
-            playerRb.velocity = Vector2.zero;
-            player.Rest(20f);
-        }
+        player.Rest(20f);
     }
     private void Sprint()
     {
         playerRb.velocity = moveInput.normalized * sprintSpeed;
-        if (moving)
-        {
-            player.GetTired(30f);
-        }   
+        player.GetTired(30f);  
     }
 }

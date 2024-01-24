@@ -15,6 +15,15 @@ public class ItemPickUp : MonoBehaviour
     {
         player = GameManager.instance.player.transform;
     }
+
+    public void Set(Item item, int count)
+    {
+        this.item = item;
+        this.count = count;
+        SpriteRenderer renderer = GetComponent<SpriteRenderer>();
+        renderer.sprite = item.icon;
+    }
+
     void Update()
     {
         // ESTO SIRVE PARA QUE EL ITEM DESAPAREZCA DE LA ESCENA PASADOS LOS SEGUNDOS DE ARRIBA

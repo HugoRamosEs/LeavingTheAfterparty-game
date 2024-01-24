@@ -39,8 +39,8 @@ public class InventoryButton : MonoBehaviour, IPointerClickHandler
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        ItemContainer invetory = GameManager.instance.inventoryContainer;
-        GameManager.instance.drangAndDrop.OnClick(invetory.slots[myIndex]);
+        ItemContainer inventory = GameManager.instance.inventoryContainer;
+        GameManager.instance.dragAndDrop.OnClick(inventory.slots[myIndex]);
         transform.parent.GetComponent<InventoryPanel>().Show();
     }
 }

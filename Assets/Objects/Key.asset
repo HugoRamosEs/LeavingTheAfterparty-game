@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Key
   m_EditorClassIdentifier: 
   Name: Key
-  stackable: 1
-  icon: {fileID: 2146382320, guid: 3ff81e652137cb840b61d9ea9145d663, type: 3}
+  stackable: 0
+  icon: {fileID: -1651703028, guid: 3ff81e652137cb840b61d9ea9145d663, type: 3}

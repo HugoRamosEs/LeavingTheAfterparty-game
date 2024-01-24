@@ -9,7 +9,9 @@ public class GameManager : MonoBehaviour
     {
         instance = this;
     }
+
     public GameObject player;
     public ItemContainer inventoryContainer;
-    public ItemDrangAndDrop drangAndDrop;
+    public ItemDragAndDrop dragAndDrop;
+    public ItemSpawner itemSpawner;
 }
