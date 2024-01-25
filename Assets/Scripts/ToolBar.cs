@@ -21,17 +21,13 @@ public class ToolBar : MonoBehaviour
         {
             if (delta > 0)
             {
-                selectedTool += 1;
-                selectedTool = (selectedTool >= toolBarSize ? 0 : selectedTool);
-
+                selectedTool = (selectedTool + 1) % toolBarSize;
             }
             else
             {
-                selectedTool -= 1;
-                selectedTool = (selectedTool <= 0 ? toolBarSize - 1 : selectedTool);
+                selectedTool = (selectedTool - 1 + toolBarSize) % toolBarSize;
             }
             onChange?.Invoke(selectedTool);
         }
     }
-
 }

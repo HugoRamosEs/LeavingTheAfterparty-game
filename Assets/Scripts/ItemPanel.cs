@@ -49,8 +49,5 @@ public class ItemPanel : MonoBehaviour
             }
         }
     }
-    public virtual void OnClick(int id)
-    {
-
-    }
+    public virtual void OnClick(int id){}
 }
