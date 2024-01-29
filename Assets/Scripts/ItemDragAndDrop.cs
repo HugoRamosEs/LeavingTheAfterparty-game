@@ -8,6 +8,7 @@ public class ItemDragAndDrop : MonoBehaviour
 {
     [SerializeField] ItemSlot itemSlot;
     [SerializeField] GameObject itemIcon;
+    public ItemContainer inventory;
     RectTransform iconTransform;
     Image itemIconImage;
     internal void OnClick(ItemSlot itemSlot)
@@ -16,6 +17,7 @@ public class ItemDragAndDrop : MonoBehaviour
         {
             this.itemSlot.Copy(itemSlot);
             itemSlot.Clear();
+            inventory.isDirty = true;
         }
         else
         {
@@ -23,6 +25,7 @@ public class ItemDragAndDrop : MonoBehaviour
             int count = itemSlot.count;
             itemSlot.Copy(this.itemSlot);
             this.itemSlot.Set(item, count);
+            inventory.isDirty = true;
         }
         UpdateIcon();
     }
