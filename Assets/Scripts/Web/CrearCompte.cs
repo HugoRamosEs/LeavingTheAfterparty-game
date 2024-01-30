@@ -6,61 +6,65 @@ using UnityEngine.UI;
 using TMPro;
 using Unity.VisualScripting;
 
-public class Login : MonoBehaviour
+public class CrearCompte : MonoBehaviour
 {
     public Server servidor;
+    public TMP_InputField inpCorreo;
     public TMP_InputField inpUsuario;
     public TMP_InputField inpPassword;
     public GameObject imLoading;
     public TextMeshProUGUI mensajeText;
     public GameObject imRespuestaScene;
-
-    public void IniciarSesion()
+    public GameObject imLoginScene;
+    public GameObject imSignUpScene;
+    public GameObject imRespuestaUsuarioCorrecto;
+    public TextMeshProUGUI mensajeUsuarioCorrectoText;
+    public void CrearCuenta()
     {
         StartCoroutine(Iniciar());
     }
-
     IEnumerator Iniciar()
     {
         imLoading.SetActive(true);
-        string[] datos = new string[2];
-        datos[0] = inpUsuario.text;
-        datos[1] = inpPassword.text;
+        string[] datos = new string[3];
+        datos[0] = inpCorreo.text;
+        datos[1] = inpUsuario.text;
+        datos[2] = inpPassword.text;
 
-        StartCoroutine(servidor.ConsumirServicio("login", datos, PosCargar));
+        StartCoroutine(servidor.ConsumirServicio("register", datos, PosCargar));
         yield return new WaitForSeconds(0.5f);
         yield return new WaitUntil(() => !servidor.ocupado);
         imLoading.SetActive(false);
     }
-
     void PosCargar()
     {
         mensajeText.text = servidor.respuesta.mensaje;
+        mensajeUsuarioCorrectoText.text = servidor.respuesta.mensaje;
         switch (servidor.respuesta.codigo)
         {
-            case 209: // Se ha iniciado de sesión correctamente
+            case 201: // Direcció de correu no vàlida
                 print(servidor.respuesta.mensaje);
-                SceneManager.LoadScene("MenuPrincipal");
-                break;
-            case 208: // El correo o la contraseña son incorrectos
-                print("El correo o la contraseña son incorrectos");
                 StartCoroutine(MostrarYEsconderEscena());
                 break;
-            case 207: // El correo no esta registrado
-                print("El correo no esta registrado");
+            case 202: // L'usuari no pot estar buit
+                print(servidor.respuesta.mensaje);
                 StartCoroutine(MostrarYEsconderEscena());
                 break;
-            case 203: // La contraseña no puede estar vacía
-                print("La contraseña no puede estar vacía");
-                StartCoroutine(MostrarYEsconderEscena());
-                break;
-            case 201: // Dirección de correo no válida
-                print("Dirección de correo no válida");
+            case 203: // La contrasenya no pot estar buida
+                print(servidor.respuesta.mensaje);
                 StartCoroutine(MostrarYEsconderEscena());
                 break;
             case 204: // Hi ha errors en el formulari de registre.
                 print(servidor.respuesta.mensaje);
                 StartCoroutine(MostrarYEsconderEscena());
+                break;
+            case 205: // El correu jaa existeix.
+                print(servidor.respuesta.mensaje);
+                StartCoroutine(MostrarYEsconderEscena());
+                break;
+            case 206: // Usuari creat amb exit. Ja pot iniciar sessió.
+                print(servidor.respuesta.mensaje);
+                StartCoroutine(MandarAlLogin());
                 break;
             case 401: // Error intentando conectar
                 print(servidor.respuesta.mensaje);
@@ -74,6 +78,10 @@ public class Login : MonoBehaviour
                 print(servidor.respuesta.mensaje);
                 StartCoroutine(MostrarYEsconderEscena());
                 break;
+            case 403: // No s'ha pogut crear l+usuari. Siusplau, avisi a l+administrador.
+                print(servidor.respuesta.mensaje);
+                StartCoroutine(MostrarYEsconderEscena());
+                break;
             case 0: // Error
                 print("Error, no se puede conectar con el servidor.");
                 StartCoroutine(MostrarYEsconderEscena());
@@ -82,7 +90,6 @@ public class Login : MonoBehaviour
                 break;
         }
     }
-
     IEnumerator MostrarYEsconderEscena()
     {
         imRespuestaScene.SetActive(true);
@@ -90,6 +97,16 @@ public class Login : MonoBehaviour
         yield return new WaitForSeconds(5.0f);
 
         imRespuestaScene.SetActive(false);
+
+    }
+
+    IEnumerator MandarAlLogin()
+    {
+        imRespuestaUsuarioCorrecto.SetActive(true);
+        yield return new WaitForSeconds(3.0f);
+        imRespuestaUsuarioCorrecto.SetActive(false);
+        imSignUpScene.SetActive(false);
+        SceneManager.LoadScene("MenuPrincipal");
     }
 
 }

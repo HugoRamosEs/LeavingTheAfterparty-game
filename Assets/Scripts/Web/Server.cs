@@ -40,12 +40,13 @@ public class Server : ScriptableObject
         }
         else
         {
+            Debug.Log(www.downloadHandler.text);
             string responseText = www.downloadHandler.text;
             responseText = responseText.Replace("<br />", "");
-            //responseText = responseText.Replace('#', '"');
+            responseText = responseText.Replace("#", "\"");
+            responseText = responseText.Replace("+", "'");
             Debug.Log(responseText);
             respuesta = JsonUtility.FromJson<Respuesta>(responseText);
-            respuesta.LimpiarRespuesta();
         }
         ocupado = false;
         e.Invoke();
@@ -68,14 +69,9 @@ public class Respuesta
     public string mensaje;
     public string respuesta;
 
-    public void LimpiarRespuesta()
-    {
-        respuesta = respuesta.Replace('#', '"');
-    }
-
     public Respuesta()
     {
     codigo = 404;
-    mensaje = "Error";
+    mensaje = "Error al conectarse con el servidor.";
     }
 }
