@@ -20,12 +20,13 @@ MonoBehaviour:
     - user
     - password
   - nombre: register
-    url: register.php
+    url: reg_user.php
     parametros:
     - email
     - user
     - password
-  ocupado: 1
+  ocupado: 0
   respuesta:
-    codigo: 0
-    mensaje: 
+    codigo: 404
+    mensaje: Error al conectarse con el servidor.
+    respuesta: 
