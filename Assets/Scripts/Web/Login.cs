@@ -40,7 +40,7 @@ public class Login : MonoBehaviour
         {
             case 209: // Se ha iniciado de sesión correctamente
                 print(servidor.respuesta.mensaje);
-                SceneManager.LoadScene("MenuPrincipal");
+                SceneManager.LoadScene("MenuPrincipalScene");
                 break;
             case 208: // El correo o la contraseña son incorrectos
                 print("El correo o la contraseña son incorrectos");
