@@ -11,4 +11,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SotanoScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/CongeladorScene.unity
+    guid: 524ed6a3ce3b4e54183cc041101eb4cf
+  - enabled: 1
+    path: Assets/Scenes/EsencialScene.unity
+    guid: 0358bb6d76c0ea0478056803f4f6112e
   m_configObjects: {}
