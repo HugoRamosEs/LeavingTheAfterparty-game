@@ -3440,6 +3440,7 @@ GameObject:
   - component: {fileID: 645729060}
   - component: {fileID: 645729061}
   - component: {fileID: 645729062}
+  - component: {fileID: 645729063}
   m_Layer: 0
   m_Name: OptionsController
   m_TagString: Untagged
@@ -3536,6 +3537,19 @@ MonoBehaviour:
   panelInici: {fileID: 2134581159}
   panelLateral: {fileID: 784624101}
   panelOptions: {fileID: 186941159}
+--- !u!114 &645729063
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 645729056}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a355295e1c981c249ae13cd83539d1af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mLateralPanel: {fileID: 784624101}
 --- !u!1 &652135518
 GameObject:
   m_ObjectHideFlags: 0
@@ -6712,19 +6726,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1498868999}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1969272979}
-        m_TargetAssemblyTypeName: TempController, Assembly-CSharp
-        m_MethodName: ChangeScene
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1498868999
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7539,6 +7541,53 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1677139483}
   m_CullTransparentMesh: 1
+--- !u!1 &1688329518
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1688329520}
+  - component: {fileID: 1688329519}
+  m_Layer: 0
+  m_Name: ChangeMainMenuScene
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1688329519
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1688329518}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fef3f95049b35f649a154417b3d5ef10, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  to: SotanoScene
+  additionalScene: EsencialScene
+  button: {fileID: 1498868998}
+--- !u!4 &1688329520
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1688329518}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 668.91724, y: 329.2926, z: -3.2713056}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1777587130
 GameObject:
   m_ObjectHideFlags: 0
@@ -8321,50 +8370,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1969272977
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1969272978}
-  - component: {fileID: 1969272979}
-  m_Layer: 0
-  m_Name: TempController
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1969272978
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1969272977}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 668.91724, y: 329.2926, z: -3.2713056}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1969272979
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1969272977}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fdda102435dbf6848a9e6911c823e555, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1970234314
 GameObject:
   m_ObjectHideFlags: 0
@@ -9563,4 +9568,4 @@ SceneRoots:
   - {fileID: 1572640464}
   - {fileID: 464538218}
   - {fileID: 732104488}
-  - {fileID: 1969272978}
+  - {fileID: 1688329520}
