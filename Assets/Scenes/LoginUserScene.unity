@@ -736,7 +736,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   firstInput: {fileID: 0}
-  submitButton: {fileID: 0}
 --- !u!114 &74024523
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -965,7 +964,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   firstInput: {fileID: 0}
-  submitButton: {fileID: 0}
 --- !u!114 &115650725
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1258,7 +1256,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   firstInput: {fileID: 0}
-  submitButton: {fileID: 0}
 --- !u!114 &257929329
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3218,10 +3215,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 4
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 1753578535}
-    m_SelectOnDown: {fileID: 0}
+    m_SelectOnDown: {fileID: 699779238}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
@@ -3395,10 +3392,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 4
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 1133519642}
-    m_SelectOnDown: {fileID: 0}
+    m_SelectOnDown: {fileID: 1619592573}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
