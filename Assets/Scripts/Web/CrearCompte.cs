@@ -19,12 +19,16 @@ public class CrearCompte : MonoBehaviour
     public GameObject imSignUpScene;
     public GameObject imRespuestaUsuarioCorrecto;
     public TextMeshProUGUI mensajeUsuarioCorrectoText;
+
+    private bool cargando = false;
     public void CrearCuenta()
     {
         StartCoroutine(Iniciar());
     }
     IEnumerator Iniciar()
     {
+        cargando = true;
+
         imLoading.SetActive(true);
         string[] datos = new string[3];
         datos[0] = inpCorreo.text;
@@ -32,8 +36,10 @@ public class CrearCompte : MonoBehaviour
         datos[2] = inpPassword.text;
 
         StartCoroutine(servidor.ConsumirServicio("register", datos, PosCargar));
-        yield return new WaitForSeconds(0.5f);
+        //yield return new WaitForSeconds(0.5f);
+        //yield return new WaitUntil(() => !servidor.ocupado);
         yield return new WaitUntil(() => !servidor.ocupado);
+        yield return new WaitWhile(() => cargando);
         imLoading.SetActive(false);
     }
     void PosCargar()
@@ -62,7 +68,7 @@ public class CrearCompte : MonoBehaviour
                 print(servidor.respuesta.mensaje);
                 StartCoroutine(MostrarYEsconderEscena());
                 break;
-            case 206: // Usuari creat amb exit. Ja pot iniciar sessió.
+            case 206: // Feliciats! S+ha registrat a Leaving the After Party. En breus, se l+hi redirigirà al joc.
                 print(servidor.respuesta.mensaje);
                 StartCoroutine(MandarAlLogin());
                 break;
@@ -92,6 +98,7 @@ public class CrearCompte : MonoBehaviour
     }
     IEnumerator MostrarYEsconderEscena()
     {
+        cargando = false;
         imRespuestaScene.SetActive(true);
 
         yield return new WaitForSeconds(5.0f);
@@ -102,11 +109,12 @@ public class CrearCompte : MonoBehaviour
 
     IEnumerator MandarAlLogin()
     {
+        cargando = false;
         imRespuestaUsuarioCorrecto.SetActive(true);
         yield return new WaitForSeconds(3.0f);
         imRespuestaUsuarioCorrecto.SetActive(false);
         imSignUpScene.SetActive(false);
-        SceneManager.LoadScene("MenuPrincipal");
+        SceneManager.LoadScene("MenuPrincipalScene");
     }
 
 }

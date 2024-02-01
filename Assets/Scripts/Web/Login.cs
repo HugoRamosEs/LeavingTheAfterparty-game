@@ -15,6 +15,8 @@ public class Login : MonoBehaviour
     public TextMeshProUGUI mensajeText;
     public GameObject imRespuestaScene;
 
+    private bool cargando = false;
+
     public void IniciarSesion()
     {
         StartCoroutine(Iniciar());
@@ -22,14 +24,18 @@ public class Login : MonoBehaviour
 
     IEnumerator Iniciar()
     {
+        cargando = true;
+
         imLoading.SetActive(true);
         string[] datos = new string[2];
         datos[0] = inpUsuario.text;
         datos[1] = inpPassword.text;
 
         StartCoroutine(servidor.ConsumirServicio("login", datos, PosCargar));
-        yield return new WaitForSeconds(0.5f);
+        //yield return new WaitForSeconds(0.5f);
+        //yield return new WaitUntil(() => !servidor.ocupado);
         yield return new WaitUntil(() => !servidor.ocupado);
+        yield return new WaitWhile(() => cargando);
         imLoading.SetActive(false);
     }
 
@@ -85,10 +91,9 @@ public class Login : MonoBehaviour
 
     IEnumerator MostrarYEsconderEscena()
     {
+        cargando = false;
         imRespuestaScene.SetActive(true);
-
         yield return new WaitForSeconds(5.0f);
-
         imRespuestaScene.SetActive(false);
     }
 
