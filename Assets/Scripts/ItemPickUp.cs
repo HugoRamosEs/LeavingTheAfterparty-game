@@ -13,7 +13,8 @@ public class ItemPickUp : MonoBehaviour
 
     void Awake()
     {
-        player = GameManager.instance.player.transform;
+        //player = GameManager.instance.player.transform;
+        CheckForPlayerWithTag();
     }
 
     public void Set(Item item, int count)
@@ -33,6 +34,11 @@ public class ItemPickUp : MonoBehaviour
         // Destroy(gameObject);
         // }
 
+        if (player == null)
+        {
+            CheckForPlayerWithTag();
+            return;
+        }
         float distance = Vector3.Distance(transform.position, player.position);
         if (distance > pickUpDistance)
         {
@@ -46,6 +52,16 @@ public class ItemPickUp : MonoBehaviour
                 GameManager.instance.inventoryContainer.Add(item, count);
             } 
             Destroy(gameObject);
+        }
+    }
+
+    void CheckForPlayerWithTag()
+    {
+        GameObject playerObject = GameObject.FindWithTag("Player");
+
+        if (playerObject != null)
+        {
+            player = playerObject.transform;
         }
     }
 }

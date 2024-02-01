@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.10.2" orientation="orthogonal" renderorder="right-down" width="28" height="28" tilewidth="16" tileheight="16" infinite="1" nextlayerid="13" nextobjectid="353">
+<map version="1.10" tiledversion="1.10.2" orientation="orthogonal" renderorder="right-down" width="28" height="28" tilewidth="16" tileheight="16" infinite="1" nextlayerid="13" nextobjectid="359">
  <tileset firstgid="1" source="../Patterns/diseñosTiled.tsx"/>
  <layer id="1" name="suelo" width="28" height="28">
   <data encoding="csv">
@@ -416,7 +416,7 @@
   <object id="222" x="-96" y="126.333" width="15.3333" height="18.6667"/>
   <object id="223" x="-159" y="110.212" width="14.3333" height="18.7879"/>
   <object id="224" x="-175.667" y="78.5492" width="15.3333" height="18.7841"/>
-  <object id="225" x="-192.333" y="158.773" width="16" height="18.2273"/>
+  <object id="225" x="-192.333" y="157.682" width="16" height="19.3182"/>
   <object id="226" x="-256" y="94.5" width="31.6667" height="18.9242"/>
   <object id="227" x="-319.667" y="126.583" width="15" height="18.75"/>
   <object id="228" x="-447.667" y="110.5" width="15.3333" height="18.8333"/>
@@ -497,7 +497,7 @@
   <object id="330" x="-517.091" y="80.5455" width="4" height="175.091"/>
   <object id="331" x="-520" y="71.5" width="7.75" height="14"/>
   <object id="332" x="-517" y="254.75" width="372.25" height="7.75"/>
-  <object id="333" x="-128.75" y="256.75" width="135.75" height="8"/>
+  <object id="333" x="-127.841" y="255.114" width="135.75" height="8"/>
   <object id="334" x="0.5" y="-14.25" width="7.5" height="279.5"/>
   <object id="337" x="-512" y="182" width="15" height="56"/>
   <object id="338" x="-333.25" y="190.227" width="43.25" height="30.3977"/>
@@ -509,6 +509,8 @@
   <object id="347" x="-428" y="213.091" width="10.9091" height="8.36364"/>
   <object id="349" x="-495.5" y="91.5" width="8.5" height="5.75"/>
   <object id="351" x="-350.909" y="188.364" width="4.36364" height="4.36364"/>
+  <object id="354" x="-144.733" y="254.795" width="21.375" height="4"/>
+  <object id="355" x="-467.75" y="55" width="24" height="5.25"/>
  </objectgroup>
  <layer id="11" name="no_hitbox" width="28" height="28">
   <data encoding="csv">
