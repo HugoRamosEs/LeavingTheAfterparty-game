@@ -16,12 +16,15 @@ spl_autoload_register("Autoloader::loadDataBase");
     // }
 
     
-    $usuarioPrueba = new User('prueba2@gmail.com', 'prueba', '1234');
+    $usuarioPrueba = new User('prueba2@gmail.com', 'prueba2', '123');
 
     $uController = new UserController();
     $uModel = new UserModelo();
 
     // $uPruebaRegistrar = $uController->register($usuarioPrueba);
+    // echo "<pre>";
+    // var_dump($uPruebaRegistrar);
+    // echo "</pre>";
     $uPruebaLogin = $uController->login($usuarioPrueba);
 
 // } catch (Exception $e) {
