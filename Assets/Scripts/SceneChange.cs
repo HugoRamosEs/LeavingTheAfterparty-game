@@ -13,6 +13,7 @@ public class SceneChange : MonoBehaviour
     [SerializeField] ChangeType changeType;
     [SerializeField] string sceneToChange;
     [SerializeField] Vector3 targetPosition;
+    [SerializeField] int orderInLayer;
     Transform destination;
     void Start()
     {
@@ -26,12 +27,12 @@ public class SceneChange : MonoBehaviour
                 Cinemachine.CinemachineBrain currentCamera = Camera.main.GetComponent<Cinemachine.CinemachineBrain>();
                 currentCamera.ActiveVirtualCamera.OnTargetObjectWarped(toChange, destination.position - toChange.position);
                 toChange.position = new Vector3(destination.position.x, destination.position.y, toChange.position.z);
+                toChange.GetComponent<SpriteRenderer>().sortingOrder = orderInLayer;
                 break;
             case ChangeType.Scene:
-                GameSceneManager.instance.InitSwitchScene(sceneToChange, targetPosition);
+                GameSceneManager.instance.InitSwitchScene(sceneToChange, targetPosition, orderInLayer);
                 break;
         }
        
     }
-
 }

@@ -18,19 +18,19 @@ public class GameSceneManager : MonoBehaviour
     {
         currentScene = SceneManager.GetActiveScene().name;
     }
-    public void InitSwitchScene(string to, Vector3 targetPosition)
+    public void InitSwitchScene(string to, Vector3 targetPosition, int orderInLayer)
     {
-        StartCoroutine(Change(to, targetPosition));
+        StartCoroutine(Change(to, targetPosition, orderInLayer));
     }
-    IEnumerator Change(string to, Vector3 targetPosition)
+    IEnumerator Change(string to, Vector3 targetPosition, int orderInLayer)
     {
         sceneTint.Tint();
         yield return new WaitForSeconds(1f / sceneTint.speed + 0.1f);
-        SwitchScene(to, targetPosition);
+        SwitchScene(to, targetPosition, orderInLayer);
         yield return new WaitForEndOfFrame();
         sceneTint.UnTint();
     }
-    public void SwitchScene(string to, Vector3 targetPosition)
+    public void SwitchScene(string to, Vector3 targetPosition, int orderInLayer)
     {
         SceneManager.LoadScene(to, LoadSceneMode.Additive);
         SceneManager.UnloadSceneAsync(currentScene);
@@ -39,5 +39,6 @@ public class GameSceneManager : MonoBehaviour
         CinemachineBrain currentCamera = Camera.main.GetComponent<CinemachineBrain>();
         currentCamera.ActiveVirtualCamera.OnTargetObjectWarped(playerTransform, targetPosition - playerTransform.position);
         GameManager.instance.player.transform.position = new Vector3(targetPosition.x, targetPosition.y, playerTransform.position.z);
+        playerTransform.GetComponent<SpriteRenderer>().sortingOrder = orderInLayer;
     }
 }

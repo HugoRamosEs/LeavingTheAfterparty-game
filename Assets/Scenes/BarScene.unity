@@ -192,6 +192,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5689468549907760574, guid: 94af70b1c8eafba4581233839effb8b8, type: 3}
+      propertyPath: orderInLayer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5689468549907760574, guid: 94af70b1c8eafba4581233839effb8b8, type: 3}
       propertyPath: sceneToChange
       value: SotanoScene
       objectReference: {fileID: 0}
@@ -279,6 +283,10 @@ PrefabInstance:
     - target: {fileID: 5689468549907760574, guid: 94af70b1c8eafba4581233839effb8b8, type: 3}
       propertyPath: changeType
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5689468549907760574, guid: 94af70b1c8eafba4581233839effb8b8, type: 3}
+      propertyPath: orderInLayer
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 5689468549907760574, guid: 94af70b1c8eafba4581233839effb8b8, type: 3}
       propertyPath: sceneToChange
