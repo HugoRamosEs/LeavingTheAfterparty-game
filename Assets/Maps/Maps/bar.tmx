@@ -827,7 +827,7 @@
   <object id="370" x="666.364" y="8" width="27.4545" height="3.09091"/>
   <object id="371" x="558.909" y="255.636" width="17.6364" height="6"/>
  </objectgroup>
- <layer id="17" name="no_hitbox" width="28" height="28" visible="0">
+ <layer id="17" name="no_hitbox" width="28" height="28">
   <data encoding="csv">
    <chunk x="0" y="0" width="16" height="16">
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
