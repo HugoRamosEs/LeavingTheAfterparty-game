@@ -8,28 +8,21 @@ public class MLateralController : MonoBehaviour
     [SerializeField] GameObject mLateralPanel;
     [SerializeField] GameObject menuOpcions;
     bool comparador = false;
-    string[] escenasConMenu = {"SotanoScene", "EsencialScene" };
+    string[] escenasConMenu = { "SotanoScene", "EsencialScene" };
     void Update()
     {
-
-        while(comparador == false) {
-
-            if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape) && !menuOpcions.activeInHierarchy)
+        {
+            foreach (string escena in escenasConMenu)
             {
-                foreach (string escena in escenasConMenu)
+                if (SceneManager.GetActiveScene().name == escena)
                 {
-                    if (SceneManager.GetActiveScene().name == escena)
-                    {
-                        mLateralPanel.SetActive(!mLateralPanel.activeInHierarchy);
-                        break;
-                    }
+                    mLateralPanel.SetActive(!mLateralPanel.activeInHierarchy);
+                    break;
                 }
             }
+        }
 
-        }
-        if (menuOpcions.activeInHierarchy){
-            comparador = true;
-        }
-        
+        comparador = menuOpcions.activeInHierarchy;
     }
 }
