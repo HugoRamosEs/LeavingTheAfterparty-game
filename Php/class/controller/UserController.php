@@ -88,7 +88,7 @@ class UserController extends Controller {
                 if (strlen($password) == 0) {
 
                     $errors["password"] = "La contrasenya no pot estar buida.";
-                    echo '{"codigo": 203 "mensaje":"La contrasenya no pot estar buida.", "respuesta":""}'; 
+                    echo '{"codigo": 203, "mensaje":"La contrasenya no pot estar buida.", "respuesta":""}'; 
 
                 } else {
                     

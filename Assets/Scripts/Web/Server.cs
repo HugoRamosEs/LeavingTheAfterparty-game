@@ -30,9 +30,13 @@ public class Server : ScriptableObject
         {
             formulario.AddField(s.parametros[i], datos[i]);
         }
+        Debug.Log("formulario " + formulario);
         UnityWebRequest www = UnityWebRequest.Post(servidor + "/" + s.url, formulario);
-        //Debug.Log(servidor + "/" + s.url);
+        Debug.Log(servidor + "/" + s.url);
         yield return www.SendWebRequest();
+        Debug.Log("www.result: " + www.result);
+        Debug.Log("UnityWebRequest.Result.Success " + UnityWebRequest.Result.Success);
+        Debug.Log("www " + www);
 
         if (www.result != UnityWebRequest.Result.Success)
         {

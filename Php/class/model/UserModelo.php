@@ -13,7 +13,7 @@ class UserModelo implements \CRUDable
     }
 
     public function create($obj){
-        $dbGeneric = DataBase::getInstance('root');
+        $dbGeneric = DataBase::getInstance('consulta');
         $sql = "INSERT INTO tbl_user (email, username, password) VALUES (?, ?, ?)";
         $params = [$obj->email, $obj->usuario, $obj->contrasenya];
         $consulta = $dbGeneric->executeSQL($sql, $params);

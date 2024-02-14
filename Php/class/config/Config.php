@@ -6,6 +6,7 @@ class Config {
     public $user;
     public $password;
     public $base;
+    public $port;
     
     private static $_instance;
     
@@ -16,6 +17,7 @@ class Config {
         $this->user = $user;
         $this->password = $password;
         $this->base = $base;
+        $this->port = $port;
     }
     
     public static function getInstance() {
