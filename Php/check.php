@@ -5,7 +5,7 @@ spl_autoload_register("Autoloader::load");
 spl_autoload_register("Autoloader::loadDataBase");
 
 try {
-    $conn = DataBase::getInstance('root');
+    $conn = DataBase::getInstance('consulta');
     if ($conn) {
         echo '{"codigo": 200, "mensaje":"Conectado correctamente", "respuesta":""}';
     } else {

@@ -8,7 +8,7 @@ spl_autoload_register("Autoloader::load");
 spl_autoload_register("Autoloader::loadDataBase");
 
 try {
-    if (DataBase::getInstance('root')) {
+    if (DataBase::getInstance('consulta')) {
         $userUnity = new User('', '', '');
         $uController = new UserController();
         $uModel = new UserModelo();
