@@ -787,6 +787,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4438647993849672423, guid: 6569d7339b031734a85bcde578546103, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7013465653254455770, guid: 6569d7339b031734a85bcde578546103, type: 3}
       propertyPath: m_Name
       value: sotano1
