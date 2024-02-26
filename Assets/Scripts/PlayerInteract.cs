@@ -2,50 +2,48 @@ using UnityEngine;
 
 public class NPCInteraction : MonoBehaviour
 {
-    Transform player;
+    public Transform player;
     public float interactionDistance = 5f;
     public string interactionMessage = "La tecla C ha sido presionada enfrente del NPC";
-
+    public string npcName = "Nombre del NPC";
+    public Sprite npcImage;
     private DialoguePanelConfig dialoguePanelConfig;
+    private bool isDialogueShown = false;
 
-    void Awake()
+    void Start()
     {
-        CheckForPlayerWithTag();
-    }
-
-    DialoguePanelConfig GetDialoguePanelConfig()
-    {
-        if (dialoguePanelConfig == null)
-        {
-            dialoguePanelConfig = FindObjectOfType<DialoguePanelConfig>();
-        }
-        return dialoguePanelConfig;
+        player = GameObject.FindGameObjectWithTag("Player").transform;
+        dialoguePanelConfig = FindObjectOfType<DialoguePanelConfig>();
     }
 
     void Update()
     {
-        if (player == null)
+        if (player == null || dialoguePanelConfig == null)
         {
-            CheckForPlayerWithTag();
             return;
         }
 
         if (Vector3.Distance(transform.position, player.position) <= interactionDistance && Input.GetKeyDown(KeyCode.C))
         {
-            DialoguePanelConfig config = GetDialoguePanelConfig();
-            if (config != null)
-            {
-                config.UpdateDialogueText(interactionMessage);
-            }
+            ToggleDialogue();
         }
     }
 
-    void CheckForPlayerWithTag()
+    void ToggleDialogue()
     {
-        GameObject playerObject = GameObject.FindWithTag("Player");
-        if (playerObject != null)
+        isDialogueShown = !isDialogueShown;
+
+        if (isDialogueShown)
         {
-            player = playerObject.transform;
+            dialoguePanelConfig.gameObject.SetActive(true); 
+            dialoguePanelConfig.UpdateDialogue(interactionMessage, npcName, npcImage);
+           
+        }
+        else
+        {
+            dialoguePanelConfig.HideDialogue();
         }
     }
+
+
 }
