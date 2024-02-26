@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class JuliamMovement : MonoBehaviour
+public class JulianMovement : MonoBehaviour
 {
     private Rigidbody2D rb;
     private Animator animator;
