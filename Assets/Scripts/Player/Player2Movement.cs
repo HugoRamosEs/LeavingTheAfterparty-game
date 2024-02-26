@@ -13,8 +13,10 @@ public class Player2Movement : MonoBehaviour
 
     private float currentMoveSpeed;
 
-    public float x, y;
+    private float x, y;
     private bool isWalking;
+    private bool isSprinting;
+    private bool isResting;
 
     private Vector3 moveDir;
 
@@ -57,22 +59,39 @@ public class Player2Movement : MonoBehaviour
 
         moveDir = new Vector3(x, y).normalized;
 
-        if ((Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift)) && player.stamina.currentVal > 0)
+        if ((Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift)) && (player.stamina.currentVal > 0) && !isResting)
         {
             currentMoveSpeed = sprintSpeed;
             player.GetTired(30f);
+            isSprinting = true;
         }
         else
         {
             currentMoveSpeed = moveSpeed;
-            StartCoroutine(DelayedRest(20f));
+            if (isSprinting)
+            {
+                isSprinting = false;
+                if (player.stamina.currentVal <= 0)
+                {
+                    StartCoroutine(DelayedRest());
+                }
+            }
+            else
+            {
+                if (!isSprinting && !isResting)
+                {
+                    player.Rest(20f);
+                }
+            }
         }
     }
 
-    IEnumerator DelayedRest(float restTime)
+    IEnumerator DelayedRest()
     {
+        isResting = true;
         yield return new WaitForSeconds(2f);
-        player.Rest(restTime);
+        player.Rest(20f);
+        isResting = false;
     }
 
     private void FixedUpdate()
