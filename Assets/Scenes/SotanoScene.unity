@@ -137,8 +137,9 @@ GameObject:
   - component: {fileID: 326617801}
   - component: {fileID: 326617800}
   - component: {fileID: 326617799}
+  - component: {fileID: 326617805}
   m_Layer: 8
-  m_Name: Martin
+  m_Name: Martina
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -203,6 +204,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactionDistance: 1
   interactionMessage: Hola
+  npcName: Martina
+  npcImage: {fileID: 697178669, guid: 7289b629208b88c418f57b69ecb2067d, type: 3}
 --- !u!61 &326617801
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -316,7 +319,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 6
-  m_Sprite: {fileID: 1147770296, guid: fca227cb4cbe1ff4a9a2ca5114305d02, type: 3}
+  m_Sprite: {fileID: -930071127, guid: 689407840d3478242978607ab61817da, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -336,12 +339,33 @@ Transform:
   m_GameObject: {fileID: 326617798}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -26.12, y: -7.04, z: 0}
+  m_LocalPosition: {x: -26.33, y: -3.89, z: 0}
   m_LocalScale: {x: 1.7019496, y: 1.7019496, z: 1.7019496}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &326617805
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 326617798}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: cc1270b2b76f9fb41bb8c1146670a2a5, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1445301374
 GameObject:
   m_ObjectHideFlags: 0
@@ -356,6 +380,7 @@ GameObject:
   - component: {fileID: 1445301377}
   - component: {fileID: 1445301379}
   - component: {fileID: 1445301380}
+  - component: {fileID: 1445301381}
   m_Layer: 8
   m_Name: Juan
   m_TagString: Untagged
@@ -516,6 +541,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactionDistance: 1
   interactionMessage: La tecla C ha sido presionada enfrente del NPC
+  npcName: Juan
+  npcImage: {fileID: -474952489, guid: a6598f4bafb6e9642a205ac528c57dbe, type: 3}
 --- !u!61 &1445301380
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -561,6 +588,27 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.5, y: 1}
   m_EdgeRadius: 0
+--- !u!95 &1445301381
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1445301374}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 00c36b8218bdd9b459c1d5a41a742af4, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &1589507707
 PrefabInstance:
   m_ObjectHideFlags: 0
