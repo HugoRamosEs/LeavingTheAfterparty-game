@@ -35,9 +35,9 @@ public class NPCInteraction : MonoBehaviour
 
         if (isDialogueShown)
         {
-            dialoguePanelConfig.gameObject.SetActive(true); 
+            dialoguePanelConfig.gameObject.SetActive(true);
             dialoguePanelConfig.UpdateDialogue(interactionMessage, npcName, npcImage);
-           
+
         }
         else
         {

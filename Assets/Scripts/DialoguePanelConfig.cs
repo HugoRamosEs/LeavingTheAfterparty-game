@@ -20,9 +20,9 @@ public class DialoguePanelConfig : MonoBehaviour
 
         NameText.text = name;
         characterImage.sprite = image;
-        dialogueText.text = ""; 
+        dialogueText.text = "";
 
-        StopAllCoroutines(); 
+        StopAllCoroutines();
         StartCoroutine(TypeSentence(text));
     }
 
@@ -42,7 +42,7 @@ public class DialoguePanelConfig : MonoBehaviour
 
     public void HideDialogue()
     {
-        StopAllCoroutines(); 
+        StopAllCoroutines();
         dialogueText.text = "";
         gameObject.SetActive(false);
     }

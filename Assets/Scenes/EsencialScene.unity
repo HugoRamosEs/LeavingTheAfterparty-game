@@ -3440,7 +3440,7 @@ Transform:
   m_GameObject: {fileID: 7031987744104141989}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 25.42, y: -8.87, z: -10}
+  m_LocalPosition: {x: -7.46, y: -9.42, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -7863,8 +7863,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogueText: {fileID: 5653772186302502471}
-  NameText: {fileID: 0}
-  characterImage: {fileID: 0}
+  NameText: {fileID: 8365304070234487474}
+  characterImage: {fileID: 5005577351886772173}
   typingSpeed: 0.05
 --- !u!114 &4859566488129183852
 MonoBehaviour:
@@ -8452,7 +8452,7 @@ Transform:
   m_GameObject: {fileID: 8907916507436873406}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 25.42, y: -8.87, z: 0}
+  m_LocalPosition: {x: -7.46, y: -9.42, z: 0}
   m_LocalScale: {x: 1.75, y: 1.75, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -10141,7 +10141,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &6351735948156937072
 RectTransform:
   m_ObjectHideFlags: 0
@@ -11937,7 +11937,7 @@ Transform:
   m_GameObject: {fileID: 8561007412124901092}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 25.42, y: -8.87, z: -10}
+  m_LocalPosition: {x: -7.46, y: -9.42, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
