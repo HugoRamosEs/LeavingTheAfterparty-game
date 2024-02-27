@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class DialoguePanelConfig : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI dialogueText;
-    [SerializeField] private TextMeshProUGUI NameText;
+    [SerializeField] private TextMeshProUGUI nameText;
     [SerializeField] private Image characterImage;
 
     public float typingSpeed = 0.05f;
@@ -14,11 +14,11 @@ public class DialoguePanelConfig : MonoBehaviour
     {
         gameObject.SetActive(false);
     }
-    public void UpdateDialogue(string text, string name, Sprite image)
+    public void UpdateDialogue(Sprite image, string name, string text)
     {
         gameObject.SetActive(true);
 
-        NameText.text = name;
+        nameText.text = name;
         characterImage.sprite = image;
         dialogueText.text = "";
 
@@ -46,5 +46,4 @@ public class DialoguePanelConfig : MonoBehaviour
         dialogueText.text = "";
         gameObject.SetActive(false);
     }
-
 }
