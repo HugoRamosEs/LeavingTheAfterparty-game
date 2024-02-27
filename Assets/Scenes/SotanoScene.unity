@@ -135,7 +135,6 @@ GameObject:
   - component: {fileID: 326617803}
   - component: {fileID: 326617802}
   - component: {fileID: 326617801}
-  - component: {fileID: 326617800}
   - component: {fileID: 326617799}
   - component: {fileID: 326617805}
   m_Layer: 8
@@ -144,7 +143,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!61 &326617799
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -190,23 +189,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.5, y: 1}
   m_EdgeRadius: 0
---- !u!114 &326617800
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 326617798}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e30ec7fe6f4a5241b7b6463cc4d960b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 0}
-  interactionDistance: 1
-  interactionMessage: Hola
-  npcName: Martina
-  npcImage: {fileID: 697178669, guid: 7289b629208b88c418f57b69ecb2067d, type: 3}
 --- !u!61 &326617801
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -588,7 +570,7 @@ GameObject:
   - component: {fileID: 1445301375}
   - component: {fileID: 1445301378}
   - component: {fileID: 1445301377}
-  - component: {fileID: 1445301379}
+  - component: {fileID: 1445301382}
   - component: {fileID: 1445301380}
   - component: {fileID: 1445301381}
   m_Layer: 8
@@ -737,23 +719,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &1445301379
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1445301374}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e30ec7fe6f4a5241b7b6463cc4d960b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 0}
-  interactionDistance: 1
-  interactionMessage: La tecla C ha sido presionada enfrente del NPC
-  npcName: Juan
-  npcImage: {fileID: -474952489, guid: a6598f4bafb6e9642a205ac528c57dbe, type: 3}
 --- !u!61 &1445301380
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -820,6 +785,22 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1445301382
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1445301374}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d163a9365ba3944a9617f246087a7db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactionDistance: 1
+  interactionMessage: La tecla C ha sido presionada enfrente del NPC
+  npcName: Juan
+  npcImage: {fileID: -474952489, guid: a6598f4bafb6e9642a205ac528c57dbe, type: 3}
 --- !u!1001 &1589507707
 PrefabInstance:
   m_ObjectHideFlags: 0
