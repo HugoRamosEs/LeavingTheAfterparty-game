@@ -32,10 +32,11 @@ public class DialoguePanel : MonoBehaviour
         }
     }
 
-    public void UpdateValues(string name, Sprite image, string[] dialogueLines, int lineIndex)
+    public void UpdateValues(Dialogue dialogue, string[] dialogueLines, int lineIndex)
     {
-        npcName.text = name;
-        npcImage.sprite = image;
+        this.dialogue = dialogue;
+        npcName.text = dialogue.npcName;
+        npcImage.sprite = dialogue.npcImage;
         dLines = dialogueLines;
         lIndex = lineIndex;
 
@@ -60,8 +61,10 @@ public class DialoguePanel : MonoBehaviour
             }
             else
             {
-                dialogue.EndDialogue();
-                Time.timeScale = 1f;
+                if (Input.GetKeyDown(KeyCode.F)) {
+                    dialogue.EndDialogue();
+                    Time.timeScale = 1f;
+                }
             }
         }
     }
