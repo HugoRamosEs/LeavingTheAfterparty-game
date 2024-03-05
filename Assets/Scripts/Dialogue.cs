@@ -7,11 +7,12 @@ public class Dialogue : MonoBehaviour
 
     public bool isPlayerInRange;
     public bool didDialogueStart;
+    public bool requiresKeyPress = true;
     private DialoguePanel dialoguePanel;
 
     public GameObject dialogueMark;
-    [SerializeField] private string npcName;
-    [SerializeField] private Sprite npcImage;
+    public string npcName;
+    public Sprite npcImage;
     [SerializeField, TextArea(4, 6)] private string[] dialogueLines;
 
     void Update()
@@ -21,26 +22,43 @@ public class Dialogue : MonoBehaviour
             CheckForDialoguePanel();
         }
 
-        if (isPlayerInRange && Input.GetKeyDown(KeyCode.F))
+        if (isPlayerInRange)
         {
-            if (!didDialogueStart)
+            if (requiresKeyPress && Input.GetKeyDown(KeyCode.F))
             {
-                StartDialogue();
+                InitDialogue();
             }
-            else
+            else if (!requiresKeyPress)
             {
-                dialoguePanel.NextDialogLine();
+                InitDialogue();
             }
         }
     }
 
-    void StartDialogue()
+    public void InitDialogue()
+    {
+        if (!didDialogueStart)
+        {
+            StartDialogue();
+        }
+        else
+        {
+            dialoguePanel.NextDialogLine();
+        }
+    }
+
+    public void StartDialogue()
     {
         lineIndex = 0;
         didDialogueStart = true;
-        dialoguePanel.gameObject.SetActive(true);
-        dialogueMark.SetActive(false);
-        dialoguePanel.UpdateValues(npcName, npcImage, dialogueLines, lineIndex);
+        CheckForDialoguePanel();
+
+        if (dialoguePanel != null)
+        {
+            dialoguePanel.gameObject.SetActive(true);
+            dialogueMark.SetActive(false);
+            dialoguePanel.UpdateValues(this, dialogueLines, lineIndex);
+        }
     }
 
     public void EndDialogue()
