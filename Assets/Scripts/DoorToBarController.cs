@@ -1,41 +1,30 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 
-public class doorBarController : MonoBehaviour
+public class DoorToBarController : MonoBehaviour
 {
     private ItemPanel itemPanel;
     private bool hasKey = false;
 
     [SerializeField] LightController lightController;
-    [SerializeField] string message;
     [SerializeField] GameObject dialogueGame;
+    [SerializeField] Collider2D doorCollider;
 
     private DialogueGame dialogueScript;
 
     private void Start()
     {
         dialogueScript = dialogueGame.GetComponent<DialogueGame>();
-    }
-
-    private void Update()
-    {
-        if (itemPanel == null)
-        {
-            CheckForDialoguePanel();
-        }
+        itemPanel = null;
+        CheckForDialoguePanel();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            //if (lightController.isDark)
-            //{
-            //    dialogueGame.gameObject.SetActive(true);
-            //    dialogueScript.UpdateText(message);
-            //}
-
             foreach (ItemSlot slot in itemPanel.inventory.slots)
             {
                 if (slot.item != null && slot.item.Name == "Key")
@@ -45,10 +34,24 @@ public class doorBarController : MonoBehaviour
                 }
             }
 
-            if (!hasKey)
+            if (lightController.isDark && hasKey)
             {
                 dialogueGame.gameObject.SetActive(true);
-                dialogueScript.UpdateText("Press F to open the door");
+                dialogueScript.UpdateText("Estaría bien que encendieras las luz antes de seguir...");
+            }
+            if (!hasKey && !lightController.isDark)
+            {
+                dialogueGame.gameObject.SetActive(true);
+                dialogueScript.UpdateText("La puerta esta bloqueada, necesitas la llave para continuar...");
+            }
+            if (!hasKey && lightController.isDark)
+            {
+                dialogueGame.gameObject.SetActive(true);
+                dialogueScript.UpdateText("Necesitas encender la luz y la llave que abre la puerta para poder continuar...");
+            }
+            if (hasKey && !lightController.isDark)
+            {
+                doorCollider.gameObject.SetActive(false);
             }
         }
     }

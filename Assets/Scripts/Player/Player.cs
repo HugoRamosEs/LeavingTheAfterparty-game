@@ -48,12 +48,12 @@ public class Player : MonoBehaviour
         hpBar.Set(hp.currentVal, hp.maxVal);
         staminaBar.Set(stamina.currentVal, stamina.maxVal);
     }
-    private void UpdateHpBar()
+    public void UpdateHpBar()
     {
         hpBar.Set(hp.currentVal, hp.maxVal);
     }
 
-    private void UpdateStaminaBar()
+    public void UpdateStaminaBar()
     {
         staminaBar.Set(stamina.currentVal, stamina.maxVal);
     }
