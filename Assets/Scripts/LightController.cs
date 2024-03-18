@@ -8,6 +8,20 @@ public class LightController : MonoBehaviour
     private Canvas screenDark;
     private bool isPlayerInTrigger = false;
     public bool isDark = true;
+    public GameObject dialogueMark;
+
+    void Start()
+    {
+        Scene currentScene = SceneManager.GetActiveScene();
+        if (currentScene.name == "EsencialScene")
+        {
+            isDark = false;
+        }
+        else
+        {
+            isDark = true;
+        }
+    }
 
     void Update()
     {
@@ -19,6 +33,7 @@ public class LightController : MonoBehaviour
         if (screenDark && isPlayerInTrigger && Input.GetKeyDown(KeyCode.E))
         {
             screenDark.gameObject.SetActive(true);
+            dialogueMark.SetActive(false);
             Destroy(screenDark.gameObject);
             isDark = false;
         }
@@ -28,6 +43,10 @@ public class LightController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
+            if (isDark)
+            {
+                dialogueMark.SetActive(true);
+            }
             isPlayerInTrigger = true;
         }
     }
@@ -36,6 +55,8 @@ public class LightController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
+            
+            dialogueMark.SetActive(false);
             isPlayerInTrigger = false;
         }
     }

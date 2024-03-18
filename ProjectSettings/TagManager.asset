@@ -8,6 +8,8 @@ TagManager:
   - dialoguePanel
   - npc
   - Enemy
+  - screenDark
+  - buffIcon
   layers:
   - Default
   - TransparentFX

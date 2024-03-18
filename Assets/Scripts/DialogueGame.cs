@@ -23,7 +23,7 @@ public class DialogueGame : MonoBehaviour
         foreach (char letter in message)
         {
             text.text += letter;
-            yield return new WaitForSeconds(typingSpeed);
+            yield return new WaitForSecondsRealtime(typingSpeed);
         }
     }
 
