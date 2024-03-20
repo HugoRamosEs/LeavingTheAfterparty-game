@@ -143,7 +143,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!95 &336348232
 Animator:
   serializedVersion: 5
@@ -498,7 +498,7 @@ GameObject:
   - component: {fileID: 1044269491}
   - component: {fileID: 1044269490}
   m_Layer: 8
-  m_Name: Juan
+  m_Name: Anciano
   m_TagString: npc
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -520,10 +520,12 @@ MonoBehaviour:
   didDialogueStart: 0
   requiresKeyPress: 1
   dialogueMark: {fileID: 580221982}
-  npcName: Juan
-  npcImage: {fileID: -474952489, guid: a6598f4bafb6e9642a205ac528c57dbe, type: 3}
+  npcName: Anciano
+  npcImage: {fileID: 1723864606, guid: d6e099db33df1e549b53f51c208c7def, type: 3}
   dialogueLines:
-  - Ya... Es... Tarde...
+  - Ya...
+  - es...
+  - tarde...
 --- !u!61 &1044269491
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -556,18 +558,18 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.2}
+  m_Offset: {x: -0.002996467, y: -0.105605945}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.5, y: 1}
+    oldSize: {x: 0.16, y: 0.32}
     newSize: {x: 0.5, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.5, y: 1.5}
+  m_Size: {x: 0.2773739, y: 0.21444353}
   m_EdgeRadius: 0
 --- !u!61 &1044269492
 BoxCollider2D:
@@ -601,18 +603,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.01485014, y: -0.270452}
+  m_Offset: {x: -0.00013278425, y: -0.10713535}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.5, y: 1}
+    oldSize: {x: 0.16, y: 0.32}
     newSize: {x: 0.5, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.4230585, y: 0.2932253}
+  m_Size: {x: 0.15336165, y: 0.10443841}
   m_EdgeRadius: 0
 --- !u!50 &1044269493
 Rigidbody2D:
@@ -651,7 +653,7 @@ Animator:
   m_GameObject: {fileID: 1044269489}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 00c36b8218bdd9b459c1d5a41a742af4, type: 2}
+  m_Controller: {fileID: 9100000, guid: f0cd9f5e9b7596f4d877bad9ae261d5a, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -703,7 +705,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 6
-  m_Sprite: {fileID: 1147770296, guid: fca227cb4cbe1ff4a9a2ca5114305d02, type: 3}
+  m_Sprite: {fileID: 41127332, guid: b3f584cf05375a74d9a48bf85e4a4164, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -723,8 +725,8 @@ Transform:
   m_GameObject: {fileID: 1044269489}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 19.7, y: 63.69, z: 0}
-  m_LocalScale: {x: 1.7019496, y: 1.7019496, z: 1.7019496}
+  m_LocalPosition: {x: 19.55, y: 63.34, z: 0}
+  m_LocalScale: {x: 6.0350847, y: 6.0350847, z: 6.0350847}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 580221984}
