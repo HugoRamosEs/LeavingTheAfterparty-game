@@ -224,6 +224,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1881829844276024650, guid: 3aa4042f9237621489cd8c8246d804bc, type: 3}
+      propertyPath: m_BodyType
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2381316665552354259, guid: 3aa4042f9237621489cd8c8246d804bc, type: 3}
       propertyPath: m_LocalPosition.x
       value: 28.48
@@ -328,6 +332,10 @@ PrefabInstance:
     - target: {fileID: 4638583407023971080, guid: 3aa4042f9237621489cd8c8246d804bc, type: 3}
       propertyPath: m_Name
       value: Julian-2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4638583407023971080, guid: 3aa4042f9237621489cd8c8246d804bc, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5182742030889891972, guid: 3aa4042f9237621489cd8c8246d804bc, type: 3}
       propertyPath: m_SortingOrder
@@ -539,6 +547,10 @@ PrefabInstance:
     - target: {fileID: 4638583407023971080, guid: 3aa4042f9237621489cd8c8246d804bc, type: 3}
       propertyPath: m_Name
       value: Julian-1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4638583407023971080, guid: 3aa4042f9237621489cd8c8246d804bc, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5182742030889891972, guid: 3aa4042f9237621489cd8c8246d804bc, type: 3}
       propertyPath: m_SortingOrder
