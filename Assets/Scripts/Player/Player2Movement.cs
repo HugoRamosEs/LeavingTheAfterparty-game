@@ -20,6 +20,9 @@ public class Player2Movement : MonoBehaviour
 
     private Vector3 moveDir;
 
+    public PlayerAttackShooting playerAttackShooting;
+    public PlayerAttackMelee playerAttackMelee;
+
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -34,6 +37,15 @@ public class Player2Movement : MonoBehaviour
 
     void Update()
     {
+        if (Time.deltaTime == 0)
+            return;
+
+        if (playerAttackShooting.isShooting || playerAttackMelee.isAttacking)
+        {
+            StopMoving();
+            return;
+        }
+
         x = Input.GetAxisRaw("Horizontal");
         y = Input.GetAxisRaw("Vertical");
 
@@ -96,7 +108,17 @@ public class Player2Movement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        rb.velocity = moveDir * currentMoveSpeed * Time.deltaTime;
+        if (Time.deltaTime == 0)
+            return;
+
+        if (playerAttackShooting.isShooting || playerAttackMelee.isAttacking)
+        {
+            StopMoving();
+        }
+        else
+        {
+            rb.velocity = moveDir * currentMoveSpeed * Time.deltaTime;
+        }
     }
 
     void StopMoving()
