@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1721f86770205244abc7a0b3f3d9484, type: 3}
   m_Name: Item
   m_EditorClassIdentifier: 
-  Name: tirachinas
+  Name: Key
   stackable: 0
-  icon: {fileID: 727620093, guid: 00044f1249a884f4a987f4d5e6fde216, type: 3}
+  icon: {fileID: -1651703028, guid: 3ff81e652137cb840b61d9ea9145d663, type: 3}
