@@ -9,6 +9,7 @@ TagManager:
   - npc
   - Enemy
   - screenDark
+  - buffIcon
   layers:
   - Default
   - TransparentFX
