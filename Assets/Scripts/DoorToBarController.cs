@@ -7,6 +7,7 @@ public class DoorToBarController : MonoBehaviour
 {
     private ItemPanel itemPanel;
     private bool hasKey = false;
+    private PlayerSceneController player;
 
     [SerializeField] LightController lightController;
     [SerializeField] GameObject dialogueGame;
@@ -18,7 +19,15 @@ public class DoorToBarController : MonoBehaviour
     {
         dialogueScript = dialogueGame.GetComponent<DialogueGame>();
         itemPanel = null;
+        player = null;
+        CheckForPlayerSceneController();
         CheckForDialoguePanel();
+
+        if (player.sotanoPasado)
+        {
+            hasKey = true;
+            lightController.isDark = false;
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -52,6 +61,7 @@ public class DoorToBarController : MonoBehaviour
             if (hasKey && !lightController.isDark)
             {
                 doorCollider.gameObject.SetActive(false);
+                player.sotanoPasado = true;
             }
         }
     }
@@ -80,6 +90,27 @@ public class DoorToBarController : MonoBehaviour
                 if (foundItemPanel != null)
                 {
                     itemPanel = foundItemPanel;
+                    break;
+                }
+            }
+        }
+    }
+
+    private void CheckForPlayerSceneController()
+    {
+        Scene esencialScene = SceneManager.GetSceneByName("EsencialScene");
+
+        if (esencialScene.IsValid())
+        {
+            GameObject[] objectsInScene = esencialScene.GetRootGameObjects();
+
+            foreach (GameObject obj in objectsInScene)
+            {
+                PlayerSceneController foundPlayerSceneController = obj.GetComponentInChildren<PlayerSceneController>(true);
+
+                if (foundPlayerSceneController != null)
+                {
+                    player = foundPlayerSceneController;
                     break;
                 }
             }
