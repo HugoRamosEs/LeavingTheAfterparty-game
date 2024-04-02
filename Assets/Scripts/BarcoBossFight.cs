@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using System.Collections;
+using SuperTiled2Unity;
 
 public class BarcoBossFight : MonoBehaviour
 {
@@ -13,15 +14,23 @@ public class BarcoBossFight : MonoBehaviour
     private int MaxHealth;
     private bool step2 = false;
     private bool step3 = false;
+    private bool invulnerable = false;
     public GameObject magicBulletBossPrefab;
-    public GameObject HeiserBossPrefab;
+    public GameObject flameBallBossPrefab;
+    public Slider BossLifeBar;
+    public GameObject colisionMuro;
+    public GameObject muroNoHitbox;
 
     void Start()
     {
         animator = GetComponent<Animator>();
         MaxHealth = bossHealth;
         InvokeRepeating("FireMagicBullet", 5f, 5f);
-        InvokeRepeating("SpawnHeisers",8f,8f);
+        InvokeRepeating("SpawnFlame",8f,8f);
+        BossLifeBar.maxValue = bossHealth;
+        BossLifeBar.value = bossHealth;
+        colisionMuro.SetActive(true);
+        muroNoHitbox.SetActive(true);
     }
 
     void Update()
@@ -35,16 +44,16 @@ public class BarcoBossFight : MonoBehaviour
         if (bossHealth <= (MaxHealth) * 0.66 && step2 == false)
         {
             CancelInvoke("FireMagicBullet");
-            CancelInvoke("SpawnHeisers");
+            CancelInvoke("SpawnFlame");
             step2 = true;
             StartCoroutine(PhaseTransition("El aire es más frío a tu alrededor..."));
             InvokeRepeating("FireMagicBullet", 13f, 13f);
-            InvokeRepeating("SpawnHeisers", 2f, 2f);
+            InvokeRepeating("SpawnFlame", 2f, 2f);
         }
         if (bossHealth <= (MaxHealth) * 0.33 && step3 == false)
         {
             CancelInvoke("FireMagicBullet");
-            CancelInvoke("SpawnHeisers");
+            CancelInvoke("SpawnFlame");
             step3 = true;
             StartCoroutine(PhaseTransition("Se avecina un infierno inminente..."));
             InvokeRepeating("FireMagicBullet", 1f, 1f);
@@ -52,7 +61,7 @@ public class BarcoBossFight : MonoBehaviour
         if (bossHealth <= 0)
         {
             CancelInvoke("FireMagicBullet");
-            CancelInvoke("SpawnHeisers");
+            CancelInvoke("SpawnFlame");
             StartCoroutine(PhaseTransition("¿Que ha sido eso?", true));
         }
     }
@@ -84,7 +93,7 @@ public class BarcoBossFight : MonoBehaviour
             if (spriteRenderer != null)
             {
                 Color color = spriteRenderer.color;
-                color.a = 0; // Set alpha to 0
+                color.a = 0;
                 spriteRenderer.color = color;
             }
 
@@ -111,6 +120,8 @@ public class BarcoBossFight : MonoBehaviour
         Time.timeScale = 1;
         if (isBossDead)
         {
+            colisionMuro.SetActive(false);
+            muroNoHitbox.SetActive(false);
             Destroy(gameObject);
         }
     }
@@ -122,18 +133,43 @@ public class BarcoBossFight : MonoBehaviour
 
             
             GameObject bullet = Instantiate(magicBulletBossPrefab, spawnPoint, Quaternion.identity);
-        
+
+            StartCoroutine(DelayBullet(bullet));
+
     }
-    void SpawnHeisers()
+    IEnumerator DelayBullet(GameObject bullet)
     {
-        
-            float radius = 3f;
-            for (int i = 0; i < 2; i++)
+       
+        Projectile bulletScript = bullet.GetComponent<Projectile>();
+
+        if (bulletScript != null)
+        {
+            float originalSpeed = bulletScript.speed;
+
+            bulletScript.speed = 0f;
+
+            yield return new WaitForSeconds(1f);
+
+            bulletScript.speed = originalSpeed;
+        }
+    }
+    void SpawnFlame()
+    {
+        int numberOfFlames = Random.Range(10, 21);
+        for (int i = 0; i < numberOfFlames; i++)
+        {
+            float randomX = Random.Range(-10f, 50f);
+            Vector2 spawnPoint = new Vector2(randomX, transform.position.y+10);
+
+            GameObject flame = Instantiate(flameBallBossPrefab, spawnPoint, Quaternion.identity);
+
+            
+            FlameBall_BarcoBoss_Attack flameScript = flame.GetComponent<FlameBall_BarcoBoss_Attack>();
+            if (flameScript != null)
             {
-                Vector2 spawnPoint = (Vector2)player.position + Random.insideUnitCircle * radius;
-                Instantiate(HeiserBossPrefab, spawnPoint, Quaternion.identity);
+                flameScript.speed = Random.Range(2f, 10f);
             }
-        
+        }
     }
 
     void CheckForPlayerWithTag()
@@ -149,9 +185,19 @@ public class BarcoBossFight : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Player")
+        if (collision.gameObject.tag == "Player" && !invulnerable)
         {
             bossHealth -= 10;
+            BossLifeBar.value = bossHealth;
+            StartCoroutine(InvulnerabilityPeriod());
         }
+    }
+    IEnumerator InvulnerabilityPeriod()
+    {
+        invulnerable = true;
+        BossLifeBar.fillRect.GetComponent<Image>().color = Color.cyan;
+        yield return new WaitForSeconds(3f);
+        invulnerable = false;
+        BossLifeBar.fillRect.GetComponent<Image>().color = Color.white;
     }
 }
