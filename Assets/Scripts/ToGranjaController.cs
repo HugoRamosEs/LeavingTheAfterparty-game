@@ -1,23 +1,32 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class ToGranjaController : MonoBehaviour
 {
     private ItemPanel itemPanel;
-    private SceneTint sceneTint;
+    private PlayerSceneController player;
+    private bool hasKey = false;
 
     public GameObject joaquin;
     public BoxCollider2D toGranjaCollider;
-    public bool hasKey = false;
+    public GameObject joaquinPanel;
+    public Image joaquinImage;
+    public DialogueGame dialogueGame;
 
     private void Start()
     {
         itemPanel = null;
-        sceneTint = null;
+        player = null;
+        CheckForPlayerSceneController();
         CheckForItemPanel();
-        CheckForSceneTint();
+
+        if (player.playaPasada)
+        {
+            disableJoaquin();
+        }
     }
 
     private IEnumerator OnTriggerEnter2D(Collider2D collision)
@@ -36,23 +45,50 @@ public class ToGranjaController : MonoBehaviour
 
             if (hasKey)
             {
-                Debug.Log("Player has key");
-                sceneTint.Tint();
-                yield return new WaitForSeconds(1f / sceneTint.speed + 0.1f);
+                Time.timeScale = 0f;
+                joaquinImage.enabled = true;
+                joaquinPanel.SetActive(true);
+                dialogueGame.UpdateText("Esa es mi llave?? Muchas gracias!!!! Me las piro vampiro (>_<)");
+
+                float fadeDuration = 1f;
+                float elapsedTime = 0f;
+                Color startColor = joaquinImage.color;
+                Color targetColor = new Color(startColor.r, startColor.g, startColor.b, 1f);
+
+                while (elapsedTime < fadeDuration)
+                {
+                    float t = elapsedTime / fadeDuration;
+                    joaquinImage.color = Color.Lerp(startColor, targetColor, t);
+                    elapsedTime += Time.unscaledDeltaTime;
+                    yield return null;
+                }
+                joaquinImage.color = targetColor;
+
+                yield return new WaitForSecondsRealtime(3.5f);
                 disableJoaquin();
-                yield return new WaitForEndOfFrame();
-                sceneTint.UnTint();
+                player.playaPasada = true;
+                joaquinPanel.SetActive(false);
+                Time.timeScale = 1f;
+                
+                elapsedTime = 0f;
+                while (elapsedTime < fadeDuration)
+                {
+                    float t = elapsedTime / fadeDuration;
+                    joaquinImage.color = Color.Lerp(targetColor, startColor, t);
+                    elapsedTime += Time.unscaledDeltaTime;
+                    yield return null;
+                }
+                joaquinImage.color = startColor;
+                
+                joaquinImage.enabled = false;
             }
         }
     }
 
     private void disableJoaquin()
     {
-        if (hasKey)
-        {
-            joaquin.SetActive(false);
-            toGranjaCollider.enabled = false;
-        }
+        Destroy(joaquin);
+        toGranjaCollider.enabled = false;
     }
 
     private void CheckForItemPanel()
@@ -75,8 +111,8 @@ public class ToGranjaController : MonoBehaviour
             }
         }
     }
-
-    private void CheckForSceneTint()
+    
+    private void CheckForPlayerSceneController()
     {
         Scene esencialScene = SceneManager.GetSceneByName("EsencialScene");
 
@@ -86,14 +122,14 @@ public class ToGranjaController : MonoBehaviour
 
             foreach (GameObject obj in objectsInScene)
             {
-                SceneTint foundSceneTint = obj.GetComponentInChildren<SceneTint>(true);
+                PlayerSceneController foundPlayerSceneController = obj.GetComponentInChildren<PlayerSceneController>(true);
 
-                if (foundSceneTint != null)
+                if (foundPlayerSceneController != null)
                 {
-                    sceneTint = foundSceneTint;
+                    player = foundPlayerSceneController;
                     break;
                 }
             }
         }
-    }   
+    }
 }

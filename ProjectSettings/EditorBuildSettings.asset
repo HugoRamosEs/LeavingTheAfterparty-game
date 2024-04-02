@@ -29,4 +29,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/TiendaScene.unity
     guid: 4865635f53ff6db4d8607a7d3121ad1b
+  - enabled: 1
+    path: Assets/Scenes/GranjaScene.unity
+    guid: a34eef7aeca5f804883b362765d9bd15
   m_configObjects: {}
