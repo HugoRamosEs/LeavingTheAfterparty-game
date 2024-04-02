@@ -10,6 +10,7 @@ TagManager:
   - Enemy
   - screenDark
   - buffIcon
+  - MuroFuegoController
   layers:
   - Default
   - TransparentFX
