@@ -20,7 +20,7 @@ public class TiendaController : MonoBehaviour
     {
         itemPanel = null;
         buffIcon = null;
-        CheckForDialoguePanel();
+        CheckForItemPanel();
         CheckForBuffIcon();
     }
 
@@ -61,7 +61,7 @@ public class TiendaController : MonoBehaviour
         }
     }
 
-    private void CheckForDialoguePanel()
+    private void CheckForItemPanel()
     {
         Scene esencialScene = SceneManager.GetSceneByName("EsencialScene");
 
