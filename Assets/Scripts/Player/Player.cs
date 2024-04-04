@@ -43,6 +43,10 @@ public class Player : MonoBehaviour
     [SerializeField] PlayerStatus staminaBar;
     public bool isDead;
     public bool isExhausted;
+    [SerializeField] ItemToolBarPanel toolBarPanel;
+
+    public DeathScreen deathScreenPnl;
+
     private void Start()
     {
         hpBar.Set(hp.currentVal, hp.maxVal);
@@ -63,9 +67,31 @@ public class Player : MonoBehaviour
         if (hp.currentVal <= 0)
         {
             isDead = true;
+            GameOver();
         }
         UpdateHpBar();
     }
+
+    public void GameOver()
+    {
+        deathScreenPnl.Setup();
+
+        hpBar.gameObject.SetActive(false);
+        staminaBar.gameObject.SetActive(false);
+        toolBarPanel.gameObject.SetActive(false);
+
+        gameObject.SetActive(false);
+        Time.timeScale = 0;
+    }
+
+    IEnumerator FreezeGameAfterDelay(float delay)
+    {
+        yield return new WaitForSecondsRealtime(delay);
+
+        Time.timeScale = 0;
+        gameObject.SetActive(false);
+    }
+
     public void Heal(float amount)
     {
         hp.Add(amount);

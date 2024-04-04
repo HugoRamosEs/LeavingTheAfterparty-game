@@ -144,5 +144,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 8
-  damage: 1000
+  damage: 10000
   destructionParticles: {fileID: 6683239834085797599, guid: 92ea0bc5f3b8c4b46a1caf33c8a7caaa, type: 3}
