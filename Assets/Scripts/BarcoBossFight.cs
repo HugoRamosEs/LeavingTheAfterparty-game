@@ -2,7 +2,6 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using System.Collections;
-using SuperTiled2Unity;
 
 public class BarcoBossFight : MonoBehaviour
 {
@@ -20,13 +19,17 @@ public class BarcoBossFight : MonoBehaviour
     public Slider BossLifeBar;
     public GameObject colisionMuro;
     public GameObject muroNoHitbox;
+    public GameObject bloqueoTop;
+    public GameObject perla;
+    public GameObject llave;
+    private bool inPhaseTransition = false;
 
     void Start()
     {
         animator = GetComponent<Animator>();
         MaxHealth = bossHealth;
-        InvokeRepeating("FireMagicBullet", 5f, 5f);
-        InvokeRepeating("SpawnFlame",8f,8f);
+        InvokeRepeating("FireMagicBullet", 5f, 1000f);
+        InvokeRepeating("SpawnFlame", 8f, 1000f);
         BossLifeBar.maxValue = bossHealth;
         BossLifeBar.value = bossHealth;
         colisionMuro.SetActive(true);
@@ -58,35 +61,45 @@ public class BarcoBossFight : MonoBehaviour
             StartCoroutine(PhaseTransition("Se avecina un infierno inminente..."));
             InvokeRepeating("FireMagicBullet", 1f, 1f);
         }
-        if (bossHealth <= 0)
+        if (bossHealth <= 0 && !inPhaseTransition)
         {
             CancelInvoke("FireMagicBullet");
             CancelInvoke("SpawnFlame");
+            BossLifeBar.gameObject.SetActive(false);
             StartCoroutine(PhaseTransition("¿Que ha sido eso?", true));
+            bloqueoTop.SetActive(false);
+            perla.SetActive(true);
+            llave.SetActive(true);
         }
     }
 
-    IEnumerator PhaseTransition(string phaseText,bool isBossDead = false)
+    IEnumerator PhaseTransition(string phaseText, bool isBossDead = false)
     {
+        inPhaseTransition = true;
+        BarcoBossTransformation.KeepPlayerStill = true;
         float transitionTime = 1f;
-        float panelTransitionTime = 0.1f;
+        float panelTransitionTime = 0.7f;
 
-        Color panelColor = panelTransition.GetComponent<Image>().color;
-        for (float t = 0; t < panelTransitionTime; t += Time.unscaledDeltaTime)
+        Image panelImage = panelTransition.GetComponent<Image>();
+        Color panelColor = panelImage.color;
+        for (float t = 0; t <= 1; t += Time.fixedDeltaTime / panelTransitionTime)
         {
-            panelColor.a = (t / panelTransitionTime) *1.2f;
-            panelTransition.GetComponent<Image>().color = panelColor;
+            float clampedT = Mathf.Clamp01(t);
+            panelColor.a = Mathf.Lerp(0, 1f, clampedT);
+            panelImage.color = panelColor;
             yield return null;
         }
 
         textTransition.text = phaseText;
         Color textColor = textTransition.color;
-        for (float t = 0; t < transitionTime; t += Time.unscaledDeltaTime)
+        for (float t = 0; t <= 1; t += Time.fixedDeltaTime / transitionTime)
         {
-            textColor.a = t / transitionTime;
+            float clampedT = Mathf.Clamp01(t);
+            textColor.a = Mathf.Lerp(0, 1, clampedT);
             textTransition.color = textColor;
             yield return null;
         }
+
         if (isBossDead)
         {
             SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
@@ -96,50 +109,51 @@ public class BarcoBossFight : MonoBehaviour
                 color.a = 0;
                 spriteRenderer.color = color;
             }
-
         }
-        Time.timeScale = 0;
 
         yield return new WaitForSecondsRealtime(2f);
 
-        for (float t = 0; t < transitionTime; t += Time.unscaledDeltaTime)
+        for (float t = 0; t <= 1; t += Time.unscaledDeltaTime / transitionTime)
         {
-            textColor.a = 1 - (t / transitionTime);
+            float clampedT = Mathf.Clamp01(t);
+            textColor.a = Mathf.Lerp(1, 0, clampedT);
             textTransition.color = textColor;
             yield return null;
         }
 
-        for (float t = 0; t < panelTransitionTime; t += Time.unscaledDeltaTime)
+        for (float t = 0; t <= 1; t += Time.unscaledDeltaTime / panelTransitionTime)
         {
-            panelColor.a = 1 - (t / panelTransitionTime);
-            panelTransition.GetComponent<Image>().color = panelColor;
+            float clampedT = Mathf.Clamp01(t);
+            panelColor.a = Mathf.Lerp(1f, 0, clampedT);
+            panelImage.color = panelColor;
             yield return null;
         }
 
-
-        Time.timeScale = 1;
         if (isBossDead)
         {
             colisionMuro.SetActive(false);
             muroNoHitbox.SetActive(false);
             Destroy(gameObject);
         }
+
+        inPhaseTransition = false;
+        BarcoBossTransformation.KeepPlayerStill = false;
     }
+
     void FireMagicBullet()
     {
-        
-            float radius = 10f;  
-            Vector2 spawnPoint = (Vector2)player.position + Random.insideUnitCircle * radius;
+        if (inPhaseTransition) return;
 
-            
-            GameObject bullet = Instantiate(magicBulletBossPrefab, spawnPoint, Quaternion.identity);
+        float radius = 10f;
+        Vector2 spawnPoint = (Vector2)player.position + Random.insideUnitCircle * radius;
 
-            StartCoroutine(DelayBullet(bullet));
+        GameObject bullet = Instantiate(magicBulletBossPrefab, spawnPoint, Quaternion.identity);
 
+        StartCoroutine(DelayBullet(bullet));
     }
+
     IEnumerator DelayBullet(GameObject bullet)
     {
-       
         Projectile bulletScript = bullet.GetComponent<Projectile>();
 
         if (bulletScript != null)
@@ -153,17 +167,19 @@ public class BarcoBossFight : MonoBehaviour
             bulletScript.speed = originalSpeed;
         }
     }
+
     void SpawnFlame()
     {
+        if (inPhaseTransition) return;
+
         int numberOfFlames = Random.Range(10, 21);
         for (int i = 0; i < numberOfFlames; i++)
         {
             float randomX = Random.Range(-10f, 50f);
-            Vector2 spawnPoint = new Vector2(randomX, transform.position.y+10);
+            Vector2 spawnPoint = new Vector2(randomX, transform.position.y + 10);
 
             GameObject flame = Instantiate(flameBallBossPrefab, spawnPoint, Quaternion.identity);
 
-            
             FlameBall_BarcoBoss_Attack flameScript = flame.GetComponent<FlameBall_BarcoBoss_Attack>();
             if (flameScript != null)
             {
@@ -182,7 +198,6 @@ public class BarcoBossFight : MonoBehaviour
         }
     }
 
-
     void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Player" && !invulnerable)
@@ -192,6 +207,7 @@ public class BarcoBossFight : MonoBehaviour
             StartCoroutine(InvulnerabilityPeriod());
         }
     }
+
     IEnumerator InvulnerabilityPeriod()
     {
         invulnerable = true;
