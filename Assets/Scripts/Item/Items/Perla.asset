@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Perla
   stackable: 0
-  icon: {fileID: -927456678, guid: 3ff81e652137cb840b61d9ea9145d663, type: 3}
+  icon: {fileID: 1613916091, guid: 3ff81e652137cb840b61d9ea9145d663, type: 3}
