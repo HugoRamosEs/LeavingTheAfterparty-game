@@ -189,10 +189,73 @@ TextureImporter:
       name: Equipament-SpecialItems_3
       rect:
         serializedVersion: 2
-        x: 62
-        y: 14
+        x: 55
+        y: 214
         width: 16
-        height: 16
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c3b67e2cf0cba2e448ba2e5fdbd74994
+      internalID: -927456678
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equipament-SpecialItems_4
+      rect:
+        serializedVersion: 2
+        x: 43
+        y: 115
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7c5e2cb5611a0fd45a4e53881e3c6245
+      internalID: 1555859752
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equipament-SpecialItems_5
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 91
+        width: 13
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1a958402bcce9ab46ac24fcd5ab7b1ee
+      internalID: 909740661
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Equipament-SpecialItems_6
+      rect:
+        serializedVersion: 2
+        x: 105
+        y: 213
+        width: 12
+        height: 14
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -200,8 +263,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e0e726b0743fd604fa14344ecbc78eb0
-      internalID: -927456678
+      spriteID: 27ca5c88f8f34b745856e80d67258f86
+      internalID: -1946858556
       vertices: []
       indices: 
       edges: []
