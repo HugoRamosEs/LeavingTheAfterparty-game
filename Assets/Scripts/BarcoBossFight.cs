@@ -70,6 +70,7 @@ public class BarcoBossFight : MonoBehaviour
             bloqueoTop.SetActive(false);
             perla.SetActive(true);
             llave.SetActive(true);
+            panelTransition.SetActive(false);
         }
     }
 
