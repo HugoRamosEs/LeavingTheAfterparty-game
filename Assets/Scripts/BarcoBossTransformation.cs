@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BarcoBossTransformation : MonoBehaviour
 {
@@ -11,7 +12,8 @@ public class BarcoBossTransformation : MonoBehaviour
     public GameObject sombraTransformacionReverse;
     public Transform playerTransform;
     private Vector3 playerPosition;
-    private bool keepPlayerStill = false;
+    public static bool KeepPlayerStill { get; set; } = false;
+    public Slider BossLifeBar;
 
     void Start()
     {
@@ -20,7 +22,7 @@ public class BarcoBossTransformation : MonoBehaviour
 
     private void Update()
     {
-        if (keepPlayerStill)
+        if (KeepPlayerStill)
         {
             playerTransform.position = playerPosition;
         }
@@ -31,8 +33,7 @@ public class BarcoBossTransformation : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             playerPosition = playerTransform.position;
-            keepPlayerStill = true;
-
+            KeepPlayerStill = true;
             dialogueGame.gameObject.SetActive(true);
             dialogueGame.UpdateText("Ya... Es... Tarde...");
             StartCoroutine(ActivateBossAfterDelay(4f));
@@ -42,27 +43,22 @@ public class BarcoBossTransformation : MonoBehaviour
     private IEnumerator ActivateBossAfterDelay(float delay)
     {
         yield return new WaitForSeconds(delay);
-
         sombraTransformacion.SetActive(true);
         yield return new WaitForSeconds(1f);
-
-        sombraTransformacion.SetActive(false);
-        sombraTransformacionReverse.SetActive(true);
-        yield return new WaitForSeconds(1f);
-
-        sombraTransformacionReverse.SetActive(false);
-
         if (anciano != null)
         {
             anciano.SetActive(false);
         }
-
         barcoBoss.SetActive(true);
         boss.SetActive(true);
-
-        keepPlayerStill = false;
-
+        sombraTransformacion.SetActive(false);
+        sombraTransformacionReverse.SetActive(true);
+        yield return new WaitForSeconds(1f);
+        sombraTransformacionReverse.SetActive(false);
+        KeepPlayerStill = false;
+        BossLifeBar.gameObject.SetActive(true);
         Destroy(gameObject);
+
     }
 
     private void OnTriggerExit2D(Collider2D other)

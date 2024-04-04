@@ -1,10 +1,11 @@
-using System.Collections;
 using UnityEngine;
-
+using UnityEngine.UI;
+using System.Collections;
 public class SombraTransformacion : MonoBehaviour
 {
     public GameObject sombraTransformacion;
     public GameObject sombraTransformacionReverse;
+    public Slider BossLifeBar;
 
     void OnEnable()
     {
@@ -17,7 +18,7 @@ public class SombraTransformacion : MonoBehaviour
         yield return new WaitForSeconds(delay);
 
         sombraTransformacion.SetActive(false);
-
+        BossLifeBar.gameObject.SetActive(true);
         sombraTransformacionReverse.SetActive(true);
         StartCoroutine(DestroyAfterDelay(1f));
     }
