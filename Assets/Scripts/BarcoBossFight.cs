@@ -21,6 +21,7 @@ public class BarcoBossFight : MonoBehaviour
     public GameObject panelTransition;
     public TextMeshProUGUI textTransition;
     public Canvas canvas;
+    private bool finalPhaseStarted = false;
 
     [Header("Prefabs & Game Objects")]
     public GameObject magicBulletBossPrefab;
@@ -74,8 +75,9 @@ public class BarcoBossFight : MonoBehaviour
             ChangePhase("Se avecina un infierno inminente...", 1f);
             step3 = true;
         }
-        else if (bossHealth <= 0)
+        else if (bossHealth <= 0 && !finalPhaseStarted)
         {
+            finalPhaseStarted = true;
             EndPhase("¿Que ha sido eso?", true);
         }
     }
@@ -106,12 +108,26 @@ public class BarcoBossFight : MonoBehaviour
         canvas.sortingOrder = 2;
         bossLifeBar.gameObject.SetActive(false);
 
+        if (playerStatus != null)
+        {
+            playerStatus.isInvulnerable = true;
+        }
+
         // Inicia la transición del panel
         Image panelImage = panelTransition.GetComponent<Image>();
         Color panelColor = panelImage.color;
         panelColor.a = 0; // Inicializa la opacidad del panel a 0
         panelImage.color = panelColor;
         yield return StartCoroutine(ChangeAlpha(panelImage, 0, 1, panelTransitionTime)); // Sube la opacidad del panel
+
+        if (isBossDead)
+        {
+            SpriteRenderer bossSpriteRenderer = GetComponent<SpriteRenderer>();
+            if (bossSpriteRenderer != null)
+            {
+                bossSpriteRenderer.color = new Color(bossSpriteRenderer.color.r, bossSpriteRenderer.color.g, bossSpriteRenderer.color.b, 0);
+            }
+        }
 
         // Configura y muestra el texto de transición
         textTransition.text = phaseText;
@@ -122,8 +138,8 @@ public class BarcoBossFight : MonoBehaviour
 
         yield return new WaitForSecondsRealtime(2f); // Mantiene el texto visible
 
-        yield return StartCoroutine(ChangeAlphaText(textTransition, 1, 0, transitionTime)); // Baja la opacidad del texto
-        yield return StartCoroutine(ChangeAlpha(panelImage, 1, 0, panelTransitionTime)); // Baja la opacidad del panel
+        yield return StartCoroutine(ChangeAlphaText(textTransition, 1, 0, transitionTime));
+        yield return StartCoroutine(ChangeAlpha(panelImage, 1, 0, panelTransitionTime));
 
         if (isBossDead)
         {
@@ -140,6 +156,10 @@ public class BarcoBossFight : MonoBehaviour
             bossLifeBar.gameObject.SetActive(true);
         }
 
+        if (playerStatus != null)
+        {
+            playerStatus.isInvulnerable = false;
+        }
         canvas.sortingOrder = 1;
         inPhaseTransition = false;
         BarcoBossTransformation.KeepPlayerStill = false;
