@@ -623,17 +623,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bossHealth: 100
+  bossLifeBar: {fileID: 804681777}
   panelTransition: {fileID: 1107658640}
   textTransition: {fileID: 562607238}
+  canvas: {fileID: 561346216167656650}
   magicBulletBossPrefab: {fileID: 2687097574615549970, guid: 44d560f7a5a1b3245b762704e0068c2e, type: 3}
   flameBallBossPrefab: {fileID: 843486916298291423, guid: 16d815a479679c94c852b4f4dc33bbf5, type: 3}
-  BossLifeBar: {fileID: 804681777}
   colisionMuro: {fileID: 1053731086}
   muroNoHitbox: {fileID: 1053731085}
   bloqueoTop: {fileID: 1673391630}
   perla: {fileID: 3606490982080729545}
   llave: {fileID: 1303180440}
-  canvas: {fileID: 561346216167656650}
 --- !u!1 &562607236
 GameObject:
   m_ObjectHideFlags: 0
