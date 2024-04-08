@@ -64,7 +64,7 @@ public class Player : MonoBehaviour
     public void TakeDamage(float amount)
     {
         hp.Substract(amount);
-        if (hp.currentVal <= 0)
+        if (hp.currentVal <= 0.1)
         {
             isDead = true;
             GameOver();

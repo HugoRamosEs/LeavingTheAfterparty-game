@@ -30,7 +30,7 @@ public class TiendaController : MonoBehaviour
         {
             foreach (ItemSlot slot in itemPanel.inventory.slots)
             {
-                if (slot.item != null && slot.item.Name == "Key")
+                if (slot.item != null && slot.item.Name == "Perla")
                 {
                     hasKey = true;
                     break;
@@ -42,7 +42,7 @@ public class TiendaController : MonoBehaviour
                 yield return new WaitForSecondsRealtime(0.80f);
                 Time.timeScale = 0f;
                 tiendaPanel.SetActive(true);
-                dialogueGame.UpdateText("FUERA FUERA FUERA!!! Que estoy ocupado. No encuentro la maldila perla...");
+                dialogueGame.UpdateText("FUERA FUERA FUERA!!! Que estoy ocupado. No encuentro la maldita perla...");
                 yield return new WaitForSecondsRealtime(4.75f);
                 Time.timeScale = 1f;
                 tpToPlaya.SetActive(true);

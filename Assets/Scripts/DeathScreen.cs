@@ -40,6 +40,9 @@ public class DeathScreen : MonoBehaviour
         player.gameObject.SetActive(true);
         player.FullHeal();
         player.FullRest();
+        player.isDead = false;
+
+        // recargar escena actual
 
         player.transform.position = UltimoGuardado.Instance.PlayerPosition;
 

@@ -36,7 +36,7 @@ public class ToGranjaController : MonoBehaviour
             hasKey = false;
             foreach (ItemSlot slot in itemPanel.inventory.slots)
             {
-                if (slot.item != null && slot.item.Name == "Key")
+                if (slot.item != null && slot.item.Name == "LlaveOxidada")
                 {
                     hasKey = true;
                     break;
@@ -48,7 +48,7 @@ public class ToGranjaController : MonoBehaviour
                 Time.timeScale = 0f;
                 joaquinImage.enabled = true;
                 joaquinPanel.SetActive(true);
-                dialogueGame.UpdateText("Esa es mi llave?? Muchas gracias!!!! Me las piro vampiro (>_<)");
+                dialogueGame.UpdateText("¿¿Esa es mi llave?? ¡¡Muchas gracias!! Me las piro vampiro.");
 
                 float fadeDuration = 1f;
                 float elapsedTime = 0f;

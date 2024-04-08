@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1721f86770205244abc7a0b3f3d9484, type: 3}
   m_Name: LlaveOxidada
   m_EditorClassIdentifier: 
-  Name: LlavePlaya
+  Name: LlaveOxidada
   stackable: 0
   icon: {fileID: -524724445, guid: d43d26380e223c040a69556771a8ec20, type: 3}

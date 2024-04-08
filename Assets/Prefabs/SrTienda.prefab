@@ -331,14 +331,14 @@ MonoBehaviour:
   npcName: ????
   npcImage: {fileID: 21300000, guid: 06bfdc1f12abb254ba4823d95c35aa54, type: 3}
   dialogueLines:
-  - HEY HEY HEY!!!!! Como andamos??
-  - "Me ense\xF1as eso que tienes ah\xED? No hombre no, la perla..."
-  - De donde has sacado eso???!!!!
+  - "\xA1HEY HEY HEY! \xBFC\xF3mo andamos?"
+  - "\xBFMe ense\xF1as eso que tienes ah\xED? No, hombre, no, la perla..."
+  - "\xA1\xA1\xA1\xBF\xBF\xBFDe d\xF3nde has sacado eso???!!!"
   - ...
-  - "Ya veo, es decir, que la tenia el psic\xF3pata del barco..."
+  - "Ya veo, es decir, que la ten\xEDa el psic\xF3pata del barco..."
   - En todo caso, te la cambio por una de las tres pociones que tengo expuestas en
     el expositor de la derecha.
-  - "La rosa, te ofrecer\xE1 m\xE1s vitalidad, la verde m\xE1s resistencia y la azul
+  - "La rosa te ofrecer\xE1 m\xE1s vitalidad, la verde m\xE1s resistencia y la azul
     m\xE1s fuerza..."
-  - "Date prisa en escoger, que no tengo todo el d\xEDa. Una vez hayas escogido una
-    pocion, te echar\xE9 fuera de mi tienda."
+  - "Date prisa, que no tengo todo el d\xEDa. Una vez hayas escogido una poci\xF3n,
+    te echar\xE9 de mi tienda."
