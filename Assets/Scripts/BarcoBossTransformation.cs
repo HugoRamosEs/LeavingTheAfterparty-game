@@ -14,6 +14,7 @@ public class BarcoBossTransformation : MonoBehaviour
     private Vector3 playerPosition;
     public static bool KeepPlayerStill { get; set; } = false;
     public Slider BossLifeBar;
+    public new BoxCollider2D collider;
 
     void Start()
     {
@@ -34,6 +35,7 @@ public class BarcoBossTransformation : MonoBehaviour
         {
             playerPosition = playerTransform.position;
             KeepPlayerStill = true;
+            collider.size = new Vector2(collider.size.x * 1, collider.size.y * 1.35f);
             dialogueGame.gameObject.SetActive(true);
             dialogueGame.UpdateText("Ya... Es... Tarde...");
             StartCoroutine(ActivateBossAfterDelay(4f));
@@ -58,7 +60,6 @@ public class BarcoBossTransformation : MonoBehaviour
         KeepPlayerStill = false;
         BossLifeBar.gameObject.SetActive(true);
         Destroy(gameObject);
-
     }
 
     private void OnTriggerExit2D(Collider2D other)

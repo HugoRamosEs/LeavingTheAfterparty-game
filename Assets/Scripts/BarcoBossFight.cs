@@ -2,10 +2,12 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class BarcoBossFight : MonoBehaviour
 {
-    public Transform player;
+    private Transform player;
+    private Player playerStatus;
     public int bossHealth = 100;
     public GameObject panelTransition;
     public TextMeshProUGUI textTransition;
@@ -22,7 +24,11 @@ public class BarcoBossFight : MonoBehaviour
     public GameObject bloqueoTop;
     public GameObject perla;
     public GameObject llave;
+    public Canvas canvas;
     private bool inPhaseTransition = false;
+
+    private GameObject playerStats;
+
 
     void Start()
     {
@@ -41,7 +47,19 @@ public class BarcoBossFight : MonoBehaviour
         if (player == null)
         {
             CheckForPlayerWithTag();
+            playerStatus = player.GetComponent<Player>();
         }
+
+        if (playerStatus.isDead)
+        {
+            BossLifeBar.gameObject.SetActive(false);
+        }
+
+        if (!inPhaseTransition && !playerStatus.isDead && bossHealth > 0)
+        {
+            BossLifeBar.gameObject.SetActive(true);
+        }
+
         animator.SetInteger("Health", bossHealth);
 
         if (bossHealth <= (MaxHealth) * 0.66 && step2 == false)
@@ -61,16 +79,16 @@ public class BarcoBossFight : MonoBehaviour
             StartCoroutine(PhaseTransition("Se avecina un infierno inminente..."));
             InvokeRepeating("FireMagicBullet", 1f, 1f);
         }
-        if (bossHealth <= 0 && !inPhaseTransition)
+        if (bossHealth <= 0)
         {
             CancelInvoke("FireMagicBullet");
             CancelInvoke("SpawnFlame");
-            BossLifeBar.gameObject.SetActive(false);
+            // BossLifeBar.gameObject.SetActive(false);
             StartCoroutine(PhaseTransition("¿Que ha sido eso?", true));
             bloqueoTop.SetActive(false);
             perla.SetActive(true);
             llave.SetActive(true);
-            panelTransition.SetActive(false);
+            // panelTransition.SetActive(false);
         }
     }
 
@@ -80,6 +98,8 @@ public class BarcoBossFight : MonoBehaviour
         BarcoBossTransformation.KeepPlayerStill = true;
         float transitionTime = 1f;
         float panelTransitionTime = 0.7f;
+        canvas.sortingOrder = 2;
+        BossLifeBar.gameObject.SetActive(false);
 
         Image panelImage = panelTransition.GetComponent<Image>();
         Color panelColor = panelImage.color;
@@ -137,6 +157,12 @@ public class BarcoBossFight : MonoBehaviour
             Destroy(gameObject);
         }
 
+        if (!isBossDead)
+        {
+            BossLifeBar.gameObject.SetActive(true);
+        }
+
+        canvas.sortingOrder = 1;
         inPhaseTransition = false;
         BarcoBossTransformation.KeepPlayerStill = false;
     }

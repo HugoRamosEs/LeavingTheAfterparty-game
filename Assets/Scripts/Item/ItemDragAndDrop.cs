@@ -57,6 +57,7 @@ public class ItemDragAndDrop : MonoBehaviour
             {
                 if (EventSystem.current.IsPointerOverGameObject() == false)
                 {
+                    Debug.Log("Drop item");
                     Vector3 worldPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
                     worldPosition.z = 0;
                     ItemSpawner.instance.Spawn(worldPosition, itemSlot.item, itemSlot.count);

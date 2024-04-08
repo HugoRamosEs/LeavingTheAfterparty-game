@@ -32,4 +32,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/GranjaScene.unity
     guid: a34eef7aeca5f804883b362765d9bd15
+  - enabled: 1
+    path: Assets/Scenes/BarcoScene.unity
+    guid: 03401a0221ea22042a75f585fb895c81
   m_configObjects: {}
