@@ -42,7 +42,7 @@ public class TiendaController : MonoBehaviour
                 yield return new WaitForSecondsRealtime(0.80f);
                 Time.timeScale = 0f;
                 tiendaPanel.SetActive(true);
-                dialogueGame.UpdateText("FUERA FUERA FUERA!!! Que estoy ocupado. No encuentro la maldita perla...");
+                dialogueGame.UpdateText("¡¡¡FUERA FUERA FUERA!!! Que estoy ocupado. No encuentro la maldita perla...");
                 yield return new WaitForSecondsRealtime(4.75f);
                 Time.timeScale = 1f;
                 tpToPlaya.SetActive(true);

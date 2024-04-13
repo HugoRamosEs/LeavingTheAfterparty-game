@@ -2,15 +2,16 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using System.Collections;
+using static System.TimeZoneInfo;
 
 public class BarcoBossFight : MonoBehaviour
 {
     [Header("Boss Properties")]
-    public int bossHealth = 100;
+    public int bossHealth;
     private int maxHealth;
     private bool step2 = false;
     private bool step3 = false;
-    private bool invulnerable = false;
+    public static bool invulnerable = false;
     private bool inPhaseTransition = false;
     private Animator animator;
 
@@ -21,7 +22,11 @@ public class BarcoBossFight : MonoBehaviour
     public GameObject panelTransition;
     public TextMeshProUGUI textTransition;
     public Canvas canvas;
+    // public Image panelAfterDead;
+    public GameObject panelAfterDead;
+    public TextMeshProUGUI panelAfterDeadText;
     private bool finalPhaseStarted = false;
+    private bool playerDied = false;
 
     [Header("Prefabs & Game Objects")]
     public GameObject magicBulletBossPrefab;
@@ -31,6 +36,51 @@ public class BarcoBossFight : MonoBehaviour
     public GameObject bloqueoTop;
     public GameObject perla;
     public GameObject llave;
+    public SceneChange sceneChange;
+
+    void OnEnable()
+    {
+        EnemyHealth.OnHealthChanged += UpdateBossHealth;
+    }
+
+    void OnDisable()
+    {
+        EnemyHealth.OnHealthChanged -= UpdateBossHealth;
+    }
+
+    private void UpdateBossHealth(int currentHealth)
+    {
+        if (!invulnerable)
+        {
+            if (currentHealth < bossHealth)
+            {
+                StartCoroutine(InvulnerabilityPeriod());
+            }
+
+            bossHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
+            bossLifeBar.value = bossHealth;
+            CheckForPhaseTransition();
+        }
+    }
+
+    private void CheckForPhaseTransition()
+    {
+        if (bossHealth <= maxHealth * 0.66 && !step2)
+        {
+            ChangePhase("El aire es más frío a tu alrededor...", 13f, 2f);
+            step2 = true;
+        }
+        else if (bossHealth <= maxHealth * 0.33 && !step3)
+        {
+            ChangePhase("Se avecina un infierno inminente...", 1f);
+            step3 = true;
+        }
+        else if (bossHealth <= 1 && !finalPhaseStarted)
+        {
+            finalPhaseStarted = true;
+            EndPhase("¿Qué ha sido eso?", true);
+        }
+    }
 
     void Start()
     {
@@ -65,20 +115,18 @@ public class BarcoBossFight : MonoBehaviour
 
         animator.SetInteger("Health", bossHealth);
 
-        if (bossHealth <= maxHealth * 0.66 && !step2)
+        if(playerStatus.isDead)
         {
-            ChangePhase("El aire es más frío a tu alrededor...", 13f, 2f);
-            step2 = true;
+            bossLifeBar.gameObject.SetActive(false);
+            sceneChange.gameObject.SetActive(true);
+            playerDied = true;
         }
-        else if (bossHealth <= maxHealth * 0.33 && !step3)
+
+        if (playerDied && !playerStatus.isDead)
         {
-            ChangePhase("Se avecina un infierno inminente...", 1f);
-            step3 = true;
-        }
-        else if (bossHealth <= 0 && !finalPhaseStarted)
-        {
-            finalPhaseStarted = true;
-            EndPhase("¿Que ha sido eso?", true);
+            canvas.sortingOrder = 2;
+            panelAfterDead.SetActive(true);
+            StartCoroutine(ChangeAlphaText(panelAfterDeadText, 0, 1, 1f));
         }
     }
 
@@ -103,8 +151,8 @@ public class BarcoBossFight : MonoBehaviour
     {
         inPhaseTransition = true;
         BarcoBossTransformation.KeepPlayerStill = true;
-        float transitionTime = 1f; // Tiempo para cambiar la opacidad del texto
-        float panelTransitionTime = 0.30f; // Tiempo para cambiar la opacidad del panel
+        float transitionTime = 1f;
+        float panelTransitionTime = 0.30f;
         canvas.sortingOrder = 2;
         bossLifeBar.gameObject.SetActive(false);
 
@@ -113,12 +161,11 @@ public class BarcoBossFight : MonoBehaviour
             playerStatus.isInvulnerable = true;
         }
 
-        // Inicia la transición del panel
         Image panelImage = panelTransition.GetComponent<Image>();
         Color panelColor = panelImage.color;
-        panelColor.a = 0; // Inicializa la opacidad del panel a 0
+        panelColor.a = 0;
         panelImage.color = panelColor;
-        yield return StartCoroutine(ChangeAlpha(panelImage, 0, 1, panelTransitionTime)); // Sube la opacidad del panel
+        yield return StartCoroutine(ChangeAlpha(panelImage, 0, 1, panelTransitionTime));
 
         if (isBossDead)
         {
@@ -129,14 +176,13 @@ public class BarcoBossFight : MonoBehaviour
             }
         }
 
-        // Configura y muestra el texto de transición
         textTransition.text = phaseText;
         Color textColor = textTransition.color;
-        textColor.a = 0; // Inicializa la opacidad del texto a 0
+        textColor.a = 0;
         textTransition.color = textColor;
-        yield return StartCoroutine(ChangeAlphaText(textTransition, 0, 1, transitionTime)); // Sube la opacidad del texto
+        yield return StartCoroutine(ChangeAlphaText(textTransition, 0, 1, transitionTime));
 
-        yield return new WaitForSecondsRealtime(2f); // Mantiene el texto visible
+        yield return new WaitForSecondsRealtime(2f);
 
         yield return StartCoroutine(ChangeAlphaText(textTransition, 1, 0, transitionTime));
         yield return StartCoroutine(ChangeAlpha(panelImage, 1, 0, panelTransitionTime));
@@ -165,7 +211,6 @@ public class BarcoBossFight : MonoBehaviour
         BarcoBossTransformation.KeepPlayerStill = false;
     }
 
-    // Corrutina para cambiar la opacidad de un Image
     IEnumerator ChangeAlpha(Image image, float startAlpha, float endAlpha, float duration)
     {
         float elapsedTime = 0f;
@@ -175,10 +220,9 @@ public class BarcoBossFight : MonoBehaviour
             yield return null;
             elapsedTime += Time.unscaledDeltaTime;
         }
-        image.color = new Color(image.color.r, image.color.g, image.color.b, endAlpha); // Asegura el valor final de la opacidad
+        image.color = new Color(image.color.r, image.color.g, image.color.b, endAlpha);
     }
 
-    // Corrutina para cambiar la opacidad de un TextMeshProUGUI
     IEnumerator ChangeAlphaText(TextMeshProUGUI text, float startAlpha, float endAlpha, float duration)
     {
         float elapsedTime = 0f;
@@ -188,7 +232,7 @@ public class BarcoBossFight : MonoBehaviour
             yield return null;
             elapsedTime += Time.unscaledDeltaTime;
         }
-        text.color = new Color(text.color.r, text.color.g, text.color.b, endAlpha); // Asegura el valor final de la opacidad
+        text.color = new Color(text.color.r, text.color.g, text.color.b, endAlpha);
     }
 
     void FireMagicBullet()
@@ -242,16 +286,6 @@ public class BarcoBossFight : MonoBehaviour
         if (playerObject != null)
         {
             player = playerObject.transform;
-        }
-    }
-
-    void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.CompareTag("Player") && !invulnerable)
-        {
-            bossHealth -= 10;
-            bossLifeBar.value = bossHealth;
-            StartCoroutine(InvulnerabilityPeriod());
         }
     }
 

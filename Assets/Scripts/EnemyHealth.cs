@@ -7,6 +7,8 @@ public class EnemyHealth : MonoBehaviour
     public int health;
     public GameObject bloodParticles;
     public HealthBar healthBar;
+    public delegate void HealthChanged(int currentHealth);
+    public static event HealthChanged OnHealthChanged;
 
     private int maxHealth;
 
@@ -18,18 +20,23 @@ public class EnemyHealth : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        health -= damage;
-        Debug.Log(health);
-
-        healthBar.UpdateHealthBar(health, maxHealth);
-
-        if (bloodParticles != null)
+        if (!BarcoBossFight.invulnerable)
         {
-            Instantiate(bloodParticles, transform.position, Quaternion.identity);
-        }
-        if (health <= 0)
-        {
-            Destroy(gameObject);
+            health -= damage;
+            Debug.Log(health);
+
+            healthBar.UpdateHealthBar(health, maxHealth);
+
+            OnHealthChanged?.Invoke(health);
+
+            if (bloodParticles != null)
+            {
+                Instantiate(bloodParticles, transform.position, Quaternion.identity);
+            }
+            if (health <= 0)
+            {
+                Destroy(gameObject);
+            }
         }
     }
 }
