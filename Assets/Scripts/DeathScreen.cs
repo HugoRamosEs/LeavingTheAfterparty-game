@@ -38,16 +38,16 @@ public class DeathScreen : MonoBehaviour
         }
 
         player.gameObject.SetActive(true);
-        player.FullHeal();
-        player.FullRest();
-        player.isDead = false;
 
-        // recargar escena actual
-
-        player.transform.position = UltimoGuardado.Instance.PlayerPosition;
+        if (!UltimoGuardado.Instance.CurrentScene.Equals("BarcoScene")) {
+            player.transform.position = UltimoGuardado.Instance.PlayerPosition;
+        }
 
         hpBar.SetActive(true);
         staminaBar.SetActive(true);
+        player.FullHeal();
+        player.FullRest();
+        player.isDead = false;
         toolBarPanel.SetActive(true);
 
         Time.timeScale = 1;

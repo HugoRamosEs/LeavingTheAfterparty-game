@@ -47,6 +47,27 @@ public class ItemDragAndDrop : MonoBehaviour
         iconTransform = itemIcon.GetComponent<RectTransform>();
         itemIconImage = itemIcon.GetComponent<Image>();
     }
+    //void Update()
+    //{
+    //    if (itemIcon != null && itemIcon.activeInHierarchy == true)
+    //    {
+    //        iconTransform.position = Input.mousePosition;
+
+    //        if (Input.GetMouseButtonDown(0))
+    //        {
+    //            if (EventSystem.current.IsPointerOverGameObject() == false)
+    //            {
+    //                Debug.Log("Drop item");
+    //                Vector3 worldPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+    //                worldPosition.z = 0;
+    //                ItemSpawner.instance.Spawn(worldPosition, itemSlot.item, itemSlot.count);
+    //                itemSlot.Clear();
+    //                itemIcon.SetActive(false);
+    //            }
+    //        }
+    //    }
+    //}
+
     void Update()
     {
         if (itemIcon != null && itemIcon.activeInHierarchy == true)
@@ -55,14 +76,24 @@ public class ItemDragAndDrop : MonoBehaviour
 
             if (Input.GetMouseButtonDown(0))
             {
-                if (EventSystem.current.IsPointerOverGameObject() == false)
+                GameObject selectedObject = EventSystem.current.currentSelectedGameObject;
+
+                if (selectedObject == null || (selectedObject.GetComponent<ItemSlot>() == null && selectedObject.name != "InventoryPanel"))
                 {
-                    Debug.Log("Drop item");
-                    Vector3 worldPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-                    worldPosition.z = 0;
-                    ItemSpawner.instance.Spawn(worldPosition, itemSlot.item, itemSlot.count);
-                    itemSlot.Clear();
-                    itemIcon.SetActive(false);
+                    Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+                    int layerMask = 1 << 5;
+                    layerMask = ~layerMask;
+                    RaycastHit2D hit = Physics2D.GetRayIntersection(ray, Mathf.Infinity, layerMask);
+
+                    if (hit.collider == null)
+                    {
+                        Debug.Log("Drop item");
+                        Vector3 worldPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                        worldPosition.z = 0;
+                        ItemSpawner.instance.Spawn(worldPosition, itemSlot.item, itemSlot.count);
+                        itemSlot.Clear();
+                        itemIcon.SetActive(false);
+                    }
                 }
             }
         }
