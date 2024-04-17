@@ -1382,6 +1382,7 @@ MonoBehaviour:
     count: 0
   itemIcon: {fileID: 7113830312473129194}
   inventory: {fileID: 11400000, guid: ab13838abcf6a5d409c55ec9630d9d99, type: 2}
+  inventoryPanel: {fileID: 9168377784818166467}
 --- !u!114 &1193908445
 MonoBehaviour:
   m_ObjectHideFlags: 0
