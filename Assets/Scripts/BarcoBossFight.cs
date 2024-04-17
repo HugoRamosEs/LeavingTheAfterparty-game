@@ -2,42 +2,94 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using System.Collections;
-using UnityEngine.SceneManagement;
+using static System.TimeZoneInfo;
 
 public class BarcoBossFight : MonoBehaviour
 {
-    private Transform player;
-    private Player playerStatus;
-    public int bossHealth = 100;
-    public GameObject panelTransition;
-    public TextMeshProUGUI textTransition;
-    private Animator animator;
-    private int MaxHealth;
+    [Header("Boss Properties")]
+    public int bossHealth;
+    private int maxHealth;
     private bool step2 = false;
     private bool step3 = false;
-    private bool invulnerable = false;
+    public static bool invulnerable = false;
+    private bool inPhaseTransition = false;
+    private Animator animator;
+
+    [Header("Player & UI")]
+    private Transform player;
+    private Player playerStatus;
+    public Slider bossLifeBar;
+    public GameObject panelTransition;
+    public TextMeshProUGUI textTransition;
+    public Canvas canvas;
+    // public Image panelAfterDead;
+    public GameObject panelAfterDead;
+    public TextMeshProUGUI panelAfterDeadText;
+    private bool finalPhaseStarted = false;
+    private bool playerDied = false;
+
+    [Header("Prefabs & Game Objects")]
     public GameObject magicBulletBossPrefab;
     public GameObject flameBallBossPrefab;
-    public Slider BossLifeBar;
     public GameObject colisionMuro;
     public GameObject muroNoHitbox;
     public GameObject bloqueoTop;
     public GameObject perla;
     public GameObject llave;
-    public Canvas canvas;
-    private bool inPhaseTransition = false;
+    public SceneChange sceneChange;
 
-    private GameObject playerStats;
+    void OnEnable()
+    {
+        EnemyHealth.OnHealthChanged += UpdateBossHealth;
+    }
 
+    void OnDisable()
+    {
+        EnemyHealth.OnHealthChanged -= UpdateBossHealth;
+    }
+
+    private void UpdateBossHealth(int currentHealth)
+    {
+        if (!invulnerable)
+        {
+            if (currentHealth < bossHealth)
+            {
+                StartCoroutine(InvulnerabilityPeriod());
+            }
+
+            bossHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
+            bossLifeBar.value = bossHealth;
+            CheckForPhaseTransition();
+        }
+    }
+
+    private void CheckForPhaseTransition()
+    {
+        if (bossHealth <= maxHealth * 0.66 && !step2)
+        {
+            ChangePhase("El aire es más frío a tu alrededor...", 13f, 2f);
+            step2 = true;
+        }
+        else if (bossHealth <= maxHealth * 0.33 && !step3)
+        {
+            ChangePhase("Se avecina un infierno inminente...", 1f);
+            step3 = true;
+        }
+        else if (bossHealth <= 1 && !finalPhaseStarted)
+        {
+            finalPhaseStarted = true;
+            EndPhase("¿Qué ha sido eso?", true);
+        }
+    }
 
     void Start()
     {
         animator = GetComponent<Animator>();
-        MaxHealth = bossHealth;
-        InvokeRepeating("FireMagicBullet", 5f, 1000f);
-        InvokeRepeating("SpawnFlame", 8f, 1000f);
-        BossLifeBar.maxValue = bossHealth;
-        BossLifeBar.value = bossHealth;
+        maxHealth = bossHealth;
+        InvokeRepeating("FireMagicBullet", 5f, 5f);
+        InvokeRepeating("SpawnFlame", 8f, 8f);
+        bossLifeBar.maxValue = bossHealth;
+        bossLifeBar.value = bossHealth;
         colisionMuro.SetActive(true);
         muroNoHitbox.SetActive(true);
     }
@@ -47,49 +99,52 @@ public class BarcoBossFight : MonoBehaviour
         if (player == null)
         {
             CheckForPlayerWithTag();
-            playerStatus = player.GetComponent<Player>();
+            if (player != null)
+                playerStatus = player.GetComponent<Player>();
         }
 
-        if (playerStatus.isDead)
+        if (playerStatus != null && playerStatus.isDead)
         {
-            BossLifeBar.gameObject.SetActive(false);
+            bossLifeBar.gameObject.SetActive(false);
         }
 
-        if (!inPhaseTransition && !playerStatus.isDead && bossHealth > 0)
+        if (!inPhaseTransition && playerStatus != null && !playerStatus.isDead && bossHealth > 0)
         {
-            BossLifeBar.gameObject.SetActive(true);
+            bossLifeBar.gameObject.SetActive(true);
         }
 
         animator.SetInteger("Health", bossHealth);
 
-        if (bossHealth <= (MaxHealth) * 0.66 && step2 == false)
+        if(playerStatus.isDead)
         {
-            CancelInvoke("FireMagicBullet");
-            CancelInvoke("SpawnFlame");
-            step2 = true;
-            StartCoroutine(PhaseTransition("El aire es más frío a tu alrededor..."));
-            InvokeRepeating("FireMagicBullet", 13f, 13f);
-            InvokeRepeating("SpawnFlame", 2f, 2f);
+            bossLifeBar.gameObject.SetActive(false);
+            sceneChange.gameObject.SetActive(true);
+            playerDied = true;
         }
-        if (bossHealth <= (MaxHealth) * 0.33 && step3 == false)
+
+        if (playerDied && !playerStatus.isDead)
         {
-            CancelInvoke("FireMagicBullet");
-            CancelInvoke("SpawnFlame");
-            step3 = true;
-            StartCoroutine(PhaseTransition("Se avecina un infierno inminente..."));
-            InvokeRepeating("FireMagicBullet", 1f, 1f);
+            canvas.sortingOrder = 2;
+            panelAfterDead.SetActive(true);
+            StartCoroutine(ChangeAlphaText(panelAfterDeadText, 0, 1, 1f));
         }
-        if (bossHealth <= 0)
-        {
-            CancelInvoke("FireMagicBullet");
-            CancelInvoke("SpawnFlame");
-            // BossLifeBar.gameObject.SetActive(false);
-            StartCoroutine(PhaseTransition("¿Que ha sido eso?", true));
-            bloqueoTop.SetActive(false);
-            perla.SetActive(true);
-            llave.SetActive(true);
-            // panelTransition.SetActive(false);
-        }
+    }
+
+    void ChangePhase(string phaseText, float magicBulletDelay, float flameDelay = 0f)
+    {
+        CancelInvoke("FireMagicBullet");
+        CancelInvoke("SpawnFlame");
+        StartCoroutine(PhaseTransition(phaseText));
+        InvokeRepeating("FireMagicBullet", magicBulletDelay, magicBulletDelay);
+        if (flameDelay > 0f)
+            InvokeRepeating("SpawnFlame", flameDelay, flameDelay);
+    }
+
+    void EndPhase(string phaseText, bool isBossDead = false)
+    {
+        CancelInvoke("FireMagicBullet");
+        CancelInvoke("SpawnFlame");
+        StartCoroutine(PhaseTransition(phaseText, isBossDead));
     }
 
     IEnumerator PhaseTransition(string phaseText, bool isBossDead = false)
@@ -97,61 +152,46 @@ public class BarcoBossFight : MonoBehaviour
         inPhaseTransition = true;
         BarcoBossTransformation.KeepPlayerStill = true;
         float transitionTime = 1f;
-        float panelTransitionTime = 0.7f;
+        float panelTransitionTime = 0.30f;
         canvas.sortingOrder = 2;
-        BossLifeBar.gameObject.SetActive(false);
+        bossLifeBar.gameObject.SetActive(false);
+
+        if (playerStatus != null)
+        {
+            playerStatus.isInvulnerable = true;
+        }
 
         Image panelImage = panelTransition.GetComponent<Image>();
         Color panelColor = panelImage.color;
-        for (float t = 0; t <= 1; t += Time.fixedDeltaTime / panelTransitionTime)
+        panelColor.a = 0;
+        panelImage.color = panelColor;
+        yield return StartCoroutine(ChangeAlpha(panelImage, 0, 1, panelTransitionTime));
+
+        if (isBossDead)
         {
-            float clampedT = Mathf.Clamp01(t);
-            panelColor.a = Mathf.Lerp(0, 1f, clampedT);
-            panelImage.color = panelColor;
-            yield return null;
+            SpriteRenderer bossSpriteRenderer = GetComponent<SpriteRenderer>();
+            if (bossSpriteRenderer != null)
+            {
+                bossSpriteRenderer.color = new Color(bossSpriteRenderer.color.r, bossSpriteRenderer.color.g, bossSpriteRenderer.color.b, 0);
+            }
         }
 
         textTransition.text = phaseText;
         Color textColor = textTransition.color;
-        for (float t = 0; t <= 1; t += Time.fixedDeltaTime / transitionTime)
-        {
-            float clampedT = Mathf.Clamp01(t);
-            textColor.a = Mathf.Lerp(0, 1, clampedT);
-            textTransition.color = textColor;
-            yield return null;
-        }
-
-        if (isBossDead)
-        {
-            SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
-            if (spriteRenderer != null)
-            {
-                Color color = spriteRenderer.color;
-                color.a = 0;
-                spriteRenderer.color = color;
-            }
-        }
+        textColor.a = 0;
+        textTransition.color = textColor;
+        yield return StartCoroutine(ChangeAlphaText(textTransition, 0, 1, transitionTime));
 
         yield return new WaitForSecondsRealtime(2f);
 
-        for (float t = 0; t <= 1; t += Time.unscaledDeltaTime / transitionTime)
-        {
-            float clampedT = Mathf.Clamp01(t);
-            textColor.a = Mathf.Lerp(1, 0, clampedT);
-            textTransition.color = textColor;
-            yield return null;
-        }
-
-        for (float t = 0; t <= 1; t += Time.unscaledDeltaTime / panelTransitionTime)
-        {
-            float clampedT = Mathf.Clamp01(t);
-            panelColor.a = Mathf.Lerp(1f, 0, clampedT);
-            panelImage.color = panelColor;
-            yield return null;
-        }
+        yield return StartCoroutine(ChangeAlphaText(textTransition, 1, 0, transitionTime));
+        yield return StartCoroutine(ChangeAlpha(panelImage, 1, 0, panelTransitionTime));
 
         if (isBossDead)
         {
+            perla.SetActive(true);
+            llave.SetActive(true);
+            bloqueoTop.SetActive(false);
             colisionMuro.SetActive(false);
             muroNoHitbox.SetActive(false);
             Destroy(gameObject);
@@ -159,17 +199,45 @@ public class BarcoBossFight : MonoBehaviour
 
         if (!isBossDead)
         {
-            BossLifeBar.gameObject.SetActive(true);
+            bossLifeBar.gameObject.SetActive(true);
         }
 
+        if (playerStatus != null)
+        {
+            playerStatus.isInvulnerable = false;
+        }
         canvas.sortingOrder = 1;
         inPhaseTransition = false;
         BarcoBossTransformation.KeepPlayerStill = false;
     }
 
+    IEnumerator ChangeAlpha(Image image, float startAlpha, float endAlpha, float duration)
+    {
+        float elapsedTime = 0f;
+        while (elapsedTime < duration)
+        {
+            image.color = new Color(image.color.r, image.color.g, image.color.b, Mathf.SmoothStep(startAlpha, endAlpha, elapsedTime / duration));
+            yield return null;
+            elapsedTime += Time.unscaledDeltaTime;
+        }
+        image.color = new Color(image.color.r, image.color.g, image.color.b, endAlpha);
+    }
+
+    IEnumerator ChangeAlphaText(TextMeshProUGUI text, float startAlpha, float endAlpha, float duration)
+    {
+        float elapsedTime = 0f;
+        while (elapsedTime < duration)
+        {
+            text.color = new Color(text.color.r, text.color.g, text.color.b, Mathf.SmoothStep(startAlpha, endAlpha, elapsedTime / duration));
+            yield return null;
+            elapsedTime += Time.unscaledDeltaTime;
+        }
+        text.color = new Color(text.color.r, text.color.g, text.color.b, endAlpha);
+    }
+
     void FireMagicBullet()
     {
-        if (inPhaseTransition) return;
+        if (inPhaseTransition || player == null) return;
 
         float radius = 10f;
         Vector2 spawnPoint = (Vector2)player.position + Random.insideUnitCircle * radius;
@@ -186,11 +254,8 @@ public class BarcoBossFight : MonoBehaviour
         if (bulletScript != null)
         {
             float originalSpeed = bulletScript.speed;
-
             bulletScript.speed = 0f;
-
             yield return new WaitForSeconds(1f);
-
             bulletScript.speed = originalSpeed;
         }
     }
@@ -204,7 +269,6 @@ public class BarcoBossFight : MonoBehaviour
         {
             float randomX = Random.Range(-10f, 50f);
             Vector2 spawnPoint = new Vector2(randomX, transform.position.y + 10);
-
             GameObject flame = Instantiate(flameBallBossPrefab, spawnPoint, Quaternion.identity);
 
             FlameBall_BarcoBoss_Attack flameScript = flame.GetComponent<FlameBall_BarcoBoss_Attack>();
@@ -225,22 +289,12 @@ public class BarcoBossFight : MonoBehaviour
         }
     }
 
-    void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.tag == "Player" && !invulnerable)
-        {
-            bossHealth -= 10;
-            BossLifeBar.value = bossHealth;
-            StartCoroutine(InvulnerabilityPeriod());
-        }
-    }
-
     IEnumerator InvulnerabilityPeriod()
     {
         invulnerable = true;
-        BossLifeBar.fillRect.GetComponent<Image>().color = Color.cyan;
+        bossLifeBar.fillRect.GetComponent<Image>().color = Color.cyan;
         yield return new WaitForSeconds(3f);
         invulnerable = false;
-        BossLifeBar.fillRect.GetComponent<Image>().color = Color.white;
+        bossLifeBar.fillRect.GetComponent<Image>().color = Color.white;
     }
 }

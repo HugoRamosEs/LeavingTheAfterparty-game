@@ -39,24 +39,23 @@ public class DeathScreen : MonoBehaviour
         }
 
         player.gameObject.SetActive(true);
+
+        if (!UltimoGuardado.Instance.CurrentScene.Equals("BarcoScene")) {
+            player.transform.position = UltimoGuardado.Instance.PlayerPosition;
+        }
+
+        hpBar.SetActive(true);
+        staminaBar.SetActive(true);
         player.FullHeal();
         player.FullRest();
         player.isDead = false;
         player.isExhausted = false;
         player2Movement.isResting = false;
-
-
-        // recargar escena actual
-
-        player.transform.position = UltimoGuardado.Instance.PlayerPosition;
-
-        hpBar.SetActive(true);
-        staminaBar.SetActive(true);
         toolBarPanel.SetActive(true);
 
         Time.timeScale = 1;
 
-        Debug.Log("Reaparecer en la escena: " + UltimoGuardado.Instance.CurrentScene + " en la posición: " + UltimoGuardado.Instance.PlayerPosition);
+        Debug.Log("Reaparecer en la escena: " + UltimoGuardado.Instance.CurrentScene + " en la posiciÃ³n: " + UltimoGuardado.Instance.PlayerPosition);
 
         gameObject.SetActive(false);
     }

@@ -248,7 +248,7 @@ MonoBehaviour:
   npcImage: {fileID: 697178669, guid: 7289b629208b88c418f57b69ecb2067d, type: 3}
   dialogueLines:
   - "La puerta est\xE1 cerrada y encima dir\xEDa que escucho a los borrachos de arriba."
-  - Necesito salir de aqui...
+  - "Necesito salir de aqu\xED..."
 --- !u!1 &8602247488868629879
 GameObject:
   m_ObjectHideFlags: 0

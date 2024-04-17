@@ -36,7 +36,7 @@ public class DoorToBarController : MonoBehaviour
         {
             foreach (ItemSlot slot in itemPanel.inventory.slots)
             {
-                if (slot.item != null && slot.item.Name == "Key")
+                if (slot.item != null && slot.item.Name == "LlaveSotano")
                 {
                     hasKey = true;
                     break;
@@ -46,17 +46,17 @@ public class DoorToBarController : MonoBehaviour
             if (lightController.isDark && hasKey)
             {
                 dialogueGame.gameObject.SetActive(true);
-                dialogueScript.UpdateText("Estaría bien que encendieras las luz antes de seguir...");
+                dialogueScript.UpdateText("Estaría bien que encendieras la luz antes de seguir...");
             }
             if (!hasKey && !lightController.isDark)
             {
                 dialogueGame.gameObject.SetActive(true);
-                dialogueScript.UpdateText("La puerta esta bloqueada, necesitas la llave para continuar...");
+                dialogueScript.UpdateText("La puerta está bloqueada, necesitas la llave para continuar...");
             }
             if (!hasKey && lightController.isDark)
             {
                 dialogueGame.gameObject.SetActive(true);
-                dialogueScript.UpdateText("Necesitas encender la luz y la llave que abre la puerta para poder continuar...");
+                dialogueScript.UpdateText("Debes encender la luz y conseguir la llave que abre la puerta para poder continuar.");
             }
             if (hasKey && !lightController.isDark)
             {

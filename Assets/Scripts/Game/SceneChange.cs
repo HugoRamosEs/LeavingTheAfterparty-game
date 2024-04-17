@@ -19,7 +19,7 @@ public class SceneChange : MonoBehaviour
     {
         destination = transform.GetChild(1);
     }
-    internal void InitChange(Transform toChange)
+    public void InitChange(Transform toChange)
     {
         switch (changeType)
         {

@@ -1501,6 +1501,7 @@ MonoBehaviour:
   dialogueLines:
   - Echa el freno magdaleno...
   - "\xA1\xA1Sin mi llave no sale de aqu\xED ni dios!!"
+  - "F\xEDjate t\xFA, que sospecho que la tiene el loco del barco..."
 --- !u!114 &2862471719839271053
 MonoBehaviour:
   m_ObjectHideFlags: 0
