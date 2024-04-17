@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class JulianMovement : MonoBehaviour
 {
@@ -12,15 +13,29 @@ public class JulianMovement : MonoBehaviour
     private bool isWaitingAfterDamage = false;
 
     [SerializeField] private float speed;
+    [SerializeField] private float stopDistance = 1.0f;
+    [SerializeField] private float attackCooldown = 0.5f;
+    private float attackTimer = 0f;
+
+    NavMeshAgent agent;
 
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         isWaitingAfterDamage = false;
+        agent = GetComponent<NavMeshAgent>();
+        agent.updateRotation = false;
+        agent.updateUpAxis = false;
     }
+
     void Update()
     {
+        if (attackTimer > 0)
+        {
+            attackTimer -= Time.deltaTime;
+        }
+
         if (player == null)
         {
             CheckForPlayerWithTag();
@@ -37,8 +52,21 @@ public class JulianMovement : MonoBehaviour
 
         if (!isWaitingAfterDamage && player != null)
         {
+            agent.SetDestination(player.position);
+
             Vector2 direction = (player.position - transform.position).normalized;
-            rb.velocity = direction * speed;
+            float distance = Vector2.Distance(transform.position, player.position);
+
+            if (distance > stopDistance)
+            {
+                rb.isKinematic = true;
+                agent.speed = speed;
+            }
+            else
+            {
+                rb.isKinematic = false;
+                rb.velocity = Vector2.zero;
+            }
 
             float vertical = direction.y;
             float horizontal = direction.x;
@@ -57,6 +85,7 @@ public class JulianMovement : MonoBehaviour
             }
         }
     }
+
     void Flip(bool isPlayerRight)
     {
         if ((isFacingRight && !isPlayerRight) || (!isFacingRight && isPlayerRight))
@@ -67,18 +96,21 @@ public class JulianMovement : MonoBehaviour
             transform.localScale = scale;
         }
     }
+
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
         {
             Player p = other.GetComponent<Player>();
-            if (p != null)
+            if (p != null && attackTimer <= 0)
             {
                 p.TakeDamage(1500f);
                 StartCoroutine(DamagePlayer());
+                attackTimer = attackCooldown;
             }
         }
     }
+
     IEnumerator DamagePlayer()
     {
         isWaitingAfterDamage = true;
@@ -91,6 +123,7 @@ public class JulianMovement : MonoBehaviour
         rb.constraints = RigidbodyConstraints2D.None;
         rb.constraints = RigidbodyConstraints2D.FreezeRotation;
     }
+
     void CheckForPlayerWithTag()
     {
         GameObject playerObject = GameObject.FindWithTag("Player");

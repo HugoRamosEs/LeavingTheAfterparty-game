@@ -16,7 +16,7 @@ public class Player2Movement : MonoBehaviour
     private float x, y;
     private bool isWalking;
     private bool isSprinting;
-    private bool isResting;
+    public bool isResting;
 
     private Vector3 moveDir;
 

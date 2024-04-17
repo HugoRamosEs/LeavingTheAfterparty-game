@@ -12,6 +12,7 @@ public class DeathScreen : MonoBehaviour
     [SerializeField] private GameObject toolBarPanel;
     [SerializeField] private Player player;
     [SerializeField] private TMP_Text deathCountText;
+    [SerializeField] private Player2Movement player2Movement;
 
     public void Setup()
     {
@@ -48,11 +49,13 @@ public class DeathScreen : MonoBehaviour
         player.FullHeal();
         player.FullRest();
         player.isDead = false;
+        player.isExhausted = false;
+        player2Movement.isResting = false;
         toolBarPanel.SetActive(true);
 
         Time.timeScale = 1;
 
-        Debug.Log("Reaparecer en la escena: " + UltimoGuardado.Instance.CurrentScene + " en la posición: " + UltimoGuardado.Instance.PlayerPosition);
+        Debug.Log("Reaparecer en la escena: " + UltimoGuardado.Instance.CurrentScene + " en la posiciÃ³n: " + UltimoGuardado.Instance.PlayerPosition);
 
         gameObject.SetActive(false);
     }
