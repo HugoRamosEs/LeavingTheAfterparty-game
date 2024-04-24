@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2793111706541125679}
   - component: {fileID: 4203493881030363441}
   - component: {fileID: 8514288453713614658}
+  - component: {fileID: 9000624670309390738}
   m_Layer: 0
   m_Name: Sangre
   m_TagString: Untagged
@@ -4901,3 +4902,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df2612e2655bbf044922c4f9db559b00, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &9000624670309390738
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6624059266692829498}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 699741672b816d8429cf86d7555398bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  capa: 16
