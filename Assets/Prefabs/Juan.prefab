@@ -247,10 +247,10 @@ MonoBehaviour:
   npcName: Juan
   npcImage: {fileID: -474952489, guid: a6598f4bafb6e9642a205ac528c57dbe, type: 3}
   dialogueLines:
-  - "Vaya... ya has despertado! Creo que estamos en el s\xF3tano de un bar."
+  - "\xA1Vaya... ya has despertado! Creo que estamos en el s\xF3tano de un bar."
   - "He estado buscando la llave del s\xF3tano para subir arriba, pero con las luces
     apagadas es imposible..."
-  - "Ayudame a encender la luz y a buscar la llave. Dir\xEDa que se me han ca\xEDdo
+  - "Ay\xFAdame a encender la luz y a buscar la llave. Dir\xEDa que se me han ca\xEDdo
     en el congelador, pero no estoy seguro."
 --- !u!1 &7179047369991192425
 GameObject:

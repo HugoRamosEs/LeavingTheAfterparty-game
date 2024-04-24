@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 
 public class ItemDragAndDrop : MonoBehaviour
 {
@@ -47,6 +48,8 @@ public class ItemDragAndDrop : MonoBehaviour
         iconTransform = itemIcon.GetComponent<RectTransform>();
         itemIconImage = itemIcon.GetComponent<Image>();
     }
+
+    /* Queda inhabilitado debido a incomtabilidades con otros scripts
     void Update()
     {
         if (itemIcon != null && itemIcon.activeInHierarchy == true)
@@ -67,4 +70,5 @@ public class ItemDragAndDrop : MonoBehaviour
             }
         }
     }
+    */
 }

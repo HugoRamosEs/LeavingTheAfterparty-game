@@ -43,6 +43,7 @@ public class Player : MonoBehaviour
     [SerializeField] PlayerStatus staminaBar;
     public bool isDead;
     public bool isExhausted;
+    public bool isInvulnerable;
     [SerializeField] ItemToolBarPanel toolBarPanel;
 
     public DeathScreen deathScreenPnl;
@@ -63,6 +64,11 @@ public class Player : MonoBehaviour
     }
     public void TakeDamage(float amount)
     {
+        if (isInvulnerable)
+        {
+            return;
+        }
+
         hp.Substract(amount);
         if (hp.currentVal <= 0.1)
         {
@@ -121,5 +127,12 @@ public class Player : MonoBehaviour
     {
         stamina.SetToMax();
         UpdateStaminaBar();
+    }
+
+    public IEnumerator Invulnerability(float duration)
+    {
+        isInvulnerable = true; 
+        yield return new WaitForSeconds(duration);
+        isInvulnerable = false;
     }
 }
