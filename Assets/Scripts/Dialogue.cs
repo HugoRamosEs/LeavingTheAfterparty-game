@@ -3,12 +3,12 @@ using UnityEngine;
 
 public class Dialogue : MonoBehaviour
 {
-    private int lineIndex;
+    public int lineIndex;
 
     public bool isPlayerInRange;
     public bool didDialogueStart;
     public bool requiresKeyPress = true;
-    private DialoguePanel dialoguePanel;
+    public DialoguePanel dialoguePanel;
 
     public GameObject dialogueMark;
     public string npcName;
@@ -35,7 +35,7 @@ public class Dialogue : MonoBehaviour
         }
     }
 
-    public void InitDialogue()
+    public virtual void InitDialogue()
     {
         if (!didDialogueStart)
         {
@@ -79,8 +79,8 @@ public class Dialogue : MonoBehaviour
 
     void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
-        {
+        if (collision.gameObject != null && collision.gameObject.CompareTag("Player"))
+            {
             isPlayerInRange = false;
             dialogueMark.SetActive(false);
         }

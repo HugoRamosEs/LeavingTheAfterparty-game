@@ -7,6 +7,13 @@ using UnityEngine.UI;
 
 public class DialoguePanel : MonoBehaviour
 {
+    [SerializeField] private GameObject responsesPanel;
+    [SerializeField] private Button[] responseButtons;
+    private DialogueQuestionary dialogueQuestionary;
+
+
+
+
     public enum DialogueState
     {
         Writing,
@@ -23,6 +30,15 @@ public class DialoguePanel : MonoBehaviour
 
     private int lIndex;
     private string[] dLines;
+
+    void Start()
+    {
+        dialogueQuestionary = FindObjectOfType<DialogueQuestionary>();
+        if (dialogueQuestionary == null)
+        {
+            Debug.LogError("No se encontró un objeto con el componente DialogueQuestionary en la escena.");
+        }
+    }
 
     void Update()
     {
@@ -86,6 +102,44 @@ public class DialoguePanel : MonoBehaviour
         StopAllCoroutines();
         StartCoroutine(ShowLine());
     }
+    public void ShowResponses(string[] responses)
+    {
+        if (responses.Length > responseButtons.Length)
+        {
+            Debug.LogError("No hay suficientes botones para todas las respuestas");
+            return;
+        }
+
+        for (int i = 0; i < responses.Length; i++)
+        {
+            int localI = i; 
+            responseButtons[i].gameObject.SetActive(true);
+            responseButtons[i].GetComponentInChildren<TextMeshProUGUI>().text = responses[i];
+            responseButtons[i].onClick.AddListener(() => OnResponseButtonClicked(responses[localI])); 
+        }
+        for (int i = responses.Length; i < responseButtons.Length; i++)
+        {
+            responseButtons[i].gameObject.SetActive(false);
+        }
+    }
+    private void OnResponseButtonClicked(string response)
+    {
+        Debug.Log("Has seleccionado la respuesta: " + response);
+        if (dialogueQuestionary != null)
+        {
+            dialogueQuestionary.InitDialogue();
+        }
+        else
+        {
+            Debug.LogError("DialogueQuestionary es null.");
+        }
+        foreach (Button button in responseButtons)
+        {
+            button.gameObject.SetActive(false);
+        }
+    }
+
+
 
     void CheckForDialogue()
     {
