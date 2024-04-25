@@ -37,6 +37,7 @@ public class BarcoBossFight : MonoBehaviour
     public GameObject perla;
     public GameObject llave;
     public SceneChange sceneChange;
+    public ChangeSong audioBoss;
 
     void OnEnable()
     {
@@ -117,6 +118,7 @@ public class BarcoBossFight : MonoBehaviour
 
         if(playerStatus.isDead)
         {
+            audioBoss.StopSong();
             bossLifeBar.gameObject.SetActive(false);
             sceneChange.gameObject.SetActive(true);
             playerDied = true;
@@ -189,6 +191,7 @@ public class BarcoBossFight : MonoBehaviour
 
         if (isBossDead)
         {
+            audioBoss.ChangeToSceneSong();
             perla.SetActive(true);
             llave.SetActive(true);
             bloqueoTop.SetActive(false);

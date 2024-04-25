@@ -13,12 +13,15 @@ public class DeathScreen : MonoBehaviour
     [SerializeField] private Player player;
     [SerializeField] private TMP_Text deathCountText;
     [SerializeField] private Player2Movement player2Movement;
+    [SerializeField] private AudioSource audioSource;
 
     public void Setup()
     {
         gameObject.SetActive(true);
 
         UltimoGuardado.Instance.IncrementDeathCount();
+
+        audioSource.Play();
 
         int cantMuertes = UltimoGuardado.Instance.DeathCount;
         if (cantMuertes == 1)
