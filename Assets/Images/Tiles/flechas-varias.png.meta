@@ -131,7 +131,7 @@ TextureImporter:
         width: 240
         height: 240
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -139,6 +139,27 @@ TextureImporter:
       bones: []
       spriteID: 24d662e84c15a5d499399b58a6873ec9
       internalID: -532044039
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: flechas-varias_1
+      rect:
+        serializedVersion: 2
+        x: 1260
+        y: 520
+        width: 240
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bd68539b282da4e41be19b45e0920079
+      internalID: -35307098
       vertices: []
       indices: 
       edges: []
@@ -155,6 +176,7 @@ TextureImporter:
     secondaryTextures: []
     nameFileIdTable:
       flechas-varias_0: -532044039
+      flechas-varias_1: -35307098
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
