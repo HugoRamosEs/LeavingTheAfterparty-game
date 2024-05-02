@@ -35,4 +35,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/BarcoScene.unity
     guid: 03401a0221ea22042a75f585fb895c81
+  - enabled: 1
+    path: Assets/Scenes/CiudadScene.unity
+    guid: 50cc3942b2363aa4ea02923584460ca7
+  - enabled: 1
+    path: Assets/Scenes/DonaScene.unity
+    guid: 2431677cd00f86748a6080e43493f9b7
   m_configObjects: {}
