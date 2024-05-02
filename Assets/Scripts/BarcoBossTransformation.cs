@@ -15,6 +15,7 @@ public class BarcoBossTransformation : MonoBehaviour
     public static bool KeepPlayerStill { get; set; } = false;
     public Slider BossLifeBar;
     public new BoxCollider2D collider;
+    public ChangeSong audioBoss;
 
     void Start()
     {
@@ -33,6 +34,7 @@ public class BarcoBossTransformation : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
+            audioBoss.ChangeBossSong();
             playerPosition = playerTransform.position;
             KeepPlayerStill = true;
             collider.size = new Vector2(collider.size.x * 1, collider.size.y * 1.35f);
