@@ -41,13 +41,10 @@ public class Login : MonoBehaviour
 
     void PosCargar()
     {
-        Debug.Log(mensajeText.text);
         mensajeText.text = servidor.respuesta.mensaje;
-
         switch (servidor.respuesta.codigo)
         {
             case 209: // Se ha iniciado de sesión correctamente
-                servidor.respuesta.GuardarDatosUsuario();
                 print(servidor.respuesta.mensaje);
                 SceneManager.LoadScene("MenuPrincipalScene");
                 break;
