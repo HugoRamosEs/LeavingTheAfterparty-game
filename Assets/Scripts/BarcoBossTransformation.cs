@@ -1,25 +1,50 @@
 using System.Collections;
+
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class BarcoBossTransformation : MonoBehaviour
 {
-    public GameObject barcoBoss;
-    public DialogueGame dialogueGame;
-    public GameObject anciano;
+    private bool hasPerla = false;
+    private bool hasLlave = false;
+    private bool hasBotella = false;
+    private Vector3 playerPosition;
+    private ItemPanel itemPanel;
+    private Transform playerTransform;
+
+    public static bool KeepPlayerStill { get; set; } = false;
     public GameObject boss;
+    public GameObject perla;
+    public GameObject llave;
+    public GameObject botella;
+    public GameObject anciano;
+    public GameObject barcoBoss;
     public GameObject sombraTransformacion;
     public GameObject sombraTransformacionReverse;
-    public Transform playerTransform;
-    private Vector3 playerPosition;
-    public static bool KeepPlayerStill { get; set; } = false;
+    public GameObject bloqueoTop;
+    public GameObject muroNoHitbox;
+    public GameObject colisionMuro;
+    public DialogueGame dialogueGame;
     public Slider BossLifeBar;
-    public new BoxCollider2D collider;
     public ChangeSong audioBoss;
+    public new BoxCollider2D collider;
 
     void Start()
     {
         playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
+        itemPanel = null;
+        CheckForItemPanel();
+        CheckInventoryItems();
+
+        if (PlayerSceneController.barcoBossPasado)
+        {
+            colisionMuro.SetActive(false);
+            muroNoHitbox.SetActive(false);
+            bloqueoTop.SetActive(false);
+            anciano.SetActive(false);
+            gameObject.SetActive(false);
+        }
     }
 
     private void Update()
@@ -44,6 +69,14 @@ public class BarcoBossTransformation : MonoBehaviour
         }
     }
 
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.gameObject.tag == "Player")
+        {
+            barcoBoss.SetActive(false);
+        }
+    }
+
     private IEnumerator ActivateBossAfterDelay(float delay)
     {
         yield return new WaitForSeconds(delay);
@@ -62,14 +95,88 @@ public class BarcoBossTransformation : MonoBehaviour
         KeepPlayerStill = false;
         BossLifeBar.gameObject.SetActive(true);
         gameObject.SetActive(false);
-        // Destroy(gameObject);
     }
 
-    private void OnTriggerExit2D(Collider2D other)
+    void CheckInventoryItems()
     {
-        if (other.gameObject.tag == "Player")
+        bool hasAllItems = false;
+
+        foreach (ItemSlot slot in itemPanel.inventory.slots)
         {
-            barcoBoss.SetActive(false);
+            if (slot.item != null && slot.item.Name == "LlaveOxidada")
+            {
+                hasLlave = true;
+            }
+            else if (slot.item != null && slot.item.Name == "Perla")
+            {
+                hasPerla = true;
+            }
+            else if (slot.item != null && slot.item.Name == "broken_bottle")
+            {
+                hasBotella = true;
+            }
+        }
+
+        if (hasPerla && hasLlave && hasBotella)
+        {
+            hasAllItems = true;
+        }
+
+        if (hasAllItems)
+        {
+            perla.SetActive(false);
+            llave.SetActive(false);
+            botella.SetActive(false);
+        }
+        else
+        {
+            if (hasPerla)
+            {
+                perla.SetActive(false);
+            }
+            else if (!hasPerla && PlayerSceneController.barcoBossPasado)
+            {
+                perla.SetActive(true);
+            }
+
+            if (hasLlave)
+            {
+                llave.SetActive(false);
+            }
+            else if (!hasLlave && PlayerSceneController.barcoBossPasado)
+            {
+                llave.SetActive(true);
+            }
+
+            if (hasBotella)
+            {
+                botella.SetActive(false);
+            }
+            else
+            {
+                botella.SetActive(true);
+            }
+        }
+    }
+
+    private void CheckForItemPanel()
+    {
+        Scene esencialScene = SceneManager.GetSceneByName("EsencialScene");
+
+        if (esencialScene.IsValid())
+        {
+            GameObject[] objectsInScene = esencialScene.GetRootGameObjects();
+
+            foreach (GameObject obj in objectsInScene)
+            {
+                ItemPanel foundItemPanel = obj.GetComponentInChildren<ItemPanel>(true);
+
+                if (foundItemPanel != null)
+                {
+                    itemPanel = foundItemPanel;
+                    break;
+                }
+            }
         }
     }
 }
