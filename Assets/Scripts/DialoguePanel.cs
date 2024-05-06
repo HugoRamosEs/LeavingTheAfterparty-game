@@ -1,8 +1,6 @@
 using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class DialoguePanel : MonoBehaviour
@@ -61,7 +59,8 @@ public class DialoguePanel : MonoBehaviour
             }
             else
             {
-                if (Input.GetKeyDown(KeyCode.F)) {
+                if (Input.GetKeyDown(KeyCode.F))
+                {
                     dialogue.EndDialogue();
                     Time.timeScale = 1f;
                 }

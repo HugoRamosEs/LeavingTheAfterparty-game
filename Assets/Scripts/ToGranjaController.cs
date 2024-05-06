@@ -7,7 +7,6 @@ using UnityEngine.SceneManagement;
 public class ToGranjaController : MonoBehaviour
 {
     private ItemPanel itemPanel;
-    private PlayerSceneController player;
     private bool hasKey = false;
 
     public GameObject joaquin;
@@ -19,11 +18,9 @@ public class ToGranjaController : MonoBehaviour
     private void Start()
     {
         itemPanel = null;
-        player = null;
-        CheckForPlayerSceneController();
         CheckForItemPanel();
 
-        if (player.playaPasada)
+        if (PlayerSceneController.playaPasada)
         {
             disableJoaquin();
         }
@@ -66,7 +63,7 @@ public class ToGranjaController : MonoBehaviour
 
                 yield return new WaitForSecondsRealtime(3.5f);
                 disableJoaquin();
-                player.playaPasada = true;
+                PlayerSceneController.playaPasada = true;
                 joaquinPanel.SetActive(false);
                 Time.timeScale = 1f;
                 
@@ -106,27 +103,6 @@ public class ToGranjaController : MonoBehaviour
                 if (foundItemPanel != null)
                 {
                     itemPanel = foundItemPanel;
-                    break;
-                }
-            }
-        }
-    }
-    
-    private void CheckForPlayerSceneController()
-    {
-        Scene esencialScene = SceneManager.GetSceneByName("EsencialScene");
-
-        if (esencialScene.IsValid())
-        {
-            GameObject[] objectsInScene = esencialScene.GetRootGameObjects();
-
-            foreach (GameObject obj in objectsInScene)
-            {
-                PlayerSceneController foundPlayerSceneController = obj.GetComponentInChildren<PlayerSceneController>(true);
-
-                if (foundPlayerSceneController != null)
-                {
-                    player = foundPlayerSceneController;
                     break;
                 }
             }

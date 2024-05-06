@@ -11,6 +11,8 @@ TagManager:
   - screenDark
   - buffIcon
   - MuroFuegoController
+  - Fireball
+  - MagicBullet
   layers:
   - Default
   - TransparentFX

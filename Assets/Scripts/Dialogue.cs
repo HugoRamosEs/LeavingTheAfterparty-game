@@ -3,19 +3,19 @@ using UnityEngine;
 
 public class Dialogue : MonoBehaviour
 {
-    private int lineIndex;
+    public int lineIndex;
 
     public bool isPlayerInRange;
     public bool didDialogueStart;
     public bool requiresKeyPress = true;
-    private DialoguePanel dialoguePanel;
+    public DialoguePanel dialoguePanel;
 
     public GameObject dialogueMark;
     public string npcName;
     public Sprite npcImage;
-    [SerializeField, TextArea(4, 6)] private string[] dialogueLines;
+    [SerializeField, TextArea(4, 6)] protected string[] dialogueLines;
 
-    void Update()
+    protected void Update()
     {
         if (dialoguePanel == null)
         {
@@ -35,7 +35,7 @@ public class Dialogue : MonoBehaviour
         }
     }
 
-    public void InitDialogue()
+    public virtual void InitDialogue()
     {
         if (!didDialogueStart)
         {
@@ -79,10 +79,13 @@ public class Dialogue : MonoBehaviour
 
     void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject != null && collision.gameObject.CompareTag("Player"))
         {
             isPlayerInRange = false;
-            dialogueMark.SetActive(false);
+            if (dialogueMark != null)
+            {
+                dialogueMark.SetActive(false);
+            }
         }
     }
 

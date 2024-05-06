@@ -1,42 +1,40 @@
-using UnityEngine;
-using UnityEngine.UI;
-using TMPro;
 using System.Collections;
-using static System.TimeZoneInfo;
+
+using TMPro;
+
+using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class BarcoBossFight : MonoBehaviour
 {
-    [Header("Boss Properties")]
-    public int bossHealth;
-    private int maxHealth;
     private bool step2 = false;
     private bool step3 = false;
-    public static bool invulnerable = false;
     private bool inPhaseTransition = false;
-    private Animator animator;
-
-    [Header("Player & UI")]
-    private Transform player;
-    private Player playerStatus;
-    public Slider bossLifeBar;
-    public GameObject panelTransition;
-    public TextMeshProUGUI textTransition;
-    public Canvas canvas;
-    // public Image panelAfterDead;
-    public GameObject panelAfterDead;
-    public TextMeshProUGUI panelAfterDeadText;
     private bool finalPhaseStarted = false;
-    private bool playerDied = false;
+    private int maxHealth;
+    private Player playerStatus;
+    private Animator animator;
+    private Transform player;
 
-    [Header("Prefabs & Game Objects")]
-    public GameObject magicBulletBossPrefab;
-    public GameObject flameBallBossPrefab;
-    public GameObject colisionMuro;
-    public GameObject muroNoHitbox;
-    public GameObject bloqueoTop;
+    public int bossHealth;
+    public static bool invulnerable = false;
+    public GameObject panelTransition;
     public GameObject perla;
     public GameObject llave;
+    public GameObject bloqueoTop;
+    public GameObject muroNoHitbox;
+    public GameObject colisionMuro;
+    public GameObject flameBallBossPrefab;
+    public GameObject magicBulletBossPrefab;
+    public GameObject anciano;
+    public GameObject bossFightController;
+    public Slider bossLifeBar;
+    public Canvas canvas;
+    public TextMeshProUGUI textTransition;
     public SceneChange sceneChange;
+    public ChangeSong audioBoss;
+    public EnemyHealth enemyHealth;
 
     void OnEnable()
     {
@@ -92,6 +90,15 @@ public class BarcoBossFight : MonoBehaviour
         bossLifeBar.value = bossHealth;
         colisionMuro.SetActive(true);
         muroNoHitbox.SetActive(true);
+        bloqueoTop.SetActive(true);
+
+        if (PlayerSceneController.barcoBossPasado)
+        {
+            colisionMuro.SetActive(false);
+            muroNoHitbox.SetActive(false);
+            bloqueoTop.SetActive(false);
+            Destroy(gameObject);
+        }
     }
 
     void Update()
@@ -100,7 +107,9 @@ public class BarcoBossFight : MonoBehaviour
         {
             CheckForPlayerWithTag();
             if (player != null)
+            {
                 playerStatus = player.GetComponent<Player>();
+            }    
         }
 
         if (playerStatus != null && playerStatus.isDead)
@@ -117,16 +126,7 @@ public class BarcoBossFight : MonoBehaviour
 
         if(playerStatus.isDead)
         {
-            bossLifeBar.gameObject.SetActive(false);
-            sceneChange.gameObject.SetActive(true);
-            playerDied = true;
-        }
-
-        if (playerDied && !playerStatus.isDead)
-        {
-            canvas.sortingOrder = 2;
-            panelAfterDead.SetActive(true);
-            StartCoroutine(ChangeAlphaText(panelAfterDeadText, 0, 1, 1f));
+            ResetBossFight();
         }
     }
 
@@ -137,7 +137,9 @@ public class BarcoBossFight : MonoBehaviour
         StartCoroutine(PhaseTransition(phaseText));
         InvokeRepeating("FireMagicBullet", magicBulletDelay, magicBulletDelay);
         if (flameDelay > 0f)
+        {
             InvokeRepeating("SpawnFlame", flameDelay, flameDelay);
+        } 
     }
 
     void EndPhase(string phaseText, bool isBossDead = false)
@@ -145,6 +147,27 @@ public class BarcoBossFight : MonoBehaviour
         CancelInvoke("FireMagicBullet");
         CancelInvoke("SpawnFlame");
         StartCoroutine(PhaseTransition(phaseText, isBossDead));
+    }
+
+    void ResetBossFight()
+    {
+        StopFireAndFlameGeneration();
+        audioBoss.StopSong();
+        invulnerable = false;
+        bossLifeBar.fillRect.GetComponent<Image>().color = Color.white;
+        bossLifeBar.gameObject.SetActive(false);
+        anciano.SetActive(true);
+        bossFightController.SetActive(true);
+        colisionMuro.SetActive(false);
+        muroNoHitbox.SetActive(false);
+        bloqueoTop.SetActive(false);
+        bossHealth = 101;
+        enemyHealth.health = 101;
+        enemyHealth.healthBar.UpdateHealthBar(101, 101);
+        bossLifeBar.value = 101;
+        step2 = false;
+        step3 = false;
+        gameObject.SetActive(false);
     }
 
     IEnumerator PhaseTransition(string phaseText, bool isBossDead = false)
@@ -189,11 +212,13 @@ public class BarcoBossFight : MonoBehaviour
 
         if (isBossDead)
         {
+            audioBoss.ChangeToSceneSong();
             perla.SetActive(true);
             llave.SetActive(true);
             bloqueoTop.SetActive(false);
             colisionMuro.SetActive(false);
             muroNoHitbox.SetActive(false);
+            PlayerSceneController.barcoBossPasado = true;
             Destroy(gameObject);
         }
 
@@ -206,6 +231,7 @@ public class BarcoBossFight : MonoBehaviour
         {
             playerStatus.isInvulnerable = false;
         }
+
         canvas.sortingOrder = 1;
         inPhaseTransition = false;
         BarcoBossTransformation.KeepPlayerStill = false;
@@ -242,6 +268,9 @@ public class BarcoBossFight : MonoBehaviour
         float radius = 10f;
         Vector2 spawnPoint = (Vector2)player.position + Random.insideUnitCircle * radius;
 
+        Scene barcoScene = SceneManager.GetSceneByName("BarcoScene");
+        SceneManager.SetActiveScene(barcoScene);
+
         GameObject bullet = Instantiate(magicBulletBossPrefab, spawnPoint, Quaternion.identity);
 
         StartCoroutine(DelayBullet(bullet));
@@ -264,6 +293,9 @@ public class BarcoBossFight : MonoBehaviour
     {
         if (inPhaseTransition) return;
 
+        Scene barcoScene = SceneManager.GetSceneByName("BarcoScene");
+        SceneManager.SetActiveScene(barcoScene);
+
         int numberOfFlames = Random.Range(10, 21);
         for (int i = 0; i < numberOfFlames; i++)
         {
@@ -276,6 +308,23 @@ public class BarcoBossFight : MonoBehaviour
             {
                 flameScript.speed = Random.Range(2f, 10f);
             }
+        }
+    }
+
+    void StopFireAndFlameGeneration()
+    {
+        CancelInvoke("FireMagicBullet");
+        CancelInvoke("SpawnFlame");
+        GameObject[] fireballs = GameObject.FindGameObjectsWithTag("Fireball");
+        foreach (GameObject fireball in fireballs)
+        {
+            Destroy(fireball);
+        }
+
+        GameObject[] magicBullets = GameObject.FindGameObjectsWithTag("MagicBullet");
+        foreach (GameObject magicBullet in magicBullets)
+        {
+            Destroy(magicBullet);
         }
     }
 

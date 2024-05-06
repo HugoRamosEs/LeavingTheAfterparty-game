@@ -1,10 +1,10 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerSceneController : MonoBehaviour
 {
-    public bool sotanoPasado = false;
-    public bool playaPasada = false;
+    public static bool sotanoPasado { get; set; } = false;
+    public static bool congeladorPasado { get; set; } = false;
+    public static bool playaPasada { get; set; } = false;
+    public static bool barcoBossPasado { get; set; } = false;
+    public static bool ciudadBossPasado { get; set; } = false;
 }
