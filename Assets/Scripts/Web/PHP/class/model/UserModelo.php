@@ -6,7 +6,7 @@ class UserModelo implements \CRUDable
     public function read($obj) {
         
         $dbConsulta = DataBase::getInstance('consulta');
-        $sql = "SELECT * FROM user";
+        $sql = "SELECT * FROM tbl_user";
         $consulta = $dbConsulta->executeSQL($sql);
 
         return $consulta;
@@ -14,7 +14,7 @@ class UserModelo implements \CRUDable
 
     public function create($obj){
         $dbGeneric = DataBase::getInstance('consulta');
-        $sql = "INSERT INTO user (email, username, password) VALUES (?, ?, ?)";
+        $sql = "INSERT INTO tbl_user (email, username, password) VALUES (?, ?, ?)";
         $params = [$obj->email, $obj->usuario, $obj->contrasenya];
         $consulta = $dbGeneric->executeSQL($sql, $params);
         return $consulta;        
@@ -28,7 +28,7 @@ class UserModelo implements \CRUDable
                 $db->connect_errno . ": " . $db->connect_error);
         }
         
-        $stmt = $db->prepare("UPDATE users SET status = ? WHERE id = ?");
+        $stmt = $db->prepare("UPDATE tbl_usuaris SET status = ? WHERE id = ?");
         $stmt->bind_param("is", $status, $id);
         
         $id = $obj;
@@ -47,7 +47,7 @@ class UserModelo implements \CRUDable
     public function readOneUser($obj) {
         
         $dbConsulta = DataBase::getInstance('consulta');
-        $sql = "SELECT * FROM user WHERE email = ?";
+        $sql = "SELECT * FROM tbl_user WHERE email = ?";
         $params = [$obj->email];
         $consulta = $dbConsulta->executeSQL($sql, $params);
 

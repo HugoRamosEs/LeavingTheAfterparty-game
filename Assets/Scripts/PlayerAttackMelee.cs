@@ -63,20 +63,6 @@ public class PlayerAttackMelee : MonoBehaviour
         }
     }
 
-    public string GetInventoryData()
-    {
-        List<ItemSlot> filledSlots = new List<ItemSlot>();
-        foreach (ItemSlot slot in itemPanel.inventory.slots)
-        {
-            if (slot.item != null)
-            {
-                filledSlots.Add(slot);
-            }
-        }
-
-        return JsonUtility.ToJson(filledSlots);
-    }
-
     IEnumerator StopAttackAnimation()
     {
         yield return new WaitForSeconds(0.5f);
