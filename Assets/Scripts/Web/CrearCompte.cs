@@ -46,6 +46,7 @@ public class CrearCompte : MonoBehaviour
     {
         mensajeText.text = servidor.respuesta.mensaje;
         mensajeUsuarioCorrectoText.text = servidor.respuesta.mensaje;
+
         switch (servidor.respuesta.codigo)
         {
             case 201: // Direcció de correu no vàlida
@@ -69,6 +70,7 @@ public class CrearCompte : MonoBehaviour
                 StartCoroutine(MostrarYEsconderEscena());
                 break;
             case 206: // Feliciats! S+ha registrat a Leaving the After Party. En breus, se l+hi redirigirà al joc.
+                servidor.respuesta.GuardarDatosUsuario();
                 print(servidor.respuesta.mensaje);
                 StartCoroutine(MandarAlLogin());
                 break;

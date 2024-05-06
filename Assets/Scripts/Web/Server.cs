@@ -30,13 +30,13 @@ public class Server : ScriptableObject
         {
             formulario.AddField(s.parametros[i], datos[i]);
         }
-        Debug.Log("formulario " + formulario);
+        //Debug.Log("formulario " + formulario);
         UnityWebRequest www = UnityWebRequest.Post(servidor + "/" + s.url, formulario);
-        Debug.Log(servidor + "/" + s.url);
+        //Debug.Log(servidor + "/" + s.url);
         yield return www.SendWebRequest();
-        Debug.Log("www.result: " + www.result);
-        Debug.Log("UnityWebRequest.Result.Success " + UnityWebRequest.Result.Success);
-        Debug.Log("www " + www);
+        //Debug.Log("www.result: " + www.result);
+        //Debug.Log("UnityWebRequest.Result.Success " + UnityWebRequest.Result.Success);
+        //Debug.Log("www " + www);
 
         if (www.result != UnityWebRequest.Result.Success)
         {
@@ -44,13 +44,19 @@ public class Server : ScriptableObject
         }
         else
         {
-            Debug.Log(www.downloadHandler.text);
+            //Debug.Log(www.downloadHandler.text);
             string responseText = www.downloadHandler.text;
             responseText = responseText.Replace("<br />", "");
             responseText = responseText.Replace("#", "\"");
             responseText = responseText.Replace("+", "'");
-            Debug.Log(responseText);
+
+            Debug.Log("Respuesta server: " + responseText);
             respuesta = JsonUtility.FromJson<Respuesta>(responseText);
+
+            if (nombre == "login" || nombre == "register")
+            {
+                respuesta.GuardarDatosUsuario();
+            }
         }
         ocupado = false;
         e.Invoke();
@@ -71,11 +77,33 @@ public class Respuesta
 {
     public int codigo;
     public string mensaje;
-    public string respuesta;
+    public DatosUsuario respuesta;
 
     public Respuesta()
     {
-    codigo = 404;
-    mensaje = "Error al conectarse con el servidor.";
+        codigo = 404;
+        mensaje = "Error al conectarse con el servidor.";
     }
+
+    public void GuardarDatosUsuario()
+    {
+        Debug.Log("Datos usuario: " + respuesta);
+        Debug.Log("Correo Server: " + respuesta.id);
+        Debug.Log("Username server: " + respuesta.username);
+
+        UserGameInfo.Instance.email = respuesta.id;
+        UserGameInfo.Instance.username = respuesta.username;
+
+        PlayerPrefs.SetString("Correo", respuesta.id);
+        PlayerPrefs.SetString("NombreUsuario", respuesta.username);
+
+        UserGameInfo.Instance.UpdateUserInfo();
+    }
+}
+
+[System.Serializable]
+public class DatosUsuario
+{
+    public string id;
+    public string username;
 }
