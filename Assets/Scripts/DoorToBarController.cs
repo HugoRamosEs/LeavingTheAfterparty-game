@@ -1,29 +1,23 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class DoorToBarController : MonoBehaviour
 {
-    private ItemPanel itemPanel;
     private bool hasKey = false;
-    private PlayerSceneController player;
+    private ItemPanel itemPanel;
+    private DialogueGame dialogueScript;
 
     [SerializeField] LightController lightController;
     [SerializeField] GameObject dialogueGame;
     [SerializeField] Collider2D doorCollider;
 
-    private DialogueGame dialogueScript;
-
     private void Start()
     {
         dialogueScript = dialogueGame.GetComponent<DialogueGame>();
         itemPanel = null;
-        player = null;
-        CheckForPlayerSceneController();
-        CheckForDialoguePanel();
+        CheckForItemPanel();
 
-        if (player.sotanoPasado)
+        if (PlayerSceneController.sotanoPasado)
         {
             hasKey = true;
             lightController.isDark = false;
@@ -61,7 +55,7 @@ public class DoorToBarController : MonoBehaviour
             if (hasKey && !lightController.isDark)
             {
                 doorCollider.gameObject.SetActive(false);
-                player.sotanoPasado = true;
+                PlayerSceneController.sotanoPasado = true;
             }
         }
     }
@@ -75,7 +69,7 @@ public class DoorToBarController : MonoBehaviour
         }
     }
 
-    private void CheckForDialoguePanel()
+    private void CheckForItemPanel()
     {
         Scene esencialScene = SceneManager.GetSceneByName("EsencialScene");
 
@@ -90,27 +84,6 @@ public class DoorToBarController : MonoBehaviour
                 if (foundItemPanel != null)
                 {
                     itemPanel = foundItemPanel;
-                    break;
-                }
-            }
-        }
-    }
-
-    private void CheckForPlayerSceneController()
-    {
-        Scene esencialScene = SceneManager.GetSceneByName("EsencialScene");
-
-        if (esencialScene.IsValid())
-        {
-            GameObject[] objectsInScene = esencialScene.GetRootGameObjects();
-
-            foreach (GameObject obj in objectsInScene)
-            {
-                PlayerSceneController foundPlayerSceneController = obj.GetComponentInChildren<PlayerSceneController>(true);
-
-                if (foundPlayerSceneController != null)
-                {
-                    player = foundPlayerSceneController;
                     break;
                 }
             }
