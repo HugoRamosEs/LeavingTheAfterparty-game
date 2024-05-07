@@ -6,7 +6,7 @@ class Config {
     public $user;
     public $password;
     public $base;
-    public $port;
+    public $port = null;
     
     private static $_instance;
     
