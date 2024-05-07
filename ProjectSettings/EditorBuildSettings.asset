@@ -41,4 +41,16 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/DonaScene.unity
     guid: 2431677cd00f86748a6080e43493f9b7
+  - enabled: 1
+    path: Assets/Scenes/CuevaScene.unity
+    guid: a906aa6380d295e40b5e6671c7a85e04
+  - enabled: 1
+    path: Assets/Scenes/GallineroScene.unity
+    guid: 3a103e81439fd1d4e8cc55dd74d1ff34
+  - enabled: 1
+    path: Assets/Scenes/EdificioGranjaScene.unity
+    guid: 263768798165c8847a398f02b529462f
+  - enabled: 1
+    path: Assets/Scenes/CasaScene.unity
+    guid: 1082f61ad596f1d4ea90901550621db3
   m_configObjects: {}
