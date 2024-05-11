@@ -12,6 +12,11 @@ Respuestas: {"codigo": 200, "mensaje":"Conectado correctamente", "respuesta":""}
     207:    El correo no esta registrado
     208:    El correo o la contraseña son incorrectos
     209:    Se ha iniciado de sesión correctamente
+    210:    Guardado correctamente
+    211:    Ha habido un error al guardar la partida
+    212:    Cargado correctamente
+    213:    Ha habido un error al cargar la partida
+    214:    No se ha encontrado una partida para cargar. Por favor, cree una nueva
 
     400:    Error fatal, revisa el código
     401:    Error intentando conectar
@@ -21,3 +26,4 @@ Respuestas: {"codigo": 200, "mensaje":"Conectado correctamente", "respuesta":""}
 
     UserControler -> register()
     UserControler -> login()
+    UserControler -> guardarPartida()
