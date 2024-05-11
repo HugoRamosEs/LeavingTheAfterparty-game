@@ -56,7 +56,10 @@ public class Dialogue : MonoBehaviour
         if (dialoguePanel != null)
         {
             dialoguePanel.gameObject.SetActive(true);
-            dialogueMark.SetActive(false);
+            if (dialogueMark != null)
+            {
+                dialogueMark.SetActive(false);
+            }
             dialoguePanel.UpdateValues(this, dialogueLines, lineIndex);
         }
     }
@@ -65,19 +68,25 @@ public class Dialogue : MonoBehaviour
     {
         didDialogueStart = false;
         dialoguePanel.gameObject.SetActive(false);
-        dialogueMark.SetActive(true);
+        if (dialogueMark != null) {
+            dialogueMark.SetActive(true);
+        }
+      
     }
 
-    void OnTriggerEnter2D(Collider2D collision)
+    protected void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
             isPlayerInRange = true;
-            dialogueMark.SetActive(true);
+            if(dialogueMark != null) {
+                dialogueMark.SetActive(true);
+            }
+            
         }
     }
 
-    void OnTriggerExit2D(Collider2D collision)
+    protected void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.gameObject != null && collision.gameObject.CompareTag("Player"))
         {
