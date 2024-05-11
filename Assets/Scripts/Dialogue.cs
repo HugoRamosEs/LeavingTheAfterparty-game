@@ -15,7 +15,7 @@ public class Dialogue : MonoBehaviour
     public Sprite npcImage;
     [SerializeField, TextArea(4, 6)] protected string[] dialogueLines;
 
-    protected void Update()
+    protected virtual void Update()
     {
         if (dialoguePanel == null)
         {

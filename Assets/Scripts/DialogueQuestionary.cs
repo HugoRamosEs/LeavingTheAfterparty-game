@@ -25,7 +25,7 @@ public class DialogueQuestionary : Dialogue
             Destroy(gameObject);
         }
     }
-    void Update()
+    protected override void Update()
     {
         if (dialogueQuestionaryPanel == null)
         {
