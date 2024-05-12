@@ -15,7 +15,7 @@ public class Dialogue : MonoBehaviour
     public Sprite npcImage;
     [SerializeField, TextArea(4, 6)] protected string[] dialogueLines;
 
-    protected virtual void Update()
+    protected void Update()
     {
         if (dialoguePanel == null)
         {
@@ -56,10 +56,7 @@ public class Dialogue : MonoBehaviour
         if (dialoguePanel != null)
         {
             dialoguePanel.gameObject.SetActive(true);
-            if (dialogueMark != null)
-            {
-                dialogueMark.SetActive(false);
-            }
+            dialogueMark.SetActive(false);
             dialoguePanel.UpdateValues(this, dialogueLines, lineIndex);
         }
     }
@@ -68,25 +65,19 @@ public class Dialogue : MonoBehaviour
     {
         didDialogueStart = false;
         dialoguePanel.gameObject.SetActive(false);
-        if (dialogueMark != null) {
-            dialogueMark.SetActive(true);
-        }
-      
+        dialogueMark.SetActive(true);
     }
 
-    protected void OnTriggerEnter2D(Collider2D collision)
+    void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
             isPlayerInRange = true;
-            if(dialogueMark != null) {
-                dialogueMark.SetActive(true);
-            }
-            
+            dialogueMark.SetActive(true);
         }
     }
 
-    protected void OnTriggerExit2D(Collider2D collision)
+    void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.gameObject != null && collision.gameObject.CompareTag("Player"))
         {

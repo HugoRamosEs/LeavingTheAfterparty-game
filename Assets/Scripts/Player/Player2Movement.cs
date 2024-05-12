@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Player2Movement : MonoBehaviour
@@ -71,7 +70,7 @@ public class Player2Movement : MonoBehaviour
 
         moveDir = new Vector3(x, y).normalized;
 
-        if ((Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift)) && (player.stamina.currentVal > 0) && !isResting)
+        if ((Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift)) && (player.stamina.currentVal > 0) && !isResting && isWalking)
         {
             currentMoveSpeed = sprintSpeed;
             player.GetTired(30f);

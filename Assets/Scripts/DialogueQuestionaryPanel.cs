@@ -31,52 +31,31 @@ public class DialogueQuestionaryPanel : MonoBehaviour
         dialogueQuestionary = FindObjectOfType<DialogueQuestionary>();
     }
 
-    void Awake()
+    void Update()
     {
-        // Siempre trabaja con la instancia única de DialogueQuestionary
-        dialogueQuestionary = DialogueQuestionary.Instance;
-    }
+        if (dialogue == null)
+        {
+            CheckForDialogue();
+        }
 
-
-    public void Update()
-    {
         if (Input.GetKeyDown(KeyCode.F))
         {
-            Debug.Log("[Update] Presionada tecla F. Estado isDialogueEnded: " + dialogueQuestionary.isDialogueEnded + ", isInitializing: " + dialogueQuestionary.isInitializing);
-
-            if (dialogueQuestionary != null)
+            if (dialogueQuestionary != null && !dialogueQuestionary.IsResponseDialogue && !dialogueQuestionary.isDialogueEnded && !dialogueQuestionary.isInitializing)
             {
-                // Solo permitir la interacción si el diálogo no ha terminado o está inicializando.
-                if (!dialogueQuestionary.isDialogueEnded && !dialogueQuestionary.isInitializing)
-                {
-                    Debug.Log("[Update] Continuando o iniciando diálogo porque no ha terminado ni está inicializando.");
-                    dialogueQuestionary.InitDialogue();
-                }
-                else if (dialogueQuestionary.isDialogueEnded)
-                {
-                    Debug.Log("[Update] Intento de cerrar diálogo porque isDialogueEnded es true.");
-                    EndDialogue();
-                }
+                dialogueQuestionary.InitDialogue();
+            }
+            else if (dialogueQuestionary != null && dialogueQuestionary.isAnswerFeedback)
+            {
+                dialogueQuestionary.isAnswerFeedback = false;
+                dialogue.EndDialogue();
+                Time.timeScale = 1f;
             }
         }
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
     public void UpdateValues(Dialogue dialogue, string[] dialogueLines, int lineIndex)
     {
-        this.dialogue = dialogue;
+        this.dialogue = dialogue;  
         npcName.text = dialogue.npcName;
         npcImage.sprite = dialogue.npcImage;
         dLines = dialogueLines;
@@ -140,79 +119,33 @@ public class DialogueQuestionaryPanel : MonoBehaviour
 
     private void OnResponseButtonClicked(string response)
     {
-        string nextDialogue = dialogueQuestionary.IsCorrectResponse(response) ?
-                              dialogueQuestionary.GetCorrectDialogue() :
-                              dialogueQuestionary.GetIncorrectDialogue();
+        string nextDialogue = null;
+
+        if (dialogueQuestionary != null && dialogueQuestionary.IsCorrectResponse(response))
+        {
+            nextDialogue = dialogueQuestionary.GetCorrectDialogue();
+        }
+        else
+        {
+            nextDialogue = dialogueQuestionary.GetIncorrectDialogue();
+        }
 
         if (nextDialogue != null)
         {
             UpdateValues(dialogue, new string[] { nextDialogue }, 0);
             dialogueQuestionary.isAnswerFeedback = true;
-            if (dialogueQuestionary.IsCorrectResponse(response) && dialogueQuestionary.relatedNPC != null)
-            {
-                dialogueQuestionary.relatedNPC.SetActive(false);
-            }
+        }
+
+        if (dialogueQuestionary != null)
+        {
+            dialogueQuestionary.IsResponseDialogue = true;
         }
 
         foreach (Button button in responseButtons)
         {
-            button.onClick.RemoveAllListeners();
             button.gameObject.SetActive(false);
         }
-
-        dialogueQuestionary.isDialogueEnded = true;
-        Debug.Log("==== EN DIALOGUEQUESTIONARYPANEL=======");
-        Debug.Log("isdialogueended: " + dialogueQuestionary.isDialogueEnded);
-        Debug.Log("isanswefeedback: " + dialogueQuestionary.isAnswerFeedback);
-        Debug.Log("=======================================");
-        dialogueQuestionary.forceState();
-        responsesPanel.SetActive(false);
     }
-
-
-    public void EndDialogue()
-    {
-        if (dialogueQuestionary == null)
-        {
-            Debug.LogWarning("DialogueQuestionary reference lost, possibly due to scene unload.");
-            return; // Salir si el controlador de diálogo no está disponible.
-        }
-
-        if (!dialogueQuestionary.isDialogueEnded)
-        {
-            dialogueQuestionary.isDialogueEnded = true;
-            Debug.Log("[EndDialogue] Marcando el diálogo como terminado.");
-        }
-
-        Debug.Log("[EndDialogue] Finalizando diálogo. Estado antes de resetear: isDialogueEnded: " + dialogueQuestionary.isDialogueEnded);
-        responsesPanel.SetActive(false);
-        Time.timeScale = 1f;
-        gameObject.SetActive(false);
-
-        if (dialogue != null)
-        {
-            dialogue.EndDialogue();
-        }
-        else
-        {
-            Debug.LogWarning("Missing dialogue reference when trying to end dialogue.");
-        }
-
-        dialogueQuestionary.ResetDialogueState();
-        Debug.Log("[EndDialogue] Diálogo finalizado y estado reseteado.");
-    }
-
-
-
-
-    public void ActivateResponsesPanel()
-    {
-        if (responsesPanel != null && !responsesPanel.activeSelf)
-        {
-            responsesPanel.SetActive(true);
-        }
-    }
-
 
     void CheckForDialogue()
     {

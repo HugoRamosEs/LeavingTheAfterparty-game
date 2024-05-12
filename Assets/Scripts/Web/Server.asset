@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc6bed228bfabe7408e9a36e8f2320d0, type: 3}
   m_Name: Server
   m_EditorClassIdentifier: 
-  servidor: http://localhost/ltap/LTAP_php
+  servidor: https://ltap-thosi.000webhostapp.com
   servicios:
   - nombre: login
     url: login.php
@@ -25,23 +25,8 @@ MonoBehaviour:
     - email
     - user
     - password
-  - nombre: guardar-partida
-    url: guardar_partida.php
-    parametros:
-    - email
-    - escena
-    - posX
-    - posY
-    - posZ
-    - currentHp
-    - currentStamina
-    - inventory
-  - nombre: cargar-partida
-    url: cargarPartida.php
-    parametros:
-    - email
   ocupado: 0
   respuesta:
-    codigo: 209
-    mensaje: "S'ha iniciat de sessi\xF3 correctament."
+    codigo: 404
+    mensaje: Error al conectarse con el servidor.
     respuesta: 
