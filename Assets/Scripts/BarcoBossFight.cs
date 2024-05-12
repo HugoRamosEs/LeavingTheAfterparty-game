@@ -153,7 +153,6 @@ public class BarcoBossFight : MonoBehaviour
     {
         StopFireAndFlameGeneration();
         audioBoss.StopSong();
-        audioBoss.ChangeToSceneSong();
         invulnerable = false;
         bossLifeBar.fillRect.GetComponent<Image>().color = Color.white;
         bossLifeBar.gameObject.SetActive(false);

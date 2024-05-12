@@ -7,7 +7,7 @@ include "class/config/autoloader.php";
 spl_autoload_register("Autoloader::load");
 spl_autoload_register("Autoloader::loadDataBase");
 
-// try {
+try {
     if (DataBase::getInstance('consulta')) {
         
         $userUnity = new User('', '', '');
@@ -23,6 +23,6 @@ spl_autoload_register("Autoloader::loadDataBase");
         echo '{"codigo": 401, "mensaje":"Error intentando conectar", "respuesta":""}';
     }
 
-// } catch (Exception $e) {
-//     echo '{"codigo": 400, "mensaje":"Error fatal", "respuesta":""}';
-// }
+} catch (Exception $e) {
+    echo '{"codigo": 400, "mensaje":"Error fatal", "respuesta":""}';
+}

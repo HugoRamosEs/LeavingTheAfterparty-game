@@ -1,21 +1,22 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.AI;
 
 public class EnemyShooting : MonoBehaviour
 {
-    private float timeBtwShots;
-    private Transform player;
-    private Animator animator;
-    private NavMeshAgent agent;
-
     public float speed;
     public float stoppingDistance;
     public float retreatDistance;
     public float shootingDistance;
+    private bool isPreparingToShoot = false;
+
+    private float timeBtwShots;
     public float startTimeBtwShots;
-    public bool isPreparingToShoot = false;
+
     public GameObject projectile;
+    private Transform player;
+
+    private Animator animator;
 
     void Start()
     {
@@ -23,20 +24,11 @@ public class EnemyShooting : MonoBehaviour
         timeBtwShots = startTimeBtwShots;
 
         animator = GetComponent<Animator>();
-        agent = GetComponent<NavMeshAgent>();
-        agent.updateRotation = false;
-        agent.updateUpAxis = false;
-        agent.speed = speed;
     }
 
     void Update()
     {
-        if (player == null)
-        {
-            player = GameObject.FindGameObjectWithTag("Player").transform;
-        }
-
-        float distanceToPlayer = Vector3.Distance(agent.transform.position, player.position);
+        float distanceToPlayer = Vector2.Distance(transform.position, player.position);
 
         if (timeBtwShots <= 0 && !isPreparingToShoot && distanceToPlayer <= shootingDistance)
         {
@@ -47,32 +39,28 @@ public class EnemyShooting : MonoBehaviour
             timeBtwShots -= Time.deltaTime;
             animator.SetBool("isShooting", false);
 
-            if (distanceToPlayer > stoppingDistance)
+            float stoppingDistanceTolerance = 0.1f;
+
+            if (distanceToPlayer > stoppingDistance + stoppingDistanceTolerance)
             {
-                // Moverse hacia el jugador usando NavMesh
-                agent.isStopped = false;
-                agent.SetDestination(player.position);
+                // Moverse hacia el jugador
+                transform.position = Vector2.MoveTowards(transform.position, player.position, speed * Time.deltaTime);
                 animator.SetBool("isMoving", true);
-                // Añade las siguientes líneas para actualizar las variables de dirección
-                animator.SetFloat("x", player.position.x - agent.transform.position.x);
-                animator.SetFloat("y", player.position.y - agent.transform.position.y);
+                animator.SetFloat("x", player.position.x - transform.position.x);
+                animator.SetFloat("y", player.position.y - transform.position.y);
             }
-            else if (distanceToPlayer < stoppingDistance && distanceToPlayer > retreatDistance)
+            else if (distanceToPlayer < stoppingDistance - stoppingDistanceTolerance && distanceToPlayer > retreatDistance)
             {
-                // Detenerse a una distancia prudente del jugador
-                agent.isStopped = true;
+                // Estar en una posición prudente
                 animator.SetBool("isMoving", false);
             }
             else if (distanceToPlayer <= retreatDistance)
             {
-                // Retroceder si está demasiado cerca del jugador
-                Vector3 dirToPlayer = (player.position - agent.transform.position).normalized;
-                Vector3 newPos = agent.transform.position - dirToPlayer * retreatDistance;
-                agent.SetDestination(newPos);
+                // Estar demasiado cerca del jugador
+                transform.position = Vector2.MoveTowards(transform.position, player.position, -speed * Time.deltaTime);
                 animator.SetBool("isMoving", true);
-                // Añade las siguientes líneas para actualizar las variables de dirección
-                animator.SetFloat("x", player.position.x - agent.transform.position.x);
-                animator.SetFloat("y", player.position.y - agent.transform.position.y);
+                animator.SetFloat("x", player.position.x - transform.position.x);
+                animator.SetFloat("y", player.position.y - transform.position.y);
             }
         }
     }
@@ -83,20 +71,13 @@ public class EnemyShooting : MonoBehaviour
         animator.SetBool("isMoving", false);
         animator.SetBool("isShooting", true);
 
-        // Detener el agente de navegación mientras se prepara para disparar
-        agent.isStopped = true;
-
         yield return new WaitForSeconds(1);
 
-        Instantiate(projectile, agent.transform.position, Quaternion.identity);
+        Instantiate(projectile, transform.position, Quaternion.identity);
 
         yield return new WaitForSeconds(0.5f);
 
-        // Reiniciar el tiempo entre disparos y permitir que el agente se mueva nuevamente
         timeBtwShots = startTimeBtwShots;
         isPreparingToShoot = false;
-
-        // Permitir que el agente se mueva después de disparar
-        agent.isStopped = false;
     }
 }

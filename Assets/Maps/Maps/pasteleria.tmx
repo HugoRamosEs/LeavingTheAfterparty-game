@@ -387,10 +387,10 @@
   </data>
  </layer>
  <objectgroup id="7" name="Colisiones">
-  <object id="28" x="-164" y="108.333" width="140.333" height="30.6667"/>
+  <object id="28" x="-164" y="110.333" width="140.333" height="28.6667"/>
   <object id="29" x="-169" y="-105" width="8.66667" height="216.667"/>
   <object id="30" x="-29" y="123" width="53.3333" height="15"/>
-  <object id="31" x="19.3333" y="108.25" width="148" height="23.4167"/>
+  <object id="31" x="19.3333" y="110" width="148" height="21.6667"/>
   <object id="32" x="160.667" y="-102.667" width="6.66667" height="220.333"/>
   <object id="34" x="-162.333" y="-42.3333" width="76.3333" height="10"/>
   <object id="35" x="-86" y="-33.0909">
@@ -406,7 +406,7 @@
   <object id="39" x="29.2727" y="-51.0909" width="20.5455" height="2.72727"/>
   <object id="40" x="63.4545" y="-51.4545" width="16.7273" height="3.81818"/>
   <object id="41" x="49.8182" y="-48.7273" width="13.4545" height="48.1818"/>
-  <object id="42" x="-74.75" y="-13" width="124.75" height="14.5"/>
+  <object id="42" x="-74.75" y="-13" width="124.75" height="12.5"/>
   <object id="43" x="-74.5" y="0.125">
    <polygon points="0,0 -5.125,-2.60983 -5,-16.125 3,-16.125"/>
   </object>
@@ -414,19 +414,19 @@
   <object id="45" x="80.2727" y="-53.9697" width="81.0606" height="37.303"/>
   <object id="46" x="-144" y="7.66667" width="48" height="88.3333"/>
   <object id="47" x="63.3333" y="85.6667" width="15.6667" height="19.3333"/>
-  <object id="48" x="32.75" y="77.8295" width="14.75" height="19.5455"/>
+  <object id="48" x="32.75" y="77.4545" width="14.75" height="17.7955"/>
   <object id="49" x="48.25" y="61.8182" width="32" height="31.6818"/>
-  <object id="50" x="80.25" y="61.5114" width="15.25" height="19.9886"/>
+  <object id="50" x="80.25" y="61.3864" width="15.25" height="18.8636"/>
   <object id="51" x="48.5" y="46.1136" width="14.5" height="16.6364"/>
-  <object id="52" x="112" y="77.5682" width="16" height="19.5568"/>
+  <object id="52" x="112" y="77.8182" width="16" height="17.6818"/>
   <object id="53" x="129.25" y="61.6136" width="30.25" height="24.6364"/>
   <object id="54" x="144.75" y="87.25" width="15.5" height="18.5"/>
   <object id="57" x="144.364" y="45.0909" width="15.6364" height="14.7273"/>
-  <object id="58" x="112.364" y="13.9318" width="15.2727" height="19.3409"/>
+  <object id="58" x="112.364" y="14.1818" width="15.2727" height="17.0909"/>
   <object id="59" x="128.909" y="-2.36364" width="30.5455" height="34"/>
   <object id="60" x="48.3636" y="-2.54545" width="31.4545" height="26.1818"/>
-  <object id="61" x="79.8182" y="-2.23864" width="15.6364" height="19.8068"/>
-  <object id="62" x="32.5455" y="13.6364" width="15.0909" height="19.8864"/>
+  <object id="61" x="79.8182" y="-2.36364" width="15.6364" height="18.1818"/>
+  <object id="62" x="32.5455" y="13.6364" width="15.0909" height="17.6364"/>
  </objectgroup>
  <layer id="8" name="no_hitbox" width="30" height="20">
   <data encoding="csv">
