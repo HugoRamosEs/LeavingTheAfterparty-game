@@ -2,13 +2,13 @@ using UnityEngine;
 
 public class EnemyHealth : MonoBehaviour
 {
+    private int maxHealth;
+
     public int health;
     public GameObject bloodParticles;
     public HealthBar healthBar;
     public delegate void HealthChanged(int currentHealth);
     public static event HealthChanged OnHealthChanged;
-
-    private int maxHealth;
 
     private void Start()
     {

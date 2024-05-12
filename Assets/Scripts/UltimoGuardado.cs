@@ -1,4 +1,3 @@
-using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -10,8 +9,6 @@ public class UltimoGuardado : MonoBehaviour
     public string CurrentScene { get; private set; }
     public Player Player { get; private set; }
     public int DeathCount { get; private set; }
-
-    public GuardarPartida guardarPartida;
 
     private void Awake()
     {
@@ -34,21 +31,19 @@ public class UltimoGuardado : MonoBehaviour
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        StartCoroutine(DelayedOnSceneLoaded(scene, mode));
-    }
-
-    private IEnumerator DelayedOnSceneLoaded(Scene scene, LoadSceneMode mode)
-    {
-        yield return new WaitForSeconds(0.5f);
-
+        // Encuentra la escena que no es 'EsencialScene'
         for (int i = 0; i < SceneManager.sceneCount; i++)
         {
             Scene loadedScene = SceneManager.GetSceneAt(i);
             if (loadedScene.name != "EsencialScene")
             {
+                // Actualiza la escena actual
                 UpdateCurrentScene(loadedScene.name);
+
+                // Encuentra al jugador en la escena cargada
                 Player player = FindObjectOfType<Player>();
 
+                // Si el jugador existe, actualiza la posición del jugador y la referencia al jugador
                 if (player != null)
                 {
                     UpdatePlayerPosition(player.transform.position);
@@ -56,7 +51,9 @@ public class UltimoGuardado : MonoBehaviour
                 }
 
                 Debug.Log("Escena cargada: " + CurrentScene + " Posición del jugador: " + PlayerPosition);
-                yield break;
+
+                // Sal de la función una vez que encuentres la escena que no es 'EsencialScene'
+                return;
             }
         }
     }
@@ -74,10 +71,5 @@ public class UltimoGuardado : MonoBehaviour
     public void UpdateCurrentScene(string newScene)
     {
         CurrentScene = newScene;
-        if (guardarPartida != null && (UserGameInfo.Instance.email != null || UserGameInfo.Instance.email != ""))
-        {
-            guardarPartida.Guardar();
-        }
     }
-
 }
