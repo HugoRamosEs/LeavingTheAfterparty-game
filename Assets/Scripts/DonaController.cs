@@ -1,14 +1,15 @@
 using System.Collections;
+
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 
 public class DonaController : MonoBehaviour
 {
-    private ItemPanel itemPanel;
     private bool hasSugarSack = false;
+    private ItemPanel itemPanel;
 
-    public GameObject dialoguePanel;
+    public GameObject tpToCiudad;
+    public GameObject donaPanel;
     public DialogueGame dialogueGame;
 
     private void Start()
@@ -34,25 +35,11 @@ public class DonaController : MonoBehaviour
             {
                 yield return new WaitForSecondsRealtime(0.80f);
                 Time.timeScale = 0f;
-                if (!dialoguePanel.activeInHierarchy)
-                {
-                    dialoguePanel.SetActive(true);
-                }
-                dialogueGame.UpdateText("Parece que necesitas un saco de azúcar...");
+                donaPanel.SetActive(true);
+                dialogueGame.UpdateText("¡¡¡ESTÁ CERRADO!!! Necesito un saco de azúcar antes de abrir...");
                 yield return new WaitForSecondsRealtime(4.75f);
                 Time.timeScale = 1f;
-            }
-            else
-            {
-                yield return new WaitForSecondsRealtime(0.80f);
-                Time.timeScale = 0f;
-                if (!dialoguePanel.activeInHierarchy)
-                {
-                    dialoguePanel.SetActive(true);
-                }
-                dialogueGame.UpdateText("¡Oh, veo que ya tienes un saco de azúcar!");
-                yield return new WaitForSecondsRealtime(4.75f);
-                Time.timeScale = 1f;
+                tpToCiudad.SetActive(true);
             }
         }
     }
