@@ -1,7 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using TMPro;
 
@@ -14,6 +11,8 @@ public class DeathScreen : MonoBehaviour
     [SerializeField] private TMP_Text deathCountText;
     [SerializeField] private Player2Movement player2Movement;
     [SerializeField] private AudioSource audioSource;
+    [SerializeField] private PlayerAttackShooting playerAttackShooting;
+    [SerializeField] private PlayerAttackMelee playerAttackMelee;
 
     public void Setup()
     {
@@ -54,6 +53,8 @@ public class DeathScreen : MonoBehaviour
         player.isDead = false;
         player.isExhausted = false;
         player2Movement.isResting = false;
+        playerAttackShooting.isShooting = false;
+        playerAttackMelee.isAttacking = false;
         toolBarPanel.SetActive(true);
 
         Time.timeScale = 1;

@@ -4,14 +4,15 @@ using UnityEngine.SceneManagement;
 public class DialogueQuestionary : Dialogue
 {
     [SerializeField] private DialogueResponse[] dialogueResponses;
+    [SerializeField] private DialogueQuestionaryPanel dialogueQuestionaryPanel;
+
     public bool IsResponseDialogue { get; set; }
     public bool isDialogueEnded = false;
     public bool isInitializing = false;
     public bool isFKeyEnabled = true;
     public bool isAnswerFeedback = false;
-    [SerializeField] private DialogueQuestionaryPanel dialogueQuestionaryPanel;
-    public static DialogueQuestionary Instance;
     public GameObject relatedNPC;
+    public static DialogueQuestionary Instance;
 
     void Awake()
     {
@@ -31,6 +32,7 @@ public class DialogueQuestionary : Dialogue
         {
             CheckForDialogueQuestionaryPanel();
         }
+
         base.Update();
     }
 
@@ -76,10 +78,6 @@ public class DialogueQuestionary : Dialogue
             dialogueQuestionaryPanel.NextDialogLine();
         }
     }
-
-
-
-
     public void ResetDialogueState()
     {
         Debug.Log("[ResetDialogueState] Reseteando estado del diálogo.");
@@ -91,17 +89,13 @@ public class DialogueQuestionary : Dialogue
         lineIndex = 0;
     }
 
-
-
     public void forceState()
     {
-
         Debug.Log("==== EN DIALOGUEQUESTIONARY=======");
         Debug.Log("isdialogueended: " + isDialogueEnded);
         Debug.Log("isanswefeedback: " + isAnswerFeedback);
         Debug.Log("=======================================");
     }
-
 
     public void OnPlayerReturnedToNPC()
     {
@@ -123,10 +117,6 @@ public class DialogueQuestionary : Dialogue
         }
     }
 
-
-
-
-
     public void CheckAndResetState()
     {
         if (isDialogueEnded)
@@ -142,14 +132,36 @@ public class DialogueQuestionary : Dialogue
         }
     }
 
-
-
-
     private void ShowResponses()
     {
         if (dialogueQuestionaryPanel == null)
         {
-            foreach (var scene in SceneManager.GetAllScenes())
+
+            // Cambiado porque está deprecated...
+            ////foreach (var scene in SceneManager.GetAllScenes())
+            ////{
+            ////    if (scene.isLoaded)
+            ////    {
+            ////        var rootObjects = scene.GetRootGameObjects();
+            ////        foreach (var obj in rootObjects)
+            ////        {
+            ////            dialogueQuestionaryPanel = obj.GetComponentInChildren<DialogueQuestionaryPanel>(true);
+            ////            if (dialogueQuestionaryPanel != null)
+            ////                break;
+            ////        }
+            ////        if (dialogueQuestionaryPanel != null)
+            ////            break;
+            ////    }
+            ////}
+
+            int countLoaded = SceneManager.sceneCount;
+            Scene[] loadedScenes = new Scene[countLoaded];
+            for (int i = 0; i < countLoaded; i++)
+            {
+                loadedScenes[i] = SceneManager.GetSceneAt(i);
+            }
+
+            foreach (var scene in loadedScenes)
             {
                 if (scene.isLoaded)
                 {
@@ -195,7 +207,6 @@ public class DialogueQuestionary : Dialogue
                 dialogueQuestionaryPanel.UpdateValues(this, dialogueLines, 0);
         }
     }
-
 
     public bool IsCorrectResponse(string response)
     {

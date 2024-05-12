@@ -1,14 +1,13 @@
 using System.Collections;
-using System.Collections.Generic;
+
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.SceneManagement;
-using TMPro;
+using UnityEngine.UI;
 
 public class TiendaController : MonoBehaviour
 {
-    private ItemPanel itemPanel;
     private bool hasKey = false;
+    private ItemPanel itemPanel;
     private Image buffIcon;
 
     public GameObject tpToPlaya;

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6267231780909340415}
   - component: {fileID: 7988974196736413363}
   - component: {fileID: -8128613356877013574}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Piedra
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -99,10 +99,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f06a7c1ef9a2bed409008da7cea60022, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  force: 5
   damage: 25
-  destructionParticles: {fileID: 6683239834085797599, guid: 92ea0bc5f3b8c4b46a1caf33c8a7caaa, type: 3}
+  force: 5
   maxDistance: 10
+  destructionParticles: {fileID: 6683239834085797599, guid: 92ea0bc5f3b8c4b46a1caf33c8a7caaa, type: 3}
 --- !u!50 &7988974196736413363
 Rigidbody2D:
   serializedVersion: 4
@@ -155,10 +155,10 @@ BoxCollider2D:
     m_Bits: 4294967295
   m_ContactCaptureLayers:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 512
   m_CallbackLayers:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 512
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
