@@ -1,25 +1,26 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class PotionController : MonoBehaviour
+public class Potion : MonoBehaviour
 {
-    private Image buffIcon;
-    private Player player;
-    private PlayerAttackMelee playerAttackMelee;
-    private PlayerAttackShooting playerAttackShooting;
-
     public enum PotionType
     {
         Health,
         Stamina,
         Damage
     }
+
     public PotionType potionType;
     public Sprite icon;
     public GameObject potion;
     public GameObject toPlaya;
-    public GameObject dialogueMark;
+
+    private Image buffIcon;
+    private Player player;
 
     private void Update()
     {
@@ -34,9 +35,6 @@ public class PotionController : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             player = collision.gameObject.GetComponent<Player>();
-            playerAttackMelee = collision.gameObject.GetComponent<PlayerAttackMelee>();
-            playerAttackShooting = collision.gameObject.GetComponent<PlayerAttackShooting>();
-            dialogueMark.SetActive(true);
         }
     }
 
@@ -45,7 +43,6 @@ public class PotionController : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             player = null;
-            dialogueMark.SetActive(false);
         }
     }
 
@@ -75,14 +72,12 @@ public class PotionController : MonoBehaviour
                 player.UpdateStaminaBar();
                 break;
             case PotionType.Damage:
-                playerAttackMelee.damage = 20;
-                playerAttackShooting.bullet.GetComponent<BulletScript>().damage = 35;
+                // player.ApplyDamage(20);
                 break;
             default:
                 break;
         }
 
-        dialogueMark.SetActive(false);
         buffIcon.gameObject.SetActive(true);
         buffIcon.sprite = icon;
         potion.SetActive(false);

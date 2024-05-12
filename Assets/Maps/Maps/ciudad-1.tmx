@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.10.2" orientation="orthogonal" renderorder="right-down" width="32" height="32" tilewidth="16" tileheight="16" infinite="1" nextlayerid="20" nextobjectid="352">
+<map version="1.10" tiledversion="1.10.2" orientation="orthogonal" renderorder="right-down" width="32" height="32" tilewidth="16" tileheight="16" infinite="1" nextlayerid="19" nextobjectid="222">
  <tileset firstgid="1" name="stardew_arboles" tilewidth="16" tileheight="16" tilecount="1980" columns="44">
   <image source="../Images/stardew_arboles.png" width="710" height="720"/>
  </tileset>
@@ -3860,14 +3860,14 @@
   <object id="44" x="-1039.67" y="170">
    <polygon points="0,0 0,-46 1938.5,-45 1937.99,17"/>
   </object>
-  <object id="57" x="-124" y="-201.5" width="192.5" height="98"/>
+  <object id="57" x="-124" y="-201.5" width="192.5" height="96"/>
   <object id="58" x="-124.364" y="-105.455">
    <polygon points="0,0 2.36364,4.18182 59.8182,4.18182 59.0909,-2"/>
   </object>
   <object id="59" x="-124.182" y="-104">
    <polygon points="0,0 -8.72727,-8.54545 -8.90909,-21.8182 -1.81818,-36 4.54545,-35.0909"/>
   </object>
-  <object id="61" x="-245.875" y="-130" width="108.875" height="32.75"/>
+  <object id="61" x="-201.75" y="-130" width="64.75" height="32.75"/>
   <object id="62" x="-344" y="-130.545" width="108.182" height="33.8182"/>
   <object id="63" x="67.5" y="-130.568" width="44.25" height="30.8182"/>
   <object id="64" x="-68.75" y="-107" width="9" height="5.75"/>
@@ -4050,14 +4050,10 @@
   <object id="215" x="-799.625" y="-223.5" width="20.25" height="126.5"/>
   <object id="216" x="-783.75" y="-107" width="114.5" height="10"/>
   <object id="217" x="-665.75" y="-207.875" width="43.625" height="36.375"/>
-  <object id="344" x="-60" y="-95.25" width="49" height="9.25"/>
-  <object id="345" x="21" y="-95.375" width="48.75" height="9.375"/>
-  <object id="346" x="41" y="-86.375" width="14.875" height="6.625"/>
-  <object id="347" x="-60.625" y="-101.625" width="1.375" height="7.625"/>
-  <object id="348" x="69" y="-100.125" width="0.875" height="6.125"/>
-  <object id="349" x="-49.75" y="-104" width="11.875" height="5.375"/>
-  <object id="350" x="33.75" y="-103.625" width="13.25" height="6.25"/>
-  <object id="351" x="55.5" y="-103.625" width="8.5" height="6.125"/>
+  <object id="218" x="521" y="-643" width="99" height="40"/>
+  <object id="219" x="591.667" y="-602.333" width="28.3333" height="10.3333"/>
+  <object id="220" x="617.667" y="-643.667" width="6.33333" height="67.6667"/>
+  <object id="221" x="608" y="-591.667" width="10.3333" height="15.6667"/>
  </objectgroup>
  <layer id="17" name="no_hitbox" width="32" height="32">
   <data encoding="csv">

@@ -1,17 +1,18 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class BulletScript : MonoBehaviour
 {
     private Vector3 mousePos;
-    private Vector3 initialPosition;
     private Camera mainCam;
     private Rigidbody2D rb;
-
-    public int damage = 25;
     public float force;
-    public float maxDistance = 10f;
+    public int damage = 25;
     public GameObject destructionParticles;
-  
+    private Vector3 initialPosition;
+    public float maxDistance = 10f;
+
     void Start()
     {
         mainCam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
