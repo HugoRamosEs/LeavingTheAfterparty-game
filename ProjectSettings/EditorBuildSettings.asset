@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/LoginUserScene.unity
+    guid: e310d772116722b4494e9f7afc3a1bb1
+  - enabled: 1
     path: Assets/Scenes/MenuPrincipalScene.unity
     guid: bf67489256324124f9c48ddfff19f83e
   - enabled: 1
@@ -17,9 +20,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/CongeladorScene.unity
     guid: 524ed6a3ce3b4e54183cc041101eb4cf
-  - enabled: 1
-    path: Assets/Scenes/LoginUserScene.unity
-    guid: e310d772116722b4494e9f7afc3a1bb1
   - enabled: 1
     path: Assets/Scenes/BarScene.unity
     guid: 1a2125a189323334e9ba5eaec35c97c7

@@ -20,8 +20,7 @@ public class CasaController : MonoBehaviour
             Time.timeScale = 0f;
             canvasCasa.SetActive(true);
             dialogueGame.UpdateText("¡¡¿¿NO MIRAS EL MÓVIL O QUÉ??!! De nada te sirven los donuts... ¡SE TE VA A QUEDAR LA CHANCLA TATUADA!");
-            yield return new WaitForSecondsRealtime(7f);
-            canvasCasa.SetActive(false);
+            yield return new WaitForSecondsRealtime(7.25f);
             canvasFinal.SetActive(true);
             StartCoroutine(FadeImage());
         }
