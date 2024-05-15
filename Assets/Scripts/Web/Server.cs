@@ -28,8 +28,13 @@ public class Server : ScriptableObject
         {
             formulario.AddField(s.parametros[i], datos[i]);
         }
+        Debug.Log("formulario " + formulario);
         UnityWebRequest www = UnityWebRequest.Post(servidor + "/" + s.url, formulario);
+        Debug.Log(servidor + "/" + s.url);
         yield return www.SendWebRequest();
+        Debug.Log("www.result: " + www.result);
+        Debug.Log("UnityWebRequest.Result.Success " + UnityWebRequest.Result.Success);
+        Debug.Log("www " + www);
 
         if (www.result != UnityWebRequest.Result.Success)
         {
@@ -37,11 +42,12 @@ public class Server : ScriptableObject
         }
         else
         {
+            Debug.Log(www.downloadHandler.text);
             string responseText = www.downloadHandler.text;
             responseText = responseText.Replace("<br />", "");
             responseText = responseText.Replace("#", "\"");
             responseText = responseText.Replace("+", "'");
-            Debug.Log("Respuesta en server.cs: " + responseText);
+            Debug.Log(responseText);
             respuesta = JsonUtility.FromJson<Respuesta>(responseText);
         }
         ocupado = false;
@@ -67,7 +73,7 @@ public class Respuesta
 
     public Respuesta()
     {
-        codigo = 404;
-        mensaje = "Error al conectarse con el servidor.";
+    codigo = 404;
+    mensaje = "Error al conectarse con el servidor.";
     }
 }
