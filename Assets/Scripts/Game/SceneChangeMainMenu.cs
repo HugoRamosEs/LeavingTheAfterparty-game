@@ -20,7 +20,6 @@ public class SceneChangeMainMenu : MonoBehaviour
         SceneManager.LoadScene(to);
         if (!string.IsNullOrEmpty(additionalScene))
         {
-            Time.timeScale = 1f;
             SceneManager.LoadScene(additionalScene, LoadSceneMode.Additive);
         }
     }
