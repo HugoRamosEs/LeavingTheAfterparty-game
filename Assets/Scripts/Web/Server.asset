@@ -25,8 +25,29 @@ MonoBehaviour:
     - email
     - user
     - password
+  - nombre: guardar-partida
+    url: guardar_partida.php
+    parametros:
+    - email
+    - escena
+    - posX
+    - posY
+    - posZ
+    - currentHp
+    - currentStamina
+    - inventory
+    - orderInLayer
+    - sotanoPasado
+    - congeladorPasado
+    - playaPasada
+    - barcoBossPasado
+    - ciudadBossPasado
+  - nombre: cargar-partida
+    url: cargarPartida.php
+    parametros:
+    - email
   ocupado: 0
   respuesta:
-    codigo: 404
-    mensaje: Error al conectarse con el servidor.
+    codigo: 209
+    mensaje: "Se ha iniciado sesi\xF3n correctamente."
     respuesta: 

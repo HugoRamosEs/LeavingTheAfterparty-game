@@ -13,6 +13,7 @@ TagManager:
   - MuroFuegoController
   - Fireball
   - MagicBullet
+  - btnCargar
   layers:
   - Default
   - TransparentFX
