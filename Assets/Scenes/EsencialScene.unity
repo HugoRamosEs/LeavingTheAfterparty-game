@@ -1273,6 +1273,7 @@ GameObject:
   - component: {fileID: 618797738}
   - component: {fileID: 618797737}
   - component: {fileID: 618797739}
+  - component: {fileID: 618797740}
   m_Layer: 0
   m_Name: UltimoGuardado
   m_TagString: Untagged
@@ -1325,6 +1326,18 @@ MonoBehaviour:
   player: {fileID: 4870951772804279987}
   ultimoGuardado: {fileID: 618797737}
   itemPanel: {fileID: 6498161116516342553}
+--- !u!114 &618797740
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 618797736}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 192f5447faf0885479049419a0d7e78d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &665249543
 GameObject:
   m_ObjectHideFlags: 0
@@ -7569,7 +7582,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 11
+  m_SortingOrder: 6
   m_Sprite: {fileID: -554061547, guid: 358fb0641aaadf543816cfda7be04e2b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

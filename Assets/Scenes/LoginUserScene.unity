@@ -4440,7 +4440,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: CARREGANT...
+  m_text: CARGANDO...
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5d7d07399d902ac40bcf890a5de8e10d, type: 2}
   m_sharedMaterial: {fileID: 7436153230182841773, guid: 5d7d07399d902ac40bcf890a5de8e10d, type: 2}
@@ -8927,6 +8927,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   email: 
   username: 
+  idPartida: 
+  escenaPartida: 
+  posX: 
+  posY: 
+  posZ: 
+  currentHp: 
+  currentStamina: 
+  inventario: 
+  orderInLayer: 
+  sotanoPasado: 
+  congeladorPasado: 
+  playaPasada: 
+  barcoBossPasado: 
+  ciudadBossPasado: 
 --- !u!222 &762571097498804968
 CanvasRenderer:
   m_ObjectHideFlags: 0
