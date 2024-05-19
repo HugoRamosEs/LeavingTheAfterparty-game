@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.10.2" orientation="orthogonal" renderorder="right-down" width="30" height="20" tilewidth="16" tileheight="16" infinite="1" nextlayerid="10" nextobjectid="63">
+<map version="1.10" tiledversion="1.10.2" orientation="orthogonal" renderorder="right-down" width="30" height="20" tilewidth="16" tileheight="16" infinite="1" nextlayerid="13" nextobjectid="64">
  <tileset firstgid="1" name="springobjects" tilewidth="16" tileheight="16" tilecount="936" columns="24">
   <image source="../Images/springobjects.png" width="384" height="624"/>
  </tileset>
@@ -176,6 +176,9 @@
 </chunk>
   </data>
  </layer>
+ <layer id="11" name="muro" width="30" height="20">
+  <data encoding="csv"/>
+ </layer>
  <layer id="4" name="Buildings" width="30" height="20">
   <data encoding="csv">
    <chunk x="-16" y="-16" width="16" height="16">
@@ -328,6 +331,28 @@
 </chunk>
   </data>
  </layer>
+ <layer id="12" name="caja" width="30" height="20">
+  <data encoding="csv">
+   <chunk x="-16" y="-16" width="16" height="16">
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,19484,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,19516,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+</chunk>
+  </data>
+ </layer>
  <layer id="6" name="AlwaysFront" width="30" height="20">
   <data encoding="csv">
    <chunk x="0" y="-16" width="16" height="16">
@@ -427,6 +452,9 @@
   <object id="60" x="48.3636" y="-2.54545" width="31.4545" height="26.1818"/>
   <object id="61" x="79.8182" y="-2.36364" width="15.6364" height="20.0909"/>
   <object id="62" x="32.5455" y="13.6364" width="15.0909" height="19.9091"/>
+ </objectgroup>
+ <objectgroup id="10" name="ColisionTemporal">
+  <object id="63" x="-62.75" y="-35" width="8.875" height="28.875"/>
  </objectgroup>
  <layer id="8" name="no_hitbox" width="30" height="20">
   <data encoding="csv">

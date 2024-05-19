@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f1721f86770205244abc7a0b3f3d9484, type: 3}
-  m_Name: Receta
+  m_Name: Donuts
   m_EditorClassIdentifier: 
-  Name: receta
+  Name: Donuts
   stackable: 0
-  icon: {fileID: 21300000, guid: 6bdcb8680e1c0f142947614d328bcde0, type: 3}
+  icon: {fileID: 21300000, guid: 3762ed9750af8f045946465e446554de, type: 3}
