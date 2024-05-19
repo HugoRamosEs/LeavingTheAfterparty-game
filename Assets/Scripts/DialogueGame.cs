@@ -34,4 +34,8 @@ public class DialogueGame : MonoBehaviour
             StopCoroutine(typingCoroutine);
         }
     }
+    public void ClearPanel()
+    {
+        
+    }
 }

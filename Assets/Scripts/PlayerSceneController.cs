@@ -7,4 +7,5 @@ public class PlayerSceneController : MonoBehaviour
     public static bool playaPasada { get; set; } = false;
     public static bool barcoBossPasado { get; set; } = false;
     public static bool ciudadBossPasado { get; set; } = false;
+    public static bool donutDesbloqueado { get; set; } = false;
 }

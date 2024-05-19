@@ -118,7 +118,7 @@ TextureImporter:
         width: 74
         height: 74
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -126,6 +126,27 @@ TextureImporter:
       bones: []
       spriteID: cf4fdc6ebdacdd64193423c7fd3c41be
       internalID: 697178669
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: martina_1
+      rect:
+        serializedVersion: 2
+        x: 184
+        y: 158
+        width: 74
+        height: 74
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f48661f83a7a22844aecb1fe0f2a4141
+      internalID: -1409953596
       vertices: []
       indices: 
       edges: []
@@ -142,6 +163,7 @@ TextureImporter:
     secondaryTextures: []
     nameFileIdTable:
       martina_0: 886796106
+      martina_1: -1409953596
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
