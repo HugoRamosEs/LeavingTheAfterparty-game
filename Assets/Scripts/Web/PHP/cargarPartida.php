@@ -9,15 +9,13 @@ spl_autoload_register("Autoloader::loadDataBase");
 
 try {
     if (DataBase::getInstance('consulta')) {
-        
-        $userUnity = new User('', '', '');
         $uController = new UserController();
-        $uModel = new UserModelo();
 
-        $userUnity->setEmail(Controller::sanitize($_POST['user']));
-        $userUnity->setContrasenya(Controller::sanitize($_POST['password']));
+        $datos = array(
+            'email' => Controller::sanitize($_POST['email'])
+        );
 
-        $uPruebaLogin = $uController->login($userUnity);
+        $uController->cargarPartida($datos);
 
     } else {
         echo '{"codigo": 401, "mensaje":"Error intentando conectar", "respuesta":""}';

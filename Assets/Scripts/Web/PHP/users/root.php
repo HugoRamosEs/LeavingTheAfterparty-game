@@ -4,6 +4,7 @@
 // $user = 'root';
 // $password = '';
 // $base = 'ltap_bd';
+// $port = null;
 
 // Si queremos probar la BD en local, deberemos poner la de railway (la segunda)
 
@@ -14,11 +15,9 @@
 // $base = 'railway';
 // $port = 12169;
 
-// Si queremos subir el proyecto a esta pagina (000webhosting), pondremos esta
-
 $sgbd = 'mysql';
-$server = 'localhost';
-$user = 'id21877348_ltap_thosi';
-$password = 'LTAP_Thosicodina1234';
-$base = 'id21877348_ltap_bd';
-$port = 80;
+$server = 'epila.dev';
+$user = 'hector';
+$password = 'hector1234';
+$base = 'hectorDB';
+$port = 3306;
