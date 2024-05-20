@@ -1,0 +1,806 @@
+fileFormatVersion: 2
+guid: bc86ed096fd86aa49a54859f62e77872
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 32
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 0
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Marcelo_70
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 191
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 772a52b288d41fe42898f21cb88cb1bb
+      internalID: -50915350
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Marcelo_71
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 191
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b7bbd918f3f25f54e94670d41db34a47
+      internalID: -1723053737
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Marcelo_72
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 191
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 48f0f59122874c248b3f5bc5fc09e11e
+      internalID: -842716639
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Marcelo_73
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 191
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6fff3ca5412aaa44cbd43e4e5aaba2d3
+      internalID: -1095907869
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Marcelo_84
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 159
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 89005bea8e34cc246906cb63e906ad76
+      internalID: 659522384
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Marcelo_85
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 159
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5e9fb051b2a9ddf4dad856c00ecf565e
+      internalID: 1385615363
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Marcelo_86
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 159
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e4513ccaf9a7f6147a6822de1d9e7bb5
+      internalID: 41896475
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Marcelo_87
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 159
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dc2307d449242d84ebc00e647367f7e6
+      internalID: -1141234804
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Marcelo_98
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 127
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 157b2a77f4f81ea468b5b85f37aff960
+      internalID: -1456555697
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Marcelo_99
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 127
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f57cd6549741afa4998e0aad79008309
+      internalID: -1655521176
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Marcelo_100
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 127
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b4953c7edfcc7444ca0654b9ea32c479
+      internalID: -1733901888
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Marcelo_101
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 127
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f16a00bb6b1f8244ab40133e62696bf7
+      internalID: -500896455
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Marcelo_112
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 95
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6926653d96f8a8d4f9524acf8352b0e5
+      internalID: -751039556
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Marcelo_113
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 95
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f7e028157736292499ea62cc500b0533
+      internalID: 464275660
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Marcelo_114
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 95
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a16846020a027e143a973fa72e333cf1
+      internalID: -2016635209
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Marcelo_115
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 95
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dd96eb8ea08a33643a6710e365aa61f7
+      internalID: 775272690
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Marcelo_126
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 63
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0172633299450c646bb535417f69025f
+      internalID: 1581981904
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Marcelo_127
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 63
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aa0a3969e181b7747823925155601287
+      internalID: -1049058470
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Marcelo_128
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 63
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8a0c1a51a08f3a74da65972830258d84
+      internalID: -1988415928
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Marcelo_129
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 63
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1f7d04d639ba8094ea032767326d66f4
+      internalID: -1173079877
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Marcelo_140
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 31
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 876fa7d76f110eb4986c276bfc8817b3
+      internalID: -2046804388
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Marcelo_141
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 31
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 855859850d4b96a43a8de9cba60fb6c5
+      internalID: -1721371707
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Marcelo_142
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 31
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 59f4be45a2063054cb0dfb8922ae2505
+      internalID: 2112273733
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Marcelo_143
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 31
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3805bb215101def40b9e8666374a39b0
+      internalID: 1516957313
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Marcelo_130
+      rect:
+        serializedVersion: 2
+        x: 108
+        y: 6
+        width: 74
+        height: 74
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 72266144f2640254d8b6f71a41d6bd6a
+      internalID: -92712543
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Marcelo_0: 132750922
+      Marcelo_1: 307212657
+      Marcelo_10: 1444999080
+      Marcelo_100: -1733901888
+      Marcelo_101: -500896455
+      Marcelo_102: -1314752288
+      Marcelo_103: -1941904143
+      Marcelo_104: 1193844519
+      Marcelo_105: 494292643
+      Marcelo_106: -402860544
+      Marcelo_107: -2122580387
+      Marcelo_108: -650387057
+      Marcelo_109: -500116894
+      Marcelo_11: 1386899778
+      Marcelo_110: -296025898
+      Marcelo_111: 2088321945
+      Marcelo_112: -751039556
+      Marcelo_113: 464275660
+      Marcelo_114: -2016635209
+      Marcelo_115: 775272690
+      Marcelo_116: 1849752047
+      Marcelo_117: -1259348601
+      Marcelo_118: 1010321351
+      Marcelo_119: 815295281
+      Marcelo_12: -784813627
+      Marcelo_120: 376334819
+      Marcelo_121: 2140176471
+      Marcelo_122: -1925248160
+      Marcelo_123: -305770828
+      Marcelo_124: -838952688
+      Marcelo_125: -1961903326
+      Marcelo_126: 1581981904
+      Marcelo_127: -1049058470
+      Marcelo_128: -1988415928
+      Marcelo_129: -1173079877
+      Marcelo_13: -1225684257
+      Marcelo_130: -92712543
+      Marcelo_131: 1418012979
+      Marcelo_132: -1561328905
+      Marcelo_133: -1469201454
+      Marcelo_134: -117559306
+      Marcelo_135: 2054436404
+      Marcelo_136: -1598221029
+      Marcelo_137: 1351301489
+      Marcelo_138: 573915390
+      Marcelo_139: 400275896
+      Marcelo_14: 1133296560
+      Marcelo_140: -2046804388
+      Marcelo_141: -1721371707
+      Marcelo_142: 2112273733
+      Marcelo_143: 1516957313
+      Marcelo_144: 1056252000
+      Marcelo_145: 898575831
+      Marcelo_146: 251363384
+      Marcelo_147: 1154677180
+      Marcelo_148: -1674012669
+      Marcelo_149: -440441999
+      Marcelo_15: -559210316
+      Marcelo_150: -2146547212
+      Marcelo_151: 2121822280
+      Marcelo_152: -483227289
+      Marcelo_153: 205092304
+      Marcelo_16: 839250547
+      Marcelo_17: 889071248
+      Marcelo_18: -1353197713
+      Marcelo_19: 205030786
+      Marcelo_2: -1941473660
+      Marcelo_20: 1700627288
+      Marcelo_21: 1627661822
+      Marcelo_22: 460388098
+      Marcelo_23: -1629528036
+      Marcelo_24: 198728326
+      Marcelo_25: 1784324672
+      Marcelo_26: -47341834
+      Marcelo_27: -233139842
+      Marcelo_28: 858342647
+      Marcelo_29: 2029971979
+      Marcelo_3: -346001462
+      Marcelo_30: -1277841512
+      Marcelo_31: -1133197630
+      Marcelo_32: -219066704
+      Marcelo_33: -1411181696
+      Marcelo_34: 1793507956
+      Marcelo_35: -542756807
+      Marcelo_36: -752383955
+      Marcelo_37: 113910055
+      Marcelo_38: -63071390
+      Marcelo_39: -1158209079
+      Marcelo_4: -962070170
+      Marcelo_40: 1877367607
+      Marcelo_41: -1417015563
+      Marcelo_42: -139380094
+      Marcelo_43: -842229577
+      Marcelo_44: -1642646849
+      Marcelo_45: 368823633
+      Marcelo_46: 577514985
+      Marcelo_47: 985246756
+      Marcelo_48: -876812857
+      Marcelo_49: -2032753256
+      Marcelo_5: -636377636
+      Marcelo_50: 1381735769
+      Marcelo_51: -2082161261
+      Marcelo_52: 185067171
+      Marcelo_53: 595995036
+      Marcelo_54: 1105162480
+      Marcelo_55: -1815789055
+      Marcelo_56: 562998558
+      Marcelo_57: -2000808527
+      Marcelo_58: -2109875361
+      Marcelo_59: 1987258617
+      Marcelo_6: 432125638
+      Marcelo_60: 251159766
+      Marcelo_61: 307793005
+      Marcelo_62: -1157488537
+      Marcelo_63: -366456813
+      Marcelo_64: -342909482
+      Marcelo_65: 1222490408
+      Marcelo_66: -127418484
+      Marcelo_67: 1817047395
+      Marcelo_68: -203422710
+      Marcelo_69: -950481264
+      Marcelo_7: -1188236531
+      Marcelo_70: -50915350
+      Marcelo_71: -1723053737
+      Marcelo_72: -842716639
+      Marcelo_73: -1095907869
+      Marcelo_74: 160622058
+      Marcelo_75: -1561929342
+      Marcelo_76: 78882553
+      Marcelo_77: 270250412
+      Marcelo_78: 1074043962
+      Marcelo_79: 215907881
+      Marcelo_8: -1444734223
+      Marcelo_80: 926614017
+      Marcelo_81: 564041596
+      Marcelo_82: -813811809
+      Marcelo_83: -1768824310
+      Marcelo_84: 659522384
+      Marcelo_85: 1385615363
+      Marcelo_86: 41896475
+      Marcelo_87: -1141234804
+      Marcelo_88: 449803421
+      Marcelo_89: -706690881
+      Marcelo_9: 2005777195
+      Marcelo_90: 1176356753
+      Marcelo_91: 940665434
+      Marcelo_92: -465576148
+      Marcelo_93: -1285242584
+      Marcelo_94: 1893339366
+      Marcelo_95: 362075218
+      Marcelo_96: -732320650
+      Marcelo_97: -1444708548
+      Marcelo_98: -1456555697
+      Marcelo_99: -1655521176
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
