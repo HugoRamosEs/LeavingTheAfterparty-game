@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// This script is responsible for the enemy melee attack.
+/// </summary>
 public class EnemyMeleeAttack : MonoBehaviour
 {
     private Transform target;
@@ -13,12 +16,18 @@ public class EnemyMeleeAttack : MonoBehaviour
     private bool isFacingRight = true;
     private bool attacking = false;
 
+    /// <summary>
+    /// Check for the player as a target.
+    /// </summary>
     void Start()
     {
         target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         animator = GetComponent<Animator>();
     }
 
+    /// <summary>
+    /// Move the enemy towards the player and attack when in range.
+    /// </summary>
     void Update()
     {
         Vector2 direction = (target.position - transform.position).normalized;
@@ -52,6 +61,10 @@ public class EnemyMeleeAttack : MonoBehaviour
         animator.SetBool("attacking", attacking);
     }
 
+    /// <summary>
+    /// Flip the enemy sprite when changing direction.
+    /// </summary>
+    /// <param name="isPlayerRight"> Check if the player is on the right of the enemy or on the left</param>
     void Flip(bool isPlayerRight)
     {
         if ((isFacingRight && !isPlayerRight) || (!isFacingRight && isPlayerRight))
@@ -63,6 +76,10 @@ public class EnemyMeleeAttack : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Deal damage to the player when in range.
+    /// </summary>
+    /// <param name="collision"> Player's collision</param>
     void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Player" && attacking)

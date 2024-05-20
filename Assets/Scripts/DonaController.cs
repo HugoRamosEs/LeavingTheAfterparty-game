@@ -3,6 +3,9 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+/// <summary>
+/// This method is responsible for managing the dona map interaction.
+/// </summary>
 public class DonaController : MonoBehaviour
 {
     private bool hasSugarSack = false;
@@ -11,12 +14,20 @@ public class DonaController : MonoBehaviour
     public GameObject donaPanel;
     public DialogueGame dialogueGame;
 
+    /// <summary>
+    /// This method is called when the object becomes enabled and active, and is used to initialize the item panel.
+    /// </summary>
     private void Start()
     {
         itemPanel = null;
         CheckForItemPanel();
     }
 
+    /// <summary>
+    /// This method is called to check if the player has the recipe in the inventory.
+    /// </summary>
+    /// <param name="collision"> The collision of the Player </param>
+    /// <returns></returns>
     private IEnumerator OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
@@ -54,7 +65,9 @@ public class DonaController : MonoBehaviour
             }
         }
     }
-
+    /// <summary>
+    /// Check for the item panel in the Esencialscene.
+    /// </summary>
     private void CheckForItemPanel()
     {
         Scene esencialScene = SceneManager.GetSceneByName("EsencialScene");

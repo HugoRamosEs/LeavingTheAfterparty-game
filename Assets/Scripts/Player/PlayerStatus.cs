@@ -4,6 +4,9 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
+/// <summary>
+/// This script is used to control the player status.
+/// </summary>
 public class PlayerStatus : MonoBehaviour
 {
     [SerializeField] TMP_Text text;

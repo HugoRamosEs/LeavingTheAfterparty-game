@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Spawns items in the world
+/// </summary>
 public class ItemSpawner : MonoBehaviour
 {
     public static ItemSpawner instance;

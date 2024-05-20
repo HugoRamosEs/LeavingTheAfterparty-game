@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// This class is used to pick up items from the ground.
+/// </summary>
 public class ItemPickUp : MonoBehaviour
 {
     Transform player;
@@ -11,12 +14,21 @@ public class ItemPickUp : MonoBehaviour
     public Item item;
     public int count = 1;
 
+    /// <summary>
+    /// This method is used to check for the player.
+    /// </summary>
     void Awake()
     {
         //player = GameManager.instance.player.transform;
         CheckForPlayerWithTag();
     }
 
+    
+    /// <summary>
+    /// This method is used to set the item and the count.
+    /// </summary>
+    /// <param name="item"> the item</param>
+    /// <param name="count"> the count</param>
     public void Set(Item item, int count)
     {
         this.item = item;
@@ -25,6 +37,9 @@ public class ItemPickUp : MonoBehaviour
         renderer.sprite = item.icon;
     }
 
+    /// <summary>
+    /// This method is used to update the item.
+    /// </summary>
     void Update()
     {
         // ESTO SIRVE PARA QUE EL ITEM DESAPAREZCA DE LA ESCENA PASADOS LOS SEGUNDOS DE ARRIBA
@@ -55,6 +70,9 @@ public class ItemPickUp : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// This method is used to check for the player.
+    /// </summary>
     void CheckForPlayerWithTag()
     {
         GameObject playerObject = GameObject.FindWithTag("Player");

@@ -4,10 +4,16 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
+/// <summary>
+/// This script is used to change the input of the game
+/// </summary>
 public class ChangeInput : MonoBehaviour {
     EventSystem system;
     public Selectable firstInput;
 
+    /// <summary>
+    /// This method is used to ensure the functionality of the input
+    /// </summary>
     void Start()
     {
         system = EventSystem.current;
@@ -17,6 +23,9 @@ public class ChangeInput : MonoBehaviour {
         }
     }
 
+    /// <summary>
+    /// This method is used to change the input of the game
+    /// </summary>
     void Update() {
         if (system.currentSelectedGameObject != null) {
             if (Input.GetKeyDown(KeyCode.Tab) && Input.GetKey(KeyCode.LeftShift)) {

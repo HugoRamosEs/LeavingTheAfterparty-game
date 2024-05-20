@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
+/// <summary>
+/// This script is used to control the movement of the Julian enemy.
+/// </summary>
 public class JulianMovement : MonoBehaviour
 {
     private Rigidbody2D rb;
@@ -19,6 +22,9 @@ public class JulianMovement : MonoBehaviour
 
     NavMeshAgent agent;
 
+    /// <summary>
+    /// This method is used to initialize the variables.
+    /// </summary>
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -29,6 +35,9 @@ public class JulianMovement : MonoBehaviour
         agent.updateUpAxis = false;
     }
 
+    /// <summary>
+    /// This method is used to update the variables on each required moment.
+    /// </summary>
     void Update()
     {
         if (attackTimer > 0)
@@ -86,6 +95,10 @@ public class JulianMovement : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// This method is used to flip the sprite of the enemy.
+    /// </summary>
+    /// <param name="isPlayerRight"> To check at what side the player is from the enemy</param>
     void Flip(bool isPlayerRight)
     {
         if ((isFacingRight && !isPlayerRight) || (!isFacingRight && isPlayerRight))
@@ -96,7 +109,10 @@ public class JulianMovement : MonoBehaviour
             transform.localScale = scale;
         }
     }
-
+    /// <summary>
+    /// This method is used to check if the player is in the attack range of the enemy.
+    /// </summary>
+    /// <param name="other"> Player's collision</param>
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
@@ -111,6 +127,10 @@ public class JulianMovement : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// This method is used to damage the player.
+    /// </summary>
+    /// <returns></returns>
     IEnumerator DamagePlayer()
     {
         isWaitingAfterDamage = true;
@@ -124,6 +144,9 @@ public class JulianMovement : MonoBehaviour
         rb.constraints = RigidbodyConstraints2D.FreezeRotation;
     }
 
+    /// <summary>
+    /// This method is to check the reference of the player.
+    /// </summary>
     void CheckForPlayerWithTag()
     {
         GameObject playerObject = GameObject.FindWithTag("Player");

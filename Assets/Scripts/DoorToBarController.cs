@@ -1,6 +1,9 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+/// <summary>
+/// This class is responsible for managing the door to the bar interaction.
+/// </summary>
 public class DoorToBarController : MonoBehaviour
 {
     private bool hasKey = false;
@@ -11,6 +14,9 @@ public class DoorToBarController : MonoBehaviour
     [SerializeField] GameObject dialogueGame;
     [SerializeField] Collider2D doorCollider;
 
+    /// <summary>
+    /// This method is used to initialize the dialogue game and check if the player has the key to open the door.
+    /// </summary>
     private void Start()
     {
         dialogueScript = dialogueGame.GetComponent<DialogueGame>();
@@ -24,6 +30,10 @@ public class DoorToBarController : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// This method is called when the player enters the collider of the door to the bar.
+    /// </summary>
+    /// <param name="collision"></param>
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
@@ -60,6 +70,10 @@ public class DoorToBarController : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// This method is called when the player exits the collider of the door to the bar.
+    /// </summary>
+    /// <param name="collision"></param>
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
@@ -69,6 +83,9 @@ public class DoorToBarController : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Check for the reference of the item panel in the EsencialScene.
+    /// </summary>
     private void CheckForItemPanel()
     {
         Scene esencialScene = SceneManager.GetSceneByName("EsencialScene");

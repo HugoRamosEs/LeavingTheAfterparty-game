@@ -5,6 +5,9 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
+/// <summary>
+/// This class is used to manage the back button in the options menu.
+/// </summary>
 public class OptionsBack : MonoBehaviour
 {
     public Button btnTornar;

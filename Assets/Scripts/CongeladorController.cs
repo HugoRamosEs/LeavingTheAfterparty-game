@@ -1,6 +1,8 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
+/// <summary>
+/// Controller for the Freezer room. It checks if the player has the key to the basement and if so, it sets the key as inactive.
+/// </summary>
 public class CongeladorController : MonoBehaviour
 {
     private bool hasKey = false;
@@ -8,6 +10,9 @@ public class CongeladorController : MonoBehaviour
 
     public GameObject key;
 
+    /// <summary>
+    /// Checks if the player has the key to the basement and sets the key as inactive if so.
+    /// </summary>
     void Start()
     {
         itemPanel = null;
@@ -19,6 +24,9 @@ public class CongeladorController : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Checks if the player has the key to the basement and sets the key as active if so.
+    /// </summary>
     void Update()
     {
         if (!hasKey)
@@ -38,6 +46,9 @@ public class CongeladorController : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Checks if the player has the key in the inventory.
+    /// </summary>
     private void CheckForItemPanel()
     {
         Scene esencialScene = SceneManager.GetSceneByName("EsencialScene");

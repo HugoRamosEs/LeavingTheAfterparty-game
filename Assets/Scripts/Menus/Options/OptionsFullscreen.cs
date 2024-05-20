@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// This class is used to manage the fullscreen toggle in the options menu.
+/// </summary>
 public class OptionsFullscreen : MonoBehaviour
 {
     public Toggle toogle;
-    // Start is called before the first frame update
     void Start()
     {
         if (Screen.fullScreen)

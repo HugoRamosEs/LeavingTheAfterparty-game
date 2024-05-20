@@ -1,5 +1,8 @@
 using UnityEngine;
 
+/// <summary>
+/// This script is responsible for the enemy health and damage.
+/// </summary>
 public class EnemyHealth : MonoBehaviour
 {
     private int maxHealth;
@@ -10,12 +13,19 @@ public class EnemyHealth : MonoBehaviour
     public delegate void HealthChanged(int currentHealth);
     public static event HealthChanged OnHealthChanged;
 
+    /// <summary>
+    /// Stablishes the max health and updates the health bar.
+    /// </summary>
     private void Start()
     {
         maxHealth = health;
         healthBar.UpdateHealthBar(health, maxHealth);
     }
 
+    /// <summary>
+    /// Takes damage and updates the health bar.
+    /// </summary>
+    /// <param name="damage"> Damage taken</param>
     public void TakeDamage(int damage)
     {
         if (!BarcoBossFight.invulnerable)

@@ -5,6 +5,9 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
+/// <summary>
+/// This class is used to change the scene to the main menu.
+/// </summary>
 public class SceneChangeMainMenu : MonoBehaviour
 {
     [SerializeField] string to;

@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
+/// <summary>
+/// This class is used to manage the options between scenes.
+/// </summary>
 public class OptionsBetweenScenes : MonoBehaviour
 {
     private void Awake()

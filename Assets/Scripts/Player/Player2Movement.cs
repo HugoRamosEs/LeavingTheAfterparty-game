@@ -1,6 +1,8 @@
 using System.Collections;
 using UnityEngine;
-
+/// <summary>
+/// This script is used to control the player movement
+/// </summary>
 public class Player2Movement : MonoBehaviour
 {
     private Rigidbody2D rb;
@@ -22,6 +24,9 @@ public class Player2Movement : MonoBehaviour
     public PlayerAttackShooting playerAttackShooting;
     public PlayerAttackMelee playerAttackMelee;
 
+    /// <summary>
+    /// This method is uses to ensure the functionality of the player movement
+    /// </summary>
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -29,11 +34,17 @@ public class Player2Movement : MonoBehaviour
         player = GetComponent<Player>();
     }
 
+    /// <summary>
+    /// This method is used to set the current move speed of the player
+    /// </summary>
     void Start()
     {
         currentMoveSpeed = moveSpeed;
     }
 
+    /// <summary>
+    /// This method is used to update the player movement and animation at each frame
+    /// </summary>
     void Update()
     {
         if (Time.deltaTime == 0)
@@ -97,6 +108,11 @@ public class Player2Movement : MonoBehaviour
         }
     }
 
+
+    /// <summary>
+    /// This method is used to make the player rest after sprinting
+    /// </summary>
+    /// <returns></returns>
     IEnumerator DelayedRest()
     {
         isResting = true;
@@ -105,6 +121,9 @@ public class Player2Movement : MonoBehaviour
         isResting = false;
     }
 
+    /// <summary>
+    /// This method is used to fix and ensure the player movement
+    /// </summary>
     private void FixedUpdate()
     {
         if (Time.deltaTime == 0)
@@ -120,6 +139,9 @@ public class Player2Movement : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// This method is used to stop the player movement
+    /// </summary>
     public void StopMoving()
     {
         rb.velocity = Vector3.zero;

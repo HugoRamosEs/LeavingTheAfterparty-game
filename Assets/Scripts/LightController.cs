@@ -2,7 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
+/// <summary>
+/// This script is used to control the light in the "Sotano Bar" scene.
+/// </summary>
 public class LightController : MonoBehaviour
 {
     private Canvas screenDark;
@@ -10,6 +12,9 @@ public class LightController : MonoBehaviour
     public bool isDark = true;
     public GameObject dialogueMark;
 
+    /// <summary>
+    /// This method is used to controle the dark screen.
+    /// </summary>
     void Start()
     {
         Scene currentScene = SceneManager.GetActiveScene();
@@ -22,7 +27,9 @@ public class LightController : MonoBehaviour
             isDark = true;
         }
     }
-
+    /// <summary>
+    /// This method is used to controle the dark screen and toggle it off.
+    /// </summary>
     void Update()
     {
         if (screenDark == null)
@@ -39,6 +46,10 @@ public class LightController : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// This method is used to check if the player is in the trigger.
+    /// </summary>
+    /// <param name="collision"> Player's collision</param>
     void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
@@ -50,7 +61,10 @@ public class LightController : MonoBehaviour
             isPlayerInTrigger = true;
         }
     }
-
+    /// <summary>
+    /// This method is used to check if the player is out of the trigger.
+    /// </summary>
+    /// <param name="collision"> Player's collision</param>
     void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
@@ -61,6 +75,9 @@ public class LightController : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// This method is used to check if the screen is dark.
+    /// </summary>
     void CheckForScreenDark()
     {
         GameObject screenDarkObject = GameObject.FindWithTag("screenDark");

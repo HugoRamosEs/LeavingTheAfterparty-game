@@ -1,5 +1,8 @@
 using UnityEngine;
 
+/// <summary>
+/// Checks if the enemies in the city have been defeated and updates the PlayerSceneController accordingly.
+/// </summary>
 public class CiudadController : MonoBehaviour
 {
     private EnemyHealth healthArqueroBoss;
@@ -10,6 +13,9 @@ public class CiudadController : MonoBehaviour
     public GameObject arquero1;
     public GameObject arquero2;
 
+    /// <summary>
+    /// Initializes the health of the enemies, and deactivates them if all the enemies have been defeated.
+    /// </summary>
     void Start()
     {
         healthArqueroBoss = arqueroBoss.GetComponent<EnemyHealth>();
@@ -24,6 +30,9 @@ public class CiudadController : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Updates the PlayerSceneController if all enemies have been defeated.
+    /// </summary>
     void Update()
     {
         if (healthArqueroBoss.health <= 0 && healthArquero1.health <= 0 && healthArquero2.health <= 0)

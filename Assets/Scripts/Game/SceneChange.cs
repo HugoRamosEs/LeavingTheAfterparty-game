@@ -8,6 +8,9 @@ public enum ChangeType
     Teleport, Scene
 }
 
+/// <summary>
+/// This class is used to change the scene or teleport the player to another location.
+/// </summary>
 public class SceneChange : MonoBehaviour
 {
     [SerializeField] ChangeType changeType;

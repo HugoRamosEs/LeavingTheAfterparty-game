@@ -4,21 +4,38 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [Serializable]
+/// <summary>
+/// This class is used to create item slots.
+/// </summary>
 public class ItemSlot
 {
     public Item item;
     public int count;
 
+    /// <summary>
+    /// Copy the item slot.
+    /// </summary>
+    /// <param name="slot"> the slot</param>
     public void Copy(ItemSlot slot)
     {
         item = slot.item;
         count = slot.count;
     }
+
+    /// <summary>
+    /// Set the item and the count.
+    /// </summary>
+    /// <param name="item"> the item</param>
+    /// <param name="count"> the quantity of the same item</param>
     public void Set(Item item, int count)
     {
         this.item = item;
         this.count = count;
     }
+
+    /// <summary>
+    /// Clear the item slot.
+    /// </summary>
     public void Clear()
     {
         item = null;
@@ -27,6 +44,9 @@ public class ItemSlot
 }
 
 [CreateAssetMenu(menuName = "Data/Item-Container")]
+/// <summary>
+/// This class is used to create item containers.
+/// </summary>
 public class ItemContainer : ScriptableObject
 {
     public List<ItemSlot> slots;
