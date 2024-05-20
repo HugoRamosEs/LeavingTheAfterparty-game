@@ -3,7 +3,9 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-
+/// <summary>
+/// This script is used to control the behavior of the Tienda object.
+/// </summary>
 public class TiendaController : MonoBehaviour
 {
     private bool hasKey = false;
@@ -14,7 +16,9 @@ public class TiendaController : MonoBehaviour
     public GameObject tiendaPanel;
     public DialogueGame dialogueGame;
 
-
+    /// <summary>
+    /// This methos is used to initialize the itemPanel and buffIcon variables.
+    /// </summary>
     private void Start()
     {
         itemPanel = null;
@@ -23,6 +27,11 @@ public class TiendaController : MonoBehaviour
         CheckForBuffIcon();
     }
 
+    /// <summary>
+    /// This method is used to check if the player has the key to enter the shop.
+    /// </summary>
+    /// <param name="collision"> Player's collision</param>
+    /// <returns></returns>
     private IEnumerator OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
@@ -60,6 +69,9 @@ public class TiendaController : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// This method is used to check if the player has the item required.
+    /// </summary>
     private void CheckForItemPanel()
     {
         Scene esencialScene = SceneManager.GetSceneByName("EsencialScene");
@@ -81,6 +93,9 @@ public class TiendaController : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// This method is used to check the reference of the buffIcon.
+    /// </summary>
     private void CheckForBuffIcon()
     {
         if (buffIcon == null)

@@ -1,6 +1,9 @@
 using Unity.VisualScripting;
 using UnityEngine;
 
+/// <summary>
+/// This script is used to control the magic bullet of the boss of the ship level.
+/// </summary>
 public class NewBehaviourScript : MonoBehaviour
 {
     public Transform player;
@@ -14,6 +17,9 @@ public class NewBehaviourScript : MonoBehaviour
 
     private float timer = 0f; // Contador de tiempo
 
+    /// <summary>
+    /// This method is called is used to check for the player object in the scene at the start of the script execution.
+    /// </summary>
     void Start()
     {
         if (player == null) {
@@ -21,6 +27,9 @@ public class NewBehaviourScript : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// This method is called once per frame and is used to move the magic bullet towards the player.
+    /// </summary>
     void Update()
     {
         if (player != null)
@@ -37,6 +46,11 @@ public class NewBehaviourScript : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
+/// <summary>
+/// This method is called when the magic bullet collides with the player object.
+/// </summary>
+/// <param name="collision"> Player's collision</param>
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player")) 
@@ -50,10 +64,16 @@ public class NewBehaviourScript : MonoBehaviour
         
         }
     }
+    /// <summary>
+    /// This method destroys the magic bullet object.
+    /// </summary>
     void DestroyProjectile() {
         Destroy(gameObject);
     }
 
+    /// <summary>
+    /// This method is used to check for the player object in the scene.
+    /// </summary>
     void CheckForPlayerWithTag()
     {
         GameObject playerObject = GameObject.FindWithTag("Player");

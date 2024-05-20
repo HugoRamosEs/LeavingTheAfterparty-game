@@ -3,6 +3,9 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
+/// <summary>
+/// This class is used to handle the interaction between the player and the character Joaquin.
+/// </summary>
 public class ToGranjaController : MonoBehaviour
 {
     private ItemPanel itemPanel;
@@ -14,6 +17,9 @@ public class ToGranjaController : MonoBehaviour
     public Image joaquinImage;
     public DialogueGame dialogueGame;
 
+    /// <summary>
+    /// This method is used to stablish som values at the start of the script execution depending on the state of the game.
+    /// </summary>
     private void Start()
     {
         itemPanel = null;
@@ -25,6 +31,12 @@ public class ToGranjaController : MonoBehaviour
         }
     }
 
+
+    /// <summary>
+    /// This method is used to handle the interaction between the player and the character Joaquin when the player enters the collider of the character.
+    /// </summary>
+    /// <param name="collision"> Player's collision</param>
+    /// <returns></returns>
     private IEnumerator OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
@@ -81,12 +93,18 @@ public class ToGranjaController : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// This method is used to disable the character Joaquin and the collider to the Granja scene.
+    /// </summary>
     private void disableJoaquin()
     {
         Destroy(joaquin);
         toGranjaCollider.enabled = false;
     }
 
+    /// <summary>
+    /// This method is used to check for the reference of the ItemPanel in the EsencialScene.
+    /// </summary>
     private void CheckForItemPanel()
     {
         Scene esencialScene = SceneManager.GetSceneByName("EsencialScene");

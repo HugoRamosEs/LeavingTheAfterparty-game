@@ -6,6 +6,9 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
+/// <summary>
+/// Controlles the boss fight in the boat scene.
+/// </summary>
 public class BarcoBossFight : MonoBehaviour
 {
     private bool step2 = false;
@@ -36,16 +39,25 @@ public class BarcoBossFight : MonoBehaviour
     public ChangeSong audioBoss;
     public EnemyHealth enemyHealth;
 
+    /// <summary>
+    /// Subscribes to the OnHealthChanged event.
+    /// </summary>
     void OnEnable()
     {
         EnemyHealth.OnHealthChanged += UpdateBossHealth;
     }
-
+    /// <summary>
+    /// Unsubscribes from the OnHealthChanged event.
+    /// </summary>
     void OnDisable()
     {
         EnemyHealth.OnHealthChanged -= UpdateBossHealth;
     }
 
+    /// <summary>
+    /// Update the boss health and check for phase transitions.
+    /// </summary>
+    /// <param name="currentHealth"> The health of the boss on each time</param>
     private void UpdateBossHealth(int currentHealth)
     {
         if (!invulnerable)
@@ -60,7 +72,9 @@ public class BarcoBossFight : MonoBehaviour
             CheckForPhaseTransition();
         }
     }
-
+    /// <summary>
+    /// Check if the boss health is below a certain percentage and change the phase of the boss.
+    /// </summary>
     private void CheckForPhaseTransition()
     {
         if (bossHealth <= maxHealth * 0.66 && !step2)
@@ -80,6 +94,9 @@ public class BarcoBossFight : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Start the boss fight and set the initial values.
+    /// </summary>
     void Start()
     {
         animator = GetComponent<Animator>();
@@ -101,6 +118,9 @@ public class BarcoBossFight : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Update the boss fight on each frame and check if the player is dead.
+    /// </summary>
     void Update()
     {
         if (player == null)
@@ -130,6 +150,12 @@ public class BarcoBossFight : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Change the phase of the boss fight.
+    /// </summary>
+    /// <param name="phaseText"> The text for each changing-step transition of the boss fight </param>
+    /// <param name="magicBulletDelay"> The delay between each magicBullet</param>
+    /// <param name="flameDelay"> The delay between each flame attack </param>
     void ChangePhase(string phaseText, float magicBulletDelay, float flameDelay = 0f)
     {
         CancelInvoke("FireMagicBullet");
@@ -142,6 +168,11 @@ public class BarcoBossFight : MonoBehaviour
         } 
     }
 
+    /// <summary>
+    /// End the phase of the boss fight.
+    /// </summary>
+    /// <param name="phaseText"> The text for the end-phase coroutine</param>
+    /// <param name="isBossDead"> The boolean to check if boss is still alive </param>
     void EndPhase(string phaseText, bool isBossDead = false)
     {
         CancelInvoke("FireMagicBullet");
@@ -149,6 +180,9 @@ public class BarcoBossFight : MonoBehaviour
         StartCoroutine(PhaseTransition(phaseText, isBossDead));
     }
 
+    /// <summary>
+    /// Reset the boss fight.
+    /// </summary>
     void ResetBossFight()
     {
         StopFireAndFlameGeneration();
@@ -171,6 +205,12 @@ public class BarcoBossFight : MonoBehaviour
         gameObject.SetActive(false);
     }
 
+    /// <summary>
+    /// Coroutine for the phase transition.
+    /// </summary>
+    /// <param name="phaseText"> The text for each changing-step transition of the boss fight </param>
+    /// <param name="isBossDead"> The boolean to check if boss is still alive </param>
+    /// <returns></returns>
     IEnumerator PhaseTransition(string phaseText, bool isBossDead = false)
     {
         inPhaseTransition = true;
@@ -238,6 +278,14 @@ public class BarcoBossFight : MonoBehaviour
         BarcoBossTransformation.KeepPlayerStill = false;
     }
 
+    /// <summary>
+    /// Coroutine for changing the alpha of the image for the phase transition.
+    /// </summary>
+    /// <param name="image"> The image to change the opacity </param>
+    /// <param name="startAlpha"> The starting value for the opacity </param>
+    /// <param name="endAlpha"> The final value for the opacity</param>
+    /// <param name="duration"> The duration of the opacity </param>
+    /// <returns></returns>
     IEnumerator ChangeAlpha(Image image, float startAlpha, float endAlpha, float duration)
     {
         float elapsedTime = 0f;
@@ -250,6 +298,14 @@ public class BarcoBossFight : MonoBehaviour
         image.color = new Color(image.color.r, image.color.g, image.color.b, endAlpha);
     }
 
+    /// <summary>
+    /// Changes the alpha of the text for the phase transition.
+    /// </summary>
+    /// <param name="text"> The text to change the opacity </param>
+    /// <param name="startAlpha"> The starting value for the opacity </param>
+    /// <param name="endAlpha"> The final value for the opacity</param>
+    /// <param name="duration"> The duration of the opacity </param>
+    /// <returns></returns>
     IEnumerator ChangeAlphaText(TextMeshProUGUI text, float startAlpha, float endAlpha, float duration)
     {
         float elapsedTime = 0f;
@@ -262,6 +318,9 @@ public class BarcoBossFight : MonoBehaviour
         text.color = new Color(text.color.r, text.color.g, text.color.b, endAlpha);
     }
 
+    /// <summary>
+    /// Fire the magic bullet.
+    /// </summary>
     void FireMagicBullet()
     {
         if (inPhaseTransition || player == null) return;
@@ -277,6 +336,11 @@ public class BarcoBossFight : MonoBehaviour
         StartCoroutine(DelayBullet(bullet));
     }
 
+    /// <summary>
+    /// Delay the bullet for a certain amount of time.
+    /// </summary>
+    /// <param name="bullet"> The bullet that is shooting</param>
+    /// <returns></returns>
     IEnumerator DelayBullet(GameObject bullet)
     {
         Projectile bulletScript = bullet.GetComponent<Projectile>();
@@ -289,7 +353,9 @@ public class BarcoBossFight : MonoBehaviour
             bulletScript.speed = originalSpeed;
         }
     }
-
+    /// <summary>
+    /// Spawn the flame attack.
+    /// </summary>
     void SpawnFlame()
     {
         if (inPhaseTransition) return;
@@ -311,7 +377,9 @@ public class BarcoBossFight : MonoBehaviour
             }
         }
     }
-
+    /// <summary>
+    ///  Stops the fire and flame generation.
+    /// </summary>
     void StopFireAndFlameGeneration()
     {
         CancelInvoke("FireMagicBullet");
@@ -328,7 +396,9 @@ public class BarcoBossFight : MonoBehaviour
             Destroy(magicBullet);
         }
     }
-
+    /// <summary>
+    /// Check for the player if its not found.
+    /// </summary>
     void CheckForPlayerWithTag()
     {
         GameObject playerObject = GameObject.FindWithTag("Player");
@@ -339,6 +409,10 @@ public class BarcoBossFight : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Makes the boss invulnerable for a certain amount of time.
+    /// </summary>
+    /// <returns></returns>
     IEnumerator InvulnerabilityPeriod()
     {
         invulnerable = true;

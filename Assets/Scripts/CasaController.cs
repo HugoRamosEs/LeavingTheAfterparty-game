@@ -2,7 +2,9 @@ using System.Collections;
 
 using UnityEngine;
 using UnityEngine.UI;
-
+/// <summary>
+/// Controller of the house, it shows a message when the player enters the house and then shows the final message.
+/// </summary>
 public class CasaController : MonoBehaviour
 {
     public float duration = 2f;
@@ -12,6 +14,11 @@ public class CasaController : MonoBehaviour
     public Image image;
     public GameObject panelFinal;
 
+    /// <summary>
+    /// When the player enters the house, it shows a message and then the final message.
+    /// </summary>
+    /// <param name="collision"> the player's collision</param>
+    /// <returns></returns>
     private IEnumerator OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
@@ -25,7 +32,10 @@ public class CasaController : MonoBehaviour
             StartCoroutine(FadeImage());
         }
     }
-
+    /// <summary>
+    /// Fade the image of the final panel.
+    /// </summary>
+    /// <returns></returns>
     private IEnumerator FadeImage()
     {
         for (float t = 0.01f; t < duration; t += Time.unscaledDeltaTime)

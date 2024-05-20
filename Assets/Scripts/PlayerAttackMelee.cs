@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Manages the melee attack behavior of the player.
+/// </summary>
 public class PlayerAttackMelee : MonoBehaviour
 {
     private float timeBtwAttack;
@@ -19,11 +22,17 @@ public class PlayerAttackMelee : MonoBehaviour
     public ToolBar toolbar;
     public string attackItem;
 
+    /// <summary>
+    /// Initializes the animator.
+    /// </summary>
     private void Awake()
     {
         anim = GetComponentInParent<Animator>();
     }
 
+    /// <summary>
+    /// Checks if the player is attacking and if the player has the correct item equipped.
+    /// </summary>
     private void Update()
     {
         if (timeBtwAttack <= 0)
@@ -62,7 +71,9 @@ public class PlayerAttackMelee : MonoBehaviour
             timeBtwAttack -= Time.deltaTime;
         }
     }
-
+    /// <summary>
+    /// Coroutine to stop the attack animation after a delay.
+    /// </summary>
     IEnumerator StopAttackAnimation()
     {
         yield return new WaitForSeconds(0.5f);
@@ -70,6 +81,9 @@ public class PlayerAttackMelee : MonoBehaviour
         isAttacking = false;
     }
 
+    /// <summary>
+    /// Draws the attack range gizmo when selected in the editor.
+    /// </summary>
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;

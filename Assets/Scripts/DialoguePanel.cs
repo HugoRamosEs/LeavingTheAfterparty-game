@@ -2,9 +2,15 @@ using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-
+/// <summary>
+/// This method is responsible for the dialogue panel, it will show the dialogue of the NPC that is talking to the player.
+/// </summary>
 public class DialoguePanel : MonoBehaviour
 {
+    
+    /// <summary>
+    /// This enum is responsible for the state of the dialogue, if it is writing or finished.
+    /// </summary>
     public enum DialogueState
     {
         Writing,
@@ -22,6 +28,9 @@ public class DialoguePanel : MonoBehaviour
     private int lIndex;
     private string[] dLines;
 
+    /// <summary>
+    /// This method is responsible for updating the dialogue panel, it will check for the dialogue
+    /// </summary>
     void Update()
     {
         if (dialogue == null)
@@ -30,6 +39,12 @@ public class DialoguePanel : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// This method is responsible for updating the values of the dialogue panel, it will update the name of the NPC, the image of the NPC, the dialogue lines and the line index.
+    /// </summary>
+    /// <param name="dialogue"> The dialogue item </param>
+    /// <param name="dialogueLines"> The dialogue text</param>
+    /// <param name="lineIndex"> The dialogue line</param>
     public void UpdateValues(Dialogue dialogue, string[] dialogueLines, int lineIndex)
     {
         this.dialogue = dialogue;
@@ -42,6 +57,9 @@ public class DialoguePanel : MonoBehaviour
         StartWritingLine();
     }
 
+    /// <summary>
+    /// This method is responsible for the next dialogue line, it will check if the dialogue is writing or finished, if it is writing it will stop all coroutines and show the entire line, if it is finished it will increment the line index and check if it is the last line, if it is the last line it will end the dialogue.
+    /// </summary>
     public void NextDialogLine()
     {
         if (dialogueState == DialogueState.Writing)
@@ -68,6 +86,10 @@ public class DialoguePanel : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// This method is responsible for showing the entire line of the dialogue.
+    /// </summary>
+    /// <returns></returns>
     IEnumerator ShowLine()
     {
         dialogueState = DialogueState.Writing;
@@ -80,12 +102,18 @@ public class DialoguePanel : MonoBehaviour
         dialogueState = DialogueState.Finished;
     }
 
+    /// <summary>
+    /// This method is responsible for starting to write the line of the dialogue.
+    /// </summary>
     private void StartWritingLine()
     {
         StopAllCoroutines();
         StartCoroutine(ShowLine());
     }
 
+    /// <summary>
+    /// This method is responsible for checking the reference of the dialogue.
+    /// </summary>
     void CheckForDialogue()
     {
         Dialogue foundDialogue = FindObjectOfType<Dialogue>();

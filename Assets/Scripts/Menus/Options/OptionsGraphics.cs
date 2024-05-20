@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
+/// <summary>
+///  This script is to change the quality of the game
+/// </summary>
 public class OptionsGraphics : MonoBehaviour
 {
     public TMP_Dropdown dropdown;

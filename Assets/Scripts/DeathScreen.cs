@@ -2,6 +2,9 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
 
+/// <summary>
+/// Class that handles the death screen.
+/// </summary>
 public class DeathScreen : MonoBehaviour
 {
     [SerializeField] private GameObject hpBar;
@@ -14,6 +17,9 @@ public class DeathScreen : MonoBehaviour
     [SerializeField] private PlayerAttackShooting playerAttackShooting;
     [SerializeField] private PlayerAttackMelee playerAttackMelee;
 
+    /// <summary>
+    /// Sets up the death screen.
+    /// </summary>
     public void Setup()
     {
         gameObject.SetActive(true);
@@ -32,6 +38,9 @@ public class DeathScreen : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Respawns the player.
+    /// </summary>
     public void ReaparecerBtn()
     {
         if (player == null)
@@ -64,6 +73,9 @@ public class DeathScreen : MonoBehaviour
         gameObject.SetActive(false);
     }
 
+    /// <summary>
+    /// Returns to the main menu.
+    /// </summary>
     public void VolverAlMenuBtn()
     {
         SceneManager.LoadScene("MenuPrincipalScene");

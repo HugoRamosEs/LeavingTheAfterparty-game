@@ -3,6 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// This script is used to control the toolbar
+/// </summary>
 public class ToolBar : MonoBehaviour
 {
     [SerializeField] int toolBarSize = 2;

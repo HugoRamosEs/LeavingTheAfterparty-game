@@ -1,6 +1,9 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+/// <summary>
+/// This class is used to handle the dialogue of the NPC's in the game.
+/// </summary>
 public class Dialogue : MonoBehaviour
 {
     public int lineIndex;
@@ -15,6 +18,9 @@ public class Dialogue : MonoBehaviour
     public Sprite npcImage;
     [SerializeField, TextArea(4, 6)] protected string[] dialogueLines;
 
+    /// <summary>
+    /// This method calls some methods for different purposes.
+    /// </summary>
     protected virtual void Update()
     {
         if (dialoguePanel == null)
@@ -35,6 +41,9 @@ public class Dialogue : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// This method is used to initialize the dialogue.
+    /// </summary>
     public virtual void InitDialogue()
     {
         if (!didDialogueStart)
@@ -47,6 +56,9 @@ public class Dialogue : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// This method is used to start the dialogue.
+    /// </summary>
     public void StartDialogue()
     {
         lineIndex = 0;
@@ -64,6 +76,9 @@ public class Dialogue : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// This method is used to end the dialogue.
+    /// </summary>
     public void EndDialogue()
     {
         didDialogueStart = false;
@@ -74,6 +89,10 @@ public class Dialogue : MonoBehaviour
       
     }
 
+    /// <summary>
+    /// This method is used to check if the player is in range of the NPC.
+    /// </summary>
+    /// <param name="collision"> the Player's collision</param>
     protected void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
@@ -86,6 +105,10 @@ public class Dialogue : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// This method is used to check if the player is out of range of the NPC.
+    /// </summary>
+    /// <param name="collision"> the player's collision </param>
     protected void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.gameObject != null && collision.gameObject.CompareTag("Player"))
@@ -98,6 +121,9 @@ public class Dialogue : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// This method is used to check the reference of the DialoguePanel.
+    /// </summary>
     private void CheckForDialoguePanel()
     {
         Scene esencialScene = SceneManager.GetSceneByName("EsencialScene");

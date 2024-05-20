@@ -2,6 +2,9 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
+/// <summary>
+/// This script manages the potion's behavior.
+/// </summary>
 public class Potion : MonoBehaviour
 {
     private Image buffIcon;
@@ -9,6 +12,9 @@ public class Potion : MonoBehaviour
     private PlayerAttackMelee playerAttackMelee;
     private PlayerAttackShooting playerAttackShooting;
 
+    /// <summary>
+    /// The three types of potions.
+    /// </summary>
     public enum PotionType
     {
         Health,
@@ -21,6 +27,9 @@ public class Potion : MonoBehaviour
     public GameObject toPlaya;
     public GameObject dialogMark;
 
+    /// <summary>
+    /// Check for the buff icon.
+    /// </summary>
     private void Update()
     {
         if (buffIcon == null)
@@ -28,7 +37,10 @@ public class Potion : MonoBehaviour
             CheckForBuffIcon();
         }
     }
-
+    /// <summary>
+    /// Method to detect when the player enters the trigger area of the potion.
+    /// </summary>
+    /// <param name="collision"> Player's collision</param>
     void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
@@ -40,6 +52,10 @@ public class Potion : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Method to detect when the player exits the trigger area of the potion.
+    /// </summary>
+    /// <param name="collision"> Player's collision</param>
     void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
@@ -50,6 +66,10 @@ public class Potion : MonoBehaviour
         dialogMark.SetActive(false);
     }
 
+    /// <summary>
+    /// Method to let the player consume the potion.
+    /// </summary>
+    /// <param name="collision"></param>
     private void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
@@ -60,7 +80,9 @@ public class Potion : MonoBehaviour
             }
         }
     }
-
+    /// <summary>
+    /// Method to consume the potion.
+    /// </summary>
     private void ConsumePotion()
     {
         switch (potionType)
@@ -91,6 +113,9 @@ public class Potion : MonoBehaviour
         toPlaya.SetActive(true);
     }
 
+    /// <summary>
+    /// Method to check for the buff icon.
+    /// </summary>
     private void CheckForBuffIcon()
     {
         if (buffIcon == null)

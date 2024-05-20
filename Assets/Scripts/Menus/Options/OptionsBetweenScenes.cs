@@ -1,6 +1,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// This class is used to manage the options between scenes.
+/// </summary>
 public class OptionsBetweenScenes : MonoBehaviour
 {
     private static List<OptionsBetweenScenes> instances = new List<OptionsBetweenScenes>();

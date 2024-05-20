@@ -1,6 +1,9 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+/// <summary>
+/// This class is responsible for the dialogue questionary, it will show the dialogue of the NPC that is talking and the possible responses.
+/// </summary>
 public class DialogueQuestionary : Dialogue
 {
     [SerializeField] private DialogueResponse[] dialogueResponses;
@@ -14,18 +17,24 @@ public class DialogueQuestionary : Dialogue
     public GameObject relatedNPC;
     public static DialogueQuestionary Instance;
 
+    /// <summary>
+    /// This method is responsible for the initialization of the dialogue, it will check if the dialogue has ended or not.
+    /// </summary>
     void Awake()
     {
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject);  // Asegura que este objeto no se destruya al cargar nuevas escenas
+            DontDestroyOnLoad(gameObject);
         }
         else
         {
             Destroy(gameObject);
         }
     }
+    /// <summary>
+    /// This method is responsible for updating the dialogue questionary, it will check for the dialogue questionary panel.
+    /// </summary>
     protected override void Update()
     {
         if (dialogueQuestionaryPanel == null)
@@ -36,6 +45,9 @@ public class DialogueQuestionary : Dialogue
         base.Update();
     }
 
+    /// <summary>
+    /// This method is responsible for the initialization of the dialogue.
+    /// </summary>
     public override void InitDialogue()
     {
         if (isDialogueEnded)
@@ -78,6 +90,9 @@ public class DialogueQuestionary : Dialogue
             dialogueQuestionaryPanel.NextDialogLine();
         }
     }
+    /// <summary>
+    /// This method is responsible of ensuring that the dialogue state is reset.
+    /// </summary>
     public void ResetDialogueState()
     {
         Debug.Log("[ResetDialogueState] Reseteando estado del diálogo.");
@@ -89,6 +104,9 @@ public class DialogueQuestionary : Dialogue
         lineIndex = 0;
     }
 
+    /// <summary>
+    /// This method checks the state of isDialogueEnded and isAnswerFeedback.
+    /// </summary>
     public void forceState()
     {
         Debug.Log("==== EN DIALOGUEQUESTIONARY=======");
@@ -97,6 +115,9 @@ public class DialogueQuestionary : Dialogue
         Debug.Log("=======================================");
     }
 
+    /// <summary>
+    /// This method ensures the retro-usability of the Questionary NPC when the player returns to this map after leaving it.
+    /// </summary>
     public void OnPlayerReturnedToNPC()
     {
         // Solo reiniciar el estado si el diálogo ha terminado, para permitir reiniciar conversaciones.
@@ -117,6 +138,9 @@ public class DialogueQuestionary : Dialogue
         }
     }
 
+    /// <summary>
+    /// This method is responsible for checking and resetting the state of the dialogue.
+    /// </summary>
     public void CheckAndResetState()
     {
         if (isDialogueEnded)
@@ -132,12 +156,15 @@ public class DialogueQuestionary : Dialogue
         }
     }
 
+    /// <summary>
+    /// This method is responsible for showing the responses of the dialogue.
+    /// </summary>
     private void ShowResponses()
     {
         if (dialogueQuestionaryPanel == null)
         {
 
-            // Cambiado porque está deprecated...
+            // Old code (deprecated)
             ////foreach (var scene in SceneManager.GetAllScenes())
             ////{
             ////    if (scene.isLoaded)
@@ -191,6 +218,9 @@ public class DialogueQuestionary : Dialogue
         }
     }
 
+    /// <summary>
+    /// This method controle the dialogue when the player approaches the NPC.
+    /// </summary>
     public void OnPlayerApproaches()
     {
 
@@ -208,22 +238,37 @@ public class DialogueQuestionary : Dialogue
         }
     }
 
+    /// <summary>
+    /// This method is responsible for checking if the response is correct.
+    /// </summary>
+    /// <param name="response"> the response selected </param>
+    /// <returns> True or false depending on the response selected </returns>
     public bool IsCorrectResponse(string response)
     {
         return dialogueResponses != null && dialogueResponses.Length > lineIndex && dialogueResponses[lineIndex].correctResponse == response;
 
     }
 
+    /// <summary>
+    /// This method is responsible for getting the correct dialogue.
+    /// </summary>
+    /// <returns> the dialogue for the correct response selected</returns>
     public string GetCorrectDialogue()
     {
         return dialogueResponses != null && dialogueResponses.Length > lineIndex ? dialogueResponses[lineIndex].correctDialogue : null;
 
     }
-
+    /// <summary>
+    /// This method is responsible for getting the incorrect dialogue.
+    /// </summary>
+    /// <returns> the dialogue for the incorrect response selected</returns>
     public string GetIncorrectDialogue()
     {
         return dialogueResponses != null && dialogueResponses.Length > lineIndex ? dialogueResponses[lineIndex].incorrectDialogue : null;
     }
+    /// <summary>
+    /// This method is responsible for check the dialogue questionary panel reference.
+    /// </summary>
     private void CheckForDialogueQuestionaryPanel()
     {
         Scene esencialScene = SceneManager.GetSceneByName("EsencialScene");

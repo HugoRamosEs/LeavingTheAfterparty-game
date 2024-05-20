@@ -3,12 +3,18 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// This class is responsible for managing the dialogue questionary panel that appears when interacting with an NPC.
+/// </summary>
 public class DialogueQuestionaryPanel : MonoBehaviour
 {
     [SerializeField] private GameObject responsesPanel;
     [SerializeField] private Button[] responseButtons;
     private DialogueQuestionary dialogueQuestionary;
 
+    /// <summary>
+    /// Represents the state of the dialogue.
+    /// </summary>
     public enum DialogueState
     {
         Writing,
@@ -26,18 +32,27 @@ public class DialogueQuestionaryPanel : MonoBehaviour
     private int lIndex;
     private string[] dLines;
 
+    /// <summary>
+    /// Find the DialogueQuestionary instance in the scene.
+    /// </summary>
     void Start()
     {
         dialogueQuestionary = FindObjectOfType<DialogueQuestionary>();
     }
 
+    /// <summary>
+    /// This method is called when the object becomes enabled and active, and is used to initialize an instance of the dialogue questionary.
+    /// </summary>
     void Awake()
     {
-        // Siempre trabaja con la instancia única de DialogueQuestionary
+        
         dialogueQuestionary = DialogueQuestionary.Instance;
     }
 
 
+    /// <summary>
+    /// This method controle the interaction with the dialogue questionary panel on each frame.
+    /// </summary>
     public void Update()
     {
         if (Input.GetKeyDown(KeyCode.F))
@@ -65,15 +80,12 @@ public class DialogueQuestionaryPanel : MonoBehaviour
 
 
 
-
-
-
-
-
-
-
-
-
+    /// <summary>
+    /// This method is responsible for updating the values of the dialogue questionary panel.
+    /// </summary>
+    /// <param name="dialogue"> The dialogue item</param>
+    /// <param name="dialogueLines"> The dialogue text</param>
+    /// <param name="lineIndex"> The line of the dialogue text</param>
     public void UpdateValues(Dialogue dialogue, string[] dialogueLines, int lineIndex)
     {
         this.dialogue = dialogue;
@@ -86,7 +98,9 @@ public class DialogueQuestionaryPanel : MonoBehaviour
         StartWritingLine();
     }
 
-
+    /// <summary>
+    /// This method is responsible for displaying the next line of the dialogue.
+    /// </summary>
     public void NextDialogLine()
     {
         if (dialogueState == DialogueState.Writing)
@@ -104,7 +118,10 @@ public class DialogueQuestionaryPanel : MonoBehaviour
             }
         }
     }
-
+    /// <summary>
+    /// This method is responsible for displaying the dialogue line character by character.
+    /// </summary>
+    /// <returns></returns>
     IEnumerator ShowLine()
     {
         dialogueState = DialogueState.Writing;
@@ -116,13 +133,19 @@ public class DialogueQuestionaryPanel : MonoBehaviour
         }
         dialogueState = DialogueState.Finished;
     }
-
+    /// <summary>
+    /// This method is responsible for starting to write the dialogue line.
+    /// </summary>
     private void StartWritingLine()
     {
         StopAllCoroutines();
         StartCoroutine(ShowLine());
     }
 
+    /// <summary>
+    /// This method is responsible for displaying the responses to the dialogue question.
+    /// </summary>
+    /// <param name="responses">The responses available</param>
     public void ShowResponses(string[] responses)
     {
         for (int i = 0; i < responses.Length; i++)
@@ -138,6 +161,10 @@ public class DialogueQuestionaryPanel : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// This method is responsible for handling the response to the dialogue question.
+    /// </summary>
+    /// <param name="response"> The response of the NPC to the Player option selected</param>
     private void OnResponseButtonClicked(string response)
     {
         string nextDialogue = dialogueQuestionary.IsCorrectResponse(response) ?
@@ -169,13 +196,15 @@ public class DialogueQuestionaryPanel : MonoBehaviour
         responsesPanel.SetActive(false);
     }
 
-
+    /// <summary>
+    /// This method is responsible for ending the dialogue.
+    /// </summary>
     public void EndDialogue()
     {
         if (dialogueQuestionary == null)
         {
             Debug.LogWarning("DialogueQuestionary reference lost, possibly due to scene unload.");
-            return; // Salir si el controlador de diálogo no está disponible.
+            return; 
         }
 
         if (!dialogueQuestionary.isDialogueEnded)
@@ -204,7 +233,9 @@ public class DialogueQuestionaryPanel : MonoBehaviour
 
 
 
-
+    /// <summary>
+    /// This method is responsible for activating the responses panel.
+    /// </summary>
     public void ActivateResponsesPanel()
     {
         if (responsesPanel != null && !responsesPanel.activeSelf)
@@ -213,7 +244,9 @@ public class DialogueQuestionaryPanel : MonoBehaviour
         }
     }
 
-
+    /// <summary>
+    /// This method checks for the dialogue reference in the scene.
+    /// </summary>
     void CheckForDialogue()
     {
         Dialogue foundDialogue = FindObjectOfType<Dialogue>();

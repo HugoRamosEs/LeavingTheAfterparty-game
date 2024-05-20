@@ -3,7 +3,9 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-
+/// <summary>
+/// The script that handles the transformation of the boss.
+/// </summary>
 public class BarcoBossTransformation : MonoBehaviour
 {
     private bool hasPerla = false;
@@ -30,6 +32,9 @@ public class BarcoBossTransformation : MonoBehaviour
     public ChangeSong audioBoss;
     public new BoxCollider2D collider;
 
+    /// <summary>
+    /// Check if the boss has been defeated.
+    /// </summary>
     void Start()
     {
         playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
@@ -46,7 +51,9 @@ public class BarcoBossTransformation : MonoBehaviour
             gameObject.SetActive(false);
         }
     }
-
+    /// <summary>
+    /// Check for the player's position.
+    /// </summary>
     private void Update()
     {
         if (KeepPlayerStill)
@@ -54,7 +61,10 @@ public class BarcoBossTransformation : MonoBehaviour
             playerTransform.position = playerPosition;
         }
     }
-
+    /// <summary>
+    /// Starts the boss transformation.
+    /// </summary>
+    /// <param name="collision"> The collision that starts the fight</param>
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Player")
@@ -69,6 +79,10 @@ public class BarcoBossTransformation : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Deactivates the boss transformation.
+    /// </summary>
+    /// <param name="other"> Check for the player tag </param>
     private void OnTriggerExit2D(Collider2D other)
     {
         if (other.gameObject.tag == "Player")
@@ -77,6 +91,11 @@ public class BarcoBossTransformation : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Activates the boss after a delay.
+    /// </summary>
+    /// <param name="delay"> Time of delay </param>
+    /// <returns></returns>
     private IEnumerator ActivateBossAfterDelay(float delay)
     {
         yield return new WaitForSeconds(delay);
@@ -97,6 +116,9 @@ public class BarcoBossTransformation : MonoBehaviour
         gameObject.SetActive(false);
     }
 
+    /// <summary>
+    /// Checks the inventory items.
+    /// </summary>
     void CheckInventoryItems()
     {
         bool hasAllItems = false;
@@ -159,6 +181,9 @@ public class BarcoBossTransformation : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Checks for the item panel.
+    /// </summary>
     private void CheckForItemPanel()
     {
         Scene esencialScene = SceneManager.GetSceneByName("EsencialScene");

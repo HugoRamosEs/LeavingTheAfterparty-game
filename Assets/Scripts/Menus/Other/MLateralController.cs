@@ -2,6 +2,9 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
+/// <summary>
+/// This script is to control the lateral panel
+/// </summary>
 public class MLateralController : MonoBehaviour
 {
     [SerializeField] GameObject mLateralPanel;
@@ -11,16 +14,25 @@ public class MLateralController : MonoBehaviour
     private GameObject playerStats;
     string[] escenasConMenu = { "SotanoScene", "EsencialScene" };
 
+    /// <summary>
+    /// This method is used to ensure the functionality of the lateral panel
+    /// </summary>
     void Start()
     {
         btnContinuar.onClick.AddListener(OnContinueButtonClicked);
     }
 
+    /// <summary>
+    /// This method is used to continue the game
+    /// </summary>
     void OnContinueButtonClicked()
     {
         Time.timeScale = 1f;
     }
 
+    /// <summary>
+    /// This method is used to show the lateral panel
+    /// </summary>
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))

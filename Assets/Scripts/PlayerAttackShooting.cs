@@ -1,6 +1,9 @@
 using System.Collections;
 using UnityEngine;
 
+/// <summary>
+/// This class is responsible for the player's shooting attack.
+/// </summary>
 public class PlayerAttackShooting : MonoBehaviour
 {
     private Camera mainCam;
@@ -21,6 +24,9 @@ public class PlayerAttackShooting : MonoBehaviour
 
     public GameObject puntoRotacionDisparo;
 
+    /// <summary>
+    /// This method is used to initialize some variables.
+    /// </summary>
     void Start()
     {
         mainCam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
@@ -28,6 +34,9 @@ public class PlayerAttackShooting : MonoBehaviour
         puntoRotacionDisparo.SetActive(false);
     }
 
+    /// <summary>
+    /// This method is used to update the player's shooting attack.
+    /// </summary>
     void Update()
     {
         mousePos = mainCam.ScreenToWorldPoint(Input.mousePosition);
@@ -67,7 +76,10 @@ public class PlayerAttackShooting : MonoBehaviour
 
         puntoRotacionDisparo.SetActive(isSlingshotSelected);
     }
-
+    /// <summary>
+    /// This method is used to instantiate the bullet and stop the shooting animation.
+    /// </summary>
+    /// <returns></returns>
     IEnumerator ShootBullet()
     {
         yield return new WaitForSeconds(0.25f);
@@ -75,6 +87,10 @@ public class PlayerAttackShooting : MonoBehaviour
         StartCoroutine(StopShootingAnimation());
     }
 
+    /// <summary>
+    /// This method is used to stop the shooting animation.
+    /// </summary>
+    /// <returns></returns>
     IEnumerator StopShootingAnimation()
     {
         yield return new WaitForSeconds(0.4f);

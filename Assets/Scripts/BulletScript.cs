@@ -1,5 +1,7 @@
 using UnityEngine;
-
+/// <summary>
+/// Script for the bullet prefab. It handles the bullet's movement and collision.
+/// </summary>
 public class BulletScript : MonoBehaviour
 {
     private Vector3 mousePos;
@@ -12,6 +14,9 @@ public class BulletScript : MonoBehaviour
     public float maxDistance = 10f;
     public GameObject destructionParticles;
   
+    /// <summary>
+    /// Start is called before the first frame update, it gets the main camera and the rigidbody of the bullet.
+    /// </summary>
     void Start()
     {
         mainCam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
@@ -23,6 +28,9 @@ public class BulletScript : MonoBehaviour
         initialPosition = transform.position;
     }
 
+    /// <summary>
+    /// Update is called once per frame, it checks if the bullet has reached the max distance and destroys it if it has.
+    /// </summary>
     void Update()
     {
         if (Vector3.Distance(initialPosition, transform.position) > maxDistance)
@@ -30,7 +38,10 @@ public class BulletScript : MonoBehaviour
             DestroyProjectile();
         }
     }
-
+    /// <summary>
+    /// It checks if the bullet has collided with an enemy and deals damage to it.
+    /// </summary>
+    /// <param name="collision"> the enemy collision </param>
     void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Enemy"))
@@ -45,6 +56,9 @@ public class BulletScript : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// It destroys the bullet and instantiates the destruction particles.
+    /// </summary>
     void DestroyProjectile()
     {
         Instantiate(destructionParticles, transform.position, Quaternion.identity);

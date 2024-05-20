@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// This script is responsible for the behavior of the projectile.
+/// </summary>
 public class Projectile : MonoBehaviour
 {
     public float speed;
@@ -13,6 +16,9 @@ public class Projectile : MonoBehaviour
     private Vector2 initialPosition;
     private Vector2 target;
 
+    /// <summary>
+    /// This method is used to set the initial position of the projectile and the target position.
+    /// </summary>
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
@@ -25,6 +31,9 @@ public class Projectile : MonoBehaviour
         transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
     }
 
+    /// <summary>
+    /// This method is used to move the projectile towards the target position.
+    /// </summary>
     private void Update()
     {
         transform.position = Vector2.MoveTowards(transform.position, target, speed * Time.deltaTime);
@@ -35,6 +44,10 @@ public class Projectile : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Th method is used to detect the collision with the player and deal damage to it.
+    /// </summary>
+    /// <param name="collision"> Player's collision</param>
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
@@ -48,6 +61,9 @@ public class Projectile : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// This method is used to instantiate the destruction particles and destroy the projectile.
+    /// </summary>
     void DestroyProjectile()
     {
         Instantiate(destructionParticles, transform.position, Quaternion.identity);

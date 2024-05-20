@@ -2,7 +2,9 @@ using System;
 using System.Collections;
 using TMPro;
 using UnityEngine;
-
+/// <summary>
+/// This class is responsible for displaying the dialogue text on the screen.
+/// </summary>
 public class DialogueGame : MonoBehaviour
 {
     public TextMeshProUGUI text;
@@ -10,6 +12,11 @@ public class DialogueGame : MonoBehaviour
 
     private Coroutine typingCoroutine;
 
+    /// <summary>
+    /// This method is responsible for updating the text on the screen.
+    /// </summary>
+    /// <param name="message"> the message of the text </param>
+    /// <returns></returns>
     public Coroutine UpdateText(string message)
     {
         text.text = "";
@@ -17,7 +24,11 @@ public class DialogueGame : MonoBehaviour
 
         return typingCoroutine;
     }
-
+    /// <summary>
+    /// The method responsible for typing the text on the screen.
+    /// </summary>
+    /// <param name="message"> the message of the text </param>
+    /// <returns></returns>
     private IEnumerator TypeText(string message)
     {
         foreach (char letter in message)
@@ -26,7 +37,9 @@ public class DialogueGame : MonoBehaviour
             yield return new WaitForSecondsRealtime(typingSpeed);
         }
     }
-
+    /// <summary>
+    /// A method that stops the text from being typed on the screen.
+    /// </summary>
     public void StopText()
     {
         if (typingCoroutine != null)
@@ -34,8 +47,11 @@ public class DialogueGame : MonoBehaviour
             StopCoroutine(typingCoroutine);
         }
     }
+    /// <summary>
+    /// A method that clears the text on the screen.
+    /// </summary>
     public void ClearPanel()
     {
-        
+
     }
 }
