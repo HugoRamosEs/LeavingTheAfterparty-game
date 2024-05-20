@@ -46,6 +46,7 @@ public class Login : MonoBehaviour
         {
             case 209: // Se ha iniciado de sesión correctamente
                 print(servidor.respuesta.mensaje);
+                GuardarDatosUsuario();
                 SceneManager.LoadScene("MenuPrincipalScene");
                 break;
             case 208: // El correo o la contraseña son incorrectos
@@ -95,6 +96,16 @@ public class Login : MonoBehaviour
         imRespuestaScene.SetActive(true);
         yield return new WaitForSeconds(5.0f);
         imRespuestaScene.SetActive(false);
+    }
+
+    void GuardarDatosUsuario()
+    {
+        UserGameInfo.Instance.email = inpUsuario.text;
+        UserGameInfo.Instance.username = inpUsuario.text;
+
+        PlayerPrefs.SetString("Correo", UserGameInfo.Instance.email);
+        PlayerPrefs.SetString("NombreUsuario", UserGameInfo.Instance.username);
+        PlayerPrefs.Save();
     }
 
 }

@@ -1,4 +1,6 @@
 using System.Collections;
+using System.Collections.Generic;
+using UnityEditor.PackageManager;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.Networking;
@@ -21,20 +23,15 @@ public class Server : ScriptableObject
         {
             if (servicios[i].nombre.Equals(nombre))
             {
-                s = servicios[i];;
+                s = servicios[i]; ;
             }
         }
         for (int i = 0; i < s.parametros.Length; i++)
         {
             formulario.AddField(s.parametros[i], datos[i]);
         }
-        Debug.Log("formulario " + formulario);
         UnityWebRequest www = UnityWebRequest.Post(servidor + "/" + s.url, formulario);
-        Debug.Log(servidor + "/" + s.url);
         yield return www.SendWebRequest();
-        Debug.Log("www.result: " + www.result);
-        Debug.Log("UnityWebRequest.Result.Success " + UnityWebRequest.Result.Success);
-        Debug.Log("www " + www);
 
         if (www.result != UnityWebRequest.Result.Success)
         {
@@ -42,12 +39,11 @@ public class Server : ScriptableObject
         }
         else
         {
-            Debug.Log(www.downloadHandler.text);
             string responseText = www.downloadHandler.text;
             responseText = responseText.Replace("<br />", "");
             responseText = responseText.Replace("#", "\"");
             responseText = responseText.Replace("+", "'");
-            Debug.Log(responseText);
+            Debug.Log("Respuesta en server.cs: " + responseText);
             respuesta = JsonUtility.FromJson<Respuesta>(responseText);
         }
         ocupado = false;
@@ -73,7 +69,7 @@ public class Respuesta
 
     public Respuesta()
     {
-    codigo = 404;
-    mensaje = "Error al conectarse con el servidor.";
+        codigo = 404;
+        mensaje = "Error al conectarse con el servidor.";
     }
 }

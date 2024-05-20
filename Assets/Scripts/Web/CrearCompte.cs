@@ -70,6 +70,7 @@ public class CrearCompte : MonoBehaviour
                 break;
             case 206: // Feliciats! S+ha registrat a Leaving the After Party. En breus, se l+hi redirigirà al joc.
                 print(servidor.respuesta.mensaje);
+                GuardarDatosUsuario();
                 StartCoroutine(MandarAlLogin());
                 break;
             case 401: // Error intentando conectar
@@ -100,9 +101,7 @@ public class CrearCompte : MonoBehaviour
     {
         cargando = false;
         imRespuestaScene.SetActive(true);
-
         yield return new WaitForSeconds(5.0f);
-
         imRespuestaScene.SetActive(false);
 
     }
@@ -115,6 +114,16 @@ public class CrearCompte : MonoBehaviour
         imRespuestaUsuarioCorrecto.SetActive(false);
         imSignUpScene.SetActive(false);
         SceneManager.LoadScene("MenuPrincipalScene");
+    }
+
+    void GuardarDatosUsuario()
+    {
+        UserGameInfo.Instance.email = inpCorreo.text;
+        UserGameInfo.Instance.username = inpUsuario.text;
+
+        PlayerPrefs.SetString("Correo", UserGameInfo.Instance.email);
+        PlayerPrefs.SetString("NombreUsuario", UserGameInfo.Instance.username);
+        PlayerPrefs.Save();
     }
 
 }
