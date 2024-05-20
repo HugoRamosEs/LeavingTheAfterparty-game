@@ -1,27 +1,28 @@
-using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class OptionsBetweenScenes : MonoBehaviour
 {
-    private static HashSet<string> uniqueIds = new HashSet<string>();
-    public string uniqueId;
+    private static List<OptionsBetweenScenes> instances = new List<OptionsBetweenScenes>();
 
     private void Awake()
     {
-        if (uniqueIds.Contains(uniqueId))
+        if (!instances.Contains(this))
         {
-            Destroy(gameObject);
-            return;
+            instances.Add(this);
+            DontDestroyOnLoad(gameObject);
         }
-
-        uniqueIds.Add(uniqueId);
-        DontDestroyOnLoad(gameObject);
+        else
+        {
+            if (instances.IndexOf(this) != 0)
+            {
+                Destroy(gameObject);
+            }
+        }
     }
 
     private void OnDestroy()
     {
-        uniqueIds.Remove(uniqueId);
+        instances.Remove(this);
     }
 }
