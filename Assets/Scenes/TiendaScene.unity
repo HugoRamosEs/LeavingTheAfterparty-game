@@ -1557,9 +1557,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4070982015159956145, guid: d40642b0af174e34ea37385631d17215, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6377756669294576168, guid: d40642b0af174e34ea37385631d17215, type: 3}
       propertyPath: m_Name
       value: SrTienda
+      objectReference: {fileID: 0}
+    - target: {fileID: 7053243383751919755, guid: d40642b0af174e34ea37385631d17215, type: 3}
+      propertyPath: m_SortingOrder
+      value: 50
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
