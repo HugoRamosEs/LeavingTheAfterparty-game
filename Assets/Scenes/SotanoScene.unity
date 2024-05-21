@@ -1408,6 +1408,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1559065200826128204, guid: 4c2dc0d9792f61f42a83b6a1a2736fcd, type: 3}
+      propertyPath: m_SortingOrder
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 3428369635342274176, guid: 4c2dc0d9792f61f42a83b6a1a2736fcd, type: 3}
       propertyPath: m_Name
       value: Martina
@@ -1452,6 +1456,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2807137008101927484, guid: 9004662ab450a604697501aa4b4adc80, type: 3}
+      propertyPath: m_SortingOrder
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 3473327495736913879, guid: 9004662ab450a604697501aa4b4adc80, type: 3}
       propertyPath: m_LocalPosition.x
       value: -6.83
