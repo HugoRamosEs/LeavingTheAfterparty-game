@@ -13,36 +13,36 @@ public class CargarPartida : MonoBehaviour
 
     private bool cargando = false;
 
+    /// <summary>
+    /// Starts the process to load the game.
+    /// </summary>
     public void Cargar()
     {
-        Debug.Log("Entro en la funcion Cargar() de cargarpartida.cs");
         StartCoroutine(CargarDatos());
     }
 
+    /// <summary>
+    /// Coroutine to load game data.
+    /// </summary>
+    /// <returns>An IEnumerator to handle the coroutine.</returns>
     IEnumerator CargarDatos()
     {
-        Debug.Log("1C");
-        cargando = false;
         cargando = true;
-        Debug.Log("2C");
-        imLoading.SetActive(true);
+        //imLoading.SetActive(true);
         yield return new WaitForSeconds(0.5f);
-        Debug.Log("3C");
         string[] datos = new string[1];
         datos[0] = UserGameInfo.Instance.email;
-        Debug.Log("4C");
         StartCoroutine(servidor.ConsumirServicio("cargar-partida", datos, PosCargar));
-        Debug.Log("5C");
-        imLoading.SetActive(false);
-        Debug.Log("6C");
+        //imLoading.SetActive(false);
         yield return new WaitUntil(() => !servidor.ocupado);
         yield return new WaitWhile(() => cargando);
-        Debug.Log("7C");
     }
 
+    /// <summary>
+    /// Handles the server response after loading data.
+    /// </summary>
     void PosCargar()
     {
-        Debug.Log("8PC");
         mensajeText.text = servidor.respuesta.mensaje;
 
         switch (servidor.respuesta.codigo)
@@ -77,6 +77,10 @@ public class CargarPartida : MonoBehaviour
         cargando = false;
     }
 
+    /// <summary>
+    /// Coroutine to show and hide the response scene.
+    /// </summary>
+    /// <returns>An IEnumerator to handle the coroutine.</returns>
     IEnumerator MostrarYEsconderEscena()
     {
         cargando = false;
@@ -85,15 +89,17 @@ public class CargarPartida : MonoBehaviour
         imRespuestaScene.SetActive(false);
     }
 
+    /// <summary>
+    /// Processes the server response.
+    /// </summary>
+    /// <param name="respuesta">The response string from the server.</param>
     void ProcesarRespuesta(string respuesta)
     {
         cargando = false;
         Debug.Log("Respuesta en ProcesarRespuesa: " + respuesta);
 
-        // Dividir la respuesta en partes usando "&&" como delimitador
         string[] pares = respuesta.Split(new string[] { "&&" }, StringSplitOptions.RemoveEmptyEntries);
 
-        // Variables para almacenar los datos
         string id = "";
         string escena = "";
         float posX = 0f;
@@ -107,8 +113,9 @@ public class CargarPartida : MonoBehaviour
         bool playaPasada = false;
         bool barcoBossPasado = false;
         bool ciudadBossPasado = false;
+        bool luzSotanoEncendida = false;
+        bool donutDesbloqueado = false;
 
-        // Recorrer cada par y asignar los valores a las variables
         foreach (string par in pares)
         {
             string[] partes = par.Split(':');
@@ -161,6 +168,12 @@ public class CargarPartida : MonoBehaviour
                     case "ciudadBossPasado":
                         ciudadBossPasado = ConvertToBool(valor);
                         break;
+                    case "luzSotanoEncendida":
+                        luzSotanoEncendida = ConvertToBool(valor);
+                        break;
+                    case "donutDesbloqueado":
+                        donutDesbloqueado = ConvertToBool(valor);
+                        break;
                 }
             }
         }
@@ -168,52 +181,60 @@ public class CargarPartida : MonoBehaviour
         Debug.Log("Vida: " + currentHp.ToString());
         Debug.Log("Estamina: " + currentStamina.ToString());
 
-        // Actualizar la información del juego
         UserGameInfo.Instance.UpdateGameInfo(id, escena, posX.ToString(), posY.ToString(), posZ.ToString(), currentHp.ToString("F2"), currentStamina.ToString("F2"),
-            orderInLayer.ToString(), sotanoPasado.ToString(), congeladorPasado.ToString(), playaPasada.ToString(), barcoBossPasado.ToString(), ciudadBossPasado.ToString());
+            orderInLayer.ToString(), sotanoPasado.ToString(), congeladorPasado.ToString(), playaPasada.ToString(), barcoBossPasado.ToString(), ciudadBossPasado.ToString(),
+            luzSotanoEncendida.ToString(), donutDesbloqueado.ToString());
 
-        // Cargar las escenas
         CargarEscenas(escena);
     }
 
+    /// <summary>
+    /// Converts a string to a boolean value.
+    /// </summary>
+    /// <param name="value">The string value to convert.</param>
+    /// <returns>A boolean representation of the string.</returns>
     bool ConvertToBool(string value)
     {
-        // Intenta convertir la cadena a un valor booleano
         if (bool.TryParse(value, out bool result))
         {
             return result;
         }
         else
         {
-            // Si la conversión falla, intenta convertir desde un entero
             if (int.TryParse(value, out int intResult))
             {
                 return intResult != 0;
             }
         }
 
-        // Si todo lo demás falla, devuelve false o maneja el error como prefieras
         Debug.LogError($"No se pudo convertir '{value}' a un valor booleano.");
         return false;
     }
 
+    /// <summary>
+    /// Converts a string to a float value.
+    /// </summary>
+    /// <param name="posicionDecimal">The string value to convert.</param>
+    /// <returns>A float representation of the string.</returns>
     float stringToFloat(string posicionDecimal)
     {
-        // Reemplazar el punto por una coma
         posicionDecimal = posicionDecimal.Replace('.', ',');
 
-        // Convertir a número flotante
         if (float.TryParse(posicionDecimal, System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.GetCultureInfo("es-ES"), out float valorFlotante))
         {
             return valorFlotante;
         }
         else
         {
-            Debug.LogError("No se pudo convertir la posición a un número flotante.");
+            Debug.LogError("No se pudo convertir la posiciï¿½n a un nï¿½mero flotante.");
             return 0f;
         }
     }
 
+    /// <summary>
+    /// Loads the specified scenes.
+    /// </summary>
+    /// <param name="escenaNombre">The name of the main scene to load.</param>
     void CargarEscenas(string escenaNombre)
     {
         SceneManager.LoadScene(escenaNombre);

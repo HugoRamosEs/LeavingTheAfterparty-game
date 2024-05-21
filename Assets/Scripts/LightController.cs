@@ -1,7 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
+
 /// <summary>
 /// This script is used to control the light in the "Sotano Bar" scene.
 /// </summary>
@@ -9,24 +7,27 @@ public class LightController : MonoBehaviour
 {
     private Canvas screenDark;
     private bool isPlayerInTrigger = false;
+
     public bool isDark = true;
     public GameObject dialogueMark;
 
     /// <summary>
-    /// This method is used to controle the dark screen.
+    /// This method is used to check if the light is on and disable screenDark.
     /// </summary>
     void Start()
     {
-        Scene currentScene = SceneManager.GetActiveScene();
-        if (currentScene.name == "EsencialScene")
+        if (PlayerSceneController.luzSotanoEncendida)
         {
             isDark = false;
-        }
-        else
-        {
-            isDark = true;
+
+            if (screenDark != null)
+            {
+                screenDark.gameObject.SetActive(false);
+                dialogueMark.SetActive(false);
+            }
         }
     }
+
     /// <summary>
     /// This method is used to controle the dark screen and toggle it off.
     /// </summary>
@@ -39,9 +40,9 @@ public class LightController : MonoBehaviour
 
         if (screenDark && isPlayerInTrigger && Input.GetKeyDown(KeyCode.E))
         {
-            screenDark.gameObject.SetActive(true);
+            screenDark.gameObject.SetActive(false);
             dialogueMark.SetActive(false);
-            Destroy(screenDark.gameObject);
+            PlayerSceneController.luzSotanoEncendida = true;
             isDark = false;
         }
     }
@@ -61,6 +62,7 @@ public class LightController : MonoBehaviour
             isPlayerInTrigger = true;
         }
     }
+
     /// <summary>
     /// This method is used to check if the player is out of the trigger.
     /// </summary>

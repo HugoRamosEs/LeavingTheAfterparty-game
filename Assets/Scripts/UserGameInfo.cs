@@ -21,13 +21,15 @@ public class UserGameInfo : MonoBehaviour
     public string playaPasada;
     public string barcoBossPasado;
     public string ciudadBossPasado;
+    public string luzSotanoEncendida;
+    public string donutDesbloqueado;
 
     private void Awake()
     {
         if (Instance == null)
         {
             Instance = this;
-            //DontDestroyOnLoad(gameObject);
+            DontDestroyOnLoad(gameObject);
         }
         else if (Instance != this)
         {
@@ -41,14 +43,21 @@ public class UserGameInfo : MonoBehaviour
         username = PlayerPrefs.GetString("NombreUsuario");
     }
 
+    /// <summary>
+    /// Updates the user information from player prefs.
+    /// </summary>
     public void UpdateUserInfo()
     {
         email = PlayerPrefs.GetString("Correo", "");
         username = PlayerPrefs.GetString("NombreUsuario", "");
     }
 
+    /// <summary>
+    /// Updates the game information with provided data.
+    /// </summary>
     public void UpdateGameInfo(string id, string escena, string x, string y, string z, string hp, string stamina,
-        string layer, string sotano, string congelador, string playa, string barcoBoss, string ciudadBoss)
+        string layer, string sotano, string congelador, string playa, string barcoBoss, string ciudadBoss,
+        string luzOn, string donut)
     {
         idPartida = id;
         escenaPartida = escena;
@@ -63,11 +72,15 @@ public class UserGameInfo : MonoBehaviour
         playaPasada = playa;
         barcoBossPasado = barcoBoss;
         ciudadBossPasado = ciudadBoss;
+        luzSotanoEncendida = luzOn;
+        donutDesbloqueado = donut;
     }
 
+    /// <summary>
+    /// Loads player data into the provided player object.
+    /// </summary>
     public void LoadPlayerData(Player player)
     {
-        // Asegúrate de que todos los datos necesarios están presentes antes de cargarlos
         if (!string.IsNullOrEmpty(idPartida) &&
             !string.IsNullOrEmpty(escenaPartida) &&
             !string.IsNullOrEmpty(posX) &&
@@ -80,17 +93,17 @@ public class UserGameInfo : MonoBehaviour
             !string.IsNullOrEmpty(congeladorPasado) &&
             !string.IsNullOrEmpty(playaPasada) &&
             !string.IsNullOrEmpty(barcoBossPasado) &&
-            !string.IsNullOrEmpty(ciudadBossPasado)
+            !string.IsNullOrEmpty(ciudadBossPasado) &&
+            !string.IsNullOrEmpty(luzSotanoEncendida) &&
+            !string.IsNullOrEmpty(donutDesbloqueado)
             )
         {
-            // Convierte las posiciones y los valores de salud y stamina a float
             float.TryParse(posX, out float x);
             float.TryParse(posY, out float y);
             float.TryParse(posZ, out float z);
             float.TryParse(currentHp, out float hp);
             float.TryParse(currentStamina, out float stamina);
 
-            // Aplica los datos al objeto Player
             player.transform.position = new Vector3(x, y, z);
             player.hp.currentVal = hp;
             player.stamina.currentVal = stamina;
@@ -105,8 +118,8 @@ public class UserGameInfo : MonoBehaviour
             PlayerSceneController.playaPasada = bool.Parse(playaPasada);
             PlayerSceneController.barcoBossPasado = bool.Parse(barcoBossPasado);
             PlayerSceneController.ciudadBossPasado = bool.Parse(ciudadBossPasado);
-
-            // Aquí puedes agregar más lógica para cargar otros datos como el inventario, etc.
+            PlayerSceneController.luzSotanoEncendida = bool.Parse(luzSotanoEncendida);
+            PlayerSceneController.donutDesbloqueado = bool.Parse(donutDesbloqueado);
         }
         else
         {

@@ -195,7 +195,7 @@ public class BarcoBossFight : MonoBehaviour
         bossFightController.SetActive(true);
         colisionMuro.SetActive(false);
         muroNoHitbox.SetActive(false);
-        bloqueoTop.SetActive(false);
+        bloqueoTop.SetActive(true);
         bossHealth = 101;
         enemyHealth.health = 101;
         enemyHealth.healthBar.UpdateHealthBar(101, 101);
