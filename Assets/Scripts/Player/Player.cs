@@ -67,6 +67,9 @@ public class Player : MonoBehaviour
     public bool isExhausted;
     public bool isInvulnerable;
     [SerializeField] ItemToolBarPanel toolBarPanel;
+    [SerializeField] GameObject inventoryButton;
+    [SerializeField] GameObject configButton;
+    [SerializeField] GameObject lateralPanelButton;
 
     public DeathScreen deathScreenPnl;
 
@@ -123,6 +126,9 @@ public class Player : MonoBehaviour
         hpBar.gameObject.SetActive(false);
         staminaBar.gameObject.SetActive(false);
         toolBarPanel.gameObject.SetActive(false);
+        inventoryButton.SetActive(false);
+        configButton.SetActive(false);
+        lateralPanelButton.SetActive(false);
 
         gameObject.SetActive(false);
         Time.timeScale = 0;
