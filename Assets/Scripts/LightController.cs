@@ -12,6 +12,24 @@ public class LightController : MonoBehaviour
     public GameObject dialogueMark;
 
     /// <summary>
+    /// This method is used to check if the light is on and disable screenDark.
+    /// </summary>
+    void Start()
+    {
+        if (PlayerSceneController.luzSotanoEncendida)
+        {
+            isDark = false;
+
+            if (screenDark != null)
+            {
+                screenDark.gameObject.SetActive(false);
+                dialogueMark.SetActive(false);
+                Destroy(screenDark.gameObject);
+            }
+        }
+    }
+
+    /// <summary>
     /// This method is used to controle the dark screen and toggle it off.
     /// </summary>
     void Update()
@@ -23,9 +41,10 @@ public class LightController : MonoBehaviour
 
         if (screenDark && isPlayerInTrigger && Input.GetKeyDown(KeyCode.E))
         {
-            screenDark.gameObject.SetActive(true);
+            screenDark.gameObject.SetActive(false);
             dialogueMark.SetActive(false);
             Destroy(screenDark.gameObject);
+            PlayerSceneController.luzSotanoEncendida = true;
             isDark = false;
         }
     }
