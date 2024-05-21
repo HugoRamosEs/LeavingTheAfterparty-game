@@ -27,6 +27,8 @@ public class Potion : MonoBehaviour
     public GameObject toPlaya;
     public GameObject dialogMark;
 
+    private bool playerInRange;
+
     /// <summary>
     /// Check for the buff icon.
     /// </summary>
@@ -36,7 +38,13 @@ public class Potion : MonoBehaviour
         {
             CheckForBuffIcon();
         }
+
+        if (playerInRange && Input.GetKeyDown(KeyCode.E))
+        {
+            ConsumePotion();
+        }
     }
+
     /// <summary>
     /// Method to detect when the player enters the trigger area of the potion.
     /// </summary>
@@ -49,6 +57,7 @@ public class Potion : MonoBehaviour
             dialogMark.SetActive(true);
             playerAttackMelee = collision.gameObject.GetComponent<PlayerAttackMelee>();
             playerAttackShooting = collision.gameObject.GetComponent<PlayerAttackShooting>();
+            playerInRange = true;
         }
     }
 
@@ -60,26 +69,12 @@ public class Potion : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
+            playerInRange = false;
             player = null;
-        }
-
-        dialogMark.SetActive(false);
-    }
-
-    /// <summary>
-    /// Method to let the player consume the potion.
-    /// </summary>
-    /// <param name="collision"></param>
-    private void OnTriggerStay2D(Collider2D collision)
-    {
-        if (collision.gameObject.CompareTag("Player"))
-        {
-            if (player != null && Input.GetKeyDown(KeyCode.E))
-            {
-                ConsumePotion();
-            }
+            dialogMark.SetActive(false);
         }
     }
+
     /// <summary>
     /// Method to consume the potion.
     /// </summary>
