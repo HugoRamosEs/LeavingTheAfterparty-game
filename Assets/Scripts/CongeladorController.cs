@@ -1,5 +1,9 @@
+using System.Collections;
+using System.Linq;
+
 using UnityEngine;
 using UnityEngine.SceneManagement;
+
 /// <summary>
 /// Controller for the Freezer room. It checks if the player has the key to the basement and if so, it sets the key as inactive.
 /// </summary>
@@ -11,24 +15,27 @@ public class CongeladorController : MonoBehaviour
 
     public GameObject key;
 
-
-    private void Awake()
-    {
-        CheckForScreenDark();
-
-        if (PlayerSceneController.luzSotanoEncendida)
-        {
-            screenDark.gameObject.SetActive(false);
-        }
-    }
-
     /// <summary>
     /// Checks if the player has the key to the basement and sets the key as inactive if so.
     /// </summary>
     void Start()
     {
         itemPanel = null;
+        screenDark = null;
         CheckForItemPanel();
+        CheckForScreenDark();
+
+        StartCoroutine(WaitAndContinue());
+    }
+
+    IEnumerator WaitAndContinue()
+    {
+        yield return new WaitForSeconds(0.005f);
+
+        if (PlayerSceneController.luzSotanoEncendida)
+        {
+            screenDark.gameObject.SetActive(false);
+        }
 
         if (PlayerSceneController.congeladorPasado)
         {
@@ -87,15 +94,29 @@ public class CongeladorController : MonoBehaviour
     /// </summary>
     void CheckForScreenDark()
     {
-        GameObject screenDarkObject = GameObject.FindWithTag("screenDark");
-
-        if (screenDarkObject != null)
+        for (int i = 0; i < SceneManager.sceneCount; i++)
         {
-            Canvas screenDarkCanvas = screenDarkObject.GetComponent<Canvas>();
-            if (screenDarkCanvas != null)
+            Scene scene = SceneManager.GetSceneAt(i);
+            if (scene.isLoaded)
             {
-                screenDark = screenDarkCanvas;
+                Canvas[] canvases = scene.GetRootGameObjects()
+                                         .SelectMany(g => g.GetComponentsInChildren<Canvas>())
+                                         .ToArray();
+
+                Canvas screenDarkCanvas = canvases.FirstOrDefault(c => c.tag == "screenDark");
+
+                if (screenDarkCanvas != null)
+                {
+                    screenDark = screenDarkCanvas;
+                    Debug.Log("Screen dark found in scene: " + scene.name);
+                    break;
+                }
             }
+        }
+
+        if (screenDark == null)
+        {
+            Debug.LogWarning("No se encontró el tag 'screenDark' en las escenas cargadas.");
         }
     }
 }

@@ -21,7 +21,6 @@ public class CargarPartida : MonoBehaviour
     IEnumerator CargarDatos()
     {
         Debug.Log("1C");
-        cargando = false;
         cargando = true;
         Debug.Log("2C");
         imLoading.SetActive(true);
