@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 785843195}
   - component: {fileID: 785843196}
   m_Layer: 0
-  m_Name: Light
+  m_Name: LightController
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
