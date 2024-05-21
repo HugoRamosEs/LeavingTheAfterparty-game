@@ -16,6 +16,9 @@ public class DeathScreen : MonoBehaviour
     [SerializeField] private AudioSource audioSource;
     [SerializeField] private PlayerAttackShooting playerAttackShooting;
     [SerializeField] private PlayerAttackMelee playerAttackMelee;
+    [SerializeField] private GameObject inventoryButton;
+    [SerializeField] private GameObject configButton;
+    [SerializeField] private GameObject lateralPanelButton;
 
     /// <summary>
     /// Sets up the death screen.
@@ -65,6 +68,9 @@ public class DeathScreen : MonoBehaviour
         playerAttackShooting.isShooting = false;
         playerAttackMelee.isAttacking = false;
         toolBarPanel.SetActive(true);
+        inventoryButton.SetActive(true);
+        configButton.SetActive(true);
+        lateralPanelButton.SetActive(true);
 
         Time.timeScale = 1;
 

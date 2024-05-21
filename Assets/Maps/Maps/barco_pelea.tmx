@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.10.2" orientation="orthogonal" renderorder="right-down" width="28" height="28" tilewidth="16" tileheight="16" infinite="1" nextlayerid="23" nextobjectid="355">
+<map version="1.10" tiledversion="1.10.2" orientation="orthogonal" renderorder="right-down" width="28" height="28" tilewidth="16" tileheight="16" infinite="1" nextlayerid="23" nextobjectid="358">
  <tileset firstgid="1" source="../Patterns/barco_boss1_pt2.tsx"/>
  <tileset firstgid="131" source="../Patterns/barco_boss1_pt3.tsx"/>
  <tileset firstgid="259" source="../Patterns/barco_boss1.tsx"/>
@@ -15,6 +15,7 @@
  <tileset firstgid="11989" source="../Patterns/hogueraFinal3.tsx"/>
  <tileset firstgid="13013" source="../Patterns/hogueraFinal.tsx"/>
  <tileset firstgid="14037" source="../Patterns/estructurasbienwachi.tsx"/>
+ <tileset firstgid="16021" source="../Patterns/barquito.tsx"/>
  <layer id="11" name="fondoAgua" width="28" height="28">
   <data encoding="csv">
    <chunk x="0" y="-64" width="16" height="16">
@@ -1251,6 +1252,24 @@
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 </chunk>
+   <chunk x="16" y="-32" width="16" height="16">
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,18132,0,0,0,18131,0,0,0,0,0,0,0,0,0,0,
+0,18258,0,0,0,18258,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+</chunk>
    <chunk x="16" y="-16" width="16" height="16">
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,2147488703,0,0,0,
@@ -1635,8 +1654,8 @@
   <object id="235" x="125.875" y="-30.375">
    <polygon points="0,0 7.125,8.875 0.75,11.625"/>
   </object>
-  <object id="236" x="272" y="-330.75" width="19.25" height="9.5"/>
-  <object id="237" x="332.75" y="-330.25" width="19.75" height="9"/>
+  <object id="236" x="272" y="-338.018" width="15.75" height="32.6431"/>
+  <object id="237" x="335.625" y="-337.875" width="16.875" height="32.875"/>
   <object id="240" x="241.273" y="-465.273" width="29.8182" height="12.7273"/>
   <object id="242" x="241.091" y="-452.545" width="6.54545" height="53.8182"/>
   <object id="243" x="240.727" y="-398.364">
@@ -1794,7 +1813,13 @@
   <object id="354" x="13" y="-1054.5" width="598" height="11.5"/>
  </objectgroup>
  <objectgroup id="21" name="colisionMuro">
-  <object id="351" x="271" y="-330.667" width="83.6667" height="8.33333"/>
+  <object id="351" x="271" y="-337.917" width="83.6667" height="15.5833"/>
+  <object id="355" x="336.25" y="-324.625" width="21" height="19.875">
+   <ellipse/>
+  </object>
+  <object id="356" x="266.625" y="-326.375" width="19.875" height="20.5">
+   <ellipse/>
+  </object>
  </objectgroup>
  <layer id="18" name="no_hitbox" width="28" height="28">
   <data encoding="csv">
@@ -2044,7 +2069,7 @@
 0,157,157,157,157,157,0,131,131,131,131,131,131,131,131,131,
 0,171,2147483930,0,282,171,0,131,131,131,131,131,131,131,131,131,
 0,144,2147483930,0,282,144,0,0,0,0,0,0,0,0,0,0,
-0,152,2147483930,0,282,152,0,0,0,0,0,0,0,0,0,0,
+0,0,2147483930,0,282,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
