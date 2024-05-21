@@ -40,7 +40,7 @@ public class UltimoGuardado : MonoBehaviour
 
     private IEnumerator DelayedOnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(1f);
 
         for (int i = 0; i < SceneManager.sceneCount; i++)
         {
@@ -52,8 +52,13 @@ public class UltimoGuardado : MonoBehaviour
 
                 if (player != null)
                 {
+                    Debug.Log("Posicion de spawn: " + player.transform.position);
+
                     UpdatePlayerPosition(player.transform.position);
                     Player = player;
+                } else
+                {
+                    Debug.Log("Player es nulo");
                 }
 
                 Debug.Log("Escena cargada: " + CurrentScene + " Posición del jugador: " + PlayerPosition);
@@ -75,7 +80,7 @@ public class UltimoGuardado : MonoBehaviour
     public void UpdateCurrentScene(string newScene)
     {
         CurrentScene = newScene;
-        if (guardarPartida != null && (UserGameInfo.Instance.email != null || UserGameInfo.Instance.email != ""))
+        if (guardarPartida != null && (UserGameInfo.Instance != null && UserGameInfo.Instance.email != null && UserGameInfo.Instance.email != ""))
         {
             guardarPartida.Guardar();
         }

@@ -54,9 +54,7 @@ public class DeathScreen : MonoBehaviour
 
         player.gameObject.SetActive(true);
 
-        if (!UltimoGuardado.Instance.CurrentScene.Equals("BarcoScene")) {
-            player.transform.position = UltimoGuardado.Instance.PlayerPosition;
-        }
+        player.transform.position = UltimoGuardado.Instance.PlayerPosition;
 
         hpBar.SetActive(true);
         staminaBar.SetActive(true);
