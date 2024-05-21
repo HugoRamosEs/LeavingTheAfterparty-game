@@ -8,6 +8,9 @@ public class OptionsBetweenScenes : MonoBehaviour
 {
     private static List<OptionsBetweenScenes> instances = new List<OptionsBetweenScenes>();
 
+    /// <summary>
+    /// This method is called when the script instance is being loaded.
+    /// </summary>
     private void Awake()
     {
         if (!instances.Contains(this))
@@ -24,6 +27,9 @@ public class OptionsBetweenScenes : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// This method is called when the object becomes enabled and active.
+    /// </summary>
     private void OnDestroy()
     {
         instances.Remove(this);

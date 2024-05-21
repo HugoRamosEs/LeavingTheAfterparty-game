@@ -36,6 +36,7 @@ public class MLateralOpenMenu : MonoBehaviour
         if (targetObject != null)
         {
             targetObject.SetActive(true);
+            Time.timeScale = 0f;
         }
         else
         {

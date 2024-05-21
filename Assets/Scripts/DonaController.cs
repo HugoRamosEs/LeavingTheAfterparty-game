@@ -27,7 +27,7 @@ public class DonaController : MonoBehaviour
     /// This method is called to check if the player has the recipe in the inventory.
     /// </summary>
     /// <param name="collision"> The collision of the Player </param>
-    /// <returns></returns>
+    /// <returns>IEnumerator to handle the interaction</returns>
     private IEnumerator OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
@@ -65,6 +65,7 @@ public class DonaController : MonoBehaviour
             }
         }
     }
+
     /// <summary>
     /// Check for the item panel in the Esencialscene.
     /// </summary>
