@@ -198,7 +198,7 @@ public class CargarPartida : MonoBehaviour
         }
         else
         {
-            Debug.LogError("No se pudo convertir la posición a un número flotante.");
+            Debug.LogError("No se pudo convertir la posiciï¿½n a un nï¿½mero flotante.");
             return 0f;
         }
     }
