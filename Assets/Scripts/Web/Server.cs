@@ -11,6 +11,13 @@ public class Server : ScriptableObject
     public bool ocupado = false;
     public Respuesta respuesta;
 
+    /// <summary>
+    /// Consumes a service from the server asynchronously.
+    /// </summary>
+    /// <param name="nombre">The name of the service to consume.</param>
+    /// <param name="datos">Array of data to send to the service.</param>
+    /// <param name="e">Action to execute after consuming the service.</param>
+    /// <returns>An IEnumerator to handle the coroutine.</returns>
     public IEnumerator ConsumirServicio(string nombre, string[] datos, UnityAction e)
     {
         ocupado = true;

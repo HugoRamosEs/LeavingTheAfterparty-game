@@ -13,11 +13,18 @@ public class CargarPartida : MonoBehaviour
 
     private bool cargando = false;
 
+    /// <summary>
+    /// Starts the process to load the game.
+    /// </summary>
     public void Cargar()
     {
         StartCoroutine(CargarDatos());
     }
 
+    /// <summary>
+    /// Coroutine to load game data.
+    /// </summary>
+    /// <returns>An IEnumerator to handle the coroutine.</returns>
     IEnumerator CargarDatos()
     {
         cargando = true;
@@ -31,6 +38,9 @@ public class CargarPartida : MonoBehaviour
         yield return new WaitWhile(() => cargando);
     }
 
+    /// <summary>
+    /// Handles the server response after loading data.
+    /// </summary>
     void PosCargar()
     {
         mensajeText.text = servidor.respuesta.mensaje;
@@ -67,6 +77,10 @@ public class CargarPartida : MonoBehaviour
         cargando = false;
     }
 
+    /// <summary>
+    /// Coroutine to show and hide the response scene.
+    /// </summary>
+    /// <returns>An IEnumerator to handle the coroutine.</returns>
     IEnumerator MostrarYEsconderEscena()
     {
         cargando = false;
@@ -75,6 +89,10 @@ public class CargarPartida : MonoBehaviour
         imRespuestaScene.SetActive(false);
     }
 
+    /// <summary>
+    /// Processes the server response.
+    /// </summary>
+    /// <param name="respuesta">The response string from the server.</param>
     void ProcesarRespuesta(string respuesta)
     {
         cargando = false;
@@ -170,6 +188,11 @@ public class CargarPartida : MonoBehaviour
         CargarEscenas(escena);
     }
 
+    /// <summary>
+    /// Converts a string to a boolean value.
+    /// </summary>
+    /// <param name="value">The string value to convert.</param>
+    /// <returns>A boolean representation of the string.</returns>
     bool ConvertToBool(string value)
     {
         if (bool.TryParse(value, out bool result))
@@ -188,6 +211,11 @@ public class CargarPartida : MonoBehaviour
         return false;
     }
 
+    /// <summary>
+    /// Converts a string to a float value.
+    /// </summary>
+    /// <param name="posicionDecimal">The string value to convert.</param>
+    /// <returns>A float representation of the string.</returns>
     float stringToFloat(string posicionDecimal)
     {
         posicionDecimal = posicionDecimal.Replace('.', ',');
@@ -203,6 +231,10 @@ public class CargarPartida : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Loads the specified scenes.
+    /// </summary>
+    /// <param name="escenaNombre">The name of the main scene to load.</param>
     void CargarEscenas(string escenaNombre)
     {
         SceneManager.LoadScene(escenaNombre);

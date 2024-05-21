@@ -21,10 +21,19 @@ public class CrearCompte : MonoBehaviour
     public TextMeshProUGUI mensajeUsuarioCorrectoText;
 
     private bool cargando = false;
+
+    /// <summary>
+    /// Initiates the account creation process.
+    /// </summary>
     public void CrearCuenta()
     {
         StartCoroutine(Iniciar());
     }
+
+    /// <summary>
+    /// Coroutine to initiate the account creation process.
+    /// </summary>
+    /// <returns>An IEnumerator to handle the coroutine.</returns>
     IEnumerator Iniciar()
     {
         cargando = true;
@@ -42,6 +51,10 @@ public class CrearCompte : MonoBehaviour
         yield return new WaitWhile(() => cargando);
         imLoading.SetActive(false);
     }
+
+    /// <summary>
+    /// Handles the server response after attempting to create an account.
+    /// </summary>
     void PosCargar()
     {
         mensajeText.text = servidor.respuesta.mensaje;
@@ -97,6 +110,11 @@ public class CrearCompte : MonoBehaviour
                 break;
         }
     }
+
+    /// <summary>
+    /// Coroutine to show and hide the response scene.
+    /// </summary>
+    /// <returns>An IEnumerator to handle the coroutine.</returns>
     IEnumerator MostrarYEsconderEscena()
     {
         cargando = false;
@@ -106,6 +124,10 @@ public class CrearCompte : MonoBehaviour
 
     }
 
+    /// <summary>
+    /// Coroutine to redirect to the login scene after successful registration.
+    /// </summary>
+    /// <returns>An IEnumerator to handle the coroutine.</returns>
     IEnumerator MandarAlLogin()
     {
         cargando = false;
@@ -116,6 +138,9 @@ public class CrearCompte : MonoBehaviour
         SceneManager.LoadScene("MenuPrincipalScene");
     }
 
+    /// <summary>
+    /// Saves user data locally after successful registration.
+    /// </summary>
     void GuardarDatosUsuario()
     {
         UserGameInfo.Instance.email = inpCorreo.text;
