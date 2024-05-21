@@ -7,6 +7,7 @@ public class CongeladorController : MonoBehaviour
 {
     private bool hasKey = false;
     private ItemPanel itemPanel;
+    private Canvas screenDark;
 
     public GameObject key;
 
@@ -21,6 +22,11 @@ public class CongeladorController : MonoBehaviour
         if (PlayerSceneController.congeladorPasado)
         {
             key.SetActive(false);
+        }
+
+        if (PlayerSceneController.luzSotanoEncendida)
+        {
+            screenDark.gameObject.SetActive(false);
         }
     }
 
@@ -66,6 +72,23 @@ public class CongeladorController : MonoBehaviour
                     itemPanel = foundItemPanel;
                     break;
                 }
+            }
+        }
+    }
+
+    /// <summary>
+    /// This method is used to check if the screen is dark.
+    /// </summary>
+    void CheckForScreenDark()
+    {
+        GameObject screenDarkObject = GameObject.FindWithTag("screenDark");
+
+        if (screenDarkObject != null)
+        {
+            Canvas screenDarkCanvas = screenDarkObject.GetComponent<Canvas>();
+            if (screenDarkCanvas != null)
+            {
+                screenDark = screenDarkCanvas;
             }
         }
     }
