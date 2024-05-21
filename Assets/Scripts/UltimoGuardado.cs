@@ -68,16 +68,27 @@ public class UltimoGuardado : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Increases the death count.
+    /// </summary>
     public void IncrementDeathCount()
     {
         DeathCount++;
     }
 
+    /// <summary>
+    /// Updates the player's position.
+    /// </summary>
+    /// <param name="newPosition">The new position of the player.</param>
     public void UpdatePlayerPosition(Vector3 newPosition)
     {
         PlayerPosition = newPosition;
     }
 
+    /// <summary>
+    /// Updates the current scene and triggers the save if required.
+    /// </summary>
+    /// <param name="newScene">The name of the new scene.</param>
     public void UpdateCurrentScene(string newScene)
     {
         CurrentScene = newScene;

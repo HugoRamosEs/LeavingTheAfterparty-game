@@ -17,11 +17,18 @@ public class Login : MonoBehaviour
 
     private bool cargando = false;
 
+    /// <summary>
+    /// Initiates the login process.
+    /// </summary>
     public void IniciarSesion()
     {
         StartCoroutine(Iniciar());
     }
 
+    /// <summary>
+    /// Coroutine to initiate the login process.
+    /// </summary>
+    /// <returns>An IEnumerator to handle the coroutine.</returns>
     IEnumerator Iniciar()
     {
         cargando = true;
@@ -39,6 +46,9 @@ public class Login : MonoBehaviour
         imLoading.SetActive(false);
     }
 
+    /// <summary>
+    /// Handles the server response after attempting to log in.
+    /// </summary>
     void PosCargar()
     {
         mensajeText.text = servidor.respuesta.mensaje;
@@ -90,6 +100,10 @@ public class Login : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Coroutine to show and hide the response scene.
+    /// </summary>
+    /// <returns>An IEnumerator to handle the coroutine.</returns>
     IEnumerator MostrarYEsconderEscena()
     {
         cargando = false;
@@ -98,6 +112,9 @@ public class Login : MonoBehaviour
         imRespuestaScene.SetActive(false);
     }
 
+    /// <summary>
+    /// Saves user data locally after successful login.
+    /// </summary>
     void GuardarDatosUsuario()
     {
         UserGameInfo.Instance.email = inpUsuario.text;

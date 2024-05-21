@@ -13,11 +13,18 @@ public class GuardarPartida : MonoBehaviour
 
     private bool cargando = false;
 
+    /// <summary>
+    /// Starts the process to save the game.
+    /// </summary>
     public void Guardar()
     {
         StartCoroutine(GuardarDatos());
     }
 
+    /// <summary>
+    /// Coroutine to save game data.
+    /// </summary>
+    /// <returns>An IEnumerator to handle the coroutine.</returns>
     IEnumerator GuardarDatos()
     {
         cargando = true;
@@ -56,6 +63,9 @@ public class GuardarPartida : MonoBehaviour
         imLoading.SetActive(false);
     }
 
+    /// <summary>
+    /// Handles the server response after saving data.
+    /// </summary>
     void PosGuardar()
     {
         switch (servidor.respuesta.codigo)
@@ -81,6 +91,10 @@ public class GuardarPartida : MonoBehaviour
         cargando = false;
     }
 
+    /// <summary>
+    /// Gets the contents of the item panel as a string.
+    /// </summary>
+    /// <returns>A string representation of the item panel contents.</returns>
     public string GetItemPanelContents()
     {
         List<string> itemPanelContents = new List<string>();
