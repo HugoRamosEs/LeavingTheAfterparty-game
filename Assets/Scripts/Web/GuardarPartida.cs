@@ -29,7 +29,7 @@ public class GuardarPartida : MonoBehaviour
         string inventoryItems = GetItemPanelContents();
         SpriteRenderer playerSpriteRenderer = player.GetComponent<SpriteRenderer>();
 
-        string[] datos = new string[14];
+        string[] datos = new string[16];
         datos[0] = UserGameInfo.Instance.email;
         datos[1] = ultimoGuardado.CurrentScene;
         datos[2] = playerPosition.x.ToString("F2");
@@ -44,12 +44,12 @@ public class GuardarPartida : MonoBehaviour
         datos[11] = PlayerSceneController.playaPasada ? "1" : "0";
         datos[12] = PlayerSceneController.barcoBossPasado ? "1" : "0";
         datos[13] = PlayerSceneController.ciudadBossPasado ? "1" : "0";
+        datos[14] = PlayerSceneController.luzSotanoEncendida ? "1" : "0";
+        datos[15] = PlayerSceneController.donutDesbloqueado ? "1" : "0";
 
         Debug.Log(datos[0] + " - " + datos[1] + " - " + datos[2] + " - " + datos[3] + " - " + datos[4] + " - " + datos[5] + " - " + datos[6] + " - " +
-            datos[8] + " - " + datos[9] + " - " + datos[10] + " - " + datos[11] + " - " + datos[12] + " - " + datos[13]);
-        Debug.Log(datos[7]);
-        Debug.Log("OrderInLayer: " + datos[8]);
-
+            datos[8] + " - " + datos[9] + " - " + datos[10] + " - " + datos[11] + " - " + datos[12] + " - " + datos[13] + " - " + datos[14] + " - " + datos[15]);
+        
         StartCoroutine(servidor.ConsumirServicio("guardar-partida", datos, PosGuardar));
         yield return new WaitUntil(() => !servidor.ocupado);
         yield return new WaitWhile(() => cargando);

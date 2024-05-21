@@ -42,14 +42,14 @@ MonoBehaviour:
     - playaPasada
     - barcoBossPasado
     - ciudadBossPasado
+    - luzSotanoEncendida
+    - donutDesbloqueado
   - nombre: cargar-partida
     url: cargarPartida.php
     parametros:
     - email
-  ocupado: 1
+  ocupado: 0
   respuesta:
-    codigo: 404
-    mensaje: Error al conectarse con el servidor.
-    respuesta:
-      id: 
-      username: 
+    codigo: 210
+    mensaje: Partida guardada correctamente.
+    respuesta: 

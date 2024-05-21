@@ -135,6 +135,8 @@ class UserController extends Controller
             $playaPasada = Controller::sanitize($datos['playaPasada']);
             $barcoBossPasado = Controller::sanitize($datos['barcoBossPasado']);
             $ciudadBossPasado = Controller::sanitize($datos['ciudadBossPasado']);
+            $luzSotanoEncendida = Controller::sanitize($datos['luzSotanoEncendida']);
+            $donutDesbloqueado = Controller::sanitize($datos['donutDesbloqueado']);
 
             $inventoryItems = Controller::sanitize($datos['inventory']);
             $inventoryItems = explode(", ", $inventoryItems);
@@ -149,7 +151,7 @@ class UserController extends Controller
             }
 
             $gModel = new GameModelo();
-            $game = new Game('', $existeUser[0][0], $escena, $posX, $posY, $posZ, $currentHp, $currentStamina, '', $orderInLayer, $sotanoPasado, $congeladorPasado, $playaPasada, $barcoBossPasado, $ciudadBossPasado);
+            $game = new Game('', $existeUser[0][0], $escena, $posX, $posY, $posZ, $currentHp, $currentStamina, '', $orderInLayer, $sotanoPasado, $congeladorPasado, $playaPasada, $barcoBossPasado, $ciudadBossPasado, $luzSotanoEncendida, $donutDesbloqueado);
             $existingGame = $gModel->readOneGameByUserId($existeUser[0][0]);
 
             if (count($existingGame) == 1) {
@@ -214,7 +216,9 @@ class UserController extends Controller
                     "&&congeladorPasado:" . $game[0][10] .
                     "&&playaPasada:" . $game[0][11] .
                     "&&barcoBossPasado:" . $game[0][12] .
-                    "&&ciudadBossPasado:" . $game[0][13] . "&&";
+                    "&&ciudadBossPasado:" . $game[0][13] . 
+                    "&&luzSotanoEncendida:" . $game[0][14] .
+                    "&&donutDesbloqueado:" . $game[0][15];
 
                 $inventoryString = json_encode($inventory);
                 $formatted_respuesta = '{"codigo": 212, "mensaje":"Cargado correctamente.", "respuesta":"' . $respuestaGame . '","inventario":' . $inventoryString . '}';
