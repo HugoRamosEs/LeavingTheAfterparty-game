@@ -8,11 +8,9 @@ using UnityEngine.UI;
 public class MLateralController : MonoBehaviour
 {
     [SerializeField] GameObject mLateralPanel;
-    [SerializeField] GameObject img;
     [SerializeField] GameObject menuOpcions;
     [SerializeField] Button btnContinuar;
-    private GameObject playerStats;
-    string[] escenasConMenu = { "SotanoScene", "EsencialScene" };
+    string[] escenasSinMenu = { "LoginUserScene", "MenuPrincipalScene", "CasaScene" };
 
     /// <summary>
     /// This method is used to ensure the functionality of the lateral panel
@@ -35,17 +33,31 @@ public class MLateralController : MonoBehaviour
     /// </summary>
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.M))
         {
-            foreach (string escena in escenasConMenu)
+            bool isExcludedScene = false;
+
+            for (int i = 0; i < SceneManager.sceneCount; i++)
             {
-                if (SceneManager.GetActiveScene().name == escena)
+                Scene scene = SceneManager.GetSceneAt(i);
+                foreach (string escena in escenasSinMenu)
                 {
-                    img.SetActive(!img.activeInHierarchy);
-                    mLateralPanel.SetActive(!mLateralPanel.activeInHierarchy);
-                    Time.timeScale = mLateralPanel.activeInHierarchy ? 0f : 1f;
+                    if (scene.name == escena)
+                    {
+                        isExcludedScene = true;
+                        break;
+                    }
+                }
+                if (isExcludedScene)
+                {
                     break;
                 }
+            }
+
+            if (!isExcludedScene)
+            {
+                mLateralPanel.SetActive(!mLateralPanel.activeInHierarchy);
+                Time.timeScale = mLateralPanel.activeInHierarchy ? 0f : 1f;
             }
         }
     }
