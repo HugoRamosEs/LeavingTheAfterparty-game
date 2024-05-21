@@ -3,6 +3,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+
 /// <summary>
 /// This script is used to control the behavior of the Tienda object.
 /// </summary>

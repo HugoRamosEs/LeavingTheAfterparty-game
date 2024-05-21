@@ -13,7 +13,7 @@ public class MLateralController : MonoBehaviour
     string[] escenasSinMenu = { "LoginUserScene", "MenuPrincipalScene", "CasaScene" };
 
     /// <summary>
-    /// This method is used to ensure the functionality of the lateral panel
+    /// This method is used to ensure the functionality of the lateral panel.
     /// </summary>
     void Start()
     {
@@ -21,7 +21,7 @@ public class MLateralController : MonoBehaviour
     }
 
     /// <summary>
-    /// This method is used to continue the game
+    /// This method is used to continue the game.
     /// </summary>
     void OnContinueButtonClicked()
     {
@@ -29,7 +29,7 @@ public class MLateralController : MonoBehaviour
     }
 
     /// <summary>
-    /// This method is used to show the lateral panel
+    /// This method is used to show the lateral panel.
     /// </summary>
     void Update()
     {
