@@ -19,6 +19,7 @@ public class UltimoGuardado : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
+            //DontDestroyOnLoad(gameObject);
         }
         else
         {
