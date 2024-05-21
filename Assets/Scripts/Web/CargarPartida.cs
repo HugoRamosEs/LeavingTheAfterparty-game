@@ -24,7 +24,7 @@ public class CargarPartida : MonoBehaviour
         cargando = false;
         cargando = true;
         Debug.Log("2C");
-        imLoading.SetActive(true);
+        //imLoading.SetActive(true);
         yield return new WaitForSeconds(0.5f);
         Debug.Log("3C");
         string[] datos = new string[1];
@@ -32,7 +32,7 @@ public class CargarPartida : MonoBehaviour
         Debug.Log("4C");
         StartCoroutine(servidor.ConsumirServicio("cargar-partida", datos, PosCargar));
         Debug.Log("5C");
-        imLoading.SetActive(false);
+        //imLoading.SetActive(false);
         Debug.Log("6C");
         yield return new WaitUntil(() => !servidor.ocupado);
         yield return new WaitWhile(() => cargando);
