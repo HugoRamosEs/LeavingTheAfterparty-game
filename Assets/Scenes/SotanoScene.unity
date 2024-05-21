@@ -1496,6 +1496,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: Juan
       objectReference: {fileID: 0}
+    - target: {fileID: 4508596089512576066, guid: 9004662ab450a604697501aa4b4adc80, type: 3}
+      propertyPath: m_Size.x
+      value: 1.3149514
+      objectReference: {fileID: 0}
+    - target: {fileID: 4508596089512576066, guid: 9004662ab450a604697501aa4b4adc80, type: 3}
+      propertyPath: m_Size.y
+      value: 1.2064748
+      objectReference: {fileID: 0}
+    - target: {fileID: 4508596089512576066, guid: 9004662ab450a604697501aa4b4adc80, type: 3}
+      propertyPath: m_Offset.x
+      value: -0.02233383
+      objectReference: {fileID: 0}
+    - target: {fileID: 4508596089512576066, guid: 9004662ab450a604697501aa4b4adc80, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.34676254
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
