@@ -17,8 +17,10 @@ class Game {
     public $playaPasada;
     public $barcoBossPasado;
     public $ciudadBossPasado;
+    public $luzSotanoEncendida;
+    public $donutDesbloqueado;
 
-    public function __construct($id, $email_id, $scene, $posX, $posY, $posZ, $currentHp, $currentStamina, $inventory, $orderInLayer, $sotanoPasado, $congeladorPasado, $playaPasada, $barcoBossPasado, $ciudadBossPasado) {
+    public function __construct($id, $email_id, $scene, $posX, $posY, $posZ, $currentHp, $currentStamina, $inventory, $orderInLayer, $sotanoPasado, $congeladorPasado, $playaPasada, $barcoBossPasado, $ciudadBossPasado, $luzSotanoEncendida, $donutDesbloqueado) {
         $this->id = $id;
         $this->email_id = $email_id;
         $this->scene = $scene;
@@ -34,6 +36,8 @@ class Game {
         $this->playaPasada = $playaPasada;
         $this->barcoBossPasado = $barcoBossPasado;
         $this->ciudadBossPasado = $ciudadBossPasado;
+        $this->luzSotanoEncendida = $luzSotanoEncendida;
+        $this->donutDesbloqueado = $donutDesbloqueado;
     }
 
     public function getId() {
@@ -90,6 +94,14 @@ class Game {
 
     public function getCiudadBossPasado() {
         return $this->ciudadBossPasado;
+    }
+
+    public function getLuzSotanoEncendida() {
+        return $this->luzSotanoEncendida;
+    }
+
+    public function getDonutDesbloqueado() {
+        return $this->donutDesbloqueado;
     }
 
     public function setId($id) {
@@ -154,5 +166,13 @@ class Game {
 
     public function setCiudadBossPasado($ciudadBossPasado) {
         $this->ciudadBossPasado = $ciudadBossPasado;
+    }
+
+    public function setLuzSotanoEncendida($luzSotanoEncendida) {
+        $this->luzSotanoEncendida = $luzSotanoEncendida;
+    }
+
+    public function setDonutDesbloqueado($donutDesbloqueado) {
+        $this->donutDesbloqueado = $donutDesbloqueado;
     }
 }

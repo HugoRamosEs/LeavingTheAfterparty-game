@@ -24,7 +24,6 @@ public class LightController : MonoBehaviour
             {
                 screenDark.gameObject.SetActive(false);
                 dialogueMark.SetActive(false);
-                Destroy(screenDark.gameObject);
             }
         }
     }
@@ -43,7 +42,6 @@ public class LightController : MonoBehaviour
         {
             screenDark.gameObject.SetActive(false);
             dialogueMark.SetActive(false);
-            Destroy(screenDark.gameObject);
             PlayerSceneController.luzSotanoEncendida = true;
             isDark = false;
         }

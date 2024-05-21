@@ -25,7 +25,9 @@ try {
             'congeladorPasado' => '',
             'playaPasada' => '',
             'barcoBossPasado' => '',
-            'ciudadBossPasado' => ''
+            'ciudadBossPasado' => '',
+            'luzSotanoEncendida' => '',
+            'donutDesbloqueado' => '',
         );
 
         foreach ($datos as $key => $value) {

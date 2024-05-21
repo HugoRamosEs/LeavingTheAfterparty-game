@@ -15,7 +15,6 @@ public class CargarPartida : MonoBehaviour
 
     public void Cargar()
     {
-        Debug.Log("Entro en la funcion Cargar() de cargarpartida.cs");
         StartCoroutine(CargarDatos());
     }
 
@@ -107,6 +106,8 @@ public class CargarPartida : MonoBehaviour
         bool playaPasada = false;
         bool barcoBossPasado = false;
         bool ciudadBossPasado = false;
+        bool luzSotanoEncendida = false;
+        bool donutDesbloqueado = false;
 
         // Recorrer cada par y asignar los valores a las variables
         foreach (string par in pares)
@@ -161,6 +162,12 @@ public class CargarPartida : MonoBehaviour
                     case "ciudadBossPasado":
                         ciudadBossPasado = ConvertToBool(valor);
                         break;
+                    case "luzSotanoEncendida":
+                        luzSotanoEncendida = ConvertToBool(valor);
+                        break;
+                    case "donutDesbloqueado":
+                        donutDesbloqueado = ConvertToBool(valor);
+                        break;
                 }
             }
         }
@@ -170,7 +177,8 @@ public class CargarPartida : MonoBehaviour
 
         // Actualizar la información del juego
         UserGameInfo.Instance.UpdateGameInfo(id, escena, posX.ToString(), posY.ToString(), posZ.ToString(), currentHp.ToString("F2"), currentStamina.ToString("F2"),
-            orderInLayer.ToString(), sotanoPasado.ToString(), congeladorPasado.ToString(), playaPasada.ToString(), barcoBossPasado.ToString(), ciudadBossPasado.ToString());
+            orderInLayer.ToString(), sotanoPasado.ToString(), congeladorPasado.ToString(), playaPasada.ToString(), barcoBossPasado.ToString(), ciudadBossPasado.ToString(),
+            luzSotanoEncendida.ToString(), donutDesbloqueado.ToString());
 
         // Cargar las escenas
         CargarEscenas(escena);

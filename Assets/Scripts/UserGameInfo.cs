@@ -21,6 +21,8 @@ public class UserGameInfo : MonoBehaviour
     public string playaPasada;
     public string barcoBossPasado;
     public string ciudadBossPasado;
+    public string luzSotanoEncendida;
+    public string donutDesbloqueado;
 
     private void Awake()
     {
@@ -48,7 +50,8 @@ public class UserGameInfo : MonoBehaviour
     }
 
     public void UpdateGameInfo(string id, string escena, string x, string y, string z, string hp, string stamina,
-        string layer, string sotano, string congelador, string playa, string barcoBoss, string ciudadBoss)
+        string layer, string sotano, string congelador, string playa, string barcoBoss, string ciudadBoss,
+        string luzOn, string donut)
     {
         idPartida = id;
         escenaPartida = escena;
@@ -63,6 +66,8 @@ public class UserGameInfo : MonoBehaviour
         playaPasada = playa;
         barcoBossPasado = barcoBoss;
         ciudadBossPasado = ciudadBoss;
+        luzSotanoEncendida = luzOn;
+        donutDesbloqueado = donut;
     }
 
     public void LoadPlayerData(Player player)
@@ -80,7 +85,9 @@ public class UserGameInfo : MonoBehaviour
             !string.IsNullOrEmpty(congeladorPasado) &&
             !string.IsNullOrEmpty(playaPasada) &&
             !string.IsNullOrEmpty(barcoBossPasado) &&
-            !string.IsNullOrEmpty(ciudadBossPasado)
+            !string.IsNullOrEmpty(ciudadBossPasado) &&
+            !string.IsNullOrEmpty(luzSotanoEncendida) &&
+            !string.IsNullOrEmpty(donutDesbloqueado)
             )
         {
             // Convierte las posiciones y los valores de salud y stamina a float
@@ -105,8 +112,8 @@ public class UserGameInfo : MonoBehaviour
             PlayerSceneController.playaPasada = bool.Parse(playaPasada);
             PlayerSceneController.barcoBossPasado = bool.Parse(barcoBossPasado);
             PlayerSceneController.ciudadBossPasado = bool.Parse(ciudadBossPasado);
-
-            // Aquí puedes agregar más lógica para cargar otros datos como el inventario, etc.
+            PlayerSceneController.luzSotanoEncendida = bool.Parse(luzSotanoEncendida);
+            PlayerSceneController.donutDesbloqueado = bool.Parse(donutDesbloqueado);
         }
         else
         {

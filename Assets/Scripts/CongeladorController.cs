@@ -11,6 +11,17 @@ public class CongeladorController : MonoBehaviour
 
     public GameObject key;
 
+
+    private void Awake()
+    {
+        CheckForScreenDark();
+
+        if (PlayerSceneController.luzSotanoEncendida)
+        {
+            screenDark.gameObject.SetActive(false);
+        }
+    }
+
     /// <summary>
     /// Checks if the player has the key to the basement and sets the key as inactive if so.
     /// </summary>
@@ -22,11 +33,6 @@ public class CongeladorController : MonoBehaviour
         if (PlayerSceneController.congeladorPasado)
         {
             key.SetActive(false);
-        }
-
-        if (PlayerSceneController.luzSotanoEncendida)
-        {
-            screenDark.gameObject.SetActive(false);
         }
     }
 
