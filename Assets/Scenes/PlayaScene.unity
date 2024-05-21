@@ -785,7 +785,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15570f3e2e6250b4ebfe9be597964b32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 70
+  health: 30
   bloodParticles: {fileID: 6624059266692829498, guid: b458a1cbd253f8941bf692aa07e390fa, type: 3}
   healthBar: {fileID: 48050947}
 --- !u!61 &132561478
@@ -2084,7 +2084,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15570f3e2e6250b4ebfe9be597964b32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 70
+  health: 30
   bloodParticles: {fileID: 6624059266692829498, guid: b458a1cbd253f8941bf692aa07e390fa, type: 3}
   healthBar: {fileID: 1187617020}
 --- !u!61 &345368728
@@ -3930,7 +3930,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15570f3e2e6250b4ebfe9be597964b32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 70
+  health: 30
   bloodParticles: {fileID: 6624059266692829498, guid: b458a1cbd253f8941bf692aa07e390fa, type: 3}
   healthBar: {fileID: 1999035234}
 --- !u!61 &683594695
@@ -4860,7 +4860,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15570f3e2e6250b4ebfe9be597964b32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 70
+  health: 30
   bloodParticles: {fileID: 6624059266692829498, guid: b458a1cbd253f8941bf692aa07e390fa, type: 3}
   healthBar: {fileID: 1083491172}
 --- !u!61 &806065537
@@ -5532,7 +5532,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15570f3e2e6250b4ebfe9be597964b32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 70
+  health: 30
   bloodParticles: {fileID: 6624059266692829498, guid: b458a1cbd253f8941bf692aa07e390fa, type: 3}
   healthBar: {fileID: 1408961046}
 --- !u!61 &912950723
@@ -5809,7 +5809,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15570f3e2e6250b4ebfe9be597964b32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 70
+  health: 30
   bloodParticles: {fileID: 6624059266692829498, guid: b458a1cbd253f8941bf692aa07e390fa, type: 3}
   healthBar: {fileID: 1954048924}
 --- !u!61 &972634838
@@ -6785,7 +6785,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15570f3e2e6250b4ebfe9be597964b32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 70
+  health: 30
   bloodParticles: {fileID: 6624059266692829498, guid: b458a1cbd253f8941bf692aa07e390fa, type: 3}
   healthBar: {fileID: 2142691050}
 --- !u!61 &1100441244
@@ -15849,7 +15849,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15570f3e2e6250b4ebfe9be597964b32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 70
+  health: 30
   bloodParticles: {fileID: 6624059266692829498, guid: b458a1cbd253f8941bf692aa07e390fa, type: 3}
   healthBar: {fileID: 393306170381009987}
 --- !u!95 &5885941515428656875
