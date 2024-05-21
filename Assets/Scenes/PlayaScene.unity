@@ -14228,8 +14228,8 @@ MonoBehaviour:
   npcImage: {fileID: -804777414, guid: 74774035c4a10d641b45a98ae33760c0, type: 3}
   dialogueLines:
   - "\xA1Oye, chico! Si te encuentras por ah\xED a unos ni\xF1os peque\xF1os molestando
-    a la gente, te pido perd\xF3n. Seguramente son mis hermanos. \xA1Hoy se han despertado
-    insoportables!"
+    a la gente, te pido perd\xF3n. "
+  - "Seguramente son mis hermanos. \xA1Hoy se han despertado insoportables!"
 --- !u!1 &1407169795500821945
 GameObject:
   m_ObjectHideFlags: 0
@@ -15315,7 +15315,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &3428369635817994154
 GameObject:
   m_ObjectHideFlags: 0
@@ -16904,9 +16904,9 @@ MonoBehaviour:
   npcName: Juan
   npcImage: {fileID: -474952489, guid: a6598f4bafb6e9642a205ac528c57dbe, type: 3}
   dialogueLines:
-  - "\xA1Anda! \xBFEres el chico del bar, verdad? No veas c\xF3mo la he liado...
-    Dej\xE9 aqu\xED escondidas las llaves de mi casa y para cuando he vuelto me he
-    encontrado a una gallina comi\xE9ndoselas..."
+  - "\xA1Anda! \xBFEres el chico del bar, verdad? No veas c\xF3mo la he liado..."
+  - "Dej\xE9 aqu\xED escondidas las llaves de mi casa y para cuando he vuelto me
+    he encontrado a una gallina comi\xE9ndoselas..."
   - "Ahora encima la gallina se ha espantado y ha saltado hasta arriba de la colina...
     No s\xE9 qu\xE9 hacer... Vaya d\xEDa macho... Lo que no me pase a m\xED..."
 --- !u!1 &8511525679841889833
