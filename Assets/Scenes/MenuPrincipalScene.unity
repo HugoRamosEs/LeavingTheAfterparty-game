@@ -8648,6 +8648,7 @@ MonoBehaviour:
   to: SotanoScene
   additionalScene: EsencialScene
   button: {fileID: 1498868998}
+  menuLateral: {fileID: 0}
 --- !u!1 &1509414022
 GameObject:
   m_ObjectHideFlags: 0
@@ -9488,6 +9489,7 @@ MonoBehaviour:
   to: MenuPrincipalScene
   additionalScene: 
   button: {fileID: 1603579285}
+  menuLateral: {fileID: 784624101}
 --- !u!1 &1632726457
 GameObject:
   m_ObjectHideFlags: 0
@@ -11896,6 +11898,7 @@ MonoBehaviour:
   to: LoginUserScene
   additionalScene: 
   button: {fileID: 1975751248}
+  menuLateral: {fileID: 0}
 --- !u!1 &1981868032
 GameObject:
   m_ObjectHideFlags: 0

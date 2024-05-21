@@ -8,23 +8,27 @@ public class OptionsBetweenScenes : MonoBehaviour
 {
     private static List<OptionsBetweenScenes> instances = new List<OptionsBetweenScenes>();
 
+    [SerializeField]
+    private string uniqueID; // An identifier to compare objects
+
     /// <summary>
     /// This method is called when the script instance is being loaded.
     /// </summary>
     private void Awake()
     {
-        if (!instances.Contains(this))
+        // Check if an instance with the same uniqueID already exists
+        foreach (var instance in instances)
         {
-            instances.Add(this);
-            DontDestroyOnLoad(gameObject);
-        }
-        else
-        {
-            if (instances.IndexOf(this) != 0)
+            if (instance.uniqueID == this.uniqueID)
             {
-                Destroy(gameObject);
+                Destroy(gameObject); // Destroy the duplicate object
+                return;
             }
         }
+
+        // If no duplicate is found, add this instance to the list
+        instances.Add(this);
+        DontDestroyOnLoad(gameObject);
     }
 
     /// <summary>
