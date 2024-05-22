@@ -108,8 +108,8 @@ public class BarcoBossFight : MonoBehaviour
     {
         animator = GetComponent<Animator>();
         maxHealth = bossHealth;
-        InvokeRepeating("FireMagicBullet", 5f, 5f);
-        InvokeRepeating("SpawnFlame", 8f, 8f);
+        //InvokeRepeating("FireMagicBullet", 5f, 5f);
+        //InvokeRepeating("SpawnFlame", 8f, 8f);
         bossLifeBar.maxValue = bossHealth;
         bossLifeBar.value = bossHealth;
         colisionMuro.SetActive(true);
