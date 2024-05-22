@@ -10545,7 +10545,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -350, y: 30}
+  m_AnchoredPosition: {x: -342, y: 21.7}
   m_SizeDelta: {x: 180, y: 180}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1808395674
@@ -11184,7 +11184,15 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: FUERA FUERA FUERA!!! Que estoy ocupado. No encuentro la maldila perla...
+  m_text: 'New Text
+
+    New Text
+
+    New Text
+
+    New Text
+
+    New Text'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5d7d07399d902ac40bcf890a5de8e10d, type: 2}
   m_sharedMaterial: {fileID: 7436153230182841773, guid: 5d7d07399d902ac40bcf890a5de8e10d, type: 2}
@@ -11211,19 +11219,19 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 25
-  m_fontSizeBase: 25
+  m_fontSize: 28
+  m_fontSizeBase: 28
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 8
+  m_HorizontalAlignment: 1
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
-  m_lineSpacing: 25
+  m_lineSpacing: 30
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
@@ -11277,8 +11285,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 100, y: 4.6025}
-  m_SizeDelta: {x: 680, y: 234.85}
+  m_AnchoredPosition: {x: 101.47795, y: 2.1774}
+  m_SizeDelta: {x: 655.7611, y: 224}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1902524236
 GameObject:
@@ -12739,8 +12747,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -350.00003, y: -95.9}
-  m_SizeDelta: {x: 180, y: 50}
+  m_AnchoredPosition: {x: -342, y: -91.396255}
+  m_SizeDelta: {x: 180, y: 36.9405}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2085100174
 MonoBehaviour:
@@ -12789,8 +12797,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 25
-  m_fontSizeBase: 25
+  m_fontSize: 28
+  m_fontSizeBase: 28
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -14491,10 +14499,10 @@ MonoBehaviour:
   npcName: Manolo
   npcImage: {fileID: -1324524024, guid: fcb4561ba54dc5146a8f3814fabbfaf1, type: 3}
   dialogueLines:
-  - "Y dice as\xED... \nSoldadito marinero conociste a una sirena\r\nDe esas que
-    dicen te quiero si ven la cartera llena..."
-  - "Escogiste a la m\xE1s guapa y a la menos buena...\r..\nSin saber c\xF3mo ha
-    venido te ha cogido la tormenta."
+  - "Y dice as\xED... Soldadito marinero conociste a una sirena... De esas que dicen
+    te quiero si ven la cartera llena..."
+  - "Escogiste a la m\xE1s guapa y a la menos buena... Sin saber c\xF3mo ha venido
+    te ha cogido la tormenta."
 --- !u!114 &2096127660652337547
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14733,7 +14741,15 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: FUERA FUERA FUERA!!! Que estoy ocupado. No encuentro la maldila perla...
+  m_text: 'New Text
+
+    New Text
+
+    New Text
+
+    New Text
+
+    New Text'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5d7d07399d902ac40bcf890a5de8e10d, type: 2}
   m_sharedMaterial: {fileID: 7436153230182841773, guid: 5d7d07399d902ac40bcf890a5de8e10d, type: 2}
@@ -14760,14 +14776,14 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 25
-  m_fontSizeBase: 25
+  m_fontSize: 28
+  m_fontSizeBase: 28
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 8
+  m_HorizontalAlignment: 1
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -15136,7 +15152,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -350, y: 30}
+  m_AnchoredPosition: {x: -342, y: 21.7}
   m_SizeDelta: {x: 180, y: 180}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!4 &3250759983151230642
@@ -15911,8 +15927,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -350.00003, y: -95.9}
-  m_SizeDelta: {x: 180, y: 50}
+  m_AnchoredPosition: {x: -342, y: -91.396255}
+  m_SizeDelta: {x: 180, y: 36.9405}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &6273728380106991995
 MonoBehaviour:
@@ -16154,9 +16170,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Pablo
-
-'
+  m_text: Pablo
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5d7d07399d902ac40bcf890a5de8e10d, type: 2}
   m_sharedMaterial: {fileID: 7436153230182841773, guid: 5d7d07399d902ac40bcf890a5de8e10d, type: 2}
@@ -16183,8 +16197,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 25
-  m_fontSizeBase: 25
+  m_fontSize: 28
+  m_fontSizeBase: 28
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -17049,8 +17063,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 100, y: 4.6025}
-  m_SizeDelta: {x: 680, y: 234.85}
+  m_AnchoredPosition: {x: 101.47795, y: 2.1774}
+  m_SizeDelta: {x: 655.7611, y: 224}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &8867584817830403589
 Animator:

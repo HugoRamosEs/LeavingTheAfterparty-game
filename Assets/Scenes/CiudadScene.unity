@@ -11457,7 +11457,7 @@ MonoBehaviour:
     - ...nombre, chapa y cilindraje
     - ...placa, chapa y motor
     - ...nombre, placa y cilindraje
-    correctResponse: Lo que mas quiero en el mundo tiene nombre, placa y cilindraje
+    correctResponse: ...nombre, placa y cilindraje
     correctDialogue: "Pero... Pero t\xFA... \xA1T\xFA eres del buen barrio! Oye chavales,
       dejad pasar a este muchacho"
     incorrectDialogue: "Fuera de aqu\xED ni\xF1ito de mam\xE1."
