@@ -32,6 +32,7 @@ public class BarcoBossFight : MonoBehaviour
     public GameObject magicBulletBossPrefab;
     public GameObject anciano;
     public GameObject bossFightController;
+    public GameObject hitboss;
     public Slider bossLifeBar;
     public Canvas canvas;
     public TextMeshProUGUI textTransition;
@@ -114,6 +115,7 @@ public class BarcoBossFight : MonoBehaviour
             colisionMuro.SetActive(false);
             muroNoHitbox.SetActive(false);
             bloqueoTop.SetActive(false);
+            hitboss.SetActive(false);
             Destroy(gameObject);
         }
     }
@@ -196,6 +198,7 @@ public class BarcoBossFight : MonoBehaviour
         colisionMuro.SetActive(false);
         muroNoHitbox.SetActive(false);
         bloqueoTop.SetActive(true);
+        hitboss.SetActive(true);
         bossHealth = 101;
         enemyHealth.health = 101;
         enemyHealth.healthBar.UpdateHealthBar(101, 101);
@@ -259,6 +262,7 @@ public class BarcoBossFight : MonoBehaviour
             bloqueoTop.SetActive(false);
             colisionMuro.SetActive(false);
             muroNoHitbox.SetActive(false);
+            hitboss.SetActive(false);
             PlayerSceneController.barcoBossPasado = true;
             Destroy(gameObject);
         }
