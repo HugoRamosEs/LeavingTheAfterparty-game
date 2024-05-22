@@ -7663,7 +7663,7 @@ MonoBehaviour:
   npcName: Lunatico
   npcImage: {fileID: 719932314, guid: 814317bff08b84a4b98b8e631b7d93d7, type: 3}
   dialogueLines:
-  - "Calla ni\xF1o. No ves que estoy meditando?"
+  - "Calla, ni\xF1o. \xBFNo ves que estoy meditando?"
 --- !u!61 &3172011209921089607
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -9946,12 +9946,12 @@ MonoBehaviour:
   - "En la playa, en la casa, en la ciudad bro, por esto t\xFA eres un perdedor bro,
     porque no haces \"burpies\", porque no haces dinero, no eres un ganador bro."
   - "\xBFQu\xE9 dices? No te oigo, dime, \xBFcu\xE1ntos relojes tienes, cuantos coches
-    tienes, cuantas casas tienes bro?"
+    tienes, cu\xE1ntas casas tienes, bro?"
   - "No, te escucho, eso es una consecuencia, un resultado, de quien eres. As\xED
-    que si no tienes nada, no te escucho, porque no has trabajado. Eres un chiste
-    bro, un chiste que no se escucha ni a s\xED mismo bro."
-  - "Y no pasa nada, tirame hate, todo el hate para m\xED bro, tu hate me hace mas
-    rico bro."
+    que, si no tienes nada, no te escucho, porque no has trabajado. Eres un chiste,
+    bro, un chiste que no se escucha ni a s\xED mismo, bro."
+  - "Y no pasa nada, t\xEDrame hate, todo el hate para m\xED, bro, tu hate me hace
+    m\xE1s rico, bro."
 --- !u!212 &6326549304187152893
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -11236,7 +11236,7 @@ MonoBehaviour:
   npcImage: {fileID: 62487842, guid: e52fb14e6e014724e9f916bc17ac2fd8, type: 3}
   dialogueLines:
   - "\xBFQu\xE9 hay, t\xEDo? Quiero decir... \xBFQu\xE9 pasa, chaval?\n(Disc\xFAlpame,
-    soy nuevo aqu\xED) "
+    soy nuevo aqu\xED)."
   - "Sabes... cuando entr\xE9 al club de moteros y me hicieron escoger bando, estaba
     preocupado de no equivocarme de bando, soy dalt\xF3nico, \xBFsabes?"
   - "Para que me entiendas, no se llevan muy bien los verdes con los rojos... El
@@ -11449,9 +11449,9 @@ MonoBehaviour:
   npcName: "Guzm\xE1n"
   npcImage: {fileID: -1609990650, guid: ccf10cca7d09e1046afc4162da4a69f5, type: 3}
   dialogueLines:
-  - "Ey ey ey, tranquilito tit\xE1n. Que vienes, a por la receta esa, \xBFno? Pues
-    primero demu\xE9strame de qu\xE9 pie calzas. La frase se dice as\xED: Lo que
-    m\xE1s quiero en el mundo tiene..."
+  - "Ey ey ey, tranquilito tit\xE1n! \xBFQu\xE9 vienes, a por la receta esa, \xBFno?
+    Pues primero demu\xE9strame de qu\xE9 pie calzas. La frase se dice as\xED: Lo
+    que m\xE1s quiero en el mundo tiene..."
   dialogueResponses:
   - responses:
     - ...nombre, chapa y cilindraje
