@@ -13,6 +13,7 @@ TagManager:
   - MuroFuegoController
   - Fireball
   - MagicBullet
+  - Motorista-Hitbox
   layers:
   - Default
   - TransparentFX

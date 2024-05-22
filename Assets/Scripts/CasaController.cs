@@ -2,6 +2,7 @@ using System.Collections;
 
 using UnityEngine;
 using UnityEngine.UI;
+
 /// <summary>
 /// Controller of the house, it shows a message when the player enters the house and then shows the final message.
 /// </summary>

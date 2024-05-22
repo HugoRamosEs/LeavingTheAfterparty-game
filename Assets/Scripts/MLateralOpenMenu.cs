@@ -22,10 +22,6 @@ public class MLateralOpenMenu : MonoBehaviour
         {
             button.onClick.AddListener(ToggleObject);
         }
-        else
-        {
-            Debug.LogError("Este script necesita estar adjunto a un objeto con un componente Button.");
-        }
     }
 
     /// <summary>
@@ -37,10 +33,6 @@ public class MLateralOpenMenu : MonoBehaviour
         {
             targetObject.SetActive(true);
             Time.timeScale = 0f;
-        }
-        else
-        {
-            Debug.LogError("El objeto a activar no ha sido encontrado o no está asignado.");
         }
     }
 
@@ -68,11 +60,6 @@ public class MLateralOpenMenu : MonoBehaviour
                     }
                 }
             }
-        }
-
-        if (targetObject == null)
-        {
-            Debug.LogError("No se encontró el objeto en la ruta especificada: " + objectToFind);
         }
     }
 }

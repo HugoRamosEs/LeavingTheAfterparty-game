@@ -1,6 +1,8 @@
+using System.Collections;
+
 using UnityEngine;
 using UnityEngine.UI;
-using System.Collections;
+
 /// <summary>
 /// This script is used to play the animation of the boss transformation at the start of the fight.
 /// </summary>

@@ -582,7 +582,15 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 
+  m_text: 'New Text
+
+    New Text
+
+    New Text
+
+    New Text
+
+    New Text'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5d7d07399d902ac40bcf890a5de8e10d, type: 2}
   m_sharedMaterial: {fileID: 7436153230182841773, guid: 5d7d07399d902ac40bcf890a5de8e10d, type: 2}
@@ -609,14 +617,14 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 25
-  m_fontSizeBase: 25
+  m_fontSize: 28
+  m_fontSizeBase: 28
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 8
+  m_HorizontalAlignment: 1
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -675,8 +683,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 100, y: 4.6025}
-  m_SizeDelta: {x: 680, y: 234.85}
+  m_AnchoredPosition: {x: 101.47795, y: 2.1774}
+  m_SizeDelta: {x: 655.7611, y: 224}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &566170868
 GameObject:
@@ -1647,7 +1655,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -350, y: 30}
+  m_AnchoredPosition: {x: -342, y: 21.7}
   m_SizeDelta: {x: 180, y: 180}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1256643762
@@ -2574,8 +2582,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -350.00003, y: -95.9}
-  m_SizeDelta: {x: 180, y: 50}
+  m_AnchoredPosition: {x: -342, y: -91.396255}
+  m_SizeDelta: {x: 180, y: 36.9405}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1876358679
 MonoBehaviour:
@@ -2597,7 +2605,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Madre
+  m_text: "Mam\xE1\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5d7d07399d902ac40bcf890a5de8e10d, type: 2}
   m_sharedMaterial: {fileID: 7436153230182841773, guid: 5d7d07399d902ac40bcf890a5de8e10d, type: 2}
@@ -2624,8 +2632,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 25
-  m_fontSizeBase: 25
+  m_fontSize: 28
+  m_fontSizeBase: 28
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18

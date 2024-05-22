@@ -32,6 +32,7 @@ public class BarcoBossFight : MonoBehaviour
     public GameObject magicBulletBossPrefab;
     public GameObject anciano;
     public GameObject bossFightController;
+    public GameObject hitboss;
     public Slider bossLifeBar;
     public Canvas canvas;
     public TextMeshProUGUI textTransition;
@@ -40,12 +41,17 @@ public class BarcoBossFight : MonoBehaviour
     public EnemyHealth enemyHealth;
 
     /// <summary>
-    /// Subscribes to the OnHealthChanged event.
+    /// Subscribes to the OnHealthChanged event and activates boss attack.
     /// </summary>
     void OnEnable()
     {
         EnemyHealth.OnHealthChanged += UpdateBossHealth;
+        InvokeRepeating("FireMagicBullet", 5f, 5f);
+        InvokeRepeating("SpawnFlame", 8f, 8f);
+        muroNoHitbox.SetActive(true);
+        colisionMuro.SetActive(true);
     }
+
     /// <summary>
     /// Unsubscribes from the OnHealthChanged event.
     /// </summary>
@@ -72,6 +78,7 @@ public class BarcoBossFight : MonoBehaviour
             CheckForPhaseTransition();
         }
     }
+
     /// <summary>
     /// Check if the boss health is below a certain percentage and change the phase of the boss.
     /// </summary>
@@ -114,6 +121,7 @@ public class BarcoBossFight : MonoBehaviour
             colisionMuro.SetActive(false);
             muroNoHitbox.SetActive(false);
             bloqueoTop.SetActive(false);
+            hitboss.SetActive(false);
             Destroy(gameObject);
         }
     }
@@ -196,6 +204,7 @@ public class BarcoBossFight : MonoBehaviour
         colisionMuro.SetActive(false);
         muroNoHitbox.SetActive(false);
         bloqueoTop.SetActive(true);
+        hitboss.SetActive(true);
         bossHealth = 101;
         enemyHealth.health = 101;
         enemyHealth.healthBar.UpdateHealthBar(101, 101);
@@ -217,7 +226,7 @@ public class BarcoBossFight : MonoBehaviour
         BarcoBossTransformation.KeepPlayerStill = true;
         float transitionTime = 1f;
         float panelTransitionTime = 0.30f;
-        canvas.sortingOrder = 2;
+        canvas.sortingOrder = 3;
         bossLifeBar.gameObject.SetActive(false);
 
         if (playerStatus != null)
@@ -259,6 +268,7 @@ public class BarcoBossFight : MonoBehaviour
             bloqueoTop.SetActive(false);
             colisionMuro.SetActive(false);
             muroNoHitbox.SetActive(false);
+            hitboss.SetActive(false);
             PlayerSceneController.barcoBossPasado = true;
             Destroy(gameObject);
         }
@@ -353,6 +363,7 @@ public class BarcoBossFight : MonoBehaviour
             bulletScript.speed = originalSpeed;
         }
     }
+
     /// <summary>
     /// Spawn the flame attack.
     /// </summary>
@@ -377,6 +388,7 @@ public class BarcoBossFight : MonoBehaviour
             }
         }
     }
+
     /// <summary>
     ///  Stops the fire and flame generation.
     /// </summary>
@@ -396,6 +408,7 @@ public class BarcoBossFight : MonoBehaviour
             Destroy(magicBullet);
         }
     }
+
     /// <summary>
     /// Check for the player if its not found.
     /// </summary>

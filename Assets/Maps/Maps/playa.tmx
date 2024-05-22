@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.10.2" orientation="orthogonal" renderorder="right-down" width="28" height="28" tilewidth="16" tileheight="16" infinite="1" nextlayerid="34" nextobjectid="563">
+<map version="1.10" tiledversion="1.10.2" orientation="orthogonal" renderorder="right-down" width="28" height="28" tilewidth="16" tileheight="16" infinite="1" nextlayerid="34" nextobjectid="566">
  <tileset firstgid="1" source="../Patterns/playitapng.tsx"/>
  <tileset firstgid="528" source="../Patterns/estructurasbienwachi.tsx"/>
  <tileset firstgid="2512" source="../Patterns/objetos.tsx"/>
@@ -5643,7 +5643,7 @@
   </object>
   <object id="246" x="-272.5" y="-221.5" width="29.5" height="728.5"/>
   <object id="247" x="-272.5" y="-531" width="29.5" height="1038"/>
-  <object id="248" x="-58.75" y="19.5" width="39" height="26.25"/>
+  <object id="248" x="-58.75" y="19.5" width="39" height="24.5"/>
   <object id="249" x="-63" y="-199.33" width="14.5" height="53.8295"/>
   <object id="250" x="-62.7273" y="-199.511" width="173.727" height="25.0114"/>
   <object id="252" x="95.5" y="-384.909" width="16.5" height="191.659"/>
@@ -6074,18 +6074,21 @@
   <object id="537" x="302.25" y="397.076" width="1.5" height="40.7989"/>
   <object id="546" x="320.219" y="382.764" width="95.772" height="33.0524"/>
   <object id="547" x="303.766" y="397.078" width="16.449" height="0.5"/>
-  <object id="548" x="431.974" y="400.011" width="32.9986" height="31.9583"/>
-  <object id="549" x="464.967" y="430.125" width="83.0083" height="1.275"/>
+  <object id="548" x="430.974" y="397.943" width="33.9986" height="34.0265"/>
+  <object id="549" x="464.967" y="428.926" width="83.0083" height="2.47386"/>
   <object id="550" x="479.068" y="416.603" width="68.9213" height="0.4"/>
   <object id="551" x="547.641" y="417" width="0.34375" height="13.9844"/>
-  <object id="552" x="479.067" y="353.364" width="0.2" height="63.2411"/>
+  <object id="552" x="479.067" y="352.226" width="0.2" height="64.379"/>
   <object id="553" x="414.937" y="320.022" width="50.0182" height="63.9771"/>
   <object id="554" x="464.961" y="320.922" width="351.035" height="0.0703125"/>
-  <object id="555" x="479.066" y="353.359" width="385.055" height="0.0703125"/>
+  <object id="555" x="479.128" y="352.212" width="385.055" height="0.0703125"/>
   <object id="557" x="864.004" y="145.96" width="0.117188" height="207.993"/>
   <object id="558" x="815.824" y="146.001" width="0.171875" height="174.92"/>
   <object id="560" x="-289.5" y="556.5" width="19.875" height="6.875"/>
-  <object id="561" x="300.375" y="431.842" width="143.875" height="8.441"/>
+  <object id="561" x="300.375" y="429.183" width="143.875" height="11.1001"/>
+  <object id="563" x="-55.0625" y="44.0625" width="31" height="4.5"/>
+  <object id="564" x="-24" y="44.0625" width="1.6875" height="1.5"/>
+  <object id="565" x="-56.9063" y="44.125" width="1.6875" height="1.5"/>
  </objectgroup>
  <layer id="30" name="no_hitbox" width="28" height="28">
   <data encoding="csv">
@@ -6414,8 +6417,8 @@
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 </chunk>
    <chunk x="-16" y="0" width="16" height="16">
-5562,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-5562,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+5562,0,0,0,0,0,0,0,0,0,0,0,183,184,185,0,
+5562,0,0,0,0,0,0,0,0,0,0,0,200,201,202,0,
 5562,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 5562,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 5562,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
