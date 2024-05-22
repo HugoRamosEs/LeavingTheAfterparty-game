@@ -220,7 +220,7 @@ public class BarcoBossFight : MonoBehaviour
         BarcoBossTransformation.KeepPlayerStill = true;
         float transitionTime = 1f;
         float panelTransitionTime = 0.30f;
-        canvas.sortingOrder = 2;
+        canvas.sortingOrder = 3;
         bossLifeBar.gameObject.SetActive(false);
 
         if (playerStatus != null)
