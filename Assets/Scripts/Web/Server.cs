@@ -1,14 +1,18 @@
 using System.Collections;
+
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.Networking;
 
+/// <summary>
+/// This class is used to consume services from a server.
+/// </summary>
 [CreateAssetMenu(fileName = "Server", menuName = "LTAP/Server", order = 1)]
 public class Server : ScriptableObject
 {
     public string servidor;
-    public Servicio[] servicios;
     public bool ocupado = false;
+    public Servicio[] servicios;
     public Respuesta respuesta;
 
     /// <summary>
@@ -51,12 +55,15 @@ public class Server : ScriptableObject
             Debug.Log("Respuesta en server.cs: " + responseText);
             respuesta = JsonUtility.FromJson<Respuesta>(responseText);
         }
+
         ocupado = false;
         e.Invoke();
     }
-
-
 }
+
+/// <summary>
+/// This class is used to store the services that the server can consume.
+/// </summary>
 [System.Serializable]
 public class Servicio
 {
@@ -65,6 +72,9 @@ public class Servicio
     public string[] parametros;
 }
 
+/// <summary>
+/// This class is used to store the response from the server.
+/// </summary>
 [System.Serializable]
 public class Respuesta
 {

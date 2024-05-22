@@ -8071,7 +8071,7 @@ GameObject:
   - component: {fileID: 2831145902550878502}
   m_Layer: 8
   m_Name: motorista1
-  m_TagString: npc
+  m_TagString: Motorista-Hitbox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9948,10 +9948,10 @@ MonoBehaviour:
   - "\xBFQu\xE9 dices? No te oigo, dime, \xBFcu\xE1ntos relojes tienes, cuantos coches
     tienes, cu\xE1ntas casas tienes, bro?"
   - "No, te escucho, eso es una consecuencia, un resultado, de quien eres. As\xED
-    que, si no tienes nada, no te escucho, porque no has trabajado. Eres un chiste,
-    bro, un chiste que no se escucha ni a s\xED mismo, bro."
-  - "Y no pasa nada, t\xEDrame hate, todo el hate para m\xED, bro, tu hate me hace
-    m\xE1s rico, bro."
+    que, si no tienes nada, no te escucho, porque no has trabajado."
+  - "Eres un chiste, bro, un chiste que no se escucha ni a s\xED mismo, bro. Y no
+    pasa nada, t\xEDrame hate, todo el hate para m\xED, bro, tu hate me hace m\xE1s
+    rico, bro."
 --- !u!212 &6326549304187152893
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -11459,14 +11459,14 @@ MonoBehaviour:
     - ...nombre, placa y cilindraje
     correctResponse: ...nombre, placa y cilindraje
     correctDialogue: "Pero... Pero t\xFA... \xA1T\xFA eres del buen barrio! Oye chavales,
-      dejad pasar a este muchacho"
+      dejad pasar a este muchacho."
     incorrectDialogue: "Fuera de aqu\xED ni\xF1ito de mam\xE1."
   dialogueQuestionaryPanel: {fileID: 0}
   isDialogueEnded: 0
   isInitializing: 0
   isFKeyEnabled: 1
   isAnswerFeedback: 0
-  relatedNPC: {fileID: 3428369635794803598}
+  relatedNPC: {fileID: 971847915659071778}
 --- !u!4 &8762922021178630577
 Transform:
   m_ObjectHideFlags: 0

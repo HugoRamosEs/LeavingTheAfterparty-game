@@ -1,5 +1,7 @@
 using System.Collections;
+
 using TMPro;
+
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -75,10 +77,6 @@ public class DialogueQuestionaryPanel : MonoBehaviour
             }
         }
     }
-
-
-
-
 
     /// <summary>
     /// This method is responsible for updating the values of the dialogue questionary panel.
@@ -177,7 +175,7 @@ public class DialogueQuestionaryPanel : MonoBehaviour
             dialogueQuestionary.isAnswerFeedback = true;
             if (dialogueQuestionary.IsCorrectResponse(response) && dialogueQuestionary.relatedNPC != null)
             {
-                dialogueQuestionary.relatedNPC.SetActive(false);
+                dialogueQuestionary.relatedNPC.gameObject.SetActive(false);
             }
         }
 
@@ -230,8 +228,6 @@ public class DialogueQuestionaryPanel : MonoBehaviour
         dialogueQuestionary.ResetDialogueState();
         Debug.Log("[EndDialogue] Diálogo finalizado y estado reseteado.");
     }
-
-
 
     /// <summary>
     /// This method is responsible for activating the responses panel.

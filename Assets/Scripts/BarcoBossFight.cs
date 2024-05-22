@@ -48,6 +48,8 @@ public class BarcoBossFight : MonoBehaviour
         EnemyHealth.OnHealthChanged += UpdateBossHealth;
         InvokeRepeating("FireMagicBullet", 5f, 5f);
         InvokeRepeating("SpawnFlame", 8f, 8f);
+        muroNoHitbox.SetActive(true);
+        colisionMuro.SetActive(true);
     }
 
     /// <summary>
