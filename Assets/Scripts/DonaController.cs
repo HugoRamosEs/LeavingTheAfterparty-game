@@ -10,6 +10,7 @@ public class DonaController : MonoBehaviour
 {
     private bool hasSugarSack = false;
     private ItemPanel itemPanel;
+
     public GameObject tpToCiudad;
     public GameObject donaPanel;
     public DialogueGame dialogueGame;
@@ -46,7 +47,7 @@ public class DonaController : MonoBehaviour
                 yield return new WaitForSecondsRealtime(0.80f);
                 Time.timeScale = 0f;
                 donaPanel.SetActive(true);
-                dialogueGame.UpdateText("¡¡¡ESTÁ CERRADO!!! Necesito un esa receta antes de abrir...");
+                dialogueGame.UpdateText("¡¡¡ESTÁ CERRADO!!! Necesito esa receta antes de abrir...");
                 yield return new WaitForSecondsRealtime(4.75f);
                 Time.timeScale = 1f;
                 tpToCiudad.SetActive(true);
