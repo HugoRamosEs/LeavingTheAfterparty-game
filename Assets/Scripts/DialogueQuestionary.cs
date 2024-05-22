@@ -14,7 +14,7 @@ public class DialogueQuestionary : Dialogue
     public bool isInitializing = false;
     public bool isFKeyEnabled = true;
     public bool isAnswerFeedback = false;
-    public GameObject relatedNPC;
+    public Transform relatedNPC;
     public static DialogueQuestionary Instance;
 
     /// <summary>
@@ -32,6 +32,13 @@ public class DialogueQuestionary : Dialogue
             Destroy(gameObject);
         }
     }
+
+    void Start()
+    {
+        relatedNPC = null;
+        CheckForPlayerWithTag();
+    }
+
     /// <summary>
     /// This method is responsible for updating the dialogue questionary, it will check for the dialogue questionary panel.
     /// </summary>
@@ -258,6 +265,7 @@ public class DialogueQuestionary : Dialogue
         return dialogueResponses != null && dialogueResponses.Length > lineIndex ? dialogueResponses[lineIndex].correctDialogue : null;
 
     }
+
     /// <summary>
     /// This method is responsible for getting the incorrect dialogue.
     /// </summary>
@@ -266,6 +274,7 @@ public class DialogueQuestionary : Dialogue
     {
         return dialogueResponses != null && dialogueResponses.Length > lineIndex ? dialogueResponses[lineIndex].incorrectDialogue : null;
     }
+
     /// <summary>
     /// This method is responsible for check the dialogue questionary panel reference.
     /// </summary>
@@ -285,6 +294,22 @@ public class DialogueQuestionary : Dialogue
                     break;
                 }
             }
+        }
+    }
+
+    /// <summary>
+    /// Check for the npc if its not found.
+    /// </summary>
+    void CheckForPlayerWithTag()
+    {
+        GameObject relatedNPC = GameObject.FindWithTag("Motorista-Hitbox");
+
+        if (relatedNPC != null)
+        {
+            this.relatedNPC = relatedNPC.transform;
+        } else
+        {
+            Debug.Log("Npc not found");
         }
     }
 }

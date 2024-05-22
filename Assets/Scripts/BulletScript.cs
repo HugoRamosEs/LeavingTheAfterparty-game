@@ -1,4 +1,5 @@
 using UnityEngine;
+
 /// <summary>
 /// Script for the bullet prefab. It handles the bullet's movement and collision.
 /// </summary>
@@ -38,6 +39,7 @@ public class BulletScript : MonoBehaviour
             DestroyProjectile();
         }
     }
+
     /// <summary>
     /// It checks if the bullet has collided with an enemy and deals damage to it.
     /// </summary>

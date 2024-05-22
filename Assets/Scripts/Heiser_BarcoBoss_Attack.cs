@@ -1,6 +1,5 @@
 // At this moment, this script is not used, but it is a script that is going to be used in the future for another BarcoBoss attack.
 
-
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;

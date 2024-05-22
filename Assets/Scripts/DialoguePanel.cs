@@ -1,7 +1,10 @@
 using System.Collections;
+
 using TMPro;
+
 using UnityEngine;
 using UnityEngine.UI;
+
 /// <summary>
 /// This method is responsible for the dialogue panel, it will show the dialogue of the NPC that is talking to the player.
 /// </summary>
@@ -58,7 +61,8 @@ public class DialoguePanel : MonoBehaviour
     }
 
     /// <summary>
-    /// This method is responsible for the next dialogue line, it will check if the dialogue is writing or finished, if it is writing it will stop all coroutines and show the entire line, if it is finished it will increment the line index and check if it is the last line, if it is the last line it will end the dialogue.
+    /// This method is responsible for the next dialogue line, it will check if the dialogue is writing or finished, if it is writing it will stop all coroutines and show the entire 
+    /// line, if it is finished it will increment the line index and check if it is the last line, if it is the last line it will end the dialogue.
     /// </summary>
     public void NextDialogLine()
     {
