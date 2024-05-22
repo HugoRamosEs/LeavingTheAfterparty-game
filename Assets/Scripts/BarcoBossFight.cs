@@ -41,12 +41,15 @@ public class BarcoBossFight : MonoBehaviour
     public EnemyHealth enemyHealth;
 
     /// <summary>
-    /// Subscribes to the OnHealthChanged event.
+    /// Subscribes to the OnHealthChanged event and activates boss attack.
     /// </summary>
     void OnEnable()
     {
         EnemyHealth.OnHealthChanged += UpdateBossHealth;
+        InvokeRepeating("FireMagicBullet", 5f, 5f);
+        InvokeRepeating("SpawnFlame", 8f, 8f);
     }
+
     /// <summary>
     /// Unsubscribes from the OnHealthChanged event.
     /// </summary>
@@ -73,6 +76,7 @@ public class BarcoBossFight : MonoBehaviour
             CheckForPhaseTransition();
         }
     }
+
     /// <summary>
     /// Check if the boss health is below a certain percentage and change the phase of the boss.
     /// </summary>
@@ -357,6 +361,7 @@ public class BarcoBossFight : MonoBehaviour
             bulletScript.speed = originalSpeed;
         }
     }
+
     /// <summary>
     /// Spawn the flame attack.
     /// </summary>
@@ -381,6 +386,7 @@ public class BarcoBossFight : MonoBehaviour
             }
         }
     }
+
     /// <summary>
     ///  Stops the fire and flame generation.
     /// </summary>
@@ -400,6 +406,7 @@ public class BarcoBossFight : MonoBehaviour
             Destroy(magicBullet);
         }
     }
+
     /// <summary>
     /// Check for the player if its not found.
     /// </summary>
