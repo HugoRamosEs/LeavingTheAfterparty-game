@@ -1,9 +1,10 @@
 # Leaving The After Party
-![license](https://img.shields.io/badge/license%3A-apache_license_2.0-blue) ![type](https://img.shields.io/badge/type%3A-game-purple)
+![license](https://img.shields.io/badge/license-apache_license_2.0-blue) ![type](https://img.shields.io/badge/type-game-purple)
 
- This project marks the completion of a web application development course. It's a Unity and C# video game, playable online via WebGL. It showcases a fusion of game design and programming skills in a practical setting.
+This project marks the completion of a web application development course. It's a Unity and C# video game, playable online via WebGL. It showcases a fusion of game design and programming skills in a practical setting.
 
- > ⚠️ **This project is still under development.** We're working hard to release the first version of LeavingTheAfterparty as soon as possible.
+> ⚠️ **STILL IN DEVELOPMENT** ⚠️  
+> This project is still under development. We're working hard to release the first version of LeavingTheAfterparty as soon as possible.
 
 <p align="center">
     <img src="./Assets/Images/Ui/AfterParty_Logo.png">
