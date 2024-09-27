@@ -28,31 +28,52 @@ public class Server : ScriptableObject
         WWWForm formulario = new WWWForm();
         Servicio s = new Servicio();
 
+        bool servicioEncontrado = false;
         for (int i = 0; i < servicios.Length; i++)
         {
             if (servicios[i].nombre.Equals(nombre))
             {
-                s = servicios[i]; ;
+                s = servicios[i];
+                servicioEncontrado = true;
+                break;
             }
         }
+
+        if (!servicioEncontrado)
+        {
+            Debug.LogError($"Servicio '{nombre}' no encontrado.");
+            respuesta = new Respuesta();
+            ocupado = false;
+            e.Invoke();
+            yield break;
+        }
+
         for (int i = 0; i < s.parametros.Length; i++)
         {
             formulario.AddField(s.parametros[i], datos[i]);
+            Debug.Log($"Añadiendo campo al formulario: {s.parametros[i]} = {datos[i]}");
         }
-        UnityWebRequest www = UnityWebRequest.Post(servidor + "/" + s.url, formulario);
+
+        string url = servidor + "/" + s.url;
+        Debug.Log("Enviando solicitud a la URL: " + url);
+
+        UnityWebRequest www = UnityWebRequest.Post(url, formulario);
         yield return www.SendWebRequest();
 
         if (www.result != UnityWebRequest.Result.Success)
         {
+            Debug.LogError($"Error en la solicitud: {www.error} para la URL: {url}");
             respuesta = new Respuesta();
         }
         else
         {
             string responseText = www.downloadHandler.text;
+            Debug.Log($"Respuesta cruda del servidor: {responseText}");
+
             responseText = responseText.Replace("<br />", "");
             responseText = responseText.Replace("#", "\"");
             responseText = responseText.Replace("+", "'");
-            Debug.Log("Respuesta en server.cs: " + responseText);
+            Debug.Log("Respuesta procesada en server.cs: " + responseText);
             respuesta = JsonUtility.FromJson<Respuesta>(responseText);
         }
 
