@@ -226,11 +226,11 @@ table {
 
 @font-face {
   font-family: Minecraftia-Regular;
-  src: url("../font/Minecraftia-Regular.ttf") format("truetype");
+  src: url("../assets/font/Minecraftia-Regular.ttf") format("truetype");
 }
 @font-face {
   font-family: icomoon;
-  src: url("../font/icomoon/fonts/icomoon.ttf") format("truetype");
+  src: url("../assets/font/icomoon/fonts/icomoon.ttf") format("truetype");
 }
 * {
   font-family: Minecraftia-Regular;
@@ -523,7 +523,7 @@ table {
   }
 }
 body {
-  background-image: url("../img/fondo.jpg");
+  background-image: url("../assets/img/fondo.jpg");
   background-size: contain;
   background-position-x: right;
 }
@@ -533,8 +533,8 @@ body section {
 }
 body section #unity-container #unity-canvas {
   border: 10px solid transparent;
-  -o-border-image: url("../img/bordes.png") 25 round;
-     border-image: url("../img/bordes.png") 25 round;
+  -o-border-image: url("../assets/img/bordes.png") 25 round;
+     border-image: url("../assets/img/bordes.png") 25 round;
   border-bottom: 0px;
 }
 body section #unity-container #unity-footer {
