@@ -1,0 +1,79 @@
+h1 {
+    color: var(--h1);
+    font-size: 3rem;
+    padding: 3% 0% 0.75% 0%;
+    text-align: center;
+}
+
+h2 {
+    color: var(--h2);
+    font-size: 2.25rem;
+    padding: 3% 0% 0.75% 0%;
+    text-align: center;
+}
+
+h3 {
+    color: var(--h3);
+    font-size: 2.25rem;
+    padding: 5% 0% 0% 0%;
+    text-align: center;
+}
+
+p {
+    color: var(--p);
+    font-size: 1.10rem;
+    line-height: 1.5;
+    padding-bottom: 1.5%;
+    text-align: justify;
+}
+
+a {
+    color: var(--a);
+    font-size: 1.10rem;
+    padding-bottom: 1.5%;
+    text-decoration: line-through;
+
+    &:hover {
+        color: var(--a-hover);
+    }
+}
+
+
+article {
+    border-bottom: 2.5px solid var(--article-border);
+}
+
+ul {
+    list-style-type: none;
+    padding: 0 0 1.5% 0;
+
+    li {
+        color: var(--li);
+        font-size: 1.15rem;
+        line-height: 1.5;
+        padding-top: 1%;
+
+        span {
+            color: var(--span);
+            font-weight: bold;
+        }
+    }
+}
+
+.icon {
+    color: var(--icon);
+    font-family: "icomoon";
+    font-size: 2.5rem;
+    font-weight: normal;
+    transition: transform 0.3s ease, color 0.3s ease;
+    cursor: pointer;
+
+    &:hover {
+        transform: scale(1.2);
+        color: var(--icon-hover);
+    }
+
+    &:before {
+        content: "\e9d5";
+    }
+}
