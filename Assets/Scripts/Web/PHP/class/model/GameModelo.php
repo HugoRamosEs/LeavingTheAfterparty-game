@@ -1,22 +1,22 @@
 <?php
 
-class GameModelo implements \CRUDable
+class GameModelo implements CRUDable
 {
-
-    public function read($obj) {
-        
-        $dbConsulta = DataBase::getInstance('consulta');
-        $sql = "SELECT * FROM game";
+    public function read($obj = null) {
+        $dbConsulta = DataBase::getInstance();
+        $sql = "SELECT * FROM [game]";
         $consulta = $dbConsulta->executeSQL($sql);
 
         return $consulta;
     }
 
-    public function create($obj){
-        $dbGeneric = DataBase::getInstance('consulta');
-        $sql = "INSERT INTO game (id_user, currentScene, posX, posY, posZ, currentHealth, 
-        currentStamina, orderInLayer, sotanoPasado, congeladorPasado, playaPasada, barcoBossPasado,
-        ciudadBossPasado, luzSotanoEncendida, donutDesbloqueado) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+    public function create($obj) {
+        $dbGeneric = DataBase::getInstance();
+        $sql = "INSERT INTO [game] (id_user, currentScene, posX, posY, posZ, currentHealth, 
+            currentStamina, orderInLayer, sotanoPasado, congeladorPasado, playaPasada, 
+            barcoBossPasado, ciudadBossPasado, luzSotanoEncendida, donutDesbloqueado) 
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        
         $params = [
             $obj->email_id,
             $obj->scene,
@@ -34,16 +34,18 @@ class GameModelo implements \CRUDable
             $obj->luzSotanoEncendida,
             $obj->donutDesbloqueado
         ];
+
         $consulta = $dbGeneric->executeSQL($sql, $params);
         return $consulta;        
     }
 
     public function update($obj) {
-        $db = DataBase::getInstance('consulta');
-        $sql = "UPDATE game SET currentScene = ?, posX = ?, posY = ?, posZ = ?, currentHealth = ?, 
-        currentStamina = ?, orderInLayer = ?, sotanoPasado = ?, congeladorPasado = ?,
-        playaPasada = ?, barcoBossPasado = ?, ciudadBossPasado = ?, luzSotanoEncendida = ?,
-        donutDesbloqueado = ? WHERE id_user = ?";
+        $dbGeneric = DataBase::getInstance();
+        $sql = "UPDATE [game] SET currentScene = ?, posX = ?, posY = ?, posZ = ?, currentHealth = ?, 
+            currentStamina = ?, orderInLayer = ?, sotanoPasado = ?, congeladorPasado = ?,
+            playaPasada = ?, barcoBossPasado = ?, ciudadBossPasado = ?, luzSotanoEncendida = ?,
+            donutDesbloqueado = ? WHERE id_user = ?";
+
         $params = [
             $obj->scene,
             $obj->posX,
@@ -61,19 +63,23 @@ class GameModelo implements \CRUDable
             $obj->donutDesbloqueado,
             $obj->email_id
         ];
-        $consulta = $db->executeSQL($sql, $params);
+
+        $consulta = $dbGeneric->executeSQL($sql, $params);
         return $consulta;
     }
 
     public function delete($obj) {}
 
-    public function readOneGameByUserId($userId){
-        $dbConsulta = DataBase::getInstance('consulta');
-        $sql = "SELECT * FROM game WHERE id_user = ?";
+    public function readOneGameByUserId($userId) {
+        $dbConsulta = DataBase::getInstance();
+        $sql = "SELECT * FROM [game] WHERE id_user = ?";
         $params = [$userId];
         $consulta = $dbConsulta->executeSQL($sql, $params);
-    
-        return $consulta;
+
+        if (is_array($consulta) && count($consulta) > 0) {
+            return $consulta;
+        } else {
+            return false;
+        }
     }
 }
-

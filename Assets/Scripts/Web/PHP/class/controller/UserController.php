@@ -34,8 +34,7 @@ class UserController extends Controller
                         $uModel = new UserModelo();
                         $existeUser = $uModel->readOneUser($this->user);
 
-                        if (count($existeUser) < 1) {
-
+                        if ($existeUser == false) {
                             if ($uModel->create($this->user)) {
 
                                 $usuarioCreado = $uModel->readOneUser($this->user);
@@ -70,7 +69,7 @@ class UserController extends Controller
 
             if (strlen($password) == 0) {
 
-                $errors["password"] = "La contrasenya no pot estar buida.";
+                $errors["password"] = "La contraseña no puede estar vacia.";
                 echo '{"codigo": 203, "mensaje":"La contraseña no puede estar vacía.", "respuesta":{}}';
             } else {
 
@@ -96,7 +95,7 @@ class UserController extends Controller
                             $texto = "{\"id\":\"" . $emailDevuelto . "\" ,\"username\":\"" . $usuarioDevuelto . "\"}";
                             echo '{"codigo": 209, "mensaje":"Se ha iniciado sesión correctamente.", "respuesta":' . $texto . '}';
                         } else {
-                            echo '{"codigo": 208, "mensaje":"El correu o la contraseña son incorrectos.", "respuesta":{}}';
+                            echo '{"codigo": 208, "mensaje":"El correo o la contraseña son incorrectos.", "respuesta":{}}';
                         }
                     } else {
                         echo '{"codigo": 207, "mensaje":"El correo no está registrado.", "respuesta":{}}';
@@ -113,6 +112,8 @@ class UserController extends Controller
 
     public function guardarPartida($datos)
     {
+        // var_dump($datos);
+
         $email = Controller::sanitize($datos['email']);
 
         $this->user = new User('', '', '');
@@ -122,7 +123,6 @@ class UserController extends Controller
         $existeUser = $uModel->readOneUser($this->user);
 
         if (count($existeUser) == 1) {
-
             $escena = Controller::sanitize($datos['escena']);
             $posX = Controller::sanitize($datos['posX']);
             $posY = Controller::sanitize($datos['posY']);
@@ -154,7 +154,7 @@ class UserController extends Controller
             $game = new Game('', $existeUser[0][0], $escena, $posX, $posY, $posZ, $currentHp, $currentStamina, '', $orderInLayer, $sotanoPasado, $congeladorPasado, $playaPasada, $barcoBossPasado, $ciudadBossPasado, $luzSotanoEncendida, $donutDesbloqueado);
             $existingGame = $gModel->readOneGameByUserId($existeUser[0][0]);
 
-            if (count($existingGame) == 1) {
+            if ($existingGame && is_array($existingGame) && count($existingGame) === 1) {
                 $gModel->update($game);
             } else {
                 $gModel->create($game);
@@ -182,7 +182,6 @@ class UserController extends Controller
     }
 
     public function cargarPartida($datos) {
-
         $email = Controller::sanitize($datos['email']);
 
         $this->user = new User('', '', '');
@@ -191,13 +190,11 @@ class UserController extends Controller
         $uModel = new UserModelo();
         $existeUser = $uModel->readOneUser($this->user);
 
-        if (count($existeUser) == 1) {
-
+        if ($existeUser && is_array($existeUser) && count($existeUser) == 1) {
             $gModel = new GameModelo();
             $game = $gModel->readOneGameByUserId($existeUser[0][0]);
 
-            if (count($game) == 1) {
-                
+            if ($game && is_array($game) && count($game) === 1) {
                 $iModel = new InventoryModelo();
                 $inventory = $iModel->readOneInventoryByGameId($game[0][0]);
                 

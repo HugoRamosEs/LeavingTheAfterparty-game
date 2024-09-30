@@ -12,7 +12,7 @@ spl_autoload_register("Autoloader::load");
 spl_autoload_register("Autoloader::loadDataBase");
 
 try {
-    if (DataBase::getInstance('consulta')) {
+    if (DataBase::getInstance()) {
         $userUnity = new User('', '', '');
         $uController = new UserController();
         $uModel = new UserModelo();
@@ -28,5 +28,5 @@ try {
     }
 
 } catch (Exception $e) {
-    echo '{"codigo": 400, "mensaje":"Error fatal, revisa el código", "respuesta":""}';
+    echo '{"codigo": 400, "mensaje": "Error fatal", "respuesta": {"error": "' . $e->getMessage() . '"}}';
 }

@@ -1,81 +1,68 @@
 <?php
 
 class DataBase {
-    
-    public $link;
+
+    private $link;
     private static $_instance;
-    
-    private function __construct($sgbd, $server, $user, $pwd, $base, $port) {
-        switch ($sgbd) {
-            case 'mysql':
-                if ($link = new mysqli($server, $user, $pwd, $base, $port)) {
-                    $this->link = $link;
-                } else {
-                    throw new Exception("No se ha podido conectar a la base de datos.");
-                }
-                break;
+
+    private static $host;
+    private static $dbName;
+    private static $user;
+    private static $password;
+
+    private function __construct($host, $dbName, $user, $password) {
+        try {
+            $this->link = new PDO("sqlsrv:Server=$host;Database=$dbName", $user, $password);
+            $this->link->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        } catch (PDOException $e) {
+            throw new Exception("No se ha podido conectar a la base de datos.");
         }
     }
-    
-    public static function getInstance(String $tipoConexion, String $dbNombre = 'myweb', String $sgbdName = 'mysql', int $port = 12169) {
-        
-        if($tipoConexion === 'generic') {
-            $sgbd = $sgbdName;
-            $server = ini_get('mysqli.default_host');
-            $user = ini_get('mysqli.default_user');
-            $pwd = ini_get('mysqli.default_pw');
-            $base = $dbNombre;
-            $port = $port;
-        } elseif ($tipoConexion === 'consulta') {
-            $consulta = Config::getInstance();
-            $sgbd = $consulta->sgbd;
-            $server = $consulta->server;
-            $user = $consulta->user;
-            $pwd = $consulta->password;
-            $base = $consulta->base;
-            $port = $consulta->port;
-        } elseif ($tipoConexion === 'root') {
-            $root = Config::getInstance();
-            $sgbd = $root->sgbd;
-            $server = $root->server;
-            $user = $root->user;
-            $pwd = $root->password;
-            $base = $root->base;
-            $port = $root->port;
-        } else {
-            throw new Exception("No se ha podido crear la conexión a la base de datos.");
-        }
-        
+
+    public static function getInstance() {
         if (!(self::$_instance instanceof self)) {
-            self::$_instance = new self($sgbd, $server, $user, $pwd, $base, $port);
+            self::$host = getenv('DB_HOST');
+            self::$dbName = getenv('DB_NAME');
+            self::$user = getenv('DB_USER');
+            self::$password = getenv('DB_PASSWORD');
+
+            self::$_instance = new self(self::$host, self::$dbName, self::$user, self::$password);
         }
+
         return self::$_instance;
     }
-    
-    public function destroy() {
-        $this->link->close();
-    }
-    
-    public function executeSQL ($sSQL, $aParam = null) {
-        if ($stmt = $this->link->prepare($sSQL)) {
-            if ($stmt->execute($aParam)) {
-                $res = $stmt->get_result();
-                if ($res) {
-                    $dades = $res->fetch_all();
-                    return $dades;
-                } else {
-                    return true;
-                }
-            }
-        }
-        return false;
-    }
-    
-    public function changeUser ($user, $pwd, $db) {
-        $this->link->change_user($user, $pwd, $db);
-    }
-    
-    private function clone() {}
-    
-}
 
+    public function destroy() {
+        $this->link = null;
+    }
+
+    public function executeSQL($sSQL, $aParam = null) {
+        try {
+            $stmt = $this->link->prepare($sSQL);
+            if (!$stmt) {
+                throw new Exception("Error preparando la consulta: " . implode(", ", $this->link->errorInfo()));
+            }
+    
+            if ($stmt->execute($aParam)) {
+                if (stripos(trim($sSQL), 'SELECT') === 0) {
+                    $rows = $stmt->fetchAll(PDO::FETCH_NUM);
+                    return count($rows) > 0 ? $rows : true;
+                }
+
+                return true;
+            } else {
+                throw new Exception("Error ejecutando la consulta con los parámetros: " . implode(", ", $stmt->errorInfo()));
+            }
+        } catch (PDOException $e) {
+            throw new Exception("Error ejecutando la consulta: " . $e->getMessage());
+        }
+    }
+
+    public function changeUser($newHost, $newDbName, $newUser, $newPassword) {
+        $this->destroy();
+
+        self::$_instance = new self($newHost, $newDbName, $newUser, $newPassword);
+    }
+
+    private function __clone() {}
+}

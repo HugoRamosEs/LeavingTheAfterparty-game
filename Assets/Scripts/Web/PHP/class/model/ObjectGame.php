@@ -35,5 +35,4 @@ class ObjectGame {
     public function setPath($path) {
         $this->path = $path;
     }
-    
 }

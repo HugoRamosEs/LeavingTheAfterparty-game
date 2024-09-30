@@ -126,5 +126,4 @@ public class UserGameInfo : MonoBehaviour
             Debug.LogError("No se puede cargar los datos del jugador porque falta información.");
         }
     }
-
 }

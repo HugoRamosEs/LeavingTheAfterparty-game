@@ -12,7 +12,7 @@ spl_autoload_register("Autoloader::load");
 spl_autoload_register("Autoloader::loadDataBase");
 
 try {
-    if (DataBase::getInstance('consulta')) {
+    if (DataBase::getInstance()) {
         $uController = new UserController();
 
         $datos = array(
@@ -47,5 +47,5 @@ try {
     }
 
 } catch (Exception $e) {
-    echo '{"codigo": 400, "mensaje":"Error fatal", "respuesta":{"error":"' . $e->getMessage() . '"}}';
+    echo '{"codigo": 400, "mensaje": "Error fatal", "respuesta": {"error": "' . $e->getMessage() . '"}}';
 }
