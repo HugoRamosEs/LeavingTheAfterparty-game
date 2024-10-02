@@ -43,6 +43,10 @@ class ObjectModelo implements CRUDable
         $params = [$objectName];
         $consulta = $dbConsulta->executeSQL($sql, $params);
     
-        return $consulta;
+        if (is_array($consulta) && count($consulta) > 0) {
+            return $consulta;
+        } else {
+            return false;
+        }
     }
 }

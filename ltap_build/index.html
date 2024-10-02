@@ -18,6 +18,14 @@
         <span class="icon" tabindex="0" role="button" aria-label="Botón para cambiar de tema."></span>
     </header>
     <main>
+        <section class="info">
+            <article>
+                <h1>¡Alerta!</h1>
+                <p>Al intentar iniciar sesión o crear una cuenta, es posible que experimentes largos tiempos de espera o
+                    errores. Te recomendamos persistir; tras 3 o 4 intentos, deberías poder acceder sin problemas.
+                    ¡Gracias por tu comprensión!</p>
+            </article>
+        </section>
         <section>
             <div id="unity-container" class="unity-desktop">
                 <canvas id="unity-canvas" width=1280 height=720 tabindex="-1"></canvas>
@@ -95,7 +103,7 @@
             </article>
             <article>
                 <div class="container">
-                    <h2>Características</h2>
+                    <h2>Propiedades</h2>
                     <ul>
                         <li><span>Hablar: </span> Mantén conversaciones con los diversos personajes que te encuentres a
                             lo largo de la historia.</li>
@@ -135,7 +143,6 @@
         </section>
     </footer>
     <script>
-
         var container = document.querySelector("#unity-container");
         var canvas = document.querySelector("#unity-canvas");
         var loadingBar = document.querySelector("#unity-loading-bar");
@@ -196,12 +203,22 @@
             document.getElementsByTagName('head')[0].appendChild(meta);
             container.className = "unity-mobile";
             canvas.className = "unity-mobile";
+            canvas.style.border = '3px solid #D4803D';
+
+            // Set the canvas width to the width of the phone screen
+            var screenWidth = window.innerWidth;
+
+            // Maintain a 16:9 aspect ratio by calculating the height
+            var canvasHeight = screenWidth / (16 / 9);
+
+            // Set canvas dimensions
+            canvas.style.width = screenWidth + "px" -5;
+            canvas.style.height = canvasHeight + "px";
 
             // To lower canvas resolution on mobile devices to gain some
             // performance, uncomment the following line:
             // config.devicePixelRatio = 1;
-
-
+            
         } else {
             // Desktop style: Render the game canvas in a window that can be maximized to fullscreen:
 
@@ -238,7 +255,6 @@
         };
 
         document.body.appendChild(script);
-
     </script>
 </body>
 

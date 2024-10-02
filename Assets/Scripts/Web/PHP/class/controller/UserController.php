@@ -72,7 +72,6 @@ class UserController extends Controller
                 $errors["password"] = "La contraseña no puede estar vacia.";
                 echo '{"codigo": 203, "mensaje":"La contraseña no puede estar vacía.", "respuesta":{}}';
             } else {
-
                 $this->user = new User('', '', '');
 
                 $this->user->setEmail($email);
@@ -168,10 +167,15 @@ class UserController extends Controller
             foreach ($parsedInventoryItems as $item) {
                 $slot = $item['Slot'];
                 $objectName = $item['ItemName'];
+
                 if ($objectName != '') {
-                    $objectId = $oModel->readOneObjectByName($objectName)[0][0];
-                    $inventory = new Inventory($existingGame[0][0], $slot, $objectId);
-                    $iModel->create($inventory);
+                    $objectData = $oModel->readOneObjectByName($objectName);
+
+                    if ($objectData !== false) {
+                        $objectId = $objectData[0][0]; 
+                        $inventory = new Inventory($existingGame[0][0], $slot, $objectId);
+                        $iModel->create($inventory);
+                    }
                 }
             }
 

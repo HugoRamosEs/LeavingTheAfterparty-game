@@ -14,8 +14,9 @@ class DataBase {
         try {
             $this->link = new PDO("sqlsrv:Server=$host;Database=$dbName", $user, $password);
             $this->link->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            $this->link->setAttribute(PDO::SQLSRV_ATTR_QUERY_TIMEOUT, 120);
         } catch (PDOException $e) {
-            throw new Exception("No se ha podido conectar a la base de datos.");
+            throw new Exception("No se ha podido conectar a la base de datos. Error: " . $e->getMessage());
         }
     }
 
